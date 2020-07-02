@@ -1,0 +1,114 @@
+@mixin openSidebarMenu() {
+    .blue-app-sidebar-hidden-on-open {
+        display: none;
+    }
+
+    .blue-app-sidebar-visible-on-open {
+        animation: fade-in 1s;
+        display: block;
+    }
+
+
+    .blue-app-sidebar-label {
+        display: inline-block;
+    }
+
+    .blue-app-sidebar {
+        z-index: 42;
+        box-shadow: .6rem 6rem 6rem rgba(0,0,0,.4);
+        // background-color: darken($theme, 30%);
+    }
+
+    .blue-app-sidebar,
+    .blue-app-sidebar .blue-app-sidebar-btn {
+        width: $bla-sidebar-width;
+    }
+
+    .blue-app-sub-sidebar {
+        left: $bla-sidebar-width;
+    }
+
+    .blue-app-sidebar-dropdown-caret.caret {
+        display: flex;
+    }
+
+    .blue-app-sidebar-dropdown {
+        .blue-app-sidebar-btn {
+            width: 100%;
+        }
+    }
+
+
+    /* search */
+    .blue-app-search {
+        background-color: $sidebar-search-bg;
+    }
+
+    .blue-app-search-btn {
+        display: none;
+    }
+
+    .blue-app-search-input-group {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@mixin blue-app-sidebar($width) {
+    .blue-app-sidebar-btn {
+        color: $sidebar-color;
+        width: $normal-size;
+        height: $normal-size;
+        padding: 4px 12px;
+        font-size: $bla-btn-font-size;
+        font-weight: 300;
+        text-align: left;
+        display: block;
+        // background-color: var(--sidebar-bg);
+        border-color: transparent;
+        @include slide-transition();
+
+        &:hover,
+        &:active {
+            color: $sidebar-color;
+            background-color: $sidebar-control-bg-hover !important;
+            border-color: transparent;
+        }
+
+        &.active::before {
+            content: "";
+            position: absolute;
+            top: 10px; 
+            bottom: 10px;
+            left: 0;
+            width: 4px;
+            background-color: $sidebar-indicator-color;
+        }        
+    }
+    
+    .blue-app-sidebar {
+        width: $width;
+        color: $sidebar-color;
+        background: var(--sidebar-bg);
+        position: fixed;
+        left: 0;
+        top: $normal-size;
+        bottom: 0;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        @include slide-transition();
+
+        .blue-app-menu {
+            overflow-y: auto;
+            flex: 1;
+            @include scroll-shadow(var(--sidebar-bg));
+        }
+
+        &:hover {
+            .blue-app-sidebar-btn {
+                background-color: var(--sidebar-bg);
+            }
+        }
+    }
+}

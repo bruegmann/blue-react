@@ -1,0 +1,59 @@
+@mixin actions-break($width) {
+    @media screen and (max-width: $width) {
+        // max-height: $blue-actions-height;
+        bottom: 0;
+        left: .5rem;
+        border-top-left-radius: $blue-actions-indicator-height / 2;
+        border-top-right-radius:  $blue-actions-indicator-height / 2;
+        box-shadow: $box-shadow;
+        background-color: $header-bg;
+
+        .blue-actions-controls {
+            padding: 1rem;
+            margin-top: -$spacer / 2;
+            margin-bottom: -$spacer / 2;
+
+            & > * {
+                margin-top: $spacer / 2;
+                margin-bottom: $spacer / 2;
+            }
+        }
+
+        &.closed {
+            @include header-bg();
+
+            .blue-actions-controls {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (min-width: $width) {
+        top: 0;
+
+        .blue-actions-controls {
+            background: transparent;
+            display: flex;
+            align-items: center;
+            margin-left: -$spacer / 2;
+            margin-right: -$spacer / 2;
+            padding-right: $spacer;
+
+            & > * {
+                margin-left: $spacer / 2;
+                margin-right: $spacer / 2;
+            }
+        }
+
+        .blue-app-sidebar-btn {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@mixin has-actions($width) {
+    @media screen and (max-width: $width) {
+        padding-bottom: calc(84px + 1rem);
+    }
+}

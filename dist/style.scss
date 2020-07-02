@@ -1,0 +1,36 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "./styles/_variables.scss";
+
+@import "./styles/_mixins.scss";
+@import "./styles/_keyframes.scss";
+
+// @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "./styles/_bootstrap.scss";
+// @import "node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "./styles/_general";
+@import "./styles/_router";
+@import "./styles/_status";
+@import "./styles/_grid";
+@import "./styles/_search";
+@import "./styles/_actions_deprecated";
+@import "./styles/_actions";
+@import "./styles/_fluent";
+@import "./styles/_switch";
+@import "./styles/_caret";
+
+@import "./styles/document-view";
+@import "./styles/_bootstrap-optimizations.scss";
+
+
+/* fix scroll problem */
+// body {
+//     overflow-y: auto;
+// }
+
+// .router-page {
+//     overflow-y: hidden;
+//     height: auto;
+// }

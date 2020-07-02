@@ -1,0 +1,28 @@
+@mixin custom-scrollbar($thumb-color, $bg-color, $track-border-radius: 0) {
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba($thumb-color, .4);
+        box-shadow: inset 1px 1px 0 rgba($thumb-color, .1), inset 0 -1px 0 rgba($thumb-color, .07)
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba($thumb-color, .5)
+    }
+    ::-webkit-scrollbar-thumb:active {
+        background-color: rgba($thumb-color, .6)
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: $bg-color;
+        border-radius: $track-border-radius;
+    }
+}
+
+@mixin slide-transition() {
+    $slide-transition: width .5s;
+    transition: $slide-transition;
+}
+
+@mixin header-bg() {
+    background-color: rgba($header-bg, $shimmering);
+    background-image: linear-gradient(0deg, rgba($header-bg,.8), rgba($header-bg,.7));
+    backdrop-filter: blur(3px) saturate(125%);
+}

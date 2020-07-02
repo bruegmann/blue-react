@@ -1,0 +1,77 @@
+@mixin switch($width: 35px, $height: 20px, $padding: 3px, $color: $body-color, $color-active: $success) {
+    $slider-size: $height - ($padding * 2);
+
+    & {
+        position: relative;
+        display: inline-block;
+        width: $width;
+        height: $height;
+        
+        input {
+            display:none;
+        }
+
+        &.disabled {
+            opacity: .8;
+        }
+
+        &:not(.disabled) {
+            .slider {
+                cursor: pointer;
+            }
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: $input-group-addon-bg;
+            transition: .4s;
+            box-shadow: inset 0 0 0 1px rgba($color, .5);
+
+            &::before {
+                content: "";
+                position: absolute;
+                height: $slider-size;
+                width: $slider-size;
+                left: $padding;
+                bottom: $padding;
+                background-color: $color;
+                transition: .4s;
+            }
+
+            &::after {
+                content: attr(data-label);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin-left: ($slider-size / 2);
+                transition: margin-left .4s;
+                color: $color;
+            }
+        }
+
+        input:checked{ 
+            &+ .slider {
+                background-color: $color-active;
+                box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.3);
+
+                &::before {
+                    transform: translateX($width - $slider-size - ($padding * 2));
+                    background-color: white;
+                }
+
+                &::after {
+                    color: white;
+                    margin-left: ($slider-size / 2) * -1;
+                }
+            }
+        }
+        input:focus + .slider {
+            box-shadow: 0 0 1px $color-active;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.container,
+.container-fluid {
+    &:before {
+        content: "";
+        display: table;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .form-horizontal .col-form-label {
+        text-align: right;
+    }
+}
+
+.form-control:not(.default) {
+    border-top-color: transparent;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+
+    &:not(:disabled):not([readonly]) {
+        background-color: transparent;
+    }
+
+    &:focus {
+        box-shadow: 0 1px 0 0 $input-focus-border-color;
+    }
+}

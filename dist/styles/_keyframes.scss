@@ -1,0 +1,68 @@
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blAppearUp {
+    from {
+        margin-top: 40px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+
+@keyframes blue-app-sidebar-dropdown {
+    from {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes enabledBlueAppPage {
+    from {
+        // margin-top: $normal-size + 60px;
+        transform: scale(0.98);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes alert-in {
+    from {
+        transform: scale(0, 0);
+        opacity: .2;
+        transition: 0s;
+    }
+}
+
+@keyframes circlebounce {
+    0%, 100% { transform: scale(0.0); }
+    50% { transform: scale(1.0); }
+}
+
+@keyframes scrolling {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}

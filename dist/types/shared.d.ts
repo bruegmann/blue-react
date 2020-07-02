@@ -1,0 +1,1 @@
+export type breakOption = "sm" | "md" | "lg" | "xl";

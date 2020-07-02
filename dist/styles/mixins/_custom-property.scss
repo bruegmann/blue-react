@@ -1,0 +1,10 @@
+@mixin customProperty($name, $value) {
+    // fallback for older browser who do not support custom properties / css variables
+    #{$name}: #{$value};
+
+    // create a css variable (this might override the variable on any of the ancestor elements)
+    --#{$name}: #{$value};
+
+    // use the css variable on the property
+    #{$name}: var(--#{$name}, #{$value});
+}

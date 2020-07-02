@@ -1,0 +1,38 @@
+$btn-ball-size: $normal-size * 6;
+
+@mixin fluent-btn($fluent-halo-color) {
+    position: relative;
+    overflow: hidden;
+
+    &:not(.active) {
+        &:hover .fluent-btn-ball {
+            opacity: $fluent-halo-opacity;
+        }
+    
+        &:active .fluent-btn-ball {
+            // background-image: radial-gradient(rgba($fluent-halo-color, .5), rgba($fluent-halo-color, 1), rgba($fluent-halo-color, 0), rgba($fluent-halo-color, 0));
+            width: $normal-size * 3;
+            height: $normal-size * 3;
+        }
+    }
+
+    .fluent-btn-ball {
+        position: absolute;
+        opacity: 0;
+        width: $btn-ball-size;
+        height: $btn-ball-size;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%; left: 50%;
+        background-image: radial-gradient(rgba($fluent-halo-color, 1), rgba($fluent-halo-color, 0), rgba($fluent-halo-color, 0));
+        transition: opacity .5s, backgrund-image .5s;
+    }
+}
+
+.fluent-btn {
+    @include fluent-btn($fluent-halo-color);
+
+    &.light {
+        @include fluent-btn($gray-500);
+    }
+}
