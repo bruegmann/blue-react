@@ -10,6 +10,7 @@
     "index.js",
     "index.d.ts"
   ],
+  "homepage": "https://bruegmann.github.io/blue-react",
   "dependencies": {
     "bootstrap": "^4.5.0",
     "react": "^16.13.1",
