@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/blue-react/static/css/main.c0be4380.chunk.css",
+    "main.js": "/blue-react/static/js/main.49db7b80.chunk.js",
+    "main.js.map": "/blue-react/static/js/main.49db7b80.chunk.js.map",
+    "runtime-main.js": "/blue-react/static/js/runtime-main.7d9a63dc.js",
+    "runtime-main.js.map": "/blue-react/static/js/runtime-main.7d9a63dc.js.map",
+    "static/js/2.2cf97d8b.chunk.js": "/blue-react/static/js/2.2cf97d8b.chunk.js",
+    "static/js/2.2cf97d8b.chunk.js.map": "/blue-react/static/js/2.2cf97d8b.chunk.js.map",
+    "index.html": "/blue-react/index.html",
+    "precache-manifest.53cc2f7efb5d8ae075b1cfff2ca49095.js": "/blue-react/precache-manifest.53cc2f7efb5d8ae075b1cfff2ca49095.js",
+    "service-worker.js": "/blue-react/service-worker.js",
+    "static/css/main.c0be4380.chunk.css.map": "/blue-react/static/css/main.c0be4380.chunk.css.map",
+    "static/js/2.2cf97d8b.chunk.js.LICENSE.txt": "/blue-react/static/js/2.2cf97d8b.chunk.js.LICENSE.txt",
+    "static/media/blue.svg": "/blue-react/static/media/blue.78dd83b0.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7d9a63dc.js",
+    "static/js/2.2cf97d8b.chunk.js",
+    "static/css/main.c0be4380.chunk.css",
+    "static/js/main.49db7b80.chunk.js"
+  ]
+}
