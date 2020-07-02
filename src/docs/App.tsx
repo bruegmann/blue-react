@@ -18,9 +18,11 @@ import CodeSquare from "./icons/CodeSquare";
 import Puzzle from "./icons/Puzzle";
 import { ComponentPage } from "./pages/ComponentPage";
 
+const env = process.env.NODE_ENV || "development";
+
 function App() {
     return (
-        <Router>
+        <Router basename={env === "development" ? undefined : "/blue-react"}>
             <Grid
                 pages={[]}
                 unrouteable

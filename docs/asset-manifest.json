@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/blue-react/static/css/main.c0be4380.chunk.css",
-    "main.js": "/blue-react/static/js/main.9e2f523a.chunk.js",
-    "main.js.map": "/blue-react/static/js/main.9e2f523a.chunk.js.map",
+    "main.js": "/blue-react/static/js/main.a17499ed.chunk.js",
+    "main.js.map": "/blue-react/static/js/main.a17499ed.chunk.js.map",
     "runtime-main.js": "/blue-react/static/js/runtime-main.7d9a63dc.js",
     "runtime-main.js.map": "/blue-react/static/js/runtime-main.7d9a63dc.js.map",
     "static/js/2.112d8747.chunk.js": "/blue-react/static/js/2.112d8747.chunk.js",
     "static/js/2.112d8747.chunk.js.map": "/blue-react/static/js/2.112d8747.chunk.js.map",
     "index.html": "/blue-react/index.html",
-    "precache-manifest.ae98ad6ac0dbaedea7bc92482d9248d4.js": "/blue-react/precache-manifest.ae98ad6ac0dbaedea7bc92482d9248d4.js",
+    "precache-manifest.8edb225b86e1692e93afd84ff9dba8df.js": "/blue-react/precache-manifest.8edb225b86e1692e93afd84ff9dba8df.js",
     "service-worker.js": "/blue-react/service-worker.js",
     "static/css/main.c0be4380.chunk.css.map": "/blue-react/static/css/main.c0be4380.chunk.css.map",
     "static/js/2.112d8747.chunk.js.LICENSE.txt": "/blue-react/static/js/2.112d8747.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.7d9a63dc.js",
     "static/js/2.112d8747.chunk.js",
     "static/css/main.c0be4380.chunk.css",
-    "static/js/main.9e2f523a.chunk.js"
+    "static/js/main.a17499ed.chunk.js"
   ]
 }
