@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
     NavLink
@@ -22,7 +22,7 @@ const env = process.env.NODE_ENV || "development";
 
 function App() {
     return (
-        <Router basename={env === "development" ? undefined : "/blue-react"}>
+        <Router>
             <Grid
                 pages={[]}
                 unrouteable
