@@ -13,6 +13,7 @@ import MenuItem from "../components/MenuItem";
 
 import List from "./icons/List";
 import House from "./icons/House";
+import CodeSquare from "./icons/CodeSquare";
 
 function App() {
     return (
@@ -22,7 +23,18 @@ function App() {
                 expandSidebar
                 sidebarToggleIconComponent={<List />}
             >
-                <SidebarMenu>
+                <SidebarMenu
+                    bottomContent={
+                        <>
+                            <MenuItem
+                                href="https://github.com/bruegmann/blue-react"
+                                icon={<CodeSquare />}
+                                label="Code on GitHub"
+                                target="_blank" rel="noopener noreferrer"
+                            />
+                        </>
+                    }
+                >
                     <MenuItem icon={<House />} label="Start" href="/" isHome />
                 </SidebarMenu>
 
