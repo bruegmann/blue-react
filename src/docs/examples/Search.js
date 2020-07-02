@@ -1,5 +1,5 @@
 import React from "react";
-import { Search } from "../../../index.js";
+import Search from "../../components/Search";
 
 class SearchExample extends React.Component {
     constructor() {

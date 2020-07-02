@@ -1,5 +1,6 @@
 import React from "react";
-import { FluentBtn, Utilities } from "../../../index.js";
+import Utilities from "../../components/Utilities";
+import FluentBtn from "../../components/FluentBtn";
 
 class FluentBtnExample extends React.Component {
     componentDidMount() {

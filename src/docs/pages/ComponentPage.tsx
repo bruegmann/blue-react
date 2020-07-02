@@ -12,9 +12,6 @@ import { ComponentDocs } from "../components/ComponentDocs";
 export const ComponentPage = () => {
     const { selectedComponent } = useParams();
 
-    console.log(docs);
-    console.log(selectedComponent);
-
     return (
         <Page>
             <Header>

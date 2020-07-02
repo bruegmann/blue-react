@@ -1,5 +1,5 @@
 import React from "react";
-import { Caret } from "../../../index.js";
+import Caret from "../../components/Caret";
 
 class CaretExample extends React.Component {
     constructor() {

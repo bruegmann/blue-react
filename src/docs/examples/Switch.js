@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch } from "../../../index.js";
+import Switch from "../../components/Switch";
 
 class SwitchExample extends React.Component {
     constructor() {

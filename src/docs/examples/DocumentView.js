@@ -1,5 +1,5 @@
 import React from "react";
-import { DocumentView } from "../../../index.js";
+import DocumentView from "../../components/DocumentView";
 
 class DocumentViewExample extends React.Component {
     render() {
