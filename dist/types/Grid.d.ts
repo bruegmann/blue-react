@@ -31,6 +31,11 @@ export interface IGridProps {
      * deaktivieren.
      */
     disableTitleSet?: boolean;
+
+    /**
+     * If you don't use blueicon, you can define another icon element for the sidebar toggle button.
+     */
+    sidebarToggleIconComponent?: any;
 }
 
 /**

@@ -16,6 +16,8 @@ class MenuItem extends React.Component {
             active: false
         };
 
+        this.checkActive = this.checkActive.bind(this);
+
         window.addEventListener("hashchange", event => {
             this.checkActive();
         });
@@ -49,9 +51,11 @@ class MenuItem extends React.Component {
     }
 
     checkActive() {
-        this.setState({
-            active: (window.location.hash.indexOf(this.props.href) > -1) || (this.props.isHome && (window.location.hash === "" || window.location.hash === "#/") ? true : false)
-        });
+        if (this.props) {
+            this.setState({
+                active: (window.location.hash.indexOf(this.props.href) > -1) || (this.props.isHome && (window.location.hash === "" || window.location.hash === "#/") ? true : false)
+            });
+        }
     }
 
     render() {

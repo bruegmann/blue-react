@@ -55,7 +55,7 @@ class Grid extends React.Component {
         this.hideSidebar = this.hideSidebar.bind(this);
 
         window.addEventListener("hashchange", event => {
-            this.initMatch();
+            window.blueGridRef.initMatch();
         });
 
         this.eventListeners = [];

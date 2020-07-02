@@ -2,7 +2,8 @@ import React from "react";
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    NavLink
 } from "react-router-dom";
 import Grid from "../components/Grid";
 
@@ -14,12 +15,15 @@ import MenuItem from "../components/MenuItem";
 import List from "./icons/List";
 import House from "./icons/House";
 import CodeSquare from "./icons/CodeSquare";
+import Puzzle from "./icons/Puzzle";
+import { ComponentPage } from "./pages/ComponentPage";
 
 function App() {
     return (
         <Router>
             <Grid
                 pages={[]}
+                unrouteable
                 expandSidebar
                 sidebarToggleIconComponent={<List />}
             >
@@ -35,14 +39,25 @@ function App() {
                         </>
                     }
                 >
-                    <MenuItem icon={<House />} label="Start" href="/" isHome />
+                    <NavLink to="/" exact className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
+                        <House /> <span className="blue-app-sidebar-label">Start</span>
+                    </NavLink>
+                    <NavLink to="/component" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
+                        <Puzzle /> <span className="blue-app-sidebar-label">React Components</span>
+                    </NavLink>
                 </SidebarMenu>
 
-                <Switch>
-                    <Route path="/">
-                        <HomePage />
-                    </Route>
-                </Switch>
+                <div className="router-page active">
+                    <Switch>
+                        <Route path="/component/:selectedComponent?">
+                            <ComponentPage />
+                        </Route>
+
+                        <Route path="/">
+                            <HomePage />
+                        </Route>
+                    </Switch>
+                </div>
             </Grid>
         </Router>
     );
