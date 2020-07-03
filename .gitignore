@@ -25,3 +25,4 @@ yarn-error.log*
 
 dist/components
 dist/style.css
+*.tgz

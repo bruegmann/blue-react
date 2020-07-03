@@ -16,6 +16,19 @@ export const HomePage = () => (
                     <h4>{packageJson.version}</h4>
                 </div>
             </div>
+
+            <div className="container">
+                <h1 className="page-header">Use Blue React</h1>
+
+                <h2 className="mt-4 mb-3">Create new project using CRA</h2>
+                <code></code>
+
+                <div className="mt-3">Or if you want to use TypeScript:</div>
+                <code></code>
+
+                <h2 className="mt-4 mb-3">Install to existing project</h2>
+                <code></code>
+            </div>
         </Body>
     </Page>
 )
