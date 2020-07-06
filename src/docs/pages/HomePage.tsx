@@ -21,13 +21,13 @@ export const HomePage = () => (
                 <h1 className="page-header">Use Blue React</h1>
 
                 <h2 className="mt-4 mb-3">Create new project using CRA</h2>
-                <code></code>
+                <code>[COMING SOON]</code>
 
                 <div className="mt-3">Or if you want to use TypeScript:</div>
-                <code></code>
+                <code>[COMING SOON]</code>
 
                 <h2 className="mt-4 mb-3">Install to existing project</h2>
-                <code></code>
+                <code>npm i blue-react</code>
             </div>
         </Body>
     </Page>

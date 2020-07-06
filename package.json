@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "6.10.0",
+  "version": "6.10.1",
   "description": "Blue React Components",
   "license": "GNU",
   "main": "index.js",
@@ -11,8 +11,12 @@
     "index.d.ts"
   ],
   "homepage": "https://bruegmann.github.io/blue-react",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bruegmann/blue-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bruegmann/blue-react/issues"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
@@ -44,13 +48,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-docs": "react-scripts build",
+    "build-docs": "react-scripts build && npm run docgen",
     "build": "babel ./src/components --out-dir ./dist/components & node-sass ./dist/style.scss ./dist/style.css",
+    "build-release": "npm run build && npm run docgen",
     "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build-docs",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "prepublishOnly": "npm run build-release"
   },
   "eslintConfig": {
     "extends": "react-app"
