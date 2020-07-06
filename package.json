@@ -51,7 +51,7 @@
     "build-docs": "react-scripts build && npm run docgen",
     "build": "babel ./src/components --out-dir ./dist/components & node-sass ./dist/style.scss ./dist/style.css",
     "build-release": "npm run build && npm run docgen",
-    "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json",
+    "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json && node followUpDocs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build-docs",
