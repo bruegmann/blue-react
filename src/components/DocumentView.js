@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import Utilities from "./Utilities";
 
 /**
- * Zeigt Inhalt anhand einer URL in einem iFrame an.
- * Wenn der Inhalt nicht in einem iFrame angezeigt werden kann, wird stattdessen ein Download-Button angeboten.
+ * Tries to display content in an iframe. When the content can't displayed in an iframe, it will show a download button instead.
  */
 class DocumentView extends React.Component {
     constructor() {
@@ -86,22 +85,22 @@ class DocumentView extends React.Component {
 
 DocumentView.propTypes = {
     /**
-     * Quelle des Inhalts (URL)
+     * Source of the content (URL)
      */
     src: PropTypes.string,
 
     /**
-     * Statt Quelle, kann der Inhalt (HTML) auch direkt übergeben werden.
+     * Instead of a source, you can also set the content directly (HTML)
      */
     content: PropTypes.any,
 
     /**
-     * MIME-Typ des Inhalts (z.B. "application/pdf")
+     * MIME type of the content (e.g. "application/pdf")
      */
     mimeType: PropTypes.string.isRequired,
 
     /**
-     * Beschriftung für den Button für das Anzeigen
+     * Label for the button to display
      */
     showDocumentLabel: PropTypes.string
 };

@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 /**
- * Shortcut für <code>&lt;button class="fluent-btn"&gt;&lt;div className="fluent-btn-ball"&gt;&lt;/div&gt;&lt;/button&gt;</code>.
- * Erzeugt Button, mit einem Acrylic-Effekt.
+ * Shortcut for <code>&lt;button class="fluent-btn"&gt;&lt;div className="fluent-btn-ball"&gt;&lt;/div&gt;&lt;/button&gt;</code>.
+ * Button with a fancy and fluent acrylic effect.
  */
 
 class FluentBtn extends React.Component {
@@ -48,19 +48,19 @@ class FluentBtn extends React.Component {
 
 FluentBtn.propTypes = {
     /**
-     * Inhalt des Buttons. Es werden auch alle anderen Properties unterstützt.
+     * Content of the button. You can also set all other props you would give a button or a link.
      */
     children: PropTypes.any,
 
     className: PropTypes.string,
 
     /**
-     * Wenn gesetzt, wird ein <code>&lt;a&gt;</code>-Element zurückgegeben. Ansonsten ist es ein <code>&lt;button&gt;</code>.
+     * If set, it will be an <code>&lt;a&gt;</code> element. Otherwise it will be a <code>&lt;button&gt;</code>.
      */
     href: PropTypes.string,
 
     /**
-     * Kann bei Schaltflächen mit weißen Flächen gesetzt werden. Der Schein ist dann etwas dunkler.
+     * Can be set for buttons with white background. The glow will be a little bit darker than.
      */
     light: PropTypes.bool
 };

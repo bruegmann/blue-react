@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 /**
- * List-Item und Link für das Action-Menü.
+ * List Item and Link for the current Action Menu.
  */
 class ActionMenuItem extends React.Component {
     static get defaultProps() {

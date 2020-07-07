@@ -57,7 +57,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
 
                 {comp.displayName == "Intro" &&
                     <p>
-                        <a href="#/blue-intro-demo">Sieh hier eine Demo</a>
+                        <Link to="/intro-demo">Take a look at this demo</Link>
                     </p>
                 }
 

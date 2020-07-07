@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 /**
- * Enthält den Inhalt einer Seite.
+ * Contains the content of the page.
  */
 class Body extends React.Component {
     static get defaultProps() {
@@ -35,7 +35,7 @@ Body.propTypes = {
     className: PropTypes.string,
 
     /**
-     * Setzt die Klasse für den Container. Mehr Infos unter https://getbootstrap.com/docs/4.0/layout/overview/#containers
+     * Sets the class name for the container. For more information about container: https://getbootstrap.com/docs/4.5/layout/overview/#containers
      */
     containerClass: PropTypes.string,
 

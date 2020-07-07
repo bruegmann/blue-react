@@ -5,8 +5,8 @@ import Utilities from "./Utilities.js";
 import ActionMenuItem from "./ActionMenuItem.js";
 
 /**
- * <span class="badge badge-secondary">Deprecated</span> Use <strong>Actions</strong> instead.<br>
- * Das Action-Menü an der oberen rechten Ecke einer Seite. Hier können Aktionen platziert werden, die im Kontext der aktuellen Seite stehen.
+ * <span class="badge badge-secondary">Info</span> You can also use <strong>Actions</strong> instead.<br>
+ * The Action Menu on the top right of a page. You can place Actions here which are in context of the current page.
  */
 class ActionMenu extends React.Component {
     constructor() {
@@ -72,8 +72,8 @@ class ActionMenu extends React.Component {
 
 ActionMenu.propTypes = {
     /**
-     * Versteckt die drei Punkte in mobiler Ansicht.
-     * Das kann nützlich sein, wenn mehrere ActionMenus genutzt werden, aber nicht überall der Toggle angezeigt werden soll.
+     * Hides the three points in mobile view.
+     * Can be useful when you use multiple ActionMenus, but don't want all of them have the toggle button.
      */
     hideToggleAction: PropTypes.bool
 };

@@ -17,6 +17,7 @@ import House from "./icons/House";
 import CodeSquare from "./icons/CodeSquare";
 import Puzzle from "./icons/Puzzle";
 import { ComponentPage } from "./pages/ComponentPage";
+import { IntroDemoPage } from "./pages/IntroDemoPage";
 
 const env = process.env.NODE_ENV || "development";
 
@@ -53,6 +54,10 @@ function App() {
                     <Switch>
                         <Route path="/component/:selectedComponent?">
                             <ComponentPage />
+                        </Route>
+
+                        <Route path="/intro-demo">
+                            <IntroDemoPage />
                         </Route>
 
                         <Route path="/">

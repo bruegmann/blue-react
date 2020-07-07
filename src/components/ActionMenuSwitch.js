@@ -5,7 +5,7 @@ import Switch from "./Switch";
 
 /**
  * <span class="badge badge-secondary">Deprecated</span> When using <strong>Actions</strong>, please use <strong>SwitchMenuItem</strong> instead.<br>
- * Switch für das Action-Menü.
+ * Switch for the Action Menu.
  */
 class ActionMenuSwitch extends React.Component {
     static get defaultProps() {
@@ -46,7 +46,7 @@ ActionMenuSwitch.propTypes = {
     onChange: PropTypes.func,
 
     /**
-     * Beschriftung des Controls
+     * Label of the control
      */
     label: PropTypes.any
 };

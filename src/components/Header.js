@@ -4,6 +4,9 @@ import Actions from "./HeaderActions.js";
 import FluentBtn from "./FluentBtn.js";
 import Utilities from "./Utilities.js";
 
+/**
+ * The top of a page.
+ */
 class Header extends React.Component {
     render() {
         return (
