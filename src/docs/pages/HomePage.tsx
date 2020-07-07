@@ -21,7 +21,7 @@ export const HomePage = () => (
                 <h1 className="page-header">Use Blue React</h1>
 
                 <h2 className="mt-4 mb-3">Create new project using CRA</h2>
-                <code>[COMING SOON]</code>
+                <code>npx create-react-app <strong>name-of-my-app</strong> --template blue</code>
 
                 <div className="mt-3">Or if you want to use TypeScript:</div>
                 <code>[COMING SOON]</code>
