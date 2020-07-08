@@ -24,7 +24,7 @@ export const HomePage = () => (
                 <code>npx create-react-app <strong>name-of-my-app</strong> --template blue</code>
 
                 <div className="mt-3">Or if you want to use TypeScript:</div>
-                <code>[COMING SOON]</code>
+                <code>npx create-react-app <strong>name-of-my-app</strong> --template ts-blue</code>
 
                 <h2 className="mt-4 mb-3">Install to existing project</h2>
                 <code>npm i blue-react</code>
