@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "75bec7b2bf735d41dcfa6b05f96da4d7",
+    "revision": "3c4b6e51e129a4b755e71eb33df32ee1",
     "url": "/blue-react/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/blue-react/static/css/2.a55bcd37.chunk.css"
   },
   {
-    "revision": "24b6b24a8f08e7c36c5b",
+    "revision": "4450d0b07f261191bfdf",
     "url": "/blue-react/static/css/main.c4d01b74.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/blue-react/static/js/2.ebdfd249.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "24b6b24a8f08e7c36c5b",
-    "url": "/blue-react/static/js/main.d862a1ed.chunk.js"
+    "revision": "4450d0b07f261191bfdf",
+    "url": "/blue-react/static/js/main.16ac790e.chunk.js"
   },
   {
     "revision": "80dce4c8a24ac68266a9",
