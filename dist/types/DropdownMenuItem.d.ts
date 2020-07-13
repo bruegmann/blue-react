@@ -30,5 +30,5 @@ export interface IDropdownMenuItem {
 /**
  * Dropdown-Item und Link für die Sidebar.
  */
-declare class DropdownMenuItem extends React.Component<DropdownMenuItem, any> { }
+declare class DropdownMenuItem extends React.Component<IDropdownMenuItem, any> { }
 export default DropdownMenuItem;
