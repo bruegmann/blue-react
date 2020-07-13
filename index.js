@@ -17,4 +17,5 @@ exports.Search = require("./dist/components/Search.js")["default"];
 exports.SidebarMenu = require("./dist/components/SidebarMenu.js")["default"];
 exports.Switch = require("./dist/components/Switch.js")["default"];
 exports.SwitchMenuItem = require("./dist/components/SwitchMenuItem.js")["default"];
+exports.DropdownMenuItem = require("./dist/components/DropdownMenuItem.js")["default"];
 exports.Utilities = require("./dist/components/Utilities.js")["default"];
