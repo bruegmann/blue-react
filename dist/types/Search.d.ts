@@ -21,6 +21,7 @@ export interface ISearchProps {
     onSubmit?: (event: React.FormEvent) => void;
     placeholder?: string;
     autoFocus?: boolean;
+    icon?: any;
 }
 
 /**
