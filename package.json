@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "6.11.0",
+  "version": "6.11.1",
   "description": "Blue React Components",
   "license": "GNU",
   "main": "index.js",
@@ -29,7 +29,8 @@
     "predeploy": "npm run build-docs",
     "deploy": "gh-pages -d build",
     "prepublishOnly": "npm run build-release",
-    "postpublish": "node postpublish"
+    "postpublish": "node postpublish",
+    "release": "npm publish && npm run deploy"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",

@@ -28,3 +28,8 @@ To publish changes on the documentary, run:
 ```
 npm run deploy
 ```
+
+To run both of them:
+```
+npm run release
+```
