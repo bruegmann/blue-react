@@ -27,12 +27,12 @@ declare module Utilities {
     function toggleActions(): void;
 
     /** Resets alert message and removes it. */
-    function resetAlertMessage(alertClassName?: string = "info"): void;
+    function resetAlertMessage(alertClassName?: ("loading" | "success" | "info" | "warning" | "danger")): void;
 
     /** Shows an alert message. */
     function setAlertMessage(
         message: string,
-        alertClassName?: ("loading" | "success" | "info" | "warning" | "danger") = "info",
+        alertClassName?: ("loading" | "success" | "info" | "warning" | "danger"),
         close?: boolean,
         detailText?: string
     ): void;

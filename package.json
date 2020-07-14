@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "6.10.2",
+  "version": "6.11.0",
   "description": "Blue React Components",
   "license": "GNU",
   "main": "index.js",
@@ -17,6 +17,19 @@
   },
   "bugs": {
     "url": "https://github.com/bruegmann/blue-react/issues"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build-docs": "react-scripts build && npm run docgen",
+    "build": "babel ./src/components --out-dir ./dist/components & node-sass ./dist/style.scss ./dist/style.css",
+    "build-release": "npm run build && npm run docgen",
+    "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json && node followUpDocs",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build-docs",
+    "deploy": "gh-pages -d build",
+    "prepublishOnly": "npm run build-release",
+    "postpublish": "node postpublish"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
@@ -45,18 +58,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "typescript": "^3.7.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build-docs": "react-scripts build && npm run docgen",
-    "build": "babel ./src/components --out-dir ./dist/components & node-sass ./dist/style.scss ./dist/style.css",
-    "build-release": "npm run build && npm run docgen",
-    "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json && node followUpDocs",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build-docs",
-    "deploy": "gh-pages -d build",
-    "prepublishOnly": "npm run build-release"
   },
   "eslintConfig": {
     "extends": "react-app"
