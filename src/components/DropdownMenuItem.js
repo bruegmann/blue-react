@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Utilities from "./Utilities.js";
 
 /**
  * Dropdown-Button und Link für die Sidebar.
@@ -72,7 +73,7 @@ class DropdownMenuItem extends React.Component {
     }
 }
 
-DropdownMenuItem.PropTypes = {
+DropdownMenuItem.propTypes = {
 
     /**
      * Beschriftung des Links
