@@ -55,7 +55,7 @@ class DropdownMenuItem extends React.Component {
 
                     <button
                         type="button"
-                        className="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                        className="btn dropdown-toggle dropdown-toggle-split"
                         onClick={this.handleClick}
                     >
                         <span className="sr-only">Toggle Dropdown</span>
