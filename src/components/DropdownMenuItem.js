@@ -42,7 +42,7 @@ class DropdownMenuItem extends React.Component {
         };
         return (
             <div>
-                <div className="btn-group">
+                <div className="btn-group" style={{ width: "16.5rem" }}>
 
                     <a
                         {...id}
