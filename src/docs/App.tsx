@@ -16,6 +16,8 @@ import List from "./icons/List";
 import House from "./icons/House";
 import CodeSquare from "./icons/CodeSquare";
 import Puzzle from "./icons/Puzzle";
+import FileCode from "./icons/FileCode";
+import BlueReactPage from "./pages/BlueReactPage";
 import { ComponentPage } from "./pages/ComponentPage";
 import { IntroDemoPage } from "./pages/IntroDemoPage";
 
@@ -45,6 +47,9 @@ function App() {
                     <NavLink to="/" exact className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
                         <House /> <span className="blue-app-sidebar-label">Start</span>
                     </NavLink>
+                    <NavLink to="/doc" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
+                        <FileCode /> <span className="blue-app-sidebar-label">Blue React</span>
+                    </NavLink>
                     <NavLink to="/component" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
                         <Puzzle /> <span className="blue-app-sidebar-label">React Components</span>
                     </NavLink>
@@ -52,6 +57,9 @@ function App() {
 
                 <div className="router-page active">
                     <Switch>
+                        <Route path="/doc">
+                            <BlueReactPage />
+                        </Route>
                         <Route path="/component/:selectedComponent?">
                             <ComponentPage />
                         </Route>
