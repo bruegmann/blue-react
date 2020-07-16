@@ -6,6 +6,8 @@ export interface IActionMenuProps {
      * Das kann nützlich sein, wenn mehrere ActionMenus genutzt werden, aber nicht überall der Toggle angezeigt werden soll.
      */
     hideToggleAction?: boolean;
+
+    children?: any
 }
 
 /**
