@@ -255,28 +255,6 @@ Utilities.startLoading();`}</Highlight>
 
                 <Body>
                     <div className="row">
-                        {/* <div className="col-md-2">
-                            <div id="doc-menu" className={(this.state.didScroll ? "fixed" : "")}>
-                                <ul className="nav nav-pills flex-column">
-                                    {sections ? sections.map((s, i) =>
-                                        <li key={i} className="nav-item">
-                                            <FluentBtn
-                                                light
-                                                href="javascript:void(0)"
-                                                className="nav-link"
-                                                onClick={() => {
-                                                    document.querySelector(".router-page.active")?.scrollTo(0, document.getElementById("section-" + encodeURIComponent(s.title))!.offsetTop);
-
-                                                }}
-                                            >
-                                                {s.title}
-                                            </FluentBtn>
-                                        </li>
-                                    ) : ""}
-                                </ul>
-                            </div>
-                        </div> */}
-
                         <div className="col-md-12">
                             {sections.map((s, i) =>
                                 <article key={i} id={"section-" + encodeURIComponent(s.title)}>
