@@ -15,6 +15,11 @@ export interface IHeaderTitleProps {
      * Deaktiviert, dass der App-Titel bei bestimmer Bildschirmgröße ausgeblendet wird.
      */
     keepAppTitle?: boolean;
+
+    /**
+     * Werden im HeaderTitle angezeigt.
+     */
+    children?: any
 }
 
 /**
