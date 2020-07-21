@@ -11,9 +11,15 @@ export interface IActionMenuItemProps {
      */
     className?: string;
 
+    /**
+    * URL.
+    */
     href?: string;
 
-    onClick?: () => void;
+    /**
+    * onClick Eventhandler.
+    */
+    onClick?: (e?: any) => void;
 
     /**
      * className for the icon.

@@ -45,6 +45,11 @@ export interface IMenuItemProps {
      * Werden in einem Dropdown-Menü angezeigt.
      */
     children?: any;
+
+    /**
+     * Setzt Klassen namen.
+     */
+    className?: any;
 }
 
 /**
