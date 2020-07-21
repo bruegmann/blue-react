@@ -18,7 +18,25 @@ export interface IFluentBtnProps {
      */
     light?: boolean;
 
+    /**
+    * Setze Typ.
+    */
     type?: string;
+
+    /**
+    * Setze Titel des Buttons.
+    */
+    title?: string
+
+    /**
+    * Styling for the FluentBtn.
+    */
+    style?: any
+
+    /**
+    * onClick Eventhandler.
+    */
+    onClick?: (e?: any) => void
 }
 
 /**
