@@ -36,7 +36,7 @@ export class IntroductionPage extends React.Component<IntroductionPageProps, Int
                 title: "Bootstrap",
                 body: (
                     <div>
-                        An adapted bootstrap is mainly used for the stylesheet.
+                        An adapted Bootstrap is mainly used for the stylesheet.
                         There is a preview of it <a href="#/bootstrap-demo">on this page</a>.<br />
                         Bootstrap documentation is available here: <a href="https://getbootstrap.com/docs/">https://getbootstrap.com/docs/</a>
                     </div>
@@ -127,7 +127,7 @@ $primary-color: #4dadf7; /* Define primary color */
                     </Header.Title>
                 </Header>
 
-                <Body>
+                <Body containerClass="container">
                     <div className="row">
                         <div className="col-md-12">
                             {sections.map((s, i) =>

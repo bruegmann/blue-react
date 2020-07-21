@@ -253,7 +253,7 @@ Utilities.startLoading();`}</Highlight>
                     </Header.Title>
                 </Header>
 
-                <Body>
+                <Body containerClass="container">
                     <div className="row">
                         <div className="col-md-12">
                             {sections.map((s, i) =>
