@@ -36,8 +36,7 @@ export class IntroductionPage extends React.Component<IntroductionPageProps, Int
                 title: "Bootstrap",
                 body: (
                     <div>
-                        An adapted Bootstrap is mainly used for the stylesheet.
-                        There is a preview of it <a href="#/bootstrap-demo">on this page</a>.<br />
+                        An adapted Bootstrap is mainly used for the stylesheet.<br />
                         Bootstrap documentation is available here: <a href="https://getbootstrap.com/docs/">https://getbootstrap.com/docs/</a>
                     </div>
                 )
