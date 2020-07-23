@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Utilities from "./Utilities.js";
+import Caret from "./Caret.js";
 
 /**
  * Dropdown-Button und Link für die Sidebar.
@@ -42,11 +43,11 @@ class DropdownMenuItem extends React.Component {
         };
         return (
             <div>
-                <div className="btn-group" style={{ width: "16.5rem" }}>
+                <div className="btn-group w-100">
 
                     <a
                         {...id}
-                        className={"blue-app-toggle-page blue-app-sidebar-btn btn " + (this.state.active ? "active" : "")}
+                        className={"blue-app-toggle-page blue-app-sidebar-btn btn pr-0 " + (this.state.active ? "active" : "")}
                         href={this.props.to}
                     >
                         {icon}
@@ -55,11 +56,17 @@ class DropdownMenuItem extends React.Component {
 
                     <button
                         type="button"
-                        className="btn dropdown-toggle dropdown-toggle-split"
+                        className="btn blue-app-sidebar-btn w-auto pl-0"
                         onClick={this.handleClick}
                     >
                         <span className="sr-only">Toggle Dropdown</span>
+                        <Caret
+                            open={this.state.showDropdown}
+                            mirrored
+                            className="w-auto pl-5"
+                        />
                     </button>
+
 
                 </div>
                 {this.state.showDropdown &&

@@ -52,6 +52,7 @@ class Actions extends React.Component {
     static get defaultProps() {
         return {
             className: "",
+            controlsClassName: "",
             open: false,
             break: "md"
         };
@@ -91,7 +92,7 @@ class Actions extends React.Component {
             >
                 <div className={`blue-actions-indicator d-${this.props.break}-none`} onClick={this.toggle} />
 
-                <div className="blue-actions-controls">
+                <div className={"blue-actions-controls " + this.props.controlsClassName}>
                     {this.props.children}
                 </div>
 
@@ -116,6 +117,11 @@ Actions.propTypes = {
      * Extends the <code>className</code> of <code>.blue-actions</code>.
      */
     className: PropTypes.string,
+
+    /**
+     * Extends the <code>className</code> of <code>.blue-actions-controls</code>.
+     */
+    controlsClassName: PropTypes.string,
 
     /**
      * Content that will appear when the menu is shrunken.

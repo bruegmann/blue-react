@@ -22,6 +22,7 @@ import { ComponentPage } from "./pages/ComponentPage";
 import { IntroDemoPage } from "./pages/IntroDemoPage";
 import IntroductionPage from "./pages/IntroductionPage";
 import UtilitiesPage from "./pages/UtilitiesPage";
+import DropdownMenuItem from "../components/DropdownMenuItem";
 
 const env = process.env.NODE_ENV || "development";
 
@@ -58,6 +59,14 @@ function App() {
                     <NavLink to="/component" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
                         <Puzzle /> <span className="blue-app-sidebar-label">React Components</span>
                     </NavLink>
+
+                    <MenuItem label="Stacked MenuItem">
+                        <MenuItem label="Hello" />
+                    </MenuItem>
+
+                    <DropdownMenuItem label="DropdownMenuItem">
+                        <MenuItem label="Child" />
+                    </DropdownMenuItem>
                 </SidebarMenu>
 
                 <div className="router-page active">

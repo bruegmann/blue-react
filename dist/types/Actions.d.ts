@@ -13,6 +13,11 @@ export interface IActionsProps {
     className?: string;
 
     /**
+     * Extends the <code>className</code> of <code>.blue-actions-controls</code>.
+     */
+    controlsClassName?: string;
+
+    /**
      * Content that will appear when the menu is shrunken.
      */
     featured?: any;

@@ -12,6 +12,9 @@ import FluentBtn from "../../components/FluentBtn";
 import Search from "../../components/Search";
 import { AsyncLocalStorage } from "async_hooks";
 import { IComponent } from "../types";
+import Actions from "../../components/Actions";
+import DropdownMenuItem from "../../components/DropdownMenuItem";
+import MenuItem from "../../components/MenuItem";
 
 
 export const ComponentPage = () => {
@@ -27,7 +30,7 @@ export const ComponentPage = () => {
     const array_docs = Object.values(docs) as IComponent[];
     console.log(array_docs);
     return (
-        <Page>
+        <Page hasActions={true}>
             <Header>
                 <HeaderTitle logo={logo}>
                     <><Link to="/">{appTitle}</Link> / </>
@@ -37,6 +40,21 @@ export const ComponentPage = () => {
                     }
                 </HeaderTitle>
             </Header>
+
+            <Actions>
+                <div className="fluent-btn">
+                    <div className="fluent-btn-ball" />
+                    <MenuItem label="Has no child" />
+                </div>
+
+                <div className="fluent-btn">
+                    <div className="fluent-btn-ball" />
+                    <DropdownMenuItem label="Parent">
+                        <MenuItem label="Child" />
+                    </DropdownMenuItem>
+                </div>
+            </Actions>
+
             <Body containerClass="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
