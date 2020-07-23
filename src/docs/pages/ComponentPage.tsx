@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Page from "../../components/Page";
 import Body from "../../components/Body";
@@ -8,9 +8,6 @@ import HeaderTitle from "../../components/HeaderTitle";
 
 import docs from "../data/docs.json";
 import { ComponentDocs } from "../components/ComponentDocs";
-import FluentBtn from "../../components/FluentBtn";
-import Search from "../../components/Search";
-import { AsyncLocalStorage } from "async_hooks";
 import { IComponent } from "../types";
 
 
@@ -37,6 +34,7 @@ export const ComponentPage = () => {
                     }
                 </HeaderTitle>
             </Header>
+
             <Body containerClass="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
