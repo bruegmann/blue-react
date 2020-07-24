@@ -1,11 +1,23 @@
 import React from "react";
+import Page from "../../components/Page";
+import Body from "../../components/Body";
+import Actions from "../../components/Actions";
+import ActionsMenuItem from "../../components/ActionsMenuItem";
 
 class ActionsExample extends React.Component {
     render() {
         return (
-            <div>
-                <a href="#/icons">See it in action on the icons page!</a>
-            </div>
+            <Page>
+                <Header>
+                </Header>
+                <Actions>
+                    <ActionsMenuItem label="Blue" href="#">
+                    </ActionsMenuItem>
+                </Actions>
+                <Body>
+                    ....
+                </Body>
+            </Page>
         );
     }
 }
