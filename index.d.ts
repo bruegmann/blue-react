@@ -62,4 +62,7 @@ export { ISwitchProps } from "./dist/types/Switch";
 export { default as DropdownMenuItem } from "./dist/types/DropdownMenuItem";
 export { IDropdownMenuItem } from "./dist/types/DropdownMenuItem";
 
+export { default as ActionsMenuItem } from "./dist/types/ActionsMenuItem";
+export { IActionsMenuItem } from "./dist/types/ActionsMenuItem";
+
 export { default as Utilities } from "./dist/types/Utilities";
