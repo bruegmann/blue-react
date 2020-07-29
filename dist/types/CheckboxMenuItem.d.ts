@@ -1,23 +1,24 @@
 import React from "react";
 
-export interface ICheckboxMenuItem {
+export interface ICheckboxMenuItemProps {
     /**
     * Beschriftung des Links
     */
     label: any,
 
     /**
-    * Setze checked 
-    */
+     * Setze checked
+     */
     checked: boolean,
+
     /**
-        * onClick event für die Checkbox.
-        */
+     * onClick Event für die Checkbox
+     */
     onClick: (e?: any) => void,
 
     /**
-     * Setze Klasse namen
-    */
+     * Setze Klassen namen
+     */
     className: string
 }
 
