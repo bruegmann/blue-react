@@ -62,4 +62,7 @@ export { ISwitchProps } from "./dist/types/Switch";
 export { default as DropdownMenuItem } from "./dist/types/DropdownMenuItem";
 export { IDropdownMenuItem } from "./dist/types/DropdownMenuItem";
 
+export { default as CheckboxMenuItem } from "./dist/types/CheckboxMenuItem";
+export { ICheckboxMenuItem } from "./dist/types/CheckboxMenuItem";
+
 export { default as Utilities } from "./dist/types/Utilities";

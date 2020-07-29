@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 /**
- * Checkbox Menuitem for DropdownMenuItem
+ * Checkbox Menuitem for DropdownMenuItem that works only in Actions
  */
 class CheckboxMenuItem extends React.Component {
     constructor() {
