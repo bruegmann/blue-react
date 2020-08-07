@@ -15,11 +15,12 @@ class SearchExample extends React.Component {
             <div>
                 <Search
                     body
-                    reset
-                    value={this.state.search}
+                    className="w-50"
                     onChange={({ target }) => this.setState({ search: target.value })}
                     onSubmit={() => alert("Do form submit now!")}
                     placeholder="Begin typing..."
+                    reset
+                    value={this.state.search}
                 />
             </div>
         );

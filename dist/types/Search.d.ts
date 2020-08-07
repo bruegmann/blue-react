@@ -1,27 +1,30 @@
 import React from "react";
 
 export interface ISearchProps {
-    /**
-     * Wird Komponente in der Sidebar genutzt?
-     */
-    sidebar?: boolean;
+    autoFocus?: boolean;
 
     /**
      * Wird Komponente im Body genutzt?
      */
     body?: boolean;
 
+    className?: string;
+    icon?: any;
+    onChange?: (event: React.ChangeEvent) => void;
+    onSubmit?: (event: React.FormEvent) => void;
+    placeholder?: string;
+
     /**
      * Erlaube Zurücksetzen?
      */
     reset?: boolean;
 
+    /**
+     * Wird Komponente in der Sidebar genutzt?
+     */
+    sidebar?: boolean;
+
     value?: string;
-    onChange?: (event: React.ChangeEvent) => void;
-    onSubmit?: (event: React.FormEvent) => void;
-    placeholder?: string;
-    autoFocus?: boolean;
-    icon?: any;
 }
 
 /**
