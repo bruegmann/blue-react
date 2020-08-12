@@ -22,6 +22,7 @@ import { ComponentPage } from "./pages/ComponentPage";
 import { IntroDemoPage } from "./pages/IntroDemoPage";
 import IntroductionPage from "./pages/IntroductionPage";
 import UtilitiesPage from "./pages/UtilitiesPage";
+import { ActionsExamplePage } from "./pages/ActionsExamplePage";
 
 const env = process.env.NODE_ENV || "development";
 
@@ -74,6 +75,10 @@ function App() {
 
                         <Route path="/intro-demo">
                             <IntroDemoPage />
+                        </Route>
+
+                        <Route path="/example_page">
+                            <ActionsExamplePage />
                         </Route>
 
                         <Route path="/">
