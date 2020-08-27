@@ -4,7 +4,7 @@ export interface IPageProps {
     /**
       * Muss auf "true" gesetzt werden, wenn Actions verwendet wird
       */
-     hasActions: bool
+     hasActions: boolean;
 }
 
 declare class Page extends React.Component<IPageProps, any> { }
