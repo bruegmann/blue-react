@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "6.12.6",
+  "version": "6.12.7",
   "description": "Blue React Components",
   "license": "LGPL-3.0-or-later",
   "main": "index.js",
@@ -23,12 +23,12 @@
     "build-docs": "react-scripts build && npm run docgen",
     "build": "babel ./src/components --out-dir ./dist/components & node-sass ./dist/style.scss ./dist/style.css",
     "build-release": "npm run build && npm run docgen",
-    "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json && node followUpDocs",
+    "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js && node followUpDocs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build-docs",
     "deploy": "gh-pages -d build",
-    "prepublishOnly": "npm i && npm run build-release",
+    "prepublishOnly": "npm run build-release",
     "postpublish": "node postpublish && npm run deploy",
     "release": "npm publish && npm run deploy"
   },
