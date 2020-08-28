@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "6.12.7",
+  "version": "6.12.8",
   "description": "Blue React Components",
   "license": "LGPL-3.0-or-later",
   "main": "index.js",
@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build-docs",
     "deploy": "gh-pages -d build",
-    "prepublishOnly": "npm run build-release",
+    "prepublishOnly": "npm i && npm run build-release",
     "postpublish": "node postpublish && npm run deploy",
     "release": "npm publish && npm run deploy"
   },
