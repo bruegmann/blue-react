@@ -29,7 +29,7 @@
     "predeploy": "npm run build-docs",
     "deploy": "gh-pages -d build",
     "prepublishOnly": "npm i && npm run build-release",
-    "postpublish": "node postpublish && npm run deploy",
+    "postpublish": "npm run deploy",
     "release": "npm publish && npm run deploy"
   },
   "dependencies": {
