@@ -88,7 +88,7 @@
     z-index: 4;
 
     @media screen and (min-width: 768px) {
-        right: 1rem;
+        right: $scrollbar-size;
     }
     
     .navbar-nav {
