@@ -83,6 +83,9 @@
             left: 0;
             width: 4px;
             background-color: $sidebar-indicator-color;
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            animation: sidebar-menu-item-indicator-in .2s ease-in-out;
         }        
     }
     
@@ -110,5 +113,14 @@
                 background-color: var(--sidebar-bg);
             }
         }
+    }
+}
+
+@keyframes sidebar-menu-item-indicator-in {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(1);
     }
 }
