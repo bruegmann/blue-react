@@ -15,9 +15,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @media screen and (min-width: 768px) {
     ::-webkit-scrollbar {
-        height: 1rem;
+        height: $scrollbar-size;
         overflow: visible;
-        width: 1rem
+        width: $scrollbar-size
     }
     ::-webkit-scrollbar-thumb {
         background-clip: padding-box;

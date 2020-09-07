@@ -86,6 +86,9 @@ $header-bg: $theme !default;
 // Background color, when hovering action menu item.
 $actions-control-bg-hover: $bla-button-bg-hover !default;
 
+// Width and height of the scrollbar indicators
+$scrollbar-size: 10px;
+
 :root {
     --theme: #{$theme};
 }
