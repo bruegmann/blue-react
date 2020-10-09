@@ -40,6 +40,9 @@
     bottom: 40px + 64px + 15px;
     left: 1rem;
     right: 1rem;
+
+    max-height: calc(100vh - 15rem);
+    overflow-y: auto;
 }
 
 @media screen and (min-width: 768px) {
