@@ -18,14 +18,6 @@ npm start
 
 ## Create a new release
 
-When pushing to `master` branch with a commit message like this will start a [GitHub Action](https://github.com/bruegmann/blue-react/actions) workflow, which will publish a new version to NPM and to the [Releases area](https://github.com/bruegmann/blue-react/releases):
-```
-Release 6.13.3
-```
-Of course, also the `version` property in [package.json](https://github.com/bruegmann/blue-react/blob/master/package.json) needs to be updated first.
-
-----
-
 This is how to manually create a release:\
 By running
 ```
