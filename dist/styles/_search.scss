@@ -2,10 +2,10 @@
     height: $normal-size;
     display: flex;
     align-items: center;
+    border-radius: $input-border-radius;
 
     &.blue-app-search-body {
         border: 1px solid $input-border-color;
-        border-radius: 4px;
 
         .blue-app-search-input-group {
             display: flex;
@@ -19,6 +19,11 @@
     &.focus {
         box-shadow: inset $input-btn-focus-box-shadow;
     }
+}
+
+.blue-app-sidebar .blue-app-search:not(.blue-app-search-body) {
+    margin-left: map-get($spacers, 1);
+    margin-right: map-get($spacers, 1);
 }
 
 .blue-app-search-input-group {
