@@ -1,40 +1,12 @@
 /*
 Open the following link to edit this config on Themify
-file:///C:/Users/lgk/AppData/Local/Programs/themify/resources/app.asar/docs/index.electron.html#/home/%7B%22name%22%3A%22Blue%20Docs%22%2C%22btHashVars%22%3A%7B%22%24theme%22%3A%22%234f1eff%22%2C%22%24gray-800%22%3A%22%23343a40%22%2C%22%24sidebar-color%22%3A%22darken(%24theme%2C%2030%25)%22%2C%22%24sidebar-control-bg-hover%22%3A%22rgba(%234f1eff%2C.07)%22%2C%22%24bla-button-bg-normal%22%3A%22rgba(white%2C.7)%22%2C%22%24sidebar-open-bg%22%3A%22%23f7f7f7%22%2C%22%24sidebar-bg%22%3A%22%23eee%22%2C%22%24sidebar-search-bg%22%3A%22rgba(255%2C255%2C255%2C.5)%22%2C%22%24border-radius%22%3A%22.5rem%22%2C%22%24border-radius-lg%22%3A%22.7rem%22%2C%22%24border-radius-sm%22%3A%22.3rem%22%2C%22%24btn-border-radius%22%3A%221000px%22%2C%22%24btn-border-radius-lg%22%3A%22%24btn-border-radius%22%2C%22%24btn-border-radius-sm%22%3A%22%24btn-border-radius%22%7D%7D
+file:///C:/Users/lgk/AppData/Local/Programs/themify/resources/app.asar/docs/index.electron.html#/home/%7B%22name%22%3A%22Blue%20Docs%22%2C%22btHashVars%22%3A%7B%22%24primary%22%3A%22%234f1eff%22%7D%7D
 */
-
-
-// Blue variables
-//
-
-$theme: #4f1eff;
-$sidebar-color: darken($theme, 30%);
-$sidebar-control-bg-hover: rgba(#4f1eff,.07);
-$bla-button-bg-normal: rgba(white,.7);
-$sidebar-open-bg: #f7f7f7;
-$sidebar-bg: #eee;
-$sidebar-search-bg: rgba(255,255,255,.5);
 
 
 // Color system
 //
 
-$gray-800: #343a40;
-
-
-// Components
-//
-
-$border-radius: .5rem;
-$border-radius-lg: .7rem;
-$border-radius-sm: .3rem;
-
-
-// Buttons
-//
-
-$btn-border-radius: 1000px;
-$btn-border-radius-lg: $btn-border-radius;
-$btn-border-radius-sm: $btn-border-radius;
+$primary: #4f1eff;
 
 

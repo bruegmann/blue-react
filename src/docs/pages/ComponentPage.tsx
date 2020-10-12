@@ -9,6 +9,7 @@ import HeaderTitle from "../../components/HeaderTitle";
 import docs from "../data/docs.json";
 import { ComponentDocs } from "../components/ComponentDocs";
 import { IComponent } from "../types";
+import Search from "../../components/Search";
 
 
 export const ComponentPage = () => {
@@ -38,13 +39,14 @@ export const ComponentPage = () => {
             <Body containerClass="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
-                        <div className="sticky-top" style={{ top: "48px" }}>
+                        <div className="sticky-top" style={{ top: "48px", zIndex: 0 }}>
                             <div className="overflow-scroll">
                                 <nav className="nav nav-pills flex-column">
                                     <div className="nav-item">
 
                                         <form onSubmit={(e: any) => { e.preventDefault(); }}>
-                                            <input
+                                            <Search
+                                                body
                                                 onChange={
                                                     (a: any) => {
                                                         setValue(a.target.value)
@@ -223,10 +225,9 @@ export const ComponentPage = () => {
                                                     }}
                                                 type="search"
                                                 value={value}
-                                                className="form-control"
-                                                placeholder="Suchen..."
-                                            >
-                                            </input>
+                                                className="mt-3"
+                                                placeholder="Search..."
+                                            />
                                         </form>
 
                                     </div>

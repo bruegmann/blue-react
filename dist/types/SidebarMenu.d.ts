@@ -2,6 +2,11 @@ import React from "react";
 
 export interface ISidebarMenuProps {
     /**
+     * Should menu items have a Fluent effect. Default: `true`
+     */
+    fluent?: boolean;
+
+    /**
      * Erweiterung der className-Property der Seitenleiste.
      */
     sidebarClass?: string;

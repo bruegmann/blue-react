@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
 /**
@@ -13,6 +13,12 @@ class SidebarMenu extends React.Component {
             width: window.innerWidth,
         }
         this.updateDimensions = this.updateDimensions.bind(this);
+    }
+
+    static get defaultProps() {
+        return {
+            fluent: true
+        };
     }
 
     componentDidMount() {
@@ -64,8 +70,8 @@ class SidebarMenu extends React.Component {
                 <div className={"blue-app-menu " + (this.props.menuClass ? this.props.menuClass : "")}
                     style={this.props.menuStyle ? this.props.menuStyle : {}}
                 >
-                    <div className="fluent-btn">
-                        <div className="fluent-btn-ball" />
+                    <div className={this.props.fluent === true ? "fluent-btn" : ""}>
+                        {this.props.fluent === true ? <div className="fluent-btn-ball" /> : <Fragment />}
                         {this.props.children}
                     </div>
                 </div>
@@ -81,6 +87,11 @@ class SidebarMenu extends React.Component {
 }
 
 SidebarMenu.propTypes = {
+    /**
+     * Should menu items have a Fluent effect. Default: `true`
+     */
+    fluent: PropTypes.bool,
+
     /**
      * Erweiterung der className-Property der Seitenleiste.
      */

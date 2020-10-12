@@ -24,6 +24,12 @@
         width: $bla-sidebar-width;
     }
 
+    .blue-app-sidebar .blue-app-sidebar-btn {
+        & > * {
+            width: auto;
+        }
+    }
+
     .blue-app-sub-sidebar {
         left: $bla-sidebar-width;
     }
@@ -61,10 +67,8 @@
         height: $normal-size;
         padding: 4px 12px;
         font-size: $bla-btn-font-size;
-        font-weight: 300;
-        text-align: left;
-        display: block;
-        // background-color: var(--sidebar-bg);
+        display: flex;
+        align-items: center;
         border-color: transparent;
         @include slide-transition();
 
@@ -86,7 +90,11 @@
             border-top-right-radius: 1rem;
             border-bottom-right-radius: 1rem;
             animation: sidebar-menu-item-indicator-in .2s ease-in-out;
-        }        
+        }
+
+        & > * + .blue-app-sidebar-label {
+            margin-left: .5rem;
+        }
     }
     
     .blue-app-sidebar {
@@ -111,6 +119,12 @@
         &:hover {
             .blue-app-sidebar-btn {
                 background-color: var(--sidebar-bg);
+            }
+        }
+
+        .blue-app-sidebar-btn {
+            & > * {
+                width: 100%;
             }
         }
     }
