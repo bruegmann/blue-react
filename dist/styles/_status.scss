@@ -15,6 +15,8 @@
 }
 
 .blue-app-status-alert {
+    @include custom-scrollbar(white, rgba(black, .5), .3rem);
+
     &:after {
         content: "";
         display: block;
@@ -42,7 +44,12 @@
     right: 1rem;
 
     max-height: calc(100vh - 15rem);
-    overflow-y: auto;
+    // overflow-y: auto;
+
+    .alert-body {
+        max-height: calc(100vh - 16rem);
+        overflow-y: auto;
+    }
 }
 
 @media screen and (min-width: 768px) {
