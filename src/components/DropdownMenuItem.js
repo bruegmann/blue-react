@@ -56,7 +56,7 @@ class DropdownMenuItem extends React.Component {
 
                     <button
                         type="button"
-                        className="btn blue-app-sidebar-btn w-auto pl-0"
+                        className="btn blue-app-sidebar-btn w-auto pt-3 pl-0"
                         onClick={this.handleClick}
                     >
                         <span className="sr-only">Toggle Dropdown</span>
