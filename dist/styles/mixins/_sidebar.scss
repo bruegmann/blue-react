@@ -5,7 +5,7 @@
 
     .blue-app-sidebar-visible-on-open {
         animation: fade-in 1s;
-        display: block;
+        display: flex;
     }
 
 
@@ -67,7 +67,6 @@
         height: $normal-size;
         padding: 4px 12px;
         font-size: $bla-btn-font-size;
-        text-align: left;
         display: flex;
         align-items: center;
         border-color: transparent;

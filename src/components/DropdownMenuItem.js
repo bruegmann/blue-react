@@ -63,7 +63,7 @@ class DropdownMenuItem extends React.Component {
                         <Caret
                             open={this.state.showDropdown}
                             mirrored
-                            className="w-auto pl-5"
+                            className="w-auto pl-5 mt-2"
                         />
                     </button>
 
