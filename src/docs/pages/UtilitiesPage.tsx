@@ -1,7 +1,7 @@
 import React from "react";
 import FluentBtn from "../../components/FluentBtn";
 import Utilities from "../../components/Utilities";
-import PlayFill from "../icons/PlayFill";
+import { PlayFill } from "react-bootstrap-icons"
 import Highlight from "react-highlight";
 import Page from "../../components/Page";
 import Header from "../../components/Header";

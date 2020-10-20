@@ -36,6 +36,17 @@ export interface IGridProps {
      * If you don't use blueicon, you can define another icon element for the sidebar toggle button.
      */
     sidebarToggleIconComponent?: any;
+
+    /**
+     * Will replace status icons with custom ones. This will also overwrite the `useBlueicons` option.
+     * This can be a SVG component or a normal element component.
+     */
+    statusIcons?: {
+        danger: any,
+        info: any,
+        success: any,
+        warning: any
+    }
 }
 
 /**

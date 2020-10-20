@@ -46,7 +46,7 @@ let Utilities = {
     },
 
     showSuccess: function () {
-        document.querySelectorAll(".blue-app-status-success")[0].style.display = "block";
+        document.querySelectorAll(".blue-app-status-success")[0].style.display = "flex";
     },
 
     hideSuccess: function () {
@@ -77,7 +77,7 @@ let Utilities = {
             alertClassName = alertClassName.replace("alert-", "");
         }
 
-        document.querySelectorAll(".blue-app-status-" + alertClassName)[0].style.display = "block";
+        document.querySelectorAll(".blue-app-status-" + alertClassName)[0].style.display = "flex";
         alertElement.style.display = "block";
         this.addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
 
