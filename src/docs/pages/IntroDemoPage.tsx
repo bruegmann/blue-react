@@ -2,7 +2,7 @@ import React from "react";
 import Intro from "../../components/Intro";
 import { logo } from "../Global";
 import { Link } from "react-router-dom";
-import ChevronLeft from "../icons/ChevronLeft";
+import { ChevronLeft } from "react-bootstrap-icons"
 
 export const IntroDemoPage = () => (
     <Intro logo={logo} logoMaxWidth="100px" title="Here could be your introduction">

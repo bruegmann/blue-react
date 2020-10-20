@@ -12,12 +12,8 @@ import { HomePage } from "./pages/HomePage";
 import SidebarMenu from "../components/SidebarMenu";
 import MenuItem from "../components/MenuItem";
 
-import List from "./icons/List";
-import House from "./icons/House";
-import CodeSquare from "./icons/CodeSquare";
-import Puzzle from "./icons/Puzzle";
-import Receipt from "./icons/Receipt";
-import Tools from "./icons/Tools";
+import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill } from "react-bootstrap-icons"
+
 import { ComponentPage } from "./pages/ComponentPage";
 import { IntroDemoPage } from "./pages/IntroDemoPage";
 import IntroductionPage from "./pages/IntroductionPage";
@@ -34,6 +30,12 @@ function App() {
                 unrouteable
                 expandSidebar
                 sidebarToggleIconComponent={<List />}
+                statusIcons={{
+                    danger: <XCircleFill />,
+                    info: <InfoCircleFill />,
+                    success: <CheckCircleFill />,
+                    warning: <ExclamationCircleFill />
+                }}
             >
                 <SidebarMenu
                     bottomContent={

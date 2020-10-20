@@ -67,7 +67,13 @@ class Grid extends React.Component {
             hideSidebarMenu: false,
             unrouteable: false,
             disableTitleSet: false,
-            sidebarToggleIconComponent: <span className="bi-menu" />
+            sidebarToggleIconComponent: <span className="bi-menu" />,
+            statusIcons: {
+                danger: <span className="bi-error" />,
+                info: <span className="bi-information" />,
+                success: <span className="bi-check" />,
+                warning: <span className="bi-sign_warning" />
+            }
         };
     }
 
@@ -225,19 +231,19 @@ class Grid extends React.Component {
                     </div>
 
                     <div className="blue-app-status-circle blue-app-status-success">
-                        <span className="bi-check"></span>
+                        {this.props.statusIcons.success}
                     </div>
 
                     <div className="blue-app-status-circle blue-app-status-info">
-                        <span className="bi-information"></span>
+                        {this.props.statusIcons.info}
                     </div>
 
                     <div className="blue-app-status-circle blue-app-status-warning">
-                        <span className="bi-sign_warning"></span>
+                        {this.props.statusIcons.warning}
                     </div>
 
                     <div className="blue-app-status-circle blue-app-status-danger">
-                        <span className="bi-error"></span>
+                        {this.props.statusIcons.danger}
                     </div>
 
                     <div className="blue-app-status-alert alert">
@@ -292,7 +298,17 @@ Grid.propTypes = {
     /**
      * If you don't use blueicon, you can define another icon element for the sidebar toggle button.
      */
-    sidebarToggleIconComponent: PropTypes.any
+    sidebarToggleIconComponent: PropTypes.any,
+
+    /**
+     * Will replace status icons with custom ones. This can be a SVG component or a normal element component.
+     */
+    statusIcons: PropTypes.shape({
+        danger: PropTypes.any,
+        info: PropTypes.any,
+        success: PropTypes.any,
+        warning: PropTypes.any
+    })
 };
 
 export default Grid;
