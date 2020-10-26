@@ -19,6 +19,8 @@ import { IntroDemoPage } from "./pages/IntroDemoPage";
 import IntroductionPage from "./pages/IntroductionPage";
 import UtilitiesPage from "./pages/UtilitiesPage";
 import { ActionsExamplePage } from "./pages/ActionsExamplePage";
+import HeaderTitle from "../components/HeaderTitle";
+import { appTitle, logo } from "./Global";
 
 const env = process.env.NODE_ENV || "development";
 
@@ -36,7 +38,10 @@ function App() {
                     success: <CheckCircleFill />,
                     warning: <ExclamationCircleFill />
                 }}
+                disableHeaders
             >
+                <HeaderTitle logo={logo} appTitle={appTitle} className="blue-app-sidebar-visible-on-open bg-theme w-bla-sidebar-width" />
+
                 <SidebarMenu
                     bottomContent={
                         <>

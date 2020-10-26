@@ -40,7 +40,7 @@ class HeaderTitle extends React.Component {
 
     render() {
         return (
-            <h3 id={this.uniqueId} className="blue-app-header-logo">
+            <h3 id={this.uniqueId} className={"blue-app-header-logo" + (this.props.className ? ` ${this.props.className}` : "")}>
                 <span className="blue-app-header-logo-title">
                     {this.props.logo ? <span><a href="#"><img src={this.props.logo} className="blue-app-header-logo-image" /></a>&nbsp;</span> : ""}
                     <span className={"blue-app-header-logo-title-labels " + (this.props.keepAppTitle ? "keep" : "")}>
@@ -67,7 +67,12 @@ HeaderTitle.propTypes = {
     /**
      * Deaktiviert, dass der App-Titel bei bestimmer Bildschirmgröße ausgeblendet wird.
      */
-    keepAppTitle: PropTypes.bool
+    keepAppTitle: PropTypes.bool,
+
+    /**
+     * Extends `className` from parent element.
+     */
+    className: PropTypes.string
 };
 
 export default HeaderTitle;

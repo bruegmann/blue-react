@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import SidebarMenu from "./SidebarMenu.js";
 import Utilities from "./Utilities.js";
+import HeaderTitle from "./HeaderTitle.js";
 
 // Damit Events auch in IE funktionieren
 // require("custom-event-polyfill/custom-event-polyfill.js");
@@ -190,7 +191,8 @@ class Grid extends React.Component {
                     className={"blue-app-grid" + (this.props.className ? " " + this.props.className : "") +
                         (this.state.sidebarIn ? " open" : "") +
                         (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") +
-                        (this.props.expandSidebar ? " expand-sidebar" : "")}
+                        (this.props.expandSidebar ? " expand-sidebar" : "") +
+                        (this.props.disableHeaders ? " disableHeaders" : "")}
                     onClick={this.hideSidebar}
                 >
                     <div className="blue-app-sidebar-toggler">
@@ -308,7 +310,12 @@ Grid.propTypes = {
         info: PropTypes.any,
         success: PropTypes.any,
         warning: PropTypes.any
-    })
+    }),
+
+    /**
+     * Disables the header bars on pages.
+     */
+    disableHeaders: PropTypes.bool
 };
 
 export default Grid;
