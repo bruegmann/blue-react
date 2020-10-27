@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d18f09412a53dbeba5793427f4b83913",
+    "revision": "be504d29f6f6d859dbbb8b64c7fc0e90",
     "url": "/blue-react/index.html"
   },
   {
