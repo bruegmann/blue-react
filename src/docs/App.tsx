@@ -68,7 +68,7 @@ function App() {
                     </NavLink>
 
                     <MenuItem
-                        href="https://github.com/bruegmann/blue-react/tree/master/recipes"
+                        href="https://github.com/bruegmann/blue-react/wiki"
                         target="_blank" rel="noopener noreferrer"
                         icon={<Receipt />}
                         label="Recipes"
