@@ -1,8 +1,5 @@
 import React from "react";
 import Page from "../../components/Page";
-import Header from "../../components/Header";
-import { logo, appTitle } from "../Global";
-import FluentBtn from "../../components/FluentBtn";
 import Body from "../../components/Body";
 import Highlight from "react-highlight";
 
@@ -120,12 +117,6 @@ $primary-color: #4dadf7; /* Define primary color */
         ];
         return (
             <Page>
-                <Header>
-                    <Header.Title logo={logo} appTitle={appTitle}>
-                        Introduction
-                    </Header.Title>
-                </Header>
-
                 <Body containerClass="container">
                     <div className="row">
                         <div className="col-md-12">

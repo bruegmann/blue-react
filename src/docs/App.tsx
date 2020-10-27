@@ -12,7 +12,7 @@ import { HomePage } from "./pages/HomePage";
 import SidebarMenu from "../components/SidebarMenu";
 import MenuItem from "../components/MenuItem";
 
-import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill } from "react-bootstrap-icons"
+import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, SignpostSplit } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage";
 import { IntroDemoPage } from "./pages/IntroDemoPage";
@@ -58,7 +58,7 @@ function App() {
                         <House /> <span className="blue-app-sidebar-label">Start</span>
                     </NavLink>
                     <NavLink to="/introduction" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
-                        <Receipt /> <span className="blue-app-sidebar-label">Introduction</span>
+                        <SignpostSplit /> <span className="blue-app-sidebar-label">Introduction</span>
                     </NavLink>
                     <NavLink to="/utilities" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
                         <Tools /> <span className="blue-app-sidebar-label">Utilities</span>
@@ -66,6 +66,13 @@ function App() {
                     <NavLink to="/component" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
                         <Puzzle /> <span className="blue-app-sidebar-label">React Components</span>
                     </NavLink>
+
+                    <MenuItem
+                        href="https://github.com/bruegmann/blue-react/tree/master/recipes"
+                        target="_blank" rel="noopener noreferrer"
+                        icon={<Receipt />}
+                        label="Recipes"
+                    />
                 </SidebarMenu>
 
                 <div className="router-page active">
