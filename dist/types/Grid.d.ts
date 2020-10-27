@@ -47,6 +47,11 @@ export interface IGridProps {
         success: any,
         warning: any
     }
+
+    /**
+     * Disables the header bars on pages.
+     */
+    disableHeaders?: boolean
 }
 
 /**

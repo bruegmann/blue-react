@@ -147,10 +147,6 @@
 
     margin-left: $normal-size;
     animation: enabledBlueAppPage .5s;
-
-    // &.active {
-    //     animation: enabledBlueAppPage .5s;
-    // }
 }
 
 @include blue-app-sidebar($normal-size);
@@ -163,6 +159,12 @@
     
     .blue-app-page {
         margin-left: 0;
+    }
+    
+    .blue-app-grid.disableHeaders {
+        .blue-app-page {
+            padding-top: $normal-size;
+        }
     }
 }
 
@@ -186,6 +188,10 @@
         .blue-app-header {
             left: 0;
         }
+    }
+
+    .blue-app-grid > .blue-app-header-logo {
+        padding-left: $spacer;
     }
 }
 
@@ -227,6 +233,13 @@
    margin-top: $normal-size;
 }
 
+.blue-app-grid.disableHeaders {
+    .blue-app-page {
+        margin-top: initial;
+        min-height: calc(100vh);
+    }
+}
+
 .blue-app-header-logo {
    padding: 10px 15px;
    margin: 0;
@@ -238,7 +251,7 @@
    z-index: 1;
 
    a {
-       color: inherit;
+       color: $header-color;
 
        &:focus {
            text-decoration: none;

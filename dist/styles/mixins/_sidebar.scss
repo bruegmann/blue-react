@@ -58,6 +58,11 @@
         display: flex;
         align-items: center;
     }
+
+
+    .blue-app-header-logo.sidebar {
+        transform: translateX(0);
+    }
 }
 
 @mixin blue-app-sidebar($width) {

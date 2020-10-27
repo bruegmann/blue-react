@@ -216,6 +216,12 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                         With Sidebar Bottom, for example, a registered user can be displayed at the bottom left. Usable within <code>&lt;SidebarMenu /&gt;</code>.
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td><code>.w-bla-sidebar-width</code></td>
+                                    <td>
+                                        Gives element the width of the sidebar, defined with <code>$bla-sidebar-width</code>.
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
 
@@ -250,13 +256,7 @@ Utilities.startLoading();`}</Highlight>
         ];
         return (
             <Page>
-                <Header>
-                    <Header.Title logo={logo} appTitle={appTitle}>
-                        Utilities
-                    </Header.Title>
-                </Header>
-
-                <Body containerClass="container">
+                <Body containerClass="container pt-5 pt-md-0">
                     <div className="row">
                         <div className="col-md-12">
                             {sections.map((s, i) =>

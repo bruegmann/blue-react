@@ -152,3 +152,15 @@ label {
         }
     }
 }
+
+.w-bla-sidebar-width {
+    width: $bla-sidebar-width;
+}
+
+.blue-app-header-logo.sidebar {
+    width: $bla-sidebar-width;
+    padding-left: calc(#{$normal-size} + #{$spacer});
+    transform: translateX(-100%);
+    transition: transform .4s;
+    background: var(--sidebar-bg);
+}
