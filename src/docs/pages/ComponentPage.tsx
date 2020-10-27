@@ -11,7 +11,7 @@ import Search from "../../components/Search";
 
 export const ComponentPage = () => {
 
-    const { selectedComponent } = useParams();
+    const { selectedComponent } = useParams<any>();
     const [search, setSearch] = useState<string>("");
 
     // State of input Search value
