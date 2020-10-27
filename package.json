@@ -33,9 +33,12 @@
     "release": "npm publish && npm run deploy"
   },
   "dependencies": {
+    "@types/react-syntax-highlighter": "^13.5.0",
     "bootstrap": "^4.5.0",
     "react": "^16.13.1",
     "react-bootstrap-icons": "^1.0.0",
+    "react-markdown-github": "^3.3.1",
+    "react-syntax-highlighter": "^15.2.1",
     "reactstrap": "^8.5.1"
   },
   "devDependencies": {

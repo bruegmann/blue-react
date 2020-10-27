@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    HashRouter as Router,
+    BrowserRouter as Router,
     Switch,
     Route,
     NavLink
@@ -21,12 +21,13 @@ import UtilitiesPage from "./pages/UtilitiesPage";
 import { ActionsExamplePage } from "./pages/ActionsExamplePage";
 import HeaderTitle from "../components/HeaderTitle";
 import { appTitle, logo } from "./Global";
+import { RecipesPage } from "./pages/RecipesPage";
 
 const env = process.env.NODE_ENV || "development";
 
 function App() {
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Grid
                 pages={[]}
                 unrouteable
@@ -66,13 +67,9 @@ function App() {
                     <NavLink to="/component" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
                         <Puzzle /> <span className="blue-app-sidebar-label">React Components</span>
                     </NavLink>
-
-                    <MenuItem
-                        href="https://github.com/bruegmann/blue-react/wiki"
-                        target="_blank" rel="noopener noreferrer"
-                        icon={<Receipt />}
-                        label="Recipes"
-                    />
+                    <NavLink to="/recipes" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
+                        <Receipt /> <span className="blue-app-sidebar-label">Recipes</span>
+                    </NavLink>
                 </SidebarMenu>
 
                 <div className="router-page active">
@@ -93,6 +90,10 @@ function App() {
 
                         <Route path="/example_page">
                             <ActionsExamplePage />
+                        </Route>
+
+                        <Route path="/recipes/:active?">
+                            <RecipesPage />
                         </Route>
 
                         <Route path="/">
