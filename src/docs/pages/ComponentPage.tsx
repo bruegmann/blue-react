@@ -26,7 +26,7 @@ export const ComponentPage = () => {
             <Body containerClass="container-fluid">
                 <div className="row">
                     <div className="col-md-2">
-                        <div className="sticky-top" style={{ top: "48px", zIndex: 0 }}>
+                        <div className="sticky-top" style={{ zIndex: 0 }}>
                             <div className="overflow-scroll">
                                 <nav className="nav nav-pills flex-column">
                                     <div className="nav-item">

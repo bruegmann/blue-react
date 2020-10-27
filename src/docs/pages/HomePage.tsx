@@ -7,7 +7,7 @@ const packageJson = require("../../../package.json");
 
 export const HomePage = () => (
     <Page>
-        <Body containerClass="no-container">
+        <Body className="pt-0" containerClass="no-container">
             <div className="welcome-jumbotron jumbotron jumbotron-fluid bg-theme text-white">
                 <div className="container text-center">
                     <h1 className="display-1 d-inline-flex align-items-center">
