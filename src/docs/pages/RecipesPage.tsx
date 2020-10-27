@@ -10,8 +10,6 @@ export function RecipesPage() {
     const { active } = useParams<any>()
     const [activeRecipe, setActiveRecipe] = useState<GitHubContent | null>(null)
 
-    console.log(active)
-
     useEffect(() => {
         if (recipes === null) {
             fetchRecipes()
@@ -25,6 +23,9 @@ export function RecipesPage() {
                     setActiveRecipe(recipe)
                 }
             })
+        }
+        else {
+            setActiveRecipe(null)
         }
     }, [active, recipes])
 
@@ -70,7 +71,12 @@ export function RecipesPage() {
                         {activeRecipe !== null ?
                             <Recipe recipe={activeRecipe} />
                             :
-                            <div>Select a recipe</div>}
+                            <>
+                                <h1 className="page-header">Recipes</h1>
+
+                                <p>Recipes are short tutorials or instructions for specific scenarious. On the side you see a list of all available recipes.</p>
+                            </>
+                        }
                     </div>
                 </div>
             </Body>

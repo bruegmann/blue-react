@@ -70,13 +70,6 @@ function App() {
                     <NavLink to="/recipes" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
                         <Receipt /> <span className="blue-app-sidebar-label">Recipes</span>
                     </NavLink>
-
-                    <MenuItem
-                        href="https://github.com/bruegmann/blue-react/wiki"
-                        target="_blank" rel="noopener noreferrer"
-                        icon={<Receipt />}
-                        label="Recipes"
-                    />
                 </SidebarMenu>
 
                 <div className="router-page active">
