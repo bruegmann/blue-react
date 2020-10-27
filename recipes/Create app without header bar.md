@@ -1,4 +1,4 @@
-# Headerless site
+# Create app without header bar
 
 By default, Blue React is designed to have a header bar at the top of each page. But you can disable this, if you don't want to have it and only want the app logo and title to be appeared on the sidebar.
 
