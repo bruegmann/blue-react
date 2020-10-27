@@ -160,6 +160,12 @@
     .blue-app-page {
         margin-left: 0;
     }
+    
+    .blue-app-grid.disableHeaders {
+        .blue-app-page {
+            padding-top: $normal-size;
+        }
+    }
 }
 
 @media (min-width: 1400px) {
