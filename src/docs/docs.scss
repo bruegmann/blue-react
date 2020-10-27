@@ -11,3 +11,28 @@
         font-weight: "600";
     }
 }
+
+.recipe-markdown {
+    img {
+        max-width: 100%;
+    }
+
+    .headline-primary {
+        @extend .mt-4;
+        @extend .mb-3;
+        
+        & > a {
+            color: inherit;
+        }
+    }
+
+    h2.headline-primary,
+    h1.headline-primary {
+        @extend .page-header;
+    }
+
+
+    > .headline-primary:first-child {
+        @extend .display-4;
+    }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    HashRouter as Router,
+    BrowserRouter as Router,
     Switch,
     Route,
     NavLink
@@ -27,7 +27,7 @@ const env = process.env.NODE_ENV || "development";
 
 function App() {
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Grid
                 pages={[]}
                 unrouteable

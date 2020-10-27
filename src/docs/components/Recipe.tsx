@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react"
 import MarkdownGitHub from "react-markdown-github"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
 import Utilities from "../../components/Utilities"
 import { GitHubContent } from "../gitHubApiTypes"
+
+const renderers = {
+    code: ({ language, value }: any) => {
+        return <SyntaxHighlighter style={syntaxHighlighterStyle} language={language} children={value} />
+    }
+}
 
 export interface RecipeProps {
     recipe: GitHubContent
@@ -41,6 +49,8 @@ export function Recipe({ recipe }: RecipeProps) {
                     source={markdown}
                     sourceUri={recipe.html_url}
                     transformImageUri={transformImageUri}
+                    renderers={renderers}
+                    className="recipe-markdown"
                 />
                 :
                 <div>...</div>}
