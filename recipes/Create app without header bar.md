@@ -38,7 +38,7 @@ import { Grid, SidebarMenu, MenuItem, HeaderTitle } from "blue-react" // <- Add 
 
 // ...
 
-import { appLogo, appTitle } from "./shared" // I added the whole line
+import { appLogo, appTitle } from "./shared" // Add the whole line
 ```
 4. Insert the `<HeaderTitle />` component inside of the Grid at the top above `<Sidebar>`:
 ```jsx
