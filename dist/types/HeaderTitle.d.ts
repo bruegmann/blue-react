@@ -25,6 +25,11 @@ export interface IHeaderTitleProps {
      * Extends `className` from parent element.
      */
     className?: string
+
+    /**
+     * Is the component used on the sidebar?
+     */
+    sidebar?: boolean
 }
 
 /**

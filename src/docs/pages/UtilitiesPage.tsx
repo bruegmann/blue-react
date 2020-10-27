@@ -256,7 +256,7 @@ Utilities.startLoading();`}</Highlight>
         ];
         return (
             <Page>
-                <Body containerClass="container">
+                <Body containerClass="container pt-5 pt-md-0">
                     <div className="row">
                         <div className="col-md-12">
                             {sections.map((s, i) =>

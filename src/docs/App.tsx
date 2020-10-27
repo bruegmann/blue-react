@@ -40,7 +40,7 @@ function App() {
                 }}
                 disableHeaders
             >
-                <HeaderTitle logo={logo} appTitle={appTitle} className="blue-app-sidebar-visible-on-open bg-theme w-bla-sidebar-width" />
+                <HeaderTitle logo={logo} appTitle={appTitle} sidebar />
 
                 <SidebarMenu
                     bottomContent={
