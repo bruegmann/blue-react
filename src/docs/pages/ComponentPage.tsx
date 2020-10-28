@@ -7,6 +7,7 @@ import docs from "../data/docs.json";
 import { ComponentDocs } from "../components/ComponentDocs";
 import { IComponent } from "../types";
 import Search from "../../components/Search";
+import { appTitle } from "../Global";
 
 
 export const ComponentPage = () => {
@@ -22,7 +23,7 @@ export const ComponentPage = () => {
     const array_docs = Object.values(docs) as IComponent[];
     console.log(array_docs);
     return (
-        <Page>
+        <Page title={`${selectedComponent ? `${selectedComponent} - ` : ""}React Components - ${appTitle}`}>
             <Body containerClass="container-fluid">
                 <div className="row">
                     <div className="col-md-2">

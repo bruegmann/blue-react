@@ -5,7 +5,7 @@ import Body from "./Body.js";
 import Utilities from "./Utilities.js";
 import PropTypes from "prop-types";
 
-function Page({ children }) {
+function Page({ children, title }) {
     const [hasHeader, setHasHeader] = useState(false)
 
     useEffect(() => {
@@ -18,6 +18,12 @@ function Page({ children }) {
             setHasHeader(childrenTypeNames.includes("Header"))
         }
     }, [children])
+
+    useEffect(() => {
+        if (title) {
+            document.querySelector("title").innerText = title
+        }
+    }, [title])
 
     return (
         <div className={cx("blue-app-page-wrapper", { "hasHeader": hasHeader })}>
@@ -40,7 +46,12 @@ Page.propTypes = {
     /**
      * @deprecated This isn't necessary anymore to use Actions on a page.
      */
-    hasActions: PropTypes.bool
+    hasActions: PropTypes.bool,
+
+    /**
+    * Will be set to the document's `<title>` tag.
+    */
+    title: PropTypes.string
 }
 
 export default Page;
