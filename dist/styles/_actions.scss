@@ -3,11 +3,13 @@ $blue-actions-indicator-height: 2rem !default;
 .blue-actions {
     --sidebar-bg: transparent;
 
+    display: flex;
+    align-items: stretch;
     color: $header-color;
     position: fixed;
     right: .5rem;
     z-index: 41;
-    transition: height .4s;
+    transition: height .3s;
 
     .blue-app-sidebar-btn {
         color: $header-color;
@@ -21,6 +23,14 @@ $blue-actions-indicator-height: 2rem !default;
     &.closed {
         .blue-actions-featured {
             display: flex;
+        }
+
+        .blue-actions-indicator {
+            padding-bottom: $spacer / 2;
+            &::before {
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+            }
         }
     }
 
@@ -42,7 +52,7 @@ $blue-actions-indicator-height: 2rem !default;
 }
 
 .blue-actions-indicator {
-    height: $blue-actions-indicator-height;
+    min-height: $blue-actions-indicator-height;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,10 +61,14 @@ $blue-actions-indicator-height: 2rem !default;
 
     &::before {
         content: "";
-        width: 2.5rem;
-        height: 4px;
-        border-radius: 2px;
-        background-color: currentColor;
+        border: solid;
+        border-width: 0 3px 3px 0;
+        display: block;
+        padding: 3px;
+        margin: 0 $spacer;
+
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
     }
 }
 
@@ -105,5 +119,19 @@ $blue-actions-indicator-height: 2rem !default;
 
     &.break-xl {
         @include has-actions(map-get($grid-breakpoints, "xl"));
+    }
+}
+
+.blue-app-page-wrapper:not(.hasHeader) {
+    .blue-actions {
+        background-color: $theme;
+        @extend .mt-1;
+        @extend .mr-1;
+        border-radius: $blue-actions-indicator-height / 2;
+        box-shadow: $box-shadow;
+
+        &.closed {
+            @extend .pl-3;
+        }
     }
 }

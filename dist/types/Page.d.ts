@@ -1,10 +1,15 @@
 import React from "react";
 
 export interface IPageProps {
-    /**
-      * Muss auf "true" gesetzt werden, wenn Actions verwendet wird
-      */
-     hasActions?: boolean;
+  /**
+    * @deprecated This isn't necessary anymore to use Actions on a page.
+    */
+  hasActions?: boolean
+
+  /**
+   * Will be set to the document's `<title>` tag.
+   */
+  title?: string
 }
 
 declare class Page extends React.Component<IPageProps, any> { }

@@ -88,7 +88,7 @@ function App() {
                             <IntroDemoPage />
                         </Route>
 
-                        <Route path="/example_page">
+                        <Route path="/example_page/:headerless?">
                             <ActionsExamplePage />
                         </Route>
 

@@ -1,22 +1,19 @@
 @mixin actions-break($width) {
     @media screen and (max-width: $width) {
-        // max-height: $blue-actions-height;
-        bottom: 0;
-        left: .5rem;
-        border-top-left-radius: $blue-actions-indicator-height / 2;
-        border-top-right-radius:  $blue-actions-indicator-height / 2;
+        top: 0;
+        border-radius: $blue-actions-indicator-height / 2;
         box-shadow: $box-shadow;
         background-color: $header-bg;
 
         .blue-actions-controls {
-            padding: 1rem;
-            margin-top: -$spacer / 2;
-            margin-bottom: -$spacer / 2;
-
             & > * {
                 margin-top: $spacer / 2;
                 margin-bottom: $spacer / 2;
             }
+        }
+
+        &.open {
+            flex-direction: column;
         }
 
         &.closed {

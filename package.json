@@ -35,6 +35,7 @@
   "dependencies": {
     "@types/react-syntax-highlighter": "^13.5.0",
     "bootstrap": "^4.5.0",
+    "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-bootstrap-icons": "^1.0.0",
     "react-markdown-github": "^3.3.1",
