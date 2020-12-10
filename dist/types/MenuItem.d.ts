@@ -50,6 +50,11 @@ export interface IMenuItemProps {
      * Setzt Klassen namen.
      */
     className?: any;
+
+    /**
+     * Defines dropdown status from outside.
+     */
+    showDropdown: boolean;
 }
 
 /**

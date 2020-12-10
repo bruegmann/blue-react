@@ -27,12 +27,19 @@ class MenuItem extends React.Component {
         return {
             href: "javascript:void(0)",
             isActive: false,
-            dropdownClassName: ""
+            dropdownClassName: "",
+            showDropdown: false
         };
     }
 
     componentDidMount() {
         this.checkActive();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.showDropdown !== this.props.showDropdown) {
+            this.setState({ showDropdown: this.props.showDropdown })
+        }
     }
 
     onClick(event) {
@@ -155,7 +162,12 @@ MenuItem.propTypes = {
     /**
      * Werden in einem Dropdown-Menü angezeigt.
      */
-    children: PropTypes.any
+    children: PropTypes.any,
+
+    /**
+     * Defines dropdown status from outside.
+     */
+    showDropdown: PropTypes.bool
 };
 
 export default MenuItem;
