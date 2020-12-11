@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Page from "../../components/Page";
 import Body from "../../components/Body";
@@ -21,7 +21,14 @@ export const ComponentPage = () => {
     const [components, setComponents] = useState<any>([]);
 
     const array_docs = Object.values(docs) as IComponent[];
-    console.log(array_docs);
+
+    useEffect(() => {
+        const routerPageElement = document.querySelector(".router-page.active")
+        if (routerPageElement) {
+            routerPageElement.scrollTo(0, 0)
+        }
+    }, [selectedComponent])
+
     return (
         <Page title={`${selectedComponent ? `${selectedComponent} - ` : ""}React Components - ${appTitle}`}>
             <Body containerClass="container-fluid">

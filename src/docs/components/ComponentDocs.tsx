@@ -125,7 +125,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                         }
                                     </div>
                                     :
-                                    <a href={"#/component/" + comp.displayName}>Show example</a>
+                                    <Link to={"/component/" + comp.displayName} onClick={() => window.scrollTo(0, 0)}>Show example</Link>
                             )
                         }
                     </div>
