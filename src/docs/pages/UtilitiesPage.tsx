@@ -199,9 +199,11 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><code>.form-control.default</code></td>
+                                    <td><code>.form-control.underlined</code></td>
                                     <td>
-                                        Restores the standard styling of Bootstrap.
+                                        <span>Use underlined look for controls instead of the Bootstrap default.</span>
+                                        <input readOnly className="form-control underlined mb-1" placeholder="Like this (.form-control.underlined)" />
+                                        <input readOnly className="form-control" placeholder="Instead of this (.form-control)" />
                                     </td>
                                 </tr>
                                 <tr>
