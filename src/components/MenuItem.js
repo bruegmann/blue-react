@@ -92,10 +92,13 @@ class MenuItem extends React.Component {
             }
         });
 
+        // Info: https://reactjs.org/warnings/unknown-prop.html
+        const { showDropdown, ...rest } = props
+
         return (
             <div>
                 <a
-                    {...props}
+                    {...rest}
                     className={className + (this.props.isActive || this.state.active ? " active" : "") + (this.props.label ? " has-label" : "")}
                     onClick={event => this.onClick(event)}
                 >
