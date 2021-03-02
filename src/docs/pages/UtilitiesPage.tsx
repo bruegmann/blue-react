@@ -7,6 +7,7 @@ import Page from "../../components/Page";
 import Header from "../../components/Header";
 import { logo, appTitle } from "../Global";
 import Body from "../../components/Body";
+import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo";
 
 export interface UtilitiesPageProps { }
 
@@ -173,6 +174,19 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td><code>.blue-app-header-form</code></td>
+                                    <td>
+                                        Can be used within <code>{`<Page.Header.Actions />`}</code> to include a form in the Action-Bar.
+                                        Can be combined with <code>.form-horizontal</code>.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>.blue-app-sidebar-bottom</code></td>
+                                    <td>
+                                        With Sidebar Bottom, for example, a registered user can be displayed at the bottom left. Usable within <code>&lt;SidebarMenu /&gt;</code>.
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td><code>.blue-app-sidebar-hidden-on-open</code></td>
                                     <td>
                                         The element is hidden as long as the sidebar is open.
@@ -185,17 +199,10 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><code>.blue-app-header-form</code></td>
+                                    <td><code>.blue-normal-scrollbar</code></td>
                                     <td>
-                                        Can be used within <code>{`<Page.Header.Actions />`}</code> to include a form in the Action-Bar.
-                                        Can be combined with <code>.form-horizontal</code>.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.form-horizontal</code></td>
-                                    <td>
-                                        To be used together with <a href="https://getbootstrap.com/docs/4.0/components/forms/#horizontal-form">Bootstraps Solutions</a>
-                                        &nbsp;. <code>.form-horizontal</code> arranges the labels on the right on larger screens.
+                                        <span className="badge badge-primary">NEW</span> {"Normalizes elements in areas which still should not have the theme colors for their scrollbars. "}
+                                        <NormalScrollbarDemo />
                                     </td>
                                 </tr>
                                 <tr>
@@ -207,15 +214,16 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><code>.form-switch</code></td>
+                                    <td><code>.form-horizontal</code></td>
                                     <td>
-                                        Switch-Control. Usage: <code>&lt;label className="form-switch"&gt;&lt;input type="checkbox" /&gt;&lt;i /&lt; Do it!&lt;/label&gt;</code>
+                                        To be used together with <a href="https://getbootstrap.com/docs/4.0/components/forms/#horizontal-form">Bootstraps Solutions</a>
+                                        &nbsp;. <code>.form-horizontal</code> arranges the labels on the right on larger screens.
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><code>.blue-app-sidebar-bottom</code></td>
+                                    <td><code>.form-switch</code></td>
                                     <td>
-                                        With Sidebar Bottom, for example, a registered user can be displayed at the bottom left. Usable within <code>&lt;SidebarMenu /&gt;</code>.
+                                        Switch-Control. Usage: <code>&lt;label className="form-switch"&gt;&lt;input type="checkbox" /&gt;&lt;i /&lt; Do it!&lt;/label&gt;</code>
                                     </td>
                                 </tr>
                                 <tr>
