@@ -1,4 +1,7 @@
 @import "./theme";
+
+@import "./styles/use-css-variables";
+@import "./styles/docs-themes";
 @import "../../dist/style.scss";
 
 @import "~highlight.js/styles/github.css";

@@ -1,0 +1,137 @@
+
+/* Overwrite  */
+@function str-remove-whitespace($str) {
+  @while (str-index($str, ' ') != null) {
+    $index: str-index($str, ' ');
+    $str: "#{str-slice($str, 0, $index - 1)}#{str-slice($str, $index + 1)}";
+  }
+  @return $str;
+}
+
+@function str-split($string, $separator) {
+  // empty array/list
+  $split-arr: ();
+  // first index of separator in string
+  $index : str-index($string, $separator);
+  // loop through string
+  @while $index != null {
+    // get the substring from the first character to the separator
+    $item: str-slice($string, 1, $index - 1);
+    // push item to array
+    $split-arr: append($split-arr, $item);
+    // remove item and separator from string
+    $string: str-slice($string, $index + 1);
+    // find new index of separator
+    $index : str-index($string, $separator);
+  }
+  // add the remaining string to list (the last item)
+  $split-arr: append($split-arr, $string);
+
+  @return $split-arr;
+}
+
+@function get-css-var($var1) {
+  $var1string: str-remove-whitespace(quote($var1));
+
+  @if (str-index($string: $var1string, $substring: "var(--") == 1) {
+    $color-var: unquote(str-slice($var1string, 5, str-length($var1string) - 1));
+    @return $color-var;
+  }
+
+  @if (str-index($string: $var1string, $substring: "hsla(var(--") == 1) {
+
+    $splitted: str-split($var1string, ",");
+    $var1string: nth($splitted, 2);
+
+    $alpha: nth($splitted, 4);
+    $alpha: str-slice($alpha, 0, str-length($alpha) - 1);
+    $alpha: unquote($alpha);
+
+    $color-var: unquote(str-slice($var1string, 5, str-length($var1string) - 3));
+
+    @return $color-var, $alpha;
+  }
+
+  @return none;
+}
+
+/* Overwrite core Sass functions to make Bootstrap compile successfully when setting CSS variables for color settings */
+@function lighten($var1, $var2) {
+  $css-var-res: get-css-var($var1);
+  $color-var: nth($css-var-res, 1);
+  $length: length($css-var-res);
+
+  @if ($color-var != none) {
+    @if ($length > 1) {
+      $alpha: nth($css-var-res, 2);
+      @return hsla(var(#{$color-var}-h), var(#{$color-var}-s), calc(var(#{$color-var}-l) + #{$var2}), $alpha);
+    }
+
+    @return hsl(var(#{$color-var}-h), var(#{$color-var}-s), calc(var(#{$color-var}-l) + #{$var2}));
+  }
+
+  @return $var1;
+}
+
+@function darken($var1, $var2) {
+  $css-var-res: get-css-var($var1);
+  $color-var: nth($css-var-res, 1);
+  $length: length($css-var-res);
+
+  @if ($color-var != none) {
+    @if ($length > 1) {
+      $alpha: nth($css-var-res, 2);
+      @return hsla(var(#{$color-var}-h), var(#{$color-var}-s), calc(var(#{$color-var}-l) - #{$var2}), $alpha);
+    }
+
+    @return hsl(var(#{$color-var}-h), var(#{$color-var}-s), calc(var(#{$color-var}-l) - #{$var2}));
+  }
+
+  @return $var1;
+}
+
+@function fade-in($var1, $var2) {
+  @return $var1;
+}
+
+@function rgba($var1, $var2, $var3: 255, $var4: 1) {
+  $color-var: get-css-var($var1);
+
+  @if ($color-var != none) {
+    @return hsla(var(#{$color-var}-h), var(#{$color-var}-s), var(#{$color-var}-l), $var2);
+  }
+
+  @return $var1;
+}
+
+@function mix($var1, $var2, $var3) {
+  $color-var: get-css-var($var2);
+  @if ($color-var != none) {
+    @return hsla(var(#{$color-var}-h), var(#{$color-var}-s), var(#{$color-var}-l), 1 - ($var3 / 100%));
+  }
+
+  @return $var2;
+}
+
+@function red($var1) {
+  @return 0;
+}
+
+@function green($var1) {
+  @return 0;
+}
+
+@function blue($var1) {
+  @return 0;
+}
+
+// $blue:    hsl(211, 100%, 50%);
+// $indigo:  hsl(263, 90%, 51%);
+// $purple:  hsl(261, 51%, 51%);
+// $pink:    hsl(332, 79%, 58%);
+// $red:     hsl(354, 70%, 54%);
+// $orange:  hsl(27, 98%, 54%);
+// $yellow:  hsl(45, 100%, 51%);
+// $green:   hsl(134, 61%, 41%);
+// $teal:    hsl(162, 73%, 46%);
+// $cyan:    hsl(188, 78%, 41%);

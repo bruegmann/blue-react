@@ -1,0 +1,192 @@
+/* I took all default colors from Bootstrap and turned them to hsl format, so it's easier to manipulate the tones with CSS */
+/* The CSS variables are defined in `body` to avoid conflicts because Bootstrap already puts it's variables to `:root`. */
+body {
+  --white-h: 0;
+  --white-s: 0%;
+  --white-l: 100%;
+  --white: hsl(var(--white-h), var(--white-s), var(--white-l));
+
+  --gray-100-h: 210;
+  --gray-100-s: 17%;
+  --gray-100-l: 98%;
+  --gray-100: hsl(var(--gray-100-h), var(--gray-100-s), var(--gray-100-l));
+
+  --gray-200-h: 210;
+  --gray-200-s: 16%;
+  --gray-200-l: 93%;
+  --gray-200: hsl(var(--gray-200-h), var(--gray-200-s), var(--gray-200-l));
+
+  --gray-300-h: 210;
+  --gray-300-s: 14%;
+  --gray-300-l: 89%;
+  --gray-300: hsl(var(--gray-300-h), var(--gray-300-s), var(--gray-300-l));
+
+  --gray-400-h: 210;
+  --gray-400-s: 14%;
+  --gray-400-l: 83%;
+  --gray-400: hsl(var(--gray-400-h), var(--gray-400-s), var(--gray-400-l));
+
+  --gray-500-h: 210;
+  --gray-500-s: 11%;
+  --gray-500-l: 71%;
+  --gray-500: hsl(var(--gray-500-h), var(--gray-500-s), var(--gray-500-l));
+
+  --gray-600-h: 208;
+  --gray-600-s: 7%;
+  --gray-600-l: 46%;
+  --gray-600: hsl(var(--gray-600-h), var(--gray-600-s), var(--gray-600-l));
+
+  --gray-700-h: 210;
+  --gray-700-s: 9%;
+  --gray-700-l: 31%;
+  --gray-700: hsl(var(--gray-700-h), var(--gray-700-s), var(--gray-700-l));
+
+  --gray-800-h: 210;
+  --gray-800-s: 10%;
+  --gray-800-l: 23%;
+  --gray-800: hsl(var(--gray-800-h), var(--gray-800-s), var(--gray-800-l));
+
+  --gray-900-h: 210;
+  --gray-900-s: 11%;
+  --gray-900-l: 15%;
+  --gray-900: hsl(var(--gray-900-h), var(--gray-900-s), var(--gray-900-l));
+
+  --black-h: 0;
+  --black-s: 0%;
+  --black-l: 0%;
+  --black: hsl(var(--black-h), var(--black-s), var(--black-l));
+
+  /* --- */
+
+  --blue-h: 211;
+  --blue-s: 100%;
+  --blue-l: 50%;
+  --blue: hsl(var(--blue-h), var(--blue-s), var(--blue-l));        
+
+  --indigo-h: 263;
+  --indigo-s: 90%;
+  --indigo-l: 51%;
+  --indigo: hsl(var(--indigo-h), var(--indigo-s), var(--indigo-l));
+
+  --purple-h: 261;
+  --purple-s: 51%;
+  --purple-l: 51%;
+  --purple: hsl(var(--purple-h), var(--purple-s), var(--purple-l));
+
+  --pink-h: 332;
+  --pink-s: 79%;
+  --pink-l: 58%;
+  --pink: hsl(var(--pink-h), var(--pink-s), var(--pink-l));
+
+  --red-h: 354;
+  --red-s: 70%;
+  --red-l: 54%;
+  --red: hsl(var(--red-h), var(--red-s), var(--red-l));
+
+  --orange-h: 27;
+  --orange-s: 98%;
+  --orange-l: 54%;
+  --orange: hsl(var(--orange-h), var(--orange-s), var(--orange-l));
+
+  --yellow-h: 45;
+  --yellow-s: 100%;
+  --yellow-l: 51%;
+  --yellow: hsl(var(--yellow-h), var(--yellow-s), var(--yellow-l));
+
+  --green-h: 134;
+  --green-s: 61%;
+  --green-l: 41%;
+  --green: hsl(var(--green-h), var(--green-s), var(--green-l));
+
+  --teal-h: 162;
+  --teal-s: 73%;
+  --teal-l: 46%;
+  --teal: hsl(var(--teal-h), var(--teal-s), var(--teal-l));
+
+  --cyan-h: 188;
+  --cyan-s: 78%;
+  --cyan-l: 41%;
+  --cyan: hsl(var(--cyan-h), var(--cyan-s), var(--cyan-l));
+
+  // Custom added for Blue docs:
+  --primary-h: 253;
+  --primary-s: 100%;
+  --primary-l: 56%;
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+}
+
+/* Definition of all CSS variables for dark mode. */
+/* I wrapped it around a Sass mixin, so it's easier to apply it on different places below. */
+@mixin dark-theme() {
+  /* Actually just inverts all gray tones */
+  --white-l: 0%;
+  --gray-100: hsl(var(--gray-900-h), var(--gray-900-s), var(--gray-900-l));
+  --gray-200: hsl(var(--gray-800-h), var(--gray-800-s), var(--gray-800-l));
+  --gray-300: hsl(var(--gray-700-h), var(--gray-700-s), var(--gray-700-l));
+  --gray-400: hsl(var(--gray-600-h), var(--gray-600-s), var(--gray-600-l));
+  /* gray-500 will stay the same */
+  --gray-600: hsl(var(--gray-400-h), var(--gray-400-s), var(--gray-400-l));
+  --gray-700: hsl(var(--gray-300-h), var(--gray-300-s), var(--gray-300-l));
+  --gray-800: hsl(var(--gray-200-h), var(--gray-200-s), var(--gray-200-l));
+  --gray-900: hsl(var(--gray-100-h), var(--gray-100-s), var(--gray-100-l));
+  --black-l: 100%;
+
+  /* Add 20% lightning to each color */
+  --blue-l: 70%;
+  --indigo-l: 71%;
+  --pink-l: 78%;
+  --red-l: 74%;
+  --orange-l: 74%;
+  --yellow-l: 74%;
+  --green-l: 61%;
+  --teal-l: 66%;
+  --cyan-l: 61%;
+
+  // Custom added for Blue docs:
+  --primary-l: 66%;
+}
+
+/* This is for when the dark theme is enabled via JavaScript. */
+body.dark-theme {
+  @include dark-theme();
+}
+
+/* This is for when the user's OS has a dark mode enabled. */
+@media (prefers-color-scheme: dark) {
+  body:not(.light-theme) {
+    @include dark-theme();
+  }
+}
+
+
+/* Here the Bootstrap Sass variables will be set. */
+$white: var(--white);
+$gray-100: var(--gray-100);
+$gray-200: var(--gray-200);
+$gray-300: var(--gray-300);
+$gray-400: var(--gray-400);
+$gray-500: var(--gray-500);
+$gray-600: var(--gray-600);
+$gray-700: var(--gray-700);
+$gray-800: var(--gray-800);
+$gray-900: var(--gray-900);
+$black: var(--black);
+
+$blue: var(--blue);
+$indigo: var(--indigo);
+$purple: var(--purple);
+$pink: var(--pink);
+$red: var(--red);
+$orange: var(--orange);
+$yellow: var(--yellow);
+$green: var(--green);
+$teal: var(--teal);
+$cyan: var(--cyan);
+
+// Custom added for Blue docs:
+$primary: var(--primary);
+
+$card-border-color: hsla(var(--black-h), var(--black-s), var(--blue-l), .125);
+$card-cap-bg: hsla(var(--black-h), var(--black-s), var(--blue-l), .03);
+
+$alert-color-level: 0;

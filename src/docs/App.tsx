@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -12,7 +12,7 @@ import { HomePage } from "./pages/HomePage";
 import SidebarMenu from "../components/SidebarMenu";
 import MenuItem from "../components/MenuItem";
 
-import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, SignpostSplit } from "react-bootstrap-icons"
+import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, SignpostSplit, Lightning, PatchExclamation } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage";
 import { IntroDemoPage } from "./pages/IntroDemoPage";
@@ -26,6 +26,18 @@ import { RecipesPage } from "./pages/RecipesPage";
 const env = process.env.NODE_ENV || "development";
 
 function App() {
+    useEffect(() => {
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)")
+        prefersDarkScheme.addEventListener("change", () => {
+            document.body.classList.remove("light-theme")
+            document.body.classList.remove("dark-theme")
+        })
+
+        document.getElementById("toggle-themed")!.addEventListener("click", () => {
+            document.body.classList.toggle(prefersDarkScheme.matches ? "light-theme" : "dark-theme")
+        })
+    }, [])
+
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <Grid
@@ -46,6 +58,18 @@ function App() {
                 <SidebarMenu
                     bottomContent={
                         <>
+                            <MenuItem
+                                href="#"
+                                id="toggle-themed"
+                                icon={<Lightning />}
+                                label="Toggle theme"
+                            />
+                            <MenuItem
+                                href="https://bruegmann.github.io/bluce/"
+                                icon={<PatchExclamation />}
+                                label="Bluce"
+                                target="_blank" rel="noopener noreferrer"
+                            />
                             <MenuItem
                                 href="https://github.com/bruegmann/blue-react"
                                 icon={<CodeSquare />}
