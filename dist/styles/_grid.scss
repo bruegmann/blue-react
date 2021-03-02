@@ -142,9 +142,13 @@
     }
 }
 
+.normal-scrollbar,
+.modal-body,
 .blue-app-page {
     @include custom-scrollbar(#333, white, .3rem);
+}
 
+.blue-app-page {
     margin-left: $normal-size;
     animation: enabledBlueAppPage .5s;
 }

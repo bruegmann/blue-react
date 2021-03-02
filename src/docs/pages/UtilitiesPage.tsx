@@ -7,6 +7,7 @@ import Page from "../../components/Page";
 import Header from "../../components/Header";
 import { logo, appTitle } from "../Global";
 import Body from "../../components/Body";
+import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo";
 
 export interface UtilitiesPageProps { }
 
@@ -222,6 +223,14 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                     <td><code>.w-bla-sidebar-width</code></td>
                                     <td>
                                         Gives element the width of the sidebar, defined with <code>$bla-sidebar-width</code>.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><code>.normal-scrollbar</code></td>
+                                    <td>
+                                        {"Normalizes elements in areas which still should not have the theme colors for their scrollbars. "}
+                                        <NormalScrollbarDemo />
                                     </td>
                                 </tr>
                             </tbody>
