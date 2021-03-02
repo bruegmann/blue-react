@@ -17,7 +17,7 @@ export function NormalScrollbarDemo() {
             <Modal isOpen={showModal} toggle={toggleShowModal}>
                 <div className="m-3">
                     <div className="mb-3">
-                        <label>Area without <code>.normal-scrollbar</code></label>
+                        <label>Area without <code>.blue-normal-scrollbar</code></label>
                         <select className="form-control" multiple aria-readonly>
                             <option>one</option>
                             <option>two</option>
@@ -28,8 +28,8 @@ export function NormalScrollbarDemo() {
                         </select>
                     </div>
 
-                    <div className="normal-scrollbar mb-3">
-                        <label>Area with <code>.normal-scrollbar</code></label>
+                    <div className="blue-normal-scrollbar mb-3">
+                        <label>Area with <code>.blue-normal-scrollbar</code></label>
                         <select className="form-control" multiple aria-readonly>
                             <option>one</option>
                             <option>two</option>
@@ -41,11 +41,11 @@ export function NormalScrollbarDemo() {
                     </div>
 
                     <div className="alert alert-info">
-                        Make sure to put <code>.normal-scrollbar</code> to an parent element and not directly to the element with the overflow.
+                        Make sure to put <code>.blue-normal-scrollbar</code> to an parent element and not directly to the element with the overflow.
                     </div>
 
                     <div className="alert alert-info">
-                        Bootstrap modals with <code>.modal-body</code> already have the rules of <code>.normal-scrollbar</code>,
+                        Bootstrap modals with <code>.modal-body</code> already have the rules of <code>.blue-normal-scrollbar</code>,
                         so you don't have to put the class name there yourself.
                     </div>
                 </div>

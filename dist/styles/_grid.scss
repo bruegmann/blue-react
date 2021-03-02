@@ -142,7 +142,7 @@
     }
 }
 
-.normal-scrollbar,
+.blue-normal-scrollbar,
 .modal-body,
 .blue-app-page {
     @include custom-scrollbar($body-color, $body-bg, .3rem);
