@@ -206,6 +206,18 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td><code>.btn-black</code>, <code>.btn-outline-black</code></td>
+                                    <td>
+                                        Additionally Bootstrap theme variable "black" for always black buttons.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>.btn-white</code>, <code>.btn-outline-white</code></td>
+                                    <td>
+                                        Additionally Bootstrap theme variable "white" for always white buttons.
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td><code>.form-control.underlined</code></td>
                                     <td>
                                         <span>Use underlined look for controls instead of the Bootstrap default.</span>
