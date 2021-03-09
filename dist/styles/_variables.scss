@@ -15,7 +15,9 @@ $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
   (
-    "theme":    $theme
+    "theme":    $theme,
+    "white": white,
+    "black": #212529
   ),
   $theme-colors
 );
