@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/blue-react/static/css/main.ba2e87e2.chunk.css",
-    "main.js": "/blue-react/static/js/main.2956dbac.chunk.js",
-    "main.js.map": "/blue-react/static/js/main.2956dbac.chunk.js.map",
+    "main.css": "/blue-react/static/css/main.79eb3c7d.chunk.css",
+    "main.js": "/blue-react/static/js/main.e117bb11.chunk.js",
+    "main.js.map": "/blue-react/static/js/main.e117bb11.chunk.js.map",
     "runtime-main.js": "/blue-react/static/js/runtime-main.7d9a63dc.js",
     "runtime-main.js.map": "/blue-react/static/js/runtime-main.7d9a63dc.js.map",
     "static/css/2.a55bcd37.chunk.css": "/blue-react/static/css/2.a55bcd37.chunk.css",
     "static/js/2.2a9b802a.chunk.js": "/blue-react/static/js/2.2a9b802a.chunk.js",
     "static/js/2.2a9b802a.chunk.js.map": "/blue-react/static/js/2.2a9b802a.chunk.js.map",
     "index.html": "/blue-react/index.html",
-    "precache-manifest.9ef448c405664f8003e599a191f200c8.js": "/blue-react/precache-manifest.9ef448c405664f8003e599a191f200c8.js",
+    "precache-manifest.ef811aaaf42d383077b12558951c87fb.js": "/blue-react/precache-manifest.ef811aaaf42d383077b12558951c87fb.js",
     "service-worker.js": "/blue-react/service-worker.js",
     "static/css/2.a55bcd37.chunk.css.map": "/blue-react/static/css/2.a55bcd37.chunk.css.map",
-    "static/css/main.ba2e87e2.chunk.css.map": "/blue-react/static/css/main.ba2e87e2.chunk.css.map",
+    "static/css/main.79eb3c7d.chunk.css.map": "/blue-react/static/css/main.79eb3c7d.chunk.css.map",
     "static/js/2.2a9b802a.chunk.js.LICENSE.txt": "/blue-react/static/js/2.2a9b802a.chunk.js.LICENSE.txt",
     "static/media/blue.svg": "/blue-react/static/media/blue.beeb7a76.svg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.7d9a63dc.js",
     "static/css/2.a55bcd37.chunk.css",
     "static/js/2.2a9b802a.chunk.js",
-    "static/css/main.ba2e87e2.chunk.css",
-    "static/js/main.2956dbac.chunk.js"
+    "static/css/main.79eb3c7d.chunk.css",
+    "static/js/main.e117bb11.chunk.js"
   ]
 }
