@@ -118,7 +118,7 @@
         .blue-app-menu {
             overflow-y: auto;
             flex: 1;
-            @include scroll-shadow(var(--sidebar-bg));
+            @include scroll-shadow(var(--sidebar-bg), $sidebar-bg);
         }
 
         &:hover {
