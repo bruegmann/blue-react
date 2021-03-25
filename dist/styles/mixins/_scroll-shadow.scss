@@ -1,7 +1,7 @@
-@mixin scroll-shadow($bg) {
+@mixin scroll-shadow($bg, $light-base: white) {
     background:
-        linear-gradient($bg 30%, hsla(0,0%,100%, 0)),
-        linear-gradient(hsla(0,0%,100%,0) 10px, $bg 70%) bottom,
+        linear-gradient($bg 30%, rgba($light-base,0)),
+        linear-gradient(rgba($light-base,0) 10px, $bg 70%) bottom,
         radial-gradient(at top, rgba(0,0,0,0.2), transparent 70%), 
         radial-gradient(at bottom, rgba(0,0,0,0.2), transparent 70%) bottom;
     background-repeat:no-repeat;
