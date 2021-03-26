@@ -55,6 +55,9 @@ export interface IMenuItemProps {
      * Defines dropdown status from outside.
      */
     showDropdown: boolean;
+
+    target?: string;
+    rel?: string;
 }
 
 /**
