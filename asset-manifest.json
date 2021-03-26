@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/blue-react/static/css/main.3e95d5c2.chunk.css",
-    "main.js": "/blue-react/static/js/main.70c8d8bf.chunk.js",
-    "main.js.map": "/blue-react/static/js/main.70c8d8bf.chunk.js.map",
+    "main.js": "/blue-react/static/js/main.44e7aa82.chunk.js",
+    "main.js.map": "/blue-react/static/js/main.44e7aa82.chunk.js.map",
     "runtime-main.js": "/blue-react/static/js/runtime-main.7d9a63dc.js",
     "runtime-main.js.map": "/blue-react/static/js/runtime-main.7d9a63dc.js.map",
     "static/css/2.a55bcd37.chunk.css": "/blue-react/static/css/2.a55bcd37.chunk.css",
     "static/js/2.2a9b802a.chunk.js": "/blue-react/static/js/2.2a9b802a.chunk.js",
     "static/js/2.2a9b802a.chunk.js.map": "/blue-react/static/js/2.2a9b802a.chunk.js.map",
     "index.html": "/blue-react/index.html",
-    "precache-manifest.14d8f746b978a37cfa4279b228fc28f7.js": "/blue-react/precache-manifest.14d8f746b978a37cfa4279b228fc28f7.js",
+    "precache-manifest.90f5f8e977b6059b002da82796470f46.js": "/blue-react/precache-manifest.90f5f8e977b6059b002da82796470f46.js",
     "service-worker.js": "/blue-react/service-worker.js",
     "static/css/2.a55bcd37.chunk.css.map": "/blue-react/static/css/2.a55bcd37.chunk.css.map",
     "static/css/main.3e95d5c2.chunk.css.map": "/blue-react/static/css/main.3e95d5c2.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.a55bcd37.chunk.css",
     "static/js/2.2a9b802a.chunk.js",
     "static/css/main.3e95d5c2.chunk.css",
-    "static/js/main.70c8d8bf.chunk.js"
+    "static/js/main.44e7aa82.chunk.js"
   ]
 }
