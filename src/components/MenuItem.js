@@ -102,7 +102,7 @@ class MenuItem extends React.Component {
                     className={className + (this.props.isActive || this.state.active ? " active" : "") + (this.props.label ? " has-label" : "")}
                     onClick={event => this.onClick(event)}
                 >
-                    {icon} <span className="blue-app-sidebar-label">{this.props.label}</span>
+                    {icon} <span className="blue-app-sidebar-label text-truncate">{this.props.label}</span>
                     {this.props.children &&
                         <Caret
                             open={this.state.showDropdown}
