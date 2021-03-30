@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames"
 import Header from "./Header.js";
 import Body from "./Body.js";
@@ -7,17 +7,18 @@ import PropTypes from "prop-types";
 
 function Page({ children, title }) {
     const [hasHeader, setHasHeader] = useState(false)
+    const elementRef = useRef(null)
 
     useEffect(() => {
         Utilities.registerFluentBtns()
     })
 
     useEffect(() => {
-        if (children) {
-            const childrenTypeNames = Children.map(children, (child => child?.type?.name))
-            setHasHeader(childrenTypeNames.includes("Header"))
+        if (elementRef && elementRef.current) {
+            const headerElement = elementRef.current.querySelector(".blue-app-header")
+            setHasHeader(headerElement !== null && headerElement !== undefined)
         }
-    }, [children])
+    }, [elementRef])
 
     useEffect(() => {
         if (title) {
@@ -26,7 +27,7 @@ function Page({ children, title }) {
     }, [title])
 
     return (
-        <div className={cx("blue-app-page-wrapper", { "hasHeader": hasHeader })}>
+        <div className={cx("blue-app-page-wrapper", { "hasHeader": hasHeader })} ref={elementRef}>
             {children}
         </div>
     )
