@@ -61,7 +61,12 @@ ActionMenuItem.propTypes = {
     /**
      * Label for the link.
      */
-    label: PropTypes.any
+    label: PropTypes.any,
+
+    /**
+     * Tooltip on hover.
+     */
+    title: PropTypes.string
 };
 
 export default ActionMenuItem;

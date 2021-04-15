@@ -30,6 +30,11 @@ export interface IActionMenuItemProps {
      * Label for the link.
      */
     label?: any;
+
+    /**
+     * Tooltip on hover.
+     */
+    title?: string;
 }
 
 /**
