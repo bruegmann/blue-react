@@ -50,6 +50,6 @@ declare module Utilities {
     function registerFluentBtns(): void;
 
     /** Uses native `fetch` function, but adds error handling and shows error messages if there are any. */
-    function fetchData(input: RequestInfo, init?: RequestInit | undefined): Promise<Response>;
+    function fetchData(input: RequestInfo, init?: RequestInit | undefined, showErrorDetail?: boolean | undefined): Promise<Response>;
 }
 export default Utilities;

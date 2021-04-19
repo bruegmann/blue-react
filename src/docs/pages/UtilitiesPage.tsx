@@ -116,7 +116,7 @@ const utilitiesFunctions = [
         description: "Disables the effect of Fluent buttons."
     },
     {
-        definition: "fetchData(input, init?)",
+        definition: "fetchData(input, init?, showErrorDetail? = true)",
         description: <span>Uses native <code>fetch</code> function, but adds error handling and shows error messages if there are any.</span>,
         // demo: (<Fragment>
         //     <FluentBtn className="btn btn-light"
