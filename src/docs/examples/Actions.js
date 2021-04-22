@@ -30,6 +30,7 @@ function ActionsExample() {
                     src={`${process.env.PUBLIC_URL}/example_page/${headerless ? "headerless" : ""}`}
                     className="embed-responsive-item"
                     style={style}
+                    title="Actions Demo page"
                 />
                 {
                     /**

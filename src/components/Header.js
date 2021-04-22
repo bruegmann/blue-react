@@ -1,7 +1,6 @@
 import React from "react";
 import Title from "./HeaderTitle.js";
 import Actions from "./HeaderActions.js";
-import FluentBtn from "./FluentBtn.js";
 import Utilities from "./Utilities.js";
 
 /**
