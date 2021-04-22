@@ -23,8 +23,6 @@ import HeaderTitle from "../components/HeaderTitle";
 import { appTitle, logo } from "./Global";
 import { RecipesPage } from "./pages/RecipesPage";
 
-const env = process.env.NODE_ENV || "development";
-
 function App() {
     return (
         <Router basename={process.env.PUBLIC_URL}>

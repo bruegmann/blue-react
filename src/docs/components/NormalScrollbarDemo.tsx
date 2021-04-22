@@ -5,14 +5,9 @@ export function NormalScrollbarDemo() {
     const [showModal, setShowModal] = useState<boolean>(false)
     const toggleShowModal = () => setShowModal(!showModal)
 
-    const onClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        event.preventDefault()
-        toggleShowModal()
-    }
-
     return (
         <>
-            <a href="#" onClick={onClick}>Show demo.</a>
+            <button className="btn btn-link p-0 mb-1" onClick={toggleShowModal}>Show demo.</button>
 
             <Modal isOpen={showModal} toggle={toggleShowModal}>
                 <div className="m-3">

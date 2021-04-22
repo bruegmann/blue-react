@@ -38,10 +38,6 @@ export function Recipe({ recipe }: RecipeProps) {
         return `https://raw.githubusercontent.com/bruegmann/blue-react/master/recipes/${uri}`
     }
 
-    const transformLinkUri = ({ uri, github, org, repo, filename, filepath }: any) => {
-        console.log(uri, github, org, repo, filename, filepath)
-    }
-
     return (
         <>
             {markdown !== null ?

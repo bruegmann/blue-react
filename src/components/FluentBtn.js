@@ -19,7 +19,7 @@ class FluentBtn extends React.Component {
 
         let props = {};
 
-        Object.keys(this.props).map(key => {
+        Object.keys(this.props).forEach(key => {
             if (key !== "light") {
                 props[key] = this.props[key];
             }

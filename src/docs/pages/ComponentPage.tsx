@@ -13,7 +13,6 @@ import { appTitle } from "../Global";
 export const ComponentPage = () => {
 
     const { selectedComponent } = useParams<any>();
-    const [search, setSearch] = useState<string>("");
 
     // State of input Search value
     const [value, setValue] = useState<string>("");
