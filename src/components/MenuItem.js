@@ -17,6 +17,7 @@ class MenuItem extends React.Component {
         };
 
         this.checkActive = this.checkActive.bind(this);
+        this.onClick = this.onClick.bind(this);
 
         window.addEventListener("hashchange", event => {
             this.checkActive();
@@ -25,7 +26,7 @@ class MenuItem extends React.Component {
 
     static get defaultProps() {
         return {
-            href: "javascript:void(0)",
+            href: "#",
             isActive: false,
             dropdownClassName: "",
             showDropdown: false
@@ -43,6 +44,10 @@ class MenuItem extends React.Component {
     }
 
     onClick(event) {
+        if (this.props.href === "#") {
+            event.preventDefault();
+        }
+
         if (this.props.onClick) {
             this.props.onClick(event);
         }
@@ -100,7 +105,7 @@ class MenuItem extends React.Component {
                 <a
                     {...rest}
                     className={className + (this.props.isActive || this.state.active ? " active" : "") + (this.props.label ? " has-label" : "")}
-                    onClick={event => this.onClick(event)}
+                    onClick={this.onClick}
                 >
                     {icon} <span className="blue-app-sidebar-label text-truncate">{this.props.label}</span>
                     {this.props.children &&

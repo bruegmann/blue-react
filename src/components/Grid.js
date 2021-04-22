@@ -101,9 +101,8 @@ class Grid extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        this.eventListeners.map(eventListener => {
+        this.eventListeners.forEach(eventListener => {
             if (eventListener[0] === "componentDidUpdate") {
-                let callback = eventListener[1];
                 eventListener[1](prevProps, prevState);
             }
 

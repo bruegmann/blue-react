@@ -24,7 +24,7 @@ class Intro extends React.Component {
                 <div className="sign-in-container mx-1">
                     <div className="jumbotron">
                         <div className="text-center">
-                            <img style={{ maxWidth: this.props.logoMaxWidth }} src={this.props.logo} />
+                            <img style={{ maxWidth: this.props.logoMaxWidth }} src={this.props.logo} alt="" />
                             <h2 className="mt-4 mb-3">{this.props.title}</h2>
                         </div>
 

@@ -118,10 +118,11 @@ class Search extends React.Component {
                 {
                     this.props.sidebar &&
                     <MenuItem
-                        href="javascript:void(0)"
+                        href="#"
                         className="blue-app-search-btn"
-                        icon="bi-magnifying_glass blue-app-search-btn-icon"
-                        onClick={() => {
+                        icon={this.props.icon}
+                        onClick={(event) => {
+                            event.preventDefault();
                             this.toggleSidebar();
                             setTimeout(() => {
                                 document.querySelector(".blue-app-search-control").select();
