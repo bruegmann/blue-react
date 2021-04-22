@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import SidebarMenu from "./SidebarMenu.js";
 import Utilities from "./Utilities.js";
-import HeaderTitle from "./HeaderTitle.js";
 
 // Damit Events auch in IE funktionieren
 // require("custom-event-polyfill/custom-event-polyfill.js");
@@ -39,15 +38,15 @@ window.toggleSidebarEvent = new CustomEvent("toggleSidebar");
  * </table>
  */
 class Grid extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         window.blueGridRef = this;
 
         this.defaultMatch = ["home"];
 
         this.state = {
-            sidebarIn: false,
+            sidebarIn: props.sidebarIn,
             match: null,
             history: [],
             hash: window.location.hash
@@ -78,19 +77,14 @@ class Grid extends React.Component {
         };
     }
 
-    UNSAFE_componentWillMount() {
+    componentDidMount() {
+        const me = this;
+
         document.addEventListener("toggleSidebar", () => {
             this.toggleSidebar();
         }, false);
 
-        this.setState({ sidebarIn: this.props.sidebarIn });
-
         this.initMatch();
-    }
-
-    componentDidMount() {
-
-        const me = this;
 
         document.addEventListener("touchstart", (event) => {
             const xPos = event.touches[0].pageX;
