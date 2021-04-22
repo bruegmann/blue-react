@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "6.22.0",
+  "version": "6.22.1",
   "description": "Blue React Components",
   "license": "LGPL-3.0-or-later",
   "main": "index.js",
@@ -55,6 +55,7 @@
     "@types/react-syntax-highlighter": "^13.5.0",
     "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
+    "react": "^17.0.2",
     "react-bootstrap-icons": "^1.0.0",
     "react-docgen": "^5.3.0",
     "react-dom": "^17.0.2",
