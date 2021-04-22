@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "6.21.7",
+  "version": "6.22.0",
   "description": "Blue React Components",
   "license": "LGPL-3.0-or-later",
   "main": "index.js",
@@ -34,7 +34,9 @@
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.1"
+  },
+  "peerDependencies": {
     "react": "^17.0.2"
   },
   "devDependencies": {
