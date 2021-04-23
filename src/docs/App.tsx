@@ -22,6 +22,7 @@ import { ActionsExamplePage } from "./pages/ActionsExamplePage";
 import HeaderTitle from "../components/HeaderTitle";
 import { appTitle, logo } from "./Global";
 import { RecipesPage } from "./pages/RecipesPage";
+import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage";
 
 function App() {
     return (
@@ -86,8 +87,12 @@ function App() {
                             <IntroDemoPage />
                         </Route>
 
-                        <Route path="/example_page/:headerless?">
+                        <Route path="/actions-example/:headerless?">
                             <ActionsExamplePage />
+                        </Route>
+
+                        <Route path="/action-menu-example">
+                            <ActionMenuExamplePage />
                         </Route>
 
                         <Route path="/recipes/:active?">

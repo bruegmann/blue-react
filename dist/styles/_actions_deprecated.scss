@@ -45,6 +45,15 @@
     &.lg {
         @include actions(1200px);
     }
+
+    // Support for MenuItems
+    .blue-app-sidebar-btn {
+        width: auto;
+    }
+
+    .blue-app-sidebar-dropdown-toggle .blue-app-sidebar-label {
+        margin-right: 2rem;
+    }
 }
 
 .blue-app-actions-menu-toggle > span:first-child {

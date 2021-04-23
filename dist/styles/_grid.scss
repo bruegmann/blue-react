@@ -74,9 +74,9 @@
     @include header-bg();
 }
 
-.blue-app-grid:not(.wrapper-in) .blue-app-header {
-    overflow: hidden;
-}
+// .blue-app-grid:not(.wrapper-in) .blue-app-header {
+//     overflow: hidden;
+// }
 
 .blue-app-header {
     height: $normal-size;

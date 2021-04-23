@@ -27,7 +27,7 @@ function ActionsExample() {
             />
             <div className="embed-responsive embed-responsive-16by9" >
                 <iframe
-                    src={`${process.env.PUBLIC_URL}/example_page/${headerless ? "headerless" : ""}`}
+                    src={`${process.env.PUBLIC_URL}/actions-example/${headerless ? "headerless" : ""}`}
                     className="embed-responsive-item"
                     style={style}
                     title="Actions Demo page"
