@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import Utilities from "./Utilities.js";
 import Caret from "./Caret";
+import Outside from "./Outside";
 
 /**
  * List-Item und Link für die Sidebar.
@@ -117,9 +118,12 @@ class MenuItem extends React.Component {
                     }
                 </a>
                 {this.state.showDropdown &&
-                    <div className={"blue-app-sidebar-dropdown " + this.props.dropdownClassName}>
+                    <Outside
+                        onClickOutside={() => { this.setState({ showDropdown: false }) }}
+                        className={"blue-app-sidebar-dropdown " + this.props.dropdownClassName}
+                    >
                         {this.props.children}
-                    </div>
+                    </Outside>
                 }
             </div>
         );
