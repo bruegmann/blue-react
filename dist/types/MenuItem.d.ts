@@ -56,6 +56,11 @@ export interface IMenuItemProps {
      */
     showDropdown?: boolean;
 
+    /**
+     * Close on click outside.
+     */
+    supportOutside?: boolean
+
     target?: string;
     rel?: string;
 }

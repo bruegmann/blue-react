@@ -1,13 +1,13 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Page from "../../components/Page";
 import Body from "../../components/Body";
 import Header from "../../components/Header";
-import Actions from "../../components/Actions";
 import MenuItem from "../../components/MenuItem";
 import HeaderTitle from "../../components/HeaderTitle";
 import HeaderActions from "../../components/HeaderActions";
 import ActionMenu from "../../components/ActionMenu";
 import ActionMenuItem from "../../components/ActionMenuItem";
+import { CloudSleet, ThreeDotsVertical } from "react-bootstrap-icons";
 
 export const ActionMenuExamplePage = () => {
     return (
@@ -15,18 +15,18 @@ export const ActionMenuExamplePage = () => {
             <Header>
                 <HeaderTitle appTitle="My app with an action menu" />
 
-                <HeaderActions>
-                    <ActionMenu>
+                <HeaderActions breakpoint="lg">
+                    <ActionMenu toggleIcon={<ThreeDotsVertical />}>
                         <ActionMenuItem label="I'm a ActionMenuItem" />
 
-                        <MenuItem label="I'm a MenuItem with children">
+                        <MenuItem label="I'm a MenuItem with children" supportOutside icon={<CloudSleet />}>
                             <MenuItem label="I'm a MenuItem" />
                             <MenuItem label="Another one" />
                         </MenuItem>
                     </ActionMenu>
                 </HeaderActions>
             </Header>
-            <Body>...</Body>
+            <Body className="bg-success">...</Body>
         </Page>
     )
 }

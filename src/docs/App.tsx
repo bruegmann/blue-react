@@ -69,6 +69,10 @@ function App() {
                     <NavLink to="/recipes" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
                         <Receipt /> <span className="blue-app-sidebar-label">Recipes</span>
                     </NavLink>
+
+                    <MenuItem label="Open me">
+                        <MenuItem label="I am a sub" />
+                    </MenuItem>
                 </SidebarMenu>
 
                 <div className="router-page active">

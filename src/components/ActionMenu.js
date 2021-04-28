@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Utilities from "./Utilities.js";
-import ActionMenuItem from "./ActionMenuItem.js";
+import MenuItem from "./MenuItem.js";
 
 /**
- * <span class="badge badge-secondary">Info</span> You can also use <strong>Actions</strong> instead.<br>
+ * <span class="badge badge-info">Info</span> You can also use <strong>Actions</strong> instead.<br>
  * The Action Menu on the top right of a page. You can place Actions here which are in context of the current page.
  */
 class ActionMenu extends React.Component {
@@ -19,7 +19,8 @@ class ActionMenu extends React.Component {
 
     static get defaultProps() {
         return {
-            hideToggleAction: false
+            hideToggleAction: false,
+            toggleIcon: "bi-iconmonstr-menu-7"
         };
     }
 
@@ -56,10 +57,11 @@ class ActionMenu extends React.Component {
                 <div className="fluent-btn-ball" />
 
                 {!this.state.actionsToggledIn && !this.props.hideToggleAction ?
-                    <ActionMenuItem
-                        className="blue-app-actions-menu-toggle p-3"
+                    <MenuItem
+                        className="blue-app-actions-menu-toggle"
                         onClick={() => this.toggleActions()}
-                        icon={this.state.actionsToggledIn ? "bi-navigate_cross" : "bi-iconmonstr-menu-7"}
+                        icon={this.props.toggleIcon}
+                        aria-label="Toggle menu"
                     />
                     : ""
                 }
@@ -75,7 +77,9 @@ ActionMenu.propTypes = {
      * Hides the three points in mobile view.
      * Can be useful when you use multiple ActionMenus, but don't want all of them have the toggle button.
      */
-    hideToggleAction: PropTypes.bool
+    hideToggleAction: PropTypes.bool,
+
+    toggleIcon: PropTypes.any
 };
 
 export default ActionMenu;

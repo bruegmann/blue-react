@@ -35,6 +35,11 @@ export interface IActionMenuItemProps {
      * Tooltip on hover.
      */
     title?: string;
+
+    /**
+     * Set `true` to use the old ActionMenuItem. Otherwise this component is just an alias to MenuItem.
+     */
+    useDeprecated?: boolean;
 }
 
 /**

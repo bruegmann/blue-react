@@ -1,9 +1,9 @@
 import React from "react";
 
 export interface OutsideProps {
-    children: PropTypes.element.isRequired;
-    className: PropTypes.string;
-    onClickOutside: PropTypes.func.isRequired;
+    children: any;
+    className?: string;
+    onClickOutside?: (event: MouseEvent) => void;
 }
 
 export declare function useOutside(ref, callback);
