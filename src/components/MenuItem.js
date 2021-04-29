@@ -1,8 +1,9 @@
-import React from "react";
+import React, { createElement } from "react";
 import PropTypes from "prop-types";
 
 import Utilities from "./Utilities.js";
 import Caret from "./Caret";
+import Outside from "./Outside";
 
 /**
  * List-Item und Link für die Sidebar.
@@ -18,6 +19,7 @@ class MenuItem extends React.Component {
 
         this.checkActive = this.checkActive.bind(this);
         this.onClick = this.onClick.bind(this);
+        this.onClickOutside = this.onClickOutside.bind(this);
 
         window.addEventListener("hashchange", event => {
             this.checkActive();
@@ -29,7 +31,8 @@ class MenuItem extends React.Component {
             href: "#",
             isActive: false,
             dropdownClassName: "",
-            showDropdown: false
+            showDropdown: false,
+            supportOutside: false
         };
     }
 
@@ -67,6 +70,14 @@ class MenuItem extends React.Component {
             this.setState({
                 active: (window.location.hash.indexOf(this.props.href) > -1) || (this.props.isHome && (window.location.hash === "" || window.location.hash === "#/") ? true : false)
             });
+        }
+    }
+
+    onClickOutside({ target }) {
+        // Don't trigger when clicking on MenuItem
+        if (!Utilities.hasClass(target, "blue-app-sidebar-dropdown-toggle") &&
+            !Utilities.hasClass(target, "blue-app-sidebar-label")) {
+            this.setState({ showDropdown: false })
         }
     }
 
@@ -116,10 +127,17 @@ class MenuItem extends React.Component {
                         />
                     }
                 </a>
-                {this.state.showDropdown &&
-                    <div className={"blue-app-sidebar-dropdown " + this.props.dropdownClassName}>
-                        {this.props.children}
-                    </div>
+
+                {
+                    this.state.showDropdown &&
+                    createElement(
+                        this.props.supportOutside ? Outside : "div",
+                        {
+                            onClickOutside: this.props.supportOutside ? this.onClickOutside : undefined,
+                            className: "blue-app-sidebar-dropdown " + this.props.dropdownClassName
+                        },
+                        this.props.children
+                    )
                 }
             </div>
         );
@@ -175,7 +193,12 @@ MenuItem.propTypes = {
     /**
      * Defines dropdown status from outside.
      */
-    showDropdown: PropTypes.bool
+    showDropdown: PropTypes.bool,
+
+    /**
+     * Close on click outside.
+     */
+    supportOutside: PropTypes.bool
 };
 
 export default MenuItem;

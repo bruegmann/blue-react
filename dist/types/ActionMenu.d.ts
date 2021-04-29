@@ -7,7 +7,12 @@ export interface IActionMenuProps {
      */
     hideToggleAction?: boolean;
 
-    children?: any
+    children?: any;
+
+    /**
+     * Icon component for the toggle icon.
+     */
+    toggleIcon?: any;
 }
 
 /**

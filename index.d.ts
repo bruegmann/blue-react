@@ -47,6 +47,9 @@ export { IIntroProps } from "./dist/types/Intro";
 export { default as MenuItem } from "./dist/types/MenuItem";
 export { IMenuItemProps } from "./dist/types/MenuItem";
 
+export { default as Outside } from "./dist/types/Outside";
+export { OutsideProps } from "./dist/types/Outside";
+
 export { default as Page } from "./dist/types/Page";
 export { IPageProps } from "./dist/types/Page";
 

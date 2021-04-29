@@ -1,3 +1,12 @@
+@mixin show-action-menu-again() {
+    max-height: initial;
+    overflow: initial;
+
+    .blue-app-actions-menu { 
+        max-width: initial;
+    }
+}
+
 @mixin actions($breakpoint) {
     @media screen and (max-width: $breakpoint + 1px) {
         &.open {
@@ -12,6 +21,8 @@
             top: 0;
             box-shadow: .6rem 6rem 6rem rgba(0,0,0,.3);
             animation: fadeInDown 0.5s;
+
+            @include show-action-menu-again();
                 
             .navbar-nav {
                 display: flex;
@@ -35,6 +46,12 @@
                 width: 100%;
                 margin-bottom: .4rem;
             }
+
+            .blue-app-actions-menu {
+                .blue-app-sidebar-dropdown {
+                    --sidebar-bg: #{darken($theme, 34%)};
+                }
+            }
         }
 
         .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
@@ -43,6 +60,8 @@
     }
 
     @media screen and (min-width: $breakpoint) {
+        @include show-action-menu-again();
+
         .blue-app-actions-menu .blue-app-actions-label {
             display: inline;
         }

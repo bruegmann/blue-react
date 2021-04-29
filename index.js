@@ -12,6 +12,7 @@ exports.HeaderActions = require("./dist/components/HeaderActions.js")["default"]
 exports.HeaderTitle = require("./dist/components/HeaderTitle.js")["default"];
 exports.Intro = require("./dist/components/Intro.js")["default"];
 exports.MenuItem = require("./dist/components/MenuItem.js")["default"];
+exports.Outside = require("./dist/components/Outside.js")["default"];
 exports.Page = require("./dist/components/Page.js")["default"];
 exports.Search = require("./dist/components/Search.js")["default"];
 exports.SidebarMenu = require("./dist/components/SidebarMenu.js")["default"];

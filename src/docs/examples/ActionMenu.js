@@ -2,11 +2,9 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Switch from "../../components/Switch"
 
-function ActionsExample() {
+function ActionMenuExample() {
     const [isChecked, setIsChecked] = useState(false)
     const toggleIsChecked = () => setIsChecked(!isChecked)
-    const [headerless, setHeaderless] = useState(true)
-    const toggleHeaderless = () => setHeaderless(!headerless)
 
     const style = {
         width: isChecked && window.innerWidth > 600 ? "600px" : ""
@@ -20,21 +18,14 @@ function ActionsExample() {
                 onChange={toggleIsChecked}
                 sliderLabel={isChecked ? "Mobile" : "PC"}
             />
-            <Switch
-                className="lg"
-                checked={!headerless}
-                onChange={toggleHeaderless}
-                sliderLabel={"Header"}
-            />
-
 
             <p>
-                <Link to={`/actions-example/${headerless ? "headerless" : ""}`} target="_blank" rel="noopener noreferrer">Open in new tab</Link>
+                <Link to="/action-menu-example" target="_blank" rel="noopener noreferrer">Open in new tab</Link>
             </p>
 
             <div className="embed-responsive embed-responsive-16by9" >
                 <iframe
-                    src={`${process.env.PUBLIC_URL}/actions-example/${headerless ? "headerless" : ""}`}
+                    src={`${process.env.PUBLIC_URL}/action-menu-example`}
                     className="embed-responsive-item"
                     style={style}
                     title="Actions Demo page"
@@ -45,7 +36,7 @@ function ActionsExample() {
                     import React from "react";
                     import {Page, Body, Header, Actions, MenuItem} from "blue-react";
                     
-                    export const ActionsExamplePage = () => {
+                    export const ActionMenuExamplePage = () => {
                         return (
                             <Page hasActions={true}>
                                 <Header>
@@ -95,4 +86,4 @@ function ActionsExample() {
     )
 }
 
-export default ActionsExample;
+export default ActionMenuExample;

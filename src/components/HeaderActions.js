@@ -10,13 +10,13 @@ class HeaderActions extends React.Component {
     static get defaultProps() {
         return {
             className: "",
-            breakpoint: "sm"
+            breakpoint: "lg"
         }
     }
 
     render() {
         return (
-            <div className={`blue-app-actions navbar navbar-expand-lg ${this.props.className} ${this.props.breakpoint}`}>
+            <div className={`blue-app-actions navbar ${this.props.className} navbar-expand-${this.props.breakpoint} ${this.props.breakpoint}`}>
                 <div className="ui-header-wrapper" onClick={() => Utilities.scrollToTop()} />
 
                 {this.props.children}

@@ -19,6 +19,13 @@
     right: 0;
     top: 0;
     padding: 0;
+    max-height: $normal-size;
+    overflow: hidden;
+
+    .blue-app-actions-menu {
+        max-width: $normal-size;
+    }
+
 
     &.open {
         left: -48px;
@@ -45,10 +52,28 @@
     &.lg {
         @include actions(1200px);
     }
+
+    // Support for MenuItems
+    .blue-app-sidebar-btn {
+        width: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .blue-app-sidebar-dropdown-toggle .blue-app-sidebar-label {
+        margin-right: 2rem;
+    }
+
+    .blue-app-sidebar-label,
+    .blue-app-sidebar-dropdown-caret.caret {
+        display: initial;
+    }
 }
 
-.blue-app-actions-menu-toggle > span:first-child {
-    transform: rotate(90deg);
+.blue-app-actions-menu-toggle {
+    & > span:first-child {
+        transform: rotate(90deg);
+    }
 }
 
 .blue-app-actions-menu-item {
