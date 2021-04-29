@@ -46,6 +46,12 @@
                 width: 100%;
                 margin-bottom: .4rem;
             }
+
+            .blue-app-actions-menu {
+                .blue-app-sidebar-dropdown {
+                    --sidebar-bg: #{darken($theme, 34%)};
+                }
+            }
         }
 
         .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {

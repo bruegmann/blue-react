@@ -26,7 +26,7 @@ export const ActionMenuExamplePage = () => {
                     </ActionMenu>
                 </HeaderActions>
             </Header>
-            <Body className="bg-success">...</Body>
+            <Body className="bg-light">...</Body>
         </Page>
     )
 }

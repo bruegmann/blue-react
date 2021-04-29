@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import MenuItem from "./MenuItem";
 
 /**
- * <span class="badge badge-secondary">Info</span> This is just an alias for <code>MenuItem</code>, so you should use that component instead.
- * If you need the older <code>ActionMenuItem</code>, make sure to the prop <code>useDeprecated</code>.
+ * @deprecated This is only an alias to MenuItem, please use MenuItem instead.
+ * <span class="badge badge-warning">Deprecated</span> This is just an alias for <code>MenuItem</code>, so you should use that component instead.
+ * If you need the older <code>ActionMenuItem</code>, make sure to the prop <code>useDeprecated</code>.<br/>
  * List Item and Link for the current Action Menu.
  */
 class ActionMenuItem extends React.Component {
@@ -78,7 +79,7 @@ ActionMenuItem.propTypes = {
     title: PropTypes.string,
 
     /**
-     * Set `true` to use the old ActionMenuItem. Otherwise this component is just an alias to MenuItem.
+     * Set <code>true</code> to use the old ActionMenuItem. Otherwise this component is just an alias to <code>MenuItem</code>.
      */
     useDeprecated: PropTypes.bool
 };
