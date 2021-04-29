@@ -79,6 +79,9 @@ ActionMenu.propTypes = {
      */
     hideToggleAction: PropTypes.bool,
 
+    /**
+     * Icon component for the toggle icon.
+     */
     toggleIcon: PropTypes.any
 };
 
