@@ -207,7 +207,7 @@ MenuItem.propTypes = {
     supportOutside: PropTypes.bool,
 
     /**
-     * By default, MenuItem is a <code>"button"</button>. If you set a <code>href</code>, it's a <code>"a"</code>.
+     * By default, MenuItem is a <code>"button"</code>. If you set a <code>href</code>, it's a <code>"a"</code>.
      * If you want to have it another type, you can pass a component reference with this prop (e.g. <code>Link</code>).
      */
     elementType: PropTypes.any
