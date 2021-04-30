@@ -54,25 +54,11 @@ function App() {
                         </>
                     }
                 >
-                    <NavLink to="/" exact className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
-                        <House /> <span className="blue-app-sidebar-label">Start</span>
-                    </NavLink>
-                    <NavLink to="/introduction" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
-                        <SignpostSplit /> <span className="blue-app-sidebar-label">Introduction</span>
-                    </NavLink>
-                    <NavLink to="/utilities" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
-                        <Tools /> <span className="blue-app-sidebar-label">Utilities</span>
-                    </NavLink>
-                    <NavLink to="/component" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
-                        <Puzzle /> <span className="blue-app-sidebar-label">React Components</span>
-                    </NavLink>
-                    <NavLink to="/recipes" className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
-                        <Receipt /> <span className="blue-app-sidebar-label">Recipes</span>
-                    </NavLink>
-
-                    <MenuItem label="Open me">
-                        <MenuItem label="I am a sub" />
-                    </MenuItem>
+                    <MenuItem icon={<House />} label="Start" elementType={NavLink} exact to="/" />
+                    <MenuItem icon={<SignpostSplit />} label="Introduction" elementType={NavLink} to="/introduction" />
+                    <MenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
+                    <MenuItem icon={<Puzzle />} label="React Components" elementType={NavLink} to="/component" />
+                    <MenuItem icon={<Receipt />} label="Recipes" elementType={NavLink} to="/recipes" />
                 </SidebarMenu>
 
                 <div className="router-page active">
