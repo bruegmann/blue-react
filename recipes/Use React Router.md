@@ -90,7 +90,8 @@ export default App
             >
             {/* ... */}
 ```
-5. Replace the `MenuItem` components in `SidebarMenu` with `NavLink` from React Router.\
+5. Change the `MenuItem`, so it can use the the `NavLink` component from React Router for the link.
+
 **Replace:**
 ```jsx
                 <SidebarMenu>
@@ -100,9 +101,7 @@ export default App
 **with:**
 ```jsx
                 <SidebarMenu>
-                    <NavLink to="/" exact className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
-                        <House /> <span className="blue-app-sidebar-label">Home</span>
-                    </NavLink>
+                    <MenuItem icon={<House />} label="Home" elementType={NavLink} exact to="/" />
                 </SidebarMenu>
 ```
 
@@ -137,9 +136,7 @@ function App() {
                 }}
             >
                 <SidebarMenu>
-                    <NavLink to="/" exact className="blue-app-toggle-page blue-app-sidebar-btn btn" activeClassName="active">
-                        <House /> <span className="blue-app-sidebar-label">Home</span>
-                    </NavLink>
+                    <MenuItem icon={<House />} label="Home" elementType={NavLink} exact to="/" />
                 </SidebarMenu>
 
                 <div className="router-page active">

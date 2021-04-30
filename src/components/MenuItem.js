@@ -28,7 +28,7 @@ class MenuItem extends React.Component {
 
     static get defaultProps() {
         return {
-            href: "#",
+            href: undefined,
             isActive: false,
             dropdownClassName: "",
             showDropdown: false,
@@ -102,8 +102,10 @@ class MenuItem extends React.Component {
             id: "blue-action-menu-item-" + Utilities.guid()
         };
 
-        Object.keys(this.props).map(key => {
-            if (key !== "isActive" && key !== "isHome" && key !== "children" && key !== "dropdownClassName") {
+        const removeFromAttrs = ["isActive", "isHome", "children", "dropdownClassName", "showDropdown", "supportOutside", "elementType"];
+
+        Object.keys(this.props).forEach(key => {
+            if (!removeFromAttrs.includes(key)) {
                 props[key] = this.props[key];
             }
         });
@@ -113,20 +115,24 @@ class MenuItem extends React.Component {
 
         return (
             <div>
-                <a
-                    {...rest}
-                    className={className + (this.props.isActive || this.state.active ? " active" : "") + (this.props.label ? " has-label" : "")}
-                    onClick={this.onClick}
-                >
-                    {icon} <span className="blue-app-sidebar-label text-truncate">{this.props.label}</span>
-                    {this.props.children &&
-                        <Caret
-                            open={this.state.showDropdown}
-                            mirrored
-                            className="blue-app-sidebar-dropdown-caret mt-2"
-                        />
-                    }
-                </a>
+                {createElement(
+                    this.props.elementType || (this.props.href ? "a" : "button"),
+                    {
+                        ...rest,
+                        className: className + (this.props.isActive || this.state.active ? " active" : "") + (this.props.label ? " has-label" : ""),
+                        onClick: this.onClick
+                    },
+                    <>
+                        {icon} {this.props.label && <span className="blue-app-sidebar-label text-truncate">{this.props.label}</span>}
+                        {this.props.children &&
+                            <Caret
+                                open={this.state.showDropdown}
+                                mirrored
+                                className="blue-app-sidebar-dropdown-caret mt-2"
+                            />
+                        }
+                    </>
+                )}
 
                 {
                     this.state.showDropdown &&
@@ -198,7 +204,13 @@ MenuItem.propTypes = {
     /**
      * Close on click outside.
      */
-    supportOutside: PropTypes.bool
+    supportOutside: PropTypes.bool,
+
+    /**
+     * By default, MenuItem is a <code>"button"</button>. If you set a <code>href</code>, it's a <code>"a"</code>.
+     * If you want to have it another type, you can pass a component reference with this prop (e.g. <code>Link</code>).
+     */
+    elementType: PropTypes.any
 };
 
 export default MenuItem;
