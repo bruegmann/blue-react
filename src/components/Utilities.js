@@ -133,7 +133,7 @@ let Utilities = {
     },
 
     unregisterFluentBtns: null,
-    registerFluentBtns: null
+    registerFluentBtns: () => { }
 };
 
 Utilities.unregisterFluentBtns = () => {

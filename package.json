@@ -5,11 +5,6 @@
   "license": "LGPL-3.0-or-later",
   "main": "index.js",
   "types": "index.d.ts",
-  "files": [
-    "dist",
-    "index.js",
-    "index.d.ts"
-  ],
   "homepage": "https://bruegmann.github.io/blue-react",
   "repository": {
     "type": "git",
@@ -21,8 +16,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build-docs": "react-scripts build && npm run docgen",
-    "build": "babel ./src/components --out-dir ./dist/components & node-sass ./dist/style.scss ./dist/style.css",
-    "build-release": "npm run build && npm run docgen",
+    "build-types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
+    "build": "babel ./src/components --out-dir ./dist/components --extensions \".tsx,.js\" --source-maps inline",
+    "build-css": "node-sass ./dist/style.scss ./dist/style.css",
+    "build-release": "npm run build && npm run build-css && npm run docgen",
     "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js && node followUpDocs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -43,6 +40,7 @@
     "@babel/cli": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.9.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
