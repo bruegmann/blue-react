@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Utilities from "./Utilities.js";
-import MenuItem from "./MenuItem.js";
+import MenuItem from "./MenuItem";
 
 /**
  * <span class="badge badge-info">Info</span> You can also use <strong>Actions</strong> instead.<br>
