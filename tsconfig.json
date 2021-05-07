@@ -18,7 +18,7 @@
     "isolatedModules": true,
     "jsx": "react",
     "declaration": true,
-    "emitDeclarationOnly": true
+    "noEmit": true
   },
   "include": [
     "src"
