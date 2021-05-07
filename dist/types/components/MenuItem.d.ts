@@ -54,5 +54,8 @@ export interface MenuItemProps {
     target?: string;
     rel?: string;
 }
+/**
+ * Link, button or custom component for Sidebar, Actions or ActionMenu
+ */
 declare function MenuItem(props: MenuItemProps): JSX.Element;
 export default MenuItem;

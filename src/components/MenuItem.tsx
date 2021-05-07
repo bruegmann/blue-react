@@ -72,6 +72,9 @@ export interface MenuItemProps {
     rel?: string
 }
 
+/**
+ * Link, button or custom component for Sidebar, Actions or ActionMenu
+ */
 function MenuItem(props: MenuItemProps) {
     const [showDropdown, setShowDropdown] = useState<boolean>(false)
     const [active, setActive] = useState<boolean>(false)

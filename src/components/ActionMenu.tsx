@@ -16,6 +16,10 @@ export interface ActionMenuProps {
     toggleIcon?: any
 }
 
+/**
+ * <span class="badge badge-info">Info</span> You can also use <strong>Actions</strong> instead.<br>
+ * The Action Menu on the top right of a page. You can place Actions here which are in context of the current page.
+ */
 function ActionMenu({ hideToggleAction, children, toggleIcon = "bi-iconmonstr-menu-7" }: ActionMenuProps) {
     const [actionsToggledIn, setActionsToggledIn] = useState<boolean>(false)
 
