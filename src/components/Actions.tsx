@@ -60,7 +60,7 @@ function expandSection(element: HTMLElement) {
     element.setAttribute("data-collapsed", "false")
 }
 
-function Actions(props: ActionsProps) {
+export default function Actions(props: ActionsProps) {
     const [open, setOpen] = useState<boolean>(props.open || false)
     const id = `Actions-${Utilities.guid()}`
 
@@ -108,5 +108,3 @@ function Actions(props: ActionsProps) {
         </div>
     )
 }
-
-export default Actions

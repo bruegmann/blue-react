@@ -26,7 +26,7 @@ export interface IntroProps {
 /**
  * Can be used for a sign-in page.
  */
-function Intro({ logo, logoMaxWidth = "100px", title, children }: IntroProps) {
+export default function Intro({ logo, logoMaxWidth = "100px", title, children }: IntroProps) {
     useEffect(() => {
         Utilities.registerFluentBtns()
     }, [])
@@ -46,5 +46,3 @@ function Intro({ logo, logoMaxWidth = "100px", title, children }: IntroProps) {
         </div>
     )
 }
-
-export default Intro

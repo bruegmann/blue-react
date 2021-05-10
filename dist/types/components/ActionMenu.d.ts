@@ -14,5 +14,4 @@ export interface ActionMenuProps {
  * <span class="badge badge-info">Info</span> You can also use <strong>Actions</strong> instead.<br>
  * The Action Menu on the top right of a page. You can place Actions here which are in context of the current page.
  */
-declare function ActionMenu({ hideToggleAction, children, toggleIcon }: ActionMenuProps): JSX.Element;
-export default ActionMenu;
+export default function ActionMenu({ hideToggleAction, children, toggleIcon }: ActionMenuProps): JSX.Element;

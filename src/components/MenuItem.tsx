@@ -75,7 +75,7 @@ export interface MenuItemProps {
 /**
  * Link, button or custom component for Sidebar, Actions or ActionMenu
  */
-function MenuItem(props: MenuItemProps) {
+export default function MenuItem(props: MenuItemProps) {
     const [showDropdown, setShowDropdown] = useState<boolean>(false)
     const [active, setActive] = useState<boolean>(false)
 
@@ -180,5 +180,3 @@ function MenuItem(props: MenuItemProps) {
         </div>
     )
 }
-
-export default MenuItem

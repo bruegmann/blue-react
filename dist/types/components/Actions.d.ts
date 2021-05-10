@@ -25,5 +25,4 @@ export interface ActionsProps {
     onToggle?: (open: boolean) => void;
     break?: breakOption;
 }
-declare function Actions(props: ActionsProps): JSX.Element;
-export default Actions;
+export default function Actions(props: ActionsProps): JSX.Element;

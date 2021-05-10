@@ -57,5 +57,4 @@ export interface MenuItemProps {
 /**
  * Link, button or custom component for Sidebar, Actions or ActionMenu
  */
-declare function MenuItem(props: MenuItemProps): JSX.Element;
-export default MenuItem;
+export default function MenuItem(props: MenuItemProps): JSX.Element;

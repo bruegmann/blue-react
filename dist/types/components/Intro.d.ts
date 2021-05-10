@@ -20,5 +20,4 @@ export interface IntroProps {
 /**
  * Can be used for a sign-in page.
  */
-declare function Intro({ logo, logoMaxWidth, title, children }: IntroProps): JSX.Element;
-export default Intro;
+export default function Intro({ logo, logoMaxWidth, title, children }: IntroProps): JSX.Element;
