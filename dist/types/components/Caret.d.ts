@@ -1,22 +1,16 @@
-export default Caret;
+/// <reference types="react" />
+export interface CaretProps {
+    /**
+     * Indicates if open or not.
+     */
+    open?: boolean;
+    /**
+     * By default the caret points to the right when closed. Set mirrored and it will point to the left.
+     */
+    mirrored?: boolean;
+    className?: string;
+}
 /**
  * Caret icon component.
  */
-declare class Caret extends React.Component<any, any, any> {
-    static get defaultProps(): {
-        open: boolean;
-        mirrored: boolean;
-        className: string;
-    };
-    constructor(props: any);
-    constructor(props: any, context: any);
-}
-declare namespace Caret {
-    export namespace propTypes {
-        export const open: PropTypes.Requireable<boolean>;
-        export const mirrored: PropTypes.Requireable<boolean>;
-        export const className: PropTypes.Requireable<string>;
-    }
-}
-import React from "react";
-import PropTypes from "prop-types";
+export default function Caret({ open, mirrored, className }: CaretProps): JSX.Element;
