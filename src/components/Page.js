@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames"
 import Header from "./Header.js";
-import Body from "./Body.js";
+import Body from "./Body";
 import Utilities from "./Utilities.js";
 import PropTypes from "prop-types";
 

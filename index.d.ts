@@ -21,7 +21,7 @@ export { default as Actions } from "./dist/types/components/Actions";
 export { ActionsProps } from "./dist/types/components/Actions";
 
 export { default as Body } from "./dist/types/components/Body";
-export { IBodyProps } from "./dist/types/components/Body";
+export { BodyProps } from "./dist/types/components/Body";
 
 export { default as Caret } from "./dist/types/components/Caret";
 export { ICaretProps } from "./dist/types/components/Caret";
