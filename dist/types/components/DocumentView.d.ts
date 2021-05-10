@@ -1,22 +1,23 @@
-export default DocumentView;
+/// <reference types="react" />
+export interface DocumentViewProps {
+    /**
+     * Source of the content (URL)
+     */
+    src?: string;
+    /**
+     * Instead of a source, you can also set the content directly (HTML)
+     */
+    content?: string;
+    /**
+     * MIME type of the content (e.g. "application/pdf")
+     */
+    mimeType: string;
+    /**
+     * Label for the button to display
+     */
+    showDocumentLabel: string;
+}
 /**
  * Tries to display content in an iframe. When the content can't displayed in an iframe, it will show a download button instead.
  */
-declare class DocumentView extends React.Component<any, any, any> {
-    static get defaultProps(): {
-        src: string;
-        showDocumentLabel: string;
-    };
-    uniqueId: string;
-    supportsIframe(): boolean;
-}
-declare namespace DocumentView {
-    export namespace propTypes {
-        export const src: PropTypes.Requireable<string>;
-        export const content: PropTypes.Requireable<any>;
-        export const mimeType: PropTypes.Validator<string>;
-        export const showDocumentLabel: PropTypes.Requireable<string>;
-    }
-}
-import React from "react";
-import PropTypes from "prop-types";
+export default function DocumentView({ content, mimeType, src, showDocumentLabel }: DocumentViewProps): JSX.Element;
