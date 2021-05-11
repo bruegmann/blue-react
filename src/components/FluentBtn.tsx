@@ -24,6 +24,10 @@ export interface FluentBtnProps {
     onClick?: (e?: any) => void
 }
 
+/**
+ * Shortcut for `&lt;button class="fluent-btn"&gt;&lt;div className="fluent-btn-ball"&gt;&lt;/div&gt;&lt;/button&gt;`.
+ * Button with a fancy and fluent acrylic effect.
+ */
 export default function FluentBtn(props: FluentBtnProps) {
     const ballClassName = "fluent-btn-ball"
 
