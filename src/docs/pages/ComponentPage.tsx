@@ -218,7 +218,6 @@ export const ComponentPage = () => {
                                                     }
 
                                                 }}
-                                            type="search"
                                             value={value}
                                             className="mt-3"
                                             placeholder="Search..."

@@ -55,7 +55,7 @@ export { default as Page } from "./dist/types/components/Page";
 export { PageProps } from "./dist/types/components/Page";
 
 export { default as Search } from "./dist/types/components/Search";
-export { ISearchProps } from "./dist/types/components/Search";
+export { SearchProps } from "./dist/types/components/Search";
 
 export { default as SidebarMenu } from "./dist/types/components/SidebarMenu";
 export { ISidebarMenuProps } from "./dist/types/components/SidebarMenu";
