@@ -61,7 +61,7 @@ export { default as SidebarMenu } from "./dist/types/components/SidebarMenu";
 export { SidebarMenuProps } from "./dist/types/components/SidebarMenu";
 
 export { default as Switch } from "./dist/types/components/Switch";
-export { ISwitchProps } from "./dist/types/components/Switch";
+export { SwitchProps } from "./dist/types/components/Switch";
 
 export { default as DropdownMenuItem } from "./dist/types/components/DropdownMenuItem";
 export { IDropdownMenuItem } from "./dist/types/components/DropdownMenuItem";

@@ -1,28 +1,21 @@
-export default Switch;
+import React from "react";
+export interface SwitchProps {
+    className?: string;
+    checked?: boolean;
+    onChange?: (event: React.ChangeEvent) => void;
+    /**
+     * Sets label inside of the switch. If you set this, you should also set the className "lg" to make the switch larger.
+     */
+    sliderLabel?: string;
+    /**
+     * You can change the type of the wrapper element. If you do, the `onChange` event might not be triggered.
+     */
+    elementType?: string;
+    disabled?: boolean;
+}
 /**
  * Switch.
  */
-declare class Switch extends React.Component<any, any, any> {
-    static get defaultProps(): {
-        className: string;
-        checked: boolean;
-        onChange: () => void;
-        sliderLabel: null;
-        elementType: string;
-        disabled: boolean;
-    };
-    constructor(props: any);
-    constructor(props: any, context: any);
-}
-declare namespace Switch {
-    export namespace propTypes {
-        export const className: PropTypes.Requireable<string>;
-        export const checked: PropTypes.Requireable<boolean>;
-        export const onChange: PropTypes.Requireable<(...args: any[]) => any>;
-        export const sliderLabel: PropTypes.Requireable<string>;
-        export const elementType: PropTypes.Requireable<string>;
-        export const disabled: PropTypes.Requireable<boolean>;
-    }
-}
-import React from "react";
-import PropTypes from "prop-types";
+export default function Switch({ className, checked, onChange, sliderLabel, disabled, elementType }: SwitchProps): React.ReactElement<{
+    className: string;
+}, string | ((props: any) => React.ReactElement<any, any> | null) | (new (props: any) => React.Component<any, any, any>)>;
