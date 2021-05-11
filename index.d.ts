@@ -1,21 +1,22 @@
-import Grid from "./dist/types/components/Grid";
+declare global {
+    interface Window {
+        blueGridRef: any
+        toggleSidebarEvent: any
+    }
+}
+export default global
 
 export { default as Grid } from "./dist/types/components/Grid";
-export { IGridProps } from "./dist/types/components/Grid";
+export { GridProps } from "./dist/types/components/Grid";
 
-declare global {
-    interface Window { blueGridRef: any; }
-}
-export default global;
+
 
 export { default as ActionMenu } from "./dist/types/components/ActionMenu";
 export { ActionMenuProps } from "./dist/types/components/ActionMenu";
 
 export { default as ActionMenuItem } from "./dist/types/components/ActionMenuItem";
-export { IActionMenuItemProps } from "./dist/types/components/ActionMenuItem";
 
 export { default as ActionMenuSwitch } from "./dist/types/components/ActionMenuSwitch";
-export { IActionMenuSwitchProps } from "./dist/types/components/ActionMenuSwitch";
 
 export { default as Actions } from "./dist/types/components/Actions";
 export { ActionsProps } from "./dist/types/components/Actions";
@@ -24,13 +25,13 @@ export { default as Body } from "./dist/types/components/Body";
 export { BodyProps } from "./dist/types/components/Body";
 
 export { default as Caret } from "./dist/types/components/Caret";
-export { ICaretProps } from "./dist/types/components/Caret";
+export { CaretProps } from "./dist/types/components/Caret";
 
 export { default as DocumentView } from "./dist/types/components/DocumentView";
-export { IDocumentViewProps } from "./dist/types/components/DocumentView";
+export { DocumentViewProps } from "./dist/types/components/DocumentView";
 
 export { default as FluentBtn } from "./dist/types/components/FluentBtn";
-export { IFluentBtnProps } from "./dist/types/components/FluentBtn";
+export { FluentBtnProps } from "./dist/types/components/FluentBtn";
 
 export { default as Header } from "./dist/types/components/Header";
 export { IHeaderProps } from "./dist/types/components/Header";

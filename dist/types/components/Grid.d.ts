@@ -1,33 +1,94 @@
-export default Grid;
+import { Component, CSSProperties } from "react";
+declare global {
+    interface Window {
+        blueGridRef: any;
+        toggleSidebarEvent: any;
+    }
+}
+export interface GridProps {
+    id?: string;
+    sidebarIn?: boolean;
+    style?: CSSProperties;
+    /**
+     * Sidebar is automatically expanded on wider views.
+     */
+    expandSidebar?: boolean;
+    /**
+     * Disables sidebar.
+     */
+    hideSidebarMenu?: boolean;
+    /**
+     * Registers pages for the built-in routing system. Example: [{name: "home", component: <HomePage />}]
+     */
+    pages?: {
+        name: string;
+        component: JSX.Element;
+    }[];
+    /**
+     * When `true`, always the "home" route will be rendered.
+     */
+    unrouteable?: boolean;
+    /**
+     * Extends `className`.
+     */
+    className?: string;
+    /**
+     * By default, the document title will automatically set. Set this prop to `true` to disable this behaviour.
+     */
+    disableTitleSet?: boolean;
+    /**
+     * If you don't use blueicon, you can define another icon element for the sidebar toggle button.
+     */
+    sidebarToggleIconComponent?: any;
+    /**
+     * Will replace status icons with custom ones. This will also overwrite the `useBlueicons` option.
+     * This can be a SVG component or a normal element component.
+     */
+    statusIcons?: {
+        danger: any;
+        info: any;
+        success: any;
+        warning: any;
+    };
+    /**
+     * Disables the header bars on pages.
+     */
+    disableHeaders?: boolean;
+}
+declare type GridState = any;
 /**
- * Das Grundgerüst. Sobald diese Komponente gemountet wurde, ist sie global über <code>window.blueGridRef</code> zugreifbar.<br>
- * Außerdem kann über <code>blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })</code> ein Event-Listener angefügt werden.
+ * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.\
+ * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`.
+ *
  * <br><br>
- * Erlaubte Event-Listener:
+ * Allowed event listeners:
  * <table class="table">
- * <thead><tr><th>Event name</th><th>Description</th><th>Beispiel</th></tr></thead>
+ * <thead><tr><th>Event name</th><th>Description</th><th>Example</th></tr></thead>
  * <tbody>
  * <tr>
  * <th>componentDidUpdate</th>
- * <td>Komponente wurde aktualisiert.</td>
+ * <td>Component was updated.</td>
  * <td><code>blueGridRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })</code></td>
  * </tr>
  *
  * <tr>
  * <th>pageDidShowAgain</th>
- * <td>Seite wurde erneut angezeigt, mit altem Stand. Im Callback kann Komponente neu initialisiert werden.</td>
+ * <td>Page appeared again with the same old state. In the callback function you can reinitialize things.</td>
  * <td><code>blueGridRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })</code></td>
  * </tr>
  *
  * <tr>
  * <th>pageDidHide</th>
- * <td>Seite wurde versteckt (andere Seite wurde angezeigt).</td>
+ * <td>This page disappeared and another page appears instead.</td>
  * <td><code>blueGridRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })</code></td>
  * </tr>
  * </tbody>
  * </table>
  */
-declare class Grid extends React.Component<any, any, any> {
+export default class Grid extends Component<GridProps, GridState> {
+    defaultMatch: string[];
+    eventListeners: any[];
+    constructor(props: GridProps);
     static get defaultProps(): {
         expandSidebar: boolean;
         hideSidebarMenu: boolean;
@@ -41,33 +102,12 @@ declare class Grid extends React.Component<any, any, any> {
             warning: JSX.Element;
         };
     };
-    constructor(props: any);
-    defaultMatch: string[];
-    hideSidebar(e: any): void;
-    eventListeners: any[];
+    componentDidMount(): void;
+    componentDidUpdate(prevProps: GridProps, prevState: GridState): void;
     toggleSidebar(event: any): void;
+    hideSidebar(e: any): void;
     initMatch(): void;
     addEventListener(param1: any, param2: any, param3: any): void;
+    render(): JSX.Element;
 }
-declare namespace Grid {
-    export { SidebarMenu };
-    export namespace propTypes {
-        export const expandSidebar: PropTypes.Requireable<boolean>;
-        export const hideSidebarMenu: PropTypes.Requireable<boolean>;
-        export const pages: PropTypes.Requireable<any[]>;
-        export const unrouteable: PropTypes.Requireable<boolean>;
-        export const className: PropTypes.Requireable<string>;
-        export const disableTitleSet: PropTypes.Requireable<boolean>;
-        export const sidebarToggleIconComponent: PropTypes.Requireable<any>;
-        export const statusIcons: PropTypes.Requireable<PropTypes.InferProps<{
-            danger: PropTypes.Requireable<any>;
-            info: PropTypes.Requireable<any>;
-            success: PropTypes.Requireable<any>;
-            warning: PropTypes.Requireable<any>;
-        }>>;
-        export const disableHeaders: PropTypes.Requireable<boolean>;
-    }
-}
-import React from "react";
-import SidebarMenu from "./SidebarMenu.js";
-import PropTypes from "prop-types";
+export {};
