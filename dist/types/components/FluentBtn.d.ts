@@ -1,23 +1,21 @@
-export default FluentBtn;
-/**
- * Shortcut for <code>&lt;button class="fluent-btn"&gt;&lt;div className="fluent-btn-ball"&gt;&lt;/div&gt;&lt;/button&gt;</code>.
- * Button with a fancy and fluent acrylic effect.
- */
-declare class FluentBtn extends React.Component<any, any, any> {
-    static get defaultProps(): {
-        className: string;
-        light: boolean;
-    };
-    constructor(props: any);
-    constructor(props: any, context: any);
+/// <reference types="react" />
+export interface FluentBtnProps {
+    /**
+     * Content of the button. You can also set all other props you would give a button or a link.
+     */
+    children?: any;
+    className?: string;
+    /**
+     * If set, it will be an `&lta&gt` element. Otherwise it will be a `&ltbutton&gt`.
+     */
+    href?: string;
+    /**
+     * Can be set for buttons with white background. The glow will be a little bit darker than.
+     */
+    light?: boolean;
+    type?: string;
+    title?: string;
+    style?: any;
+    onClick?: (e?: any) => void;
 }
-declare namespace FluentBtn {
-    export namespace propTypes {
-        export const children: PropTypes.Requireable<any>;
-        export const className: PropTypes.Requireable<string>;
-        export const href: PropTypes.Requireable<string>;
-        export const light: PropTypes.Requireable<boolean>;
-    }
-}
-import React from "react";
-import PropTypes from "prop-types";
+export default function FluentBtn(props: FluentBtnProps): JSX.Element;
