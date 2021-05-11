@@ -1,24 +1,36 @@
-export default SidebarMenu;
+/// <reference types="react" />
+export interface SidebarMenuProps {
+    /**
+     * Should menu items have a Fluent effect. Default: `true`
+     */
+    fluent?: boolean;
+    /**
+     * Extends the class name by the sidebar.
+     */
+    sidebarClass?: string;
+    /**
+     * Sets the `style` prop by the sidebar.
+     */
+    sidebarStyle?: object;
+    /**
+     * Extends the class name by the menu.
+     */
+    menuClass?: string;
+    /**
+     * Sets the `style` prop by the menu.
+     */
+    menuStyle?: object;
+    /**
+     * Content on top of the menu.
+     */
+    topContent?: any;
+    /**
+     * Content for the bottom part of the sidebar.
+     */
+    bottomContent?: any;
+    children?: any;
+}
 /**
- * Die Seitenleiste für das Grid.
+ * Sidebar for the `Grid` component.
  */
-declare class SidebarMenu extends React.Component<any, any, any> {
-    static get defaultProps(): {
-        fluent: boolean;
-    };
-    constructor(props: any);
-    updateDimensions(): void;
-}
-declare namespace SidebarMenu {
-    export namespace propTypes {
-        export const fluent: PropTypes.Requireable<boolean>;
-        export const sidebarClass: PropTypes.Requireable<string>;
-        export const sidebarStyle: PropTypes.Requireable<object>;
-        export const menuClass: PropTypes.Requireable<string>;
-        export const menuStyle: PropTypes.Requireable<object>;
-        export const topContent: PropTypes.Requireable<any>;
-        export const bottomContent: PropTypes.Requireable<any>;
-    }
-}
-import React from "react";
-import PropTypes from "prop-types";
+export default function SidebarMenu(props: SidebarMenuProps): JSX.Element;
