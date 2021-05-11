@@ -1,18 +1,12 @@
-export default DropdownMenuItem;
+/// <reference types="react" />
+export interface DropdownMenuItemProps {
+    to?: string;
+    icon?: any;
+    label?: any;
+    isActive?: boolean;
+    children?: any;
+}
 /**
- * Dropdown-Button und Link für die Sidebar.
+ * Dropdown with button for sidebar.
  */
-declare class DropdownMenuItem extends React.Component<any, any, any> {
-    handleClick(): void;
-}
-declare namespace DropdownMenuItem {
-    export namespace propTypes {
-        export const label: PropTypes.Requireable<any>;
-        export const isActive: PropTypes.Requireable<boolean>;
-        export const to: PropTypes.Requireable<string>;
-        export const children: PropTypes.Requireable<any>;
-        export const icon: PropTypes.Requireable<any>;
-    }
-}
-import React from "react";
-import PropTypes from "prop-types";
+export default function DropdownMenuItem(props: DropdownMenuItemProps): JSX.Element;

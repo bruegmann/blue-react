@@ -30,6 +30,9 @@ export { CaretProps } from "./dist/types/components/Caret";
 export { default as DocumentView } from "./dist/types/components/DocumentView";
 export { DocumentViewProps } from "./dist/types/components/DocumentView";
 
+export { default as DropdownMenuItem } from "./dist/types/components/DropdownMenuItem";
+export { DropdownMenuItemProps } from "./dist/types/components/DropdownMenuItem";
+
 export { default as FluentBtn } from "./dist/types/components/FluentBtn";
 export { FluentBtnProps } from "./dist/types/components/FluentBtn";
 
@@ -62,8 +65,5 @@ export { SidebarMenuProps } from "./dist/types/components/SidebarMenu";
 
 export { default as Switch } from "./dist/types/components/Switch";
 export { SwitchProps } from "./dist/types/components/Switch";
-
-export { default as DropdownMenuItem } from "./dist/types/components/DropdownMenuItem";
-export { IDropdownMenuItem } from "./dist/types/components/DropdownMenuItem";
 
 export { default as Utilities } from "./dist/types/components/Utilities";
