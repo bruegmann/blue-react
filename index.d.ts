@@ -37,10 +37,10 @@ export { default as Header } from "./dist/types/components/Header";
 export { HeaderProps } from "./dist/types/components/Header";
 
 export { default as HeaderActions } from "./dist/types/components/HeaderActions";
-export { IHeaderActionsProps } from "./dist/types/components/HeaderActions";
+export { HeaderActionsProps } from "./dist/types/components/HeaderActions";
 
 export { default as HeaderTitle } from "./dist/types/components/HeaderTitle";
-export { IHeaderTitleProps } from "./dist/types/components/HeaderTitle";
+export { HeaderTitleProps } from "./dist/types/components/HeaderTitle";
 
 export { default as Intro } from "./dist/types/components/Intro";
 export { IntroProps } from "./dist/types/components/Intro";

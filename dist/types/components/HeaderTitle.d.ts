@@ -1,23 +1,29 @@
-export default HeaderTitle;
+/// <reference types="react" />
+export interface HeaderTitleProps {
+    /**
+     * Can be an image. Will be placed inside of the `src` attribute.
+     */
+    logo?: string;
+    /**
+     * Text next to the logo.
+     */
+    appTitle?: string;
+    /**
+     * Disables that the app title will disappear at a specific view width.
+     */
+    keepAppTitle?: boolean;
+    children?: any;
+    /**
+     * Extends `className` from parent element.
+     */
+    className?: string;
+    /**
+     * Is the component used on the sidebar?
+     */
+    sidebar?: boolean;
+}
 /**
- * Der Titel-Bereich in der Kopf-Leiste.
- * Anhand dessen wird auch der Dokumenten-Titel gesetzt (was in der Browser Titelzeile gezeigt wird).
+ * The title area at the header bar.
+ * Depending on its content, the document's title will be set aswell (what will be shown in the browser title bar).
  */
-declare class HeaderTitle extends React.Component<any, any, any> {
-    static get defaultProps(): {
-        keepAppTitle: boolean;
-    };
-    uniqueId: string;
-    setDocumentTitle(): void;
-}
-declare namespace HeaderTitle {
-    export namespace propTypes {
-        export const logo: PropTypes.Requireable<string>;
-        export const appTitle: PropTypes.Requireable<string>;
-        export const keepAppTitle: PropTypes.Requireable<boolean>;
-        export const className: PropTypes.Requireable<string>;
-        export const sidebar: PropTypes.Requireable<boolean>;
-    }
-}
-import React from "react";
-import PropTypes from "prop-types";
+export default function HeaderTitle({ logo, appTitle, keepAppTitle, children, className, sidebar }: HeaderTitleProps): JSX.Element;
