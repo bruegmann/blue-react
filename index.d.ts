@@ -52,7 +52,7 @@ export { default as Outside } from "./dist/types/components/Outside";
 export { OutsideProps, useOutside } from "./dist/types/components/Outside";
 
 export { default as Page } from "./dist/types/components/Page";
-export { IPageProps } from "./dist/types/components/Page";
+export { PageProps } from "./dist/types/components/Page";
 
 export { default as Search } from "./dist/types/components/Search";
 export { ISearchProps } from "./dist/types/components/Search";

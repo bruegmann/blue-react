@@ -1,16 +1,12 @@
-export default Page;
-declare function Page({ children, title }: {
-    children: any;
-    title: any;
-}): JSX.Element;
-declare namespace Page {
-    export { Header };
-    export { Body };
-    export namespace propTypes {
-        export const hasActions: PropTypes.Requireable<boolean>;
-        export const title: PropTypes.Requireable<string>;
-    }
+/// <reference types="react" />
+export interface PageProps {
+    /**
+     * Will be set to the document's `<title>` tag.
+     */
+    title?: string;
+    children?: any;
 }
-import Header from "./Header";
-import Body from "./Body";
-import PropTypes from "prop-types";
+/**
+ * Main component for each page.
+ */
+export default function Page({ children, title }: PageProps): JSX.Element;
