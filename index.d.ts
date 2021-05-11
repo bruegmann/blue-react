@@ -49,7 +49,7 @@ export { default as MenuItem } from "./dist/types/components/MenuItem";
 export { MenuItemProps } from "./dist/types/components/MenuItem";
 
 export { default as Outside } from "./dist/types/components/Outside";
-export { OutsideProps } from "./dist/types/components/Outside";
+export { OutsideProps, useOutside } from "./dist/types/components/Outside";
 
 export { default as Page } from "./dist/types/components/Page";
 export { IPageProps } from "./dist/types/components/Page";
