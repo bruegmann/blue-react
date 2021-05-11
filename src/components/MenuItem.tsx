@@ -70,6 +70,7 @@ export interface MenuItemProps {
 
     target?: string
     rel?: string
+    title?: string
 }
 
 /**

@@ -53,6 +53,7 @@ export interface MenuItemProps {
     elementType?: any;
     target?: string;
     rel?: string;
+    title?: string;
 }
 /**
  * Link, button or custom component for Sidebar, Actions or ActionMenu
