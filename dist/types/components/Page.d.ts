@@ -11,6 +11,6 @@ declare namespace Page {
         export const title: PropTypes.Requireable<string>;
     }
 }
-import Header from "./Header.js";
-import Body from "./Body.js";
+import Header from "./Header";
+import Body from "./Body";
 import PropTypes from "prop-types";

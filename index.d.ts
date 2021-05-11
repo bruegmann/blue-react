@@ -34,7 +34,7 @@ export { default as FluentBtn } from "./dist/types/components/FluentBtn";
 export { FluentBtnProps } from "./dist/types/components/FluentBtn";
 
 export { default as Header } from "./dist/types/components/Header";
-export { IHeaderProps } from "./dist/types/components/Header";
+export { HeaderProps } from "./dist/types/components/Header";
 
 export { default as HeaderActions } from "./dist/types/components/HeaderActions";
 export { IHeaderActionsProps } from "./dist/types/components/HeaderActions";

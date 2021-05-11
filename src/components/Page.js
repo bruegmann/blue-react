@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames"
-import Header from "./Header.js";
+import Header from "./Header";
 import Body from "./Body";
-import Utilities from "./Utilities.js";
+import Utilities from "./Utilities";
 import PropTypes from "prop-types";
 
 function Page({ children, title }) {
