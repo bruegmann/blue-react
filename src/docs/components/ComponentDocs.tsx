@@ -1,4 +1,5 @@
 import React, { Component, ComponentClass } from "react";
+import MarkdownGitHub from "react-markdown-github"
 import Highlight from "react-highlight";
 import { Link } from "react-router-dom";
 
@@ -30,6 +31,10 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
         }
     }
 
+    prepareForMarkdown(text: string) {
+        return text.replace("@deprecated", "***@deprecated***")
+    }
+
     render() {
         const { comp, standalone } = this.props;
         const { ExampleComponent } = this.state;
@@ -40,20 +45,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                     <Link to={`/component/${comp.displayName}`}>#</Link> {comp.displayName}
                 </h1>
 
-                <p dangerouslySetInnerHTML={{
-                    __html: comp.description
-                        .replace(
-                            /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi,
-                            (match) => {
-                                if (match.match(/\.(jpeg|jpg|gif|png)$/) != null) {
-                                    return '<a href="' + match + '" target="_blank"><img src="' + match + '"/></a>';
-                                }
-                                else {
-                                    return '<a href="' + match + '" target="_blank">' + match + '</a>';
-                                }
-                            }
-                        )
-                }} />
+                <MarkdownGitHub>{this.prepareForMarkdown(comp.description)}</MarkdownGitHub>
 
                 {comp.displayName == "Intro" &&
                     <p>
@@ -79,20 +71,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                     <tr key={j}>
                                         <th>{j}</th>
                                         <td>
-                                            {comp.props[j].description && <div dangerouslySetInnerHTML={{
-                                                __html: comp.props[j].description
-                                                    .replace(
-                                                        /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi,
-                                                        (match: any) => {
-                                                            if (match.match(/\.(jpeg|jpg|gif|png)$/) != null) {
-                                                                return '<a href="' + match + '" target="_blank"><img src="' + match + '"/></a>';
-                                                            }
-                                                            else {
-                                                                return '<a href="' + match + '" target="_blank">' + match + '</a>';
-                                                            }
-                                                        }
-                                                    )
-                                            }} />}
+                                            <MarkdownGitHub>{this.prepareForMarkdown(comp.props[j].description)}</MarkdownGitHub>
 
                                             {comp.props[j].defaultValue ?
                                                 <div>

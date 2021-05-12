@@ -21,7 +21,7 @@ export interface ActionMenuProps {
 }
 
 /**
- * <span class="badge badge-info">Info</span> You can also use <strong>Actions</strong> instead.<br>
+ * You can also use `Actions` instead.
  * The Action Menu on the top right of a page. You can place Actions here which are in context of the current page.
  */
 export default function ActionMenu(props: ActionMenuProps) {
