@@ -14,7 +14,7 @@ export interface ActionsProps {
     className?: string
 
     /**
-     * Extends the <code>className</code> of <code>.blue-actions-controls</code>.
+     * Extends the `className` of `.blue-actions-controls`.
      */
     controlsClassName?: string
 
@@ -60,6 +60,9 @@ function expandSection(element: HTMLElement) {
     element.setAttribute("data-collapsed", "false")
 }
 
+/**
+ * An alternative to `ActionMenu`.
+ */
 export default function Actions(props: ActionsProps) {
     const [open, setOpen] = useState<boolean>(props.open || false)
     const id = `Actions-${Utilities.guid()}`
