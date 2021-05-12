@@ -10,6 +10,6 @@ export interface HeaderActionsProps {
     children?: any;
 }
 /**
- * Here you can place components like `ActionMenu` for the current page.
+ * @deprecated This component isn't neccessary anymore. Just use `ActionMenu` directly in `Header`.
  */
 export default function HeaderActions(props: HeaderActionsProps): JSX.Element;

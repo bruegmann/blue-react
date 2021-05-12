@@ -10,7 +10,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
- * Shortcut for `&lt;button class="fluent-btn"&gt;&lt;div className="fluent-btn-ball"&gt;&lt;/div&gt;&lt;/button&gt;`.
+ * Shortcut for `<button class="fluent-btn"><div className="fluent-btn-ball"></div></button>`.
  * Button with a fancy and fluent acrylic effect.
  */
 function FluentBtn(props) {

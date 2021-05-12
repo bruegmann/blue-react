@@ -6,7 +6,7 @@ export interface FluentBtnProps {
     children?: any;
     className?: string;
     /**
-     * If set, it will be an `&lta&gt` element. Otherwise it will be a `&ltbutton&gt`.
+     * If set, it will be an `<a>` element. Otherwise it will be a `<button>`.
      */
     href?: string;
     /**
@@ -19,7 +19,7 @@ export interface FluentBtnProps {
     onClick?: (e?: any) => void;
 }
 /**
- * Shortcut for `&lt;button class="fluent-btn"&gt;&lt;div className="fluent-btn-ball"&gt;&lt;/div&gt;&lt;/button&gt;`.
+ * Shortcut for `<button class="fluent-btn"><div className="fluent-btn-ball"></div></button>`.
  * Button with a fancy and fluent acrylic effect.
  */
 export default function FluentBtn(props: FluentBtnProps): JSX.Element;

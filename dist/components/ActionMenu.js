@@ -32,14 +32,17 @@ function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "und
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /**
- * <span class="badge badge-info">Info</span> You can also use <strong>Actions</strong> instead.<br>
+ * You can also use `Actions` instead.
  * The Action Menu on the top right of a page. You can place Actions here which are in context of the current page.
  */
-function ActionMenu(_ref) {
-  var hideToggleAction = _ref.hideToggleAction,
-      children = _ref.children,
-      _ref$toggleIcon = _ref.toggleIcon,
-      toggleIcon = _ref$toggleIcon === void 0 ? "bi-iconmonstr-menu-7" : _ref$toggleIcon;
+function ActionMenu(props) {
+  var hideToggleAction = props.hideToggleAction,
+      children = props.children,
+      className = props.className,
+      _props$toggleIcon = props.toggleIcon,
+      toggleIcon = _props$toggleIcon === void 0 ? "bi-iconmonstr-menu-7" : _props$toggleIcon;
+
+  var _break = props.break || "lg";
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -72,7 +75,12 @@ function ActionMenu(_ref) {
       });
     });
   }, []);
-  return /*#__PURE__*/_react.default.createElement("ul", {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "blue-app-actions navbar ".concat(className, " navbar-expand-").concat(_break, " ").concat(_break)
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "ui-header-wrapper",
+    onClick: _Utilities.default.scrollToTop
+  }), /*#__PURE__*/_react.default.createElement("ul", {
     className: "blue-app-actions-menu nav navbar-nav navbar-right fluent-btn"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "fluent-btn-ball"
@@ -83,5 +91,5 @@ function ActionMenu(_ref) {
     },
     icon: toggleIcon,
     "aria-label": "Toggle menu"
-  }) : "", children);
+  }) : "", children));
 }

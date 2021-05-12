@@ -10,7 +10,7 @@ export interface ActionsProps {
      */
     className?: string;
     /**
-     * Extends the <code>className</code> of <code>.blue-actions-controls</code>.
+     * Extends the `className` of `.blue-actions-controls`.
      */
     controlsClassName?: string;
     /**
@@ -25,4 +25,7 @@ export interface ActionsProps {
     onToggle?: (open: boolean) => void;
     break?: breakOption;
 }
+/**
+ * An alternative to `ActionMenu`.
+ */
 export default function Actions(props: ActionsProps): JSX.Element;

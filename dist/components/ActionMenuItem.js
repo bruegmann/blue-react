@@ -14,9 +14,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 /**
- * @deprecated This is only an alias to MenuItem, please use MenuItem instead.
- * <span class="badge badge-warning">Deprecated</span> This is just an alias for <code>MenuItem</code>, so you should use that component instead.
- * If you need the older <code>ActionMenuItem</code>, make sure to the prop <code>useDeprecated</code>.<br/>
+ * @deprecated This is just an alias for `MenuItem`, so you should use that component instead.
+ * If you need the older `ActionMenuItem`, make sure to the prop `useDeprecated`.
  * List Item and Link for the current Action Menu.
  */
 function ActionMenuItem(props) {

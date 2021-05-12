@@ -40,33 +40,17 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 window.toggleSidebarEvent = new CustomEvent("toggleSidebar");
 
 /**
- * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.\
+ * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
  * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`.
  * 
- * <br><br>
  * Allowed event listeners:
- * <table class="table">
- * <thead><tr><th>Event name</th><th>Description</th><th>Example</th></tr></thead>
- * <tbody>
- * <tr>
- * <th>componentDidUpdate</th>
- * <td>Component was updated.</td>
- * <td><code>blueGridRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })</code></td>
- * </tr>
  * 
- * <tr>
- * <th>pageDidShowAgain</th>
- * <td>Page appeared again with the same old state. In the callback function you can reinitialize things.</td>
- * <td><code>blueGridRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })</code></td>
- * </tr>
- * 
- * <tr>
- * <th>pageDidHide</th>
- * <td>This page disappeared and another page appears instead.</td>
- * <td><code>blueGridRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })</code></td>
- * </tr>
- * </tbody>
- * </table>
+ * * **componentDidUpdate** - Component was updated.  
+ *   Example: `blueGridRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
+ * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.  
+ *   Example: `blueGridRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
+ * * **pageDidHide** - This page disappeared and another page appears instead.  
+ *   Example: `blueGridRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
  */
 var Grid = /*#__PURE__*/function (_Component) {
   _inherits(Grid, _Component);

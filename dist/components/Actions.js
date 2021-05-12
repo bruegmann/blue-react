@@ -56,6 +56,10 @@ function expandSection(element) {
   element.addEventListener("transitionend", fun);
   element.setAttribute("data-collapsed", "false");
 }
+/**
+ * An alternative to `ActionMenu`.
+ */
+
 
 function Actions(props) {
   var _useState = (0, _react.useState)(props.open || false),

@@ -31,7 +31,7 @@ export interface MenuItemProps {
      */
     dropdownClassName?: string;
     /**
-     * Set children to create a nested `MenuItem`as a dropdown.
+     * Set children to create a nested `MenuItem` as a dropdown.
      */
     children?: any;
     /**
