@@ -6,7 +6,7 @@ class DocumentViewExample extends React.Component {
         return (
             <div>
                 <DocumentView
-                    src="http://www.pdf995.com/samples/pdf.pdf"
+                    src="https://www.pdf995.com/samples/pdf.pdf"
                     mimeType="application/pdf"
                 />
             </div>
