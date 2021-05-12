@@ -103,7 +103,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                             }
                                         </td>
                                         <td>
-                                            {comp.props[j].type && comp.props[j].type.name}
+                                            {comp.props[j].tsType && comp.props[j].tsType.name}
                                         </td>
                                     </tr>
                                 )}

@@ -1,0 +1,26 @@
+import React from "react";
+export interface SearchProps {
+    autoFocus?: boolean;
+    /**
+     * Is component inside of a page?
+     */
+    body?: boolean;
+    className?: string;
+    icon?: any;
+    onChange?: (event: React.ChangeEvent) => void;
+    onSubmit?: (event: React.FormEvent) => void;
+    placeholder?: string;
+    /**
+     * Allow reset?
+     */
+    reset?: boolean;
+    /**
+     * Is component inside of the sidebar?
+     */
+    sidebar?: boolean;
+    value?: string;
+}
+/**
+ * A search bar that can be placed to the sidebar or on a page.
+ */
+export default function Search(props: SearchProps): JSX.Element;
