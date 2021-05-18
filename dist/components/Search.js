@@ -72,15 +72,13 @@ function Search(props) {
     }
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "blue-app-search-input-group input-group"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "input-group-prepend",
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    className: "input-group-text",
     onClick: function onClick() {
       var _document$getElementB;
 
       return (_document$getElementB = document.getElementById(SearchControlId)) === null || _document$getElementB === void 0 ? void 0 : _document$getElementB.focus();
     }
-  }, /*#__PURE__*/_react.default.createElement("span", {
-    className: "input-group-text"
   }, icon || /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("svg", {
     width: "1em",
     height: "1em",
@@ -94,7 +92,7 @@ function Search(props) {
   }), /*#__PURE__*/_react.default.createElement("path", {
     fillRule: "evenodd",
     d: "M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
-  }))))), /*#__PURE__*/_react.default.createElement("input", {
+  })))), /*#__PURE__*/_react.default.createElement("input", {
     type: "search",
     value: value,
     onChange: function onChange(event) {

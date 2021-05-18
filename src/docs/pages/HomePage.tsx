@@ -11,7 +11,7 @@ export const HomePage = () => (
             <div className="welcome-jumbotron py-5 bg-theme text-white">
                 <div className="container text-center">
                     <h1 className="display-1 d-inline-flex align-items-center">
-                        <img src={logo} alt={appTitle} style={{ height: "1em" }} className="mr-3" /> Blue
+                        <img src={logo} alt={appTitle} style={{ height: "1em" }} className="me-3" /> Blue
                     </h1>
                     <h4>{packageJson.version}</h4>
                 </div>

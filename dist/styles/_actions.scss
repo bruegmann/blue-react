@@ -126,12 +126,12 @@ $blue-actions-indicator-height: 2rem !default;
     .blue-actions {
         background-color: $theme;
         @extend .mt-1 !optional;
-        @extend .mr-1 !optional;
+        @extend .me-1 !optional;
         border-radius: $blue-actions-indicator-height / 2;
         box-shadow: $box-shadow;
 
         &.closed {
-            @extend .pl-3 !optional;
+            @extend .ps-3 !optional;
         }
     }
 }

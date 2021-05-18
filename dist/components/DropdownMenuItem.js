@@ -71,20 +71,20 @@ function DropdownMenuItem(props) {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
     className: "btn-group w-100"
   }, /*#__PURE__*/_react.default.createElement("a", _extends({}, id, {
-    className: "blue-app-toggle-page blue-app-sidebar-btn btn pr-0 " + (active ? "active" : ""),
+    className: "blue-app-toggle-page blue-app-sidebar-btn btn pe-0 " + (active ? "active" : ""),
     href: props.to
   }), icon, /*#__PURE__*/_react.default.createElement("span", {
     className: "blue-app-sidebar-label"
   }, props.label)), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    className: "btn blue-app-sidebar-btn w-auto pl-0",
+    className: "btn blue-app-sidebar-btn w-auto ps-0",
     onClick: handleClick
   }, /*#__PURE__*/_react.default.createElement("span", {
     className: "sr-only"
   }, "Toggle Dropdown"), /*#__PURE__*/_react.default.createElement(_Caret.default, {
     open: showDropdown,
     mirrored: true,
-    className: "w-auto pl-5 mt-2"
+    className: "w-auto ps-5 mt-2"
   }))), showDropdown && /*#__PURE__*/_react.default.createElement("div", {
     className: "blue-app-sidebar-dropdown"
   }, props.children));

@@ -43,7 +43,7 @@ export default function DropdownMenuItem(props: DropdownMenuItemProps) {
 
                 <a
                     {...id}
-                    className={"blue-app-toggle-page blue-app-sidebar-btn btn pr-0 " + (active ? "active" : "")}
+                    className={"blue-app-toggle-page blue-app-sidebar-btn btn pe-0 " + (active ? "active" : "")}
                     href={props.to}
                 >
                     {icon}
@@ -52,14 +52,14 @@ export default function DropdownMenuItem(props: DropdownMenuItemProps) {
 
                 <button
                     type="button"
-                    className="btn blue-app-sidebar-btn w-auto pl-0"
+                    className="btn blue-app-sidebar-btn w-auto ps-0"
                     onClick={handleClick}
                 >
                     <span className="sr-only">Toggle Dropdown</span>
                     <Caret
                         open={showDropdown}
                         mirrored
-                        className="w-auto pl-5 mt-2"
+                        className="w-auto ps-5 mt-2"
                     />
                 </button>
 

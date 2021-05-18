@@ -15,7 +15,7 @@ function ActionsExample() {
     return (
         <div>
             <Switch
-                className="lg mr-3"
+                className="lg me-3"
                 checked={isChecked}
                 onChange={toggleIsChecked}
                 sliderLabel={isChecked ? "Mobile" : "PC"}
