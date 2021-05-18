@@ -8,7 +8,7 @@ const packageJson = require("../../../package.json");
 export const HomePage = () => (
     <Page>
         <Body className="pt-0" containerClass="no-container">
-            <div className="welcome-jumbotron jumbotron jumbotron-fluid bg-theme text-white">
+            <div className="welcome-jumbotron py-5 bg-theme text-white">
                 <div className="container text-center">
                     <h1 className="display-1 d-inline-flex align-items-center">
                         <img src={logo} alt={appTitle} style={{ height: "1em" }} className="mr-3" /> Blue

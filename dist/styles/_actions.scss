@@ -125,13 +125,13 @@ $blue-actions-indicator-height: 2rem !default;
 .blue-app-page-wrapper:not(.hasHeader) {
     .blue-actions {
         background-color: $theme;
-        @extend .mt-1;
-        @extend .mr-1;
+        @extend .mt-1 !optional;
+        @extend .mr-1 !optional;
         border-radius: $blue-actions-indicator-height / 2;
         box-shadow: $box-shadow;
 
         &.closed {
-            @extend .pl-3;
+            @extend .pl-3 !optional;
         }
     }
 }
