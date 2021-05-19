@@ -228,8 +228,9 @@ var Grid = /*#__PURE__*/function (_Component) {
         className: "blue-app-status-alert alert"
       }, /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
-        className: "close"
-      }, "\xD7"), /*#__PURE__*/_react.default.createElement("div", {
+        className: "btn-close mb-1",
+        "aria-label": "Close"
+      }), /*#__PURE__*/_react.default.createElement("div", {
         className: "alert-body"
       }))));
     }

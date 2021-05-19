@@ -74,6 +74,6 @@ function DocumentView(_ref) {
     }
   }) : /*#__PURE__*/_react.default.createElement("a", {
     href: src,
-    className: "btn btn-secondary btn-lg btn-block"
+    className: "btn btn-secondary btn-lg d-block"
   }, showDocumentLabel));
 }
