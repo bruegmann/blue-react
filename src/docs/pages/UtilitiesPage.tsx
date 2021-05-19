@@ -201,7 +201,7 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                 <tr>
                                     <td><code>.blue-normal-scrollbar</code></td>
                                     <td>
-                                        <span className="badge badge-primary">NEW</span> {"Normalizes elements in areas which still should not have the theme colors for their scrollbars. "}
+                                        <span className="badge bg-primary">NEW</span> {"Normalizes elements in areas which still should not have the theme colors for their scrollbars. "}
                                         <NormalScrollbarDemo />
                                     </td>
                                 </tr>

@@ -82,7 +82,7 @@ export default function DocumentView({ content, mimeType, src = "about:blank", s
                     }}
                 />
                 :
-                <a href={src} className="btn btn-secondary btn-lg btn-block">
+                <a href={src} className="btn btn-secondary btn-lg d-block">
                     {showDocumentLabel}
                 </a>
 

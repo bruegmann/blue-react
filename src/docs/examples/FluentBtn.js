@@ -21,7 +21,7 @@ class FluentBtnExample extends React.Component {
                 <br />
                 <FluentBtn className="btn btn-outline-secondary mb-1">A secondary outline button</FluentBtn>
                 <br />
-                <FluentBtn className="btn btn-light mb-1">A light button</FluentBtn>
+                <FluentBtn href="#" className="btn btn-light mb-1">A light button</FluentBtn>
             </div>
         );
     }

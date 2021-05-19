@@ -2,6 +2,8 @@ import React from "react";
 import Page from "../../components/Page";
 import Body from "../../components/Body";
 import { logo, appTitle } from "../Global";
+import { Bootstrap, BoxSeam, Code, WindowSidebar } from "react-bootstrap-icons";
+import { ReactIcon } from "../components/ReactIcon";
 
 const packageJson = require("../../../package.json");
 
@@ -9,11 +11,24 @@ export const HomePage = () => (
     <Page>
         <Body className="pt-0" containerClass="no-container">
             <div className="welcome-jumbotron py-5 bg-theme text-white">
-                <div className="container text-center">
-                    <h1 className="display-1 d-inline-flex align-items-center">
-                        <img src={logo} alt={appTitle} style={{ height: "1em" }} className="me-3" /> Blue
-                    </h1>
-                    <h4>{packageJson.version}</h4>
+                <div className="container">
+                    <section className="d-flex justify-content-between">
+                        <div>
+                            <h1>React component library based on Bootstrap 5</h1>
+                            <h2>
+                                <Bootstrap /> <ReactIcon /> <Code /> <WindowSidebar /> <BoxSeam />
+                            </h2>
+                            <h3>
+                                <span className="badge bg-white text-theme">{packageJson.version}</span>
+                            </h3>
+                        </div>
+
+                        <div>
+                            <h1 className="display-1 d-inline-flex align-items-center">
+                                <img src={logo} alt={appTitle} style={{ height: "1em" }} className="me-3" /> Blue
+                            </h1>
+                        </div>
+                    </section>
                 </div>
             </div>
 

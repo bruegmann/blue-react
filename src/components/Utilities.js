@@ -87,13 +87,13 @@ let Utilities = {
         }
 
         if (close) {
-            alertElement.querySelector(".close").style.display = "inline-block";
-            alertElement.querySelector(".close").onclick = () => {
+            alertElement.querySelector(".btn-close").style.display = "inline-block";
+            alertElement.querySelector(".btn-close").onclick = () => {
                 this.resetAlertMessage(alertClassName);
             };
         }
         else {
-            alertElement.querySelector(".close").style.display = "none";
+            alertElement.querySelector(".btn-close").style.display = "none";
         }
     },
 

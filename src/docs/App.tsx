@@ -3,7 +3,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    NavLink
+    NavLink,
+    Link
 } from "react-router-dom";
 import Grid from "../components/Grid";
 
@@ -40,7 +41,9 @@ function App() {
                 }}
                 disableHeaders
             >
-                <HeaderTitle logo={logo} appTitle={appTitle} sidebar />
+                <HeaderTitle sidebar>
+                    <Link to="/"><img src={logo} className="blue-app-header-logo-image" alt="B" /></Link> <Link to="/">{appTitle}</Link>
+                </HeaderTitle>
 
                 <SidebarMenu
                     bottomContent={

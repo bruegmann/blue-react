@@ -49,7 +49,7 @@ export function RecipesPage() {
                 <div className="row">
                     <div className="col-md-2">
                         <div className="sticky-top" style={{ zIndex: 0 }}>
-                            <div className="overflow-scroll">
+                            <div>
                                 <nav className="nav nav-pills flex-column">
                                     {recipes !== null ?
                                         recipes.map((recipe: GitHubContent) =>

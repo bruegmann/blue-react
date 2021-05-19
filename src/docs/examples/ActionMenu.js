@@ -23,10 +23,9 @@ function ActionMenuExample() {
                 <Link to="/action-menu-example" target="_blank" rel="noopener noreferrer">Open in new tab</Link>
             </p>
 
-            <div className="embed-responsive embed-responsive-16by9" >
+            <div className="ratio ratio-16x9" >
                 <iframe
                     src={`${process.env.PUBLIC_URL}/action-menu-example`}
-                    className="embed-responsive-item"
                     style={style}
                     title="Actions Demo page"
                 />
