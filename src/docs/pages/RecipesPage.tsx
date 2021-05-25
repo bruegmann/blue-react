@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, NavLink, useParams } from "react-router-dom"
 import Body from "../../components/Body"
 import Page from "../../components/Page"
 import { Recipe } from "../components/Recipe"
@@ -50,13 +50,13 @@ export function RecipesPage() {
                     <div className="col-md-2">
                         <div className="sticky-top" style={{ zIndex: 0 }}>
                             <div>
-                                <nav className="nav nav-pills flex-column">
+                                <nav className="nav nav-pills flex-column mt-3">
                                     {recipes !== null ?
                                         recipes.map((recipe: GitHubContent) =>
                                             <div key={recipe.sha} className="nav-item">
-                                                <Link to={`/recipes/${recipe.name}`} className="nav-link">
+                                                <NavLink to={`/recipes/${recipe.name}`} className="nav-link">
                                                     {recipe.name.replace(".md", "")}
-                                                </Link>
+                                                </NavLink>
                                             </div>
                                         )
                                         :

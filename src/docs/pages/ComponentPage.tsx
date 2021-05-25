@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, NavLink } from "react-router-dom";
 import Page from "../../components/Page";
 import Body from "../../components/Body";
 
@@ -220,7 +220,7 @@ export const ComponentPage = () => {
 
                                                 }}
                                             value={value}
-                                            className="mt-3"
+                                            className="mt-3 mb-1"
                                             placeholder="Search..."
                                         />
                                     </div>
@@ -232,7 +232,7 @@ export const ComponentPage = () => {
                                         )
                                             : docs && Object.values(docs).map((i: any, index: number) =>
                                                 <div key={index} className="nav-item">
-                                                    <Link to={`/component/${i.displayName}`} className="nav-link">{i.displayName}</Link>
+                                                    <NavLink to={`/component/${i.displayName}`} className="nav-link">{i.displayName}</NavLink>
                                                 </div>
 
                                             )

@@ -32,7 +32,6 @@ function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "und
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /**
- * You can also use `Actions` instead.
  * The Action Menu on the top right of a page. You can place Actions here which are in context of the current page.
  */
 function ActionMenu(props) {
