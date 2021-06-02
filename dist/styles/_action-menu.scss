@@ -41,6 +41,10 @@
         height: $normal-size;
     }
 
+    &.none {
+        @include actions(0px);
+    }
+
     &.sm {
         @include actions(768px);
     }

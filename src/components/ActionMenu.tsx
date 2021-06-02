@@ -17,7 +17,11 @@ export interface ActionMenuProps {
     toggleIcon?: any
 
     className?: string
-    break?: breakOption
+
+    /**
+     * "sm" | "md" | "lg" | "xl" | "none"
+     */
+    break?: breakOption | "none"
 }
 
 /**
@@ -57,7 +61,7 @@ export default function ActionMenu(props: ActionMenuProps) {
     }, [])
 
     return (
-        <div className={`blue-app-actions navbar ${className} navbar-expand-${_break} ${_break}`}>
+        <div className={`blue-app-actions navbar ${className} navbar-expand${_break !== "none" ? `-${_break}` : ""} ${_break}`}>
             <div className="ui-header-wrapper" onClick={Utilities.scrollToTop} />
             <ul className="blue-app-actions-menu nav navbar-nav navbar-right fluent-btn">
                 <div className="fluent-btn-ball" />
