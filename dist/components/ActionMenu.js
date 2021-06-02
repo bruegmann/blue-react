@@ -76,7 +76,7 @@ function ActionMenu(props) {
     });
   }, []);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-actions navbar ".concat(className, " navbar-expand-").concat(_break, " ").concat(_break)
+    className: "blue-app-actions navbar ".concat(className, " navbar-expand").concat(_break !== "none" ? "-".concat(_break) : "", " ").concat(_break)
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "ui-header-wrapper",
     onClick: _Utilities.default.scrollToTop

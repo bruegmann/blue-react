@@ -11,7 +11,10 @@ export interface ActionMenuProps {
      */
     toggleIcon?: any;
     className?: string;
-    break?: breakOption;
+    /**
+     * "sm" | "md" | "lg" | "xl" | "none"
+     */
+    break?: breakOption | "none";
 }
 /**
  * You can also use `Actions` instead.
