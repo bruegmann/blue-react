@@ -5,7 +5,7 @@
   "license": "LGPL-3.0-or-later",
   "main": "index.js",
   "types": "index.d.ts",
-  "homepage": "https://bruegmann.github.io/blue-react",
+  "homepage": "https://bruegmann.github.io/blue-react/v6",
   "repository": {
     "type": "git",
     "url": "https://github.com/bruegmann/blue-react.git"
@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build-docs",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages --dist build --dest v6",
     "prepublishOnly": "npm i && npm run build-release",
     "postpublish": "npm run deploy",
     "release": "npm publish && npm run deploy"
