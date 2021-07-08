@@ -37,7 +37,13 @@ function HeaderTitle(_ref) {
       var titleElement = document.querySelector("title");
 
       if (element && element.innerText && titleElement) {
-        titleElement.innerText = element.innerText;
+        var titlePaths = element.innerText.split("/");
+
+        if (titlePaths.length > 1) {
+          titleElement.innerText = "".concat(titlePaths[titlePaths.length - 1].trim(), " - ").concat(titlePaths[0].trim());
+        } else {
+          titleElement.innerText = element.innerText;
+        }
       }
     }
   };
