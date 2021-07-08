@@ -34,7 +34,7 @@ function Intro(_ref) {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "sign-in-container mx-1"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "jumbotron"
+    className: "jumbotron shadow-lg"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "text-center"
   }, /*#__PURE__*/_react.default.createElement("img", {
