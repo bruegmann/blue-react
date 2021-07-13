@@ -5,27 +5,39 @@ import { Link } from "react-router-dom";
 import { ChevronLeft } from "react-bootstrap-icons"
 
 export const IntroDemoPage = () => (
-    <Intro logo={logo} logoMaxWidth="100px" title="Here could be your introduction">
-        <form
-            className="form-horizontal"
-            onSubmit={event => {
-                event.preventDefault();
-            }}
-        >
-            <div className="form-group row">
-                <label className="col-sm-4 col-form-label">Please sign in</label>
-                <div className="col-sm-8">
-                    <input type="text" className="form-control" placeholder="Enter something" />
+    <>
+        {/* Changes background and sidebar background when on dark mode. */}
+        <style type="text/css" dangerouslySetInnerHTML={{
+            __html: /* css */`
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --sidebar-bg: var(--black, #212529);
+                }
+            }
+        `}} />
+
+        <Intro logo={logo} logoMaxWidth="100px" title="Here could be your introduction">
+            <form
+                className="form-horizontal"
+                onSubmit={event => {
+                    event.preventDefault();
+                }}
+            >
+                <div className="form-group row">
+                    <label className="col-sm-4 col-form-label">Please sign in</label>
+                    <div className="col-sm-8">
+                        <input type="text" className="form-control" placeholder="Enter something" />
+                    </div>
                 </div>
-            </div>
 
-            <div className="text-center">
-                <button type="submit" className="btn btn-primary btn-lg">
-                    Sign in
-                </button>
-            </div>
-        </form>
+                <div className="text-center">
+                    <button type="submit" className="btn btn-primary btn-lg">
+                        Sign in
+                    </button>
+                </div>
+            </form>
 
-        <Link to="/component/Intro"><ChevronLeft /> Back to the docs</Link>
-    </Intro>
+            <Link to="/component/Intro"><ChevronLeft /> Back to the docs</Link>
+        </Intro>
+    </>
 );

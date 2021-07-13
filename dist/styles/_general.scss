@@ -45,7 +45,7 @@ html, body {
 }
 
 body {
-    background: $theme;
+    background: var(--sidebar-bg, $theme);
 
     .blue-app-wrapper {
         position: fixed;
