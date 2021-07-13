@@ -7582,7 +7582,7 @@ html, body {
   height: 100%; }
 
 body {
-  background: #007bff; }
+  background: var(--sidebar-bg, #007bff); }
   body .blue-app-wrapper {
     position: fixed;
     width: 100%;
