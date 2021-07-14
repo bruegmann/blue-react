@@ -15,6 +15,10 @@ export interface SearchProps {
      */
     reset?: boolean;
     /**
+     * Define custom icon for the reset button.
+     */
+    resetIcon?: any;
+    /**
      * Is component inside of the sidebar?
      */
     sidebar?: boolean;

@@ -43,6 +43,7 @@ function Search(props) {
       _onSubmit = props.onSubmit,
       placeholder = props.placeholder,
       reset = props.reset,
+      resetIcon = props.resetIcon,
       sidebar = props.sidebar;
 
   var SearchControlId = "blue-app-search-control-" + _Utilities.default.guid();
@@ -130,9 +131,16 @@ function Search(props) {
         }
       });
     }
-  }, /*#__PURE__*/_react.default.createElement("span", {
-    className: "bi-navigate_cross"
-  })))), sidebar && /*#__PURE__*/_react.default.createElement(_MenuItem.default, {
+  }, resetIcon || /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "1em",
+    height: "1em",
+    fill: "currentColor",
+    className: "bi bi-x mt-n1",
+    viewBox: "0 0 16 16"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M4.646 4.646a.5.5 0 01.708 0L8 7.293l2.646-2.647a.5.5 0 01.708.708L8.707 8l2.647 2.646a.5.5 0 01-.708.708L8 8.707l-2.646 2.647a.5.5 0 01-.708-.708L7.293 8 4.646 5.354a.5.5 0 010-.708z"
+  }))))), sidebar && /*#__PURE__*/_react.default.createElement(_MenuItem.default, {
     href: "#",
     className: "blue-app-search-btn",
     icon: icon,
