@@ -95,7 +95,8 @@ export default class Grid extends Component<GridProps, GridState>{
             sidebarIn: props.sidebarIn,
             match: null,
             history: [],
-            hash: window.location.hash
+            hash: window.location.hash,
+            hashHistory: []
         }
 
         this.hideSidebar = this.hideSidebar.bind(this)
@@ -214,7 +215,12 @@ export default class Grid extends Component<GridProps, GridState>{
             this.state.history.push(newMatch[0])
         }
 
-        this.setState({ match: newMatch, history: this.state.history, hash: window.location.hash })
+        this.setState({
+            match: newMatch,
+            history: this.state.history,
+            hash: window.location.hash,
+            hashHistory: this.state.hashHistory.concat([window.location.hash])
+        })
     }
 
     addEventListener(param1: any, param2: any, param3: any) {
