@@ -28,8 +28,8 @@
 
 
     &.open {
-        left: -48px;
-        width: calc(100% + 48px);
+        left: -#{$normal-size};
+        width: calc(100% + #{$normal-size});
     }
     
     .navbar-nav > li > a {

@@ -50,6 +50,6 @@
 
 @mixin has-actions($width) {
     @media screen and (max-width: $width) {
-        padding-bottom: calc(84px + 1rem);
+        padding-bottom: calc(5.25rem + 1rem);
     }
 }

@@ -9,7 +9,7 @@
 
 @keyframes blAppearUp {
     from {
-        margin-top: 40px;
+        margin-top: 2.5rem;
     }
     to {
         margin-top: 0;
@@ -25,7 +25,6 @@
 
 @keyframes enabledBlueAppPage {
     from {
-        // margin-top: $normal-size + 60px;
         transform: scale(0.98);
         opacity: 0;
     }

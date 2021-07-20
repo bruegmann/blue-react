@@ -35,10 +35,10 @@ $shimmering: .7 !default;
 $scrollbar-thumb-color: white !default;
 
 // Default size for many components, like sidebar menu items.
-$normal-size: 48px !default;
+$normal-size: 3rem !default;
 
 // Height of actions menu when it is expanded, like on mobile devices.
-$actions-height: 120px !default;
+$actions-height: 7.5rem !default;
 
 // Background color of menu toggle button.
 $bla-button-bg-normal: rgba(0,0,0,.1) !default;
@@ -50,13 +50,13 @@ $bla-button-bg-hover: rgba(white,.07) !default;
 $bla-btn-font-size: 1em !default;
 
 // Font size for app title on the header.
-$bla-header-logo-font-size: 24px !default;
+$bla-header-logo-font-size: 1.5rem !default;
 
 // Padding for action menu items.
-$bla-header-nav-padding: 12px !default;
+$bla-header-nav-padding: 0.75rem !default;
 
 // Width of the sidebar.
-$bla-sidebar-width: 265px !default;
+$bla-sidebar-width: 16.563rem !default;
 
 // Background of sidebar.
 $sidebar-bg: $theme !default;

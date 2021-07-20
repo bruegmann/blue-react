@@ -6,7 +6,7 @@
 .blue-app-status-circle {
     position: fixed;
     display: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    box-shadow: 0 0.313rem 0.938rem rgba(0,0,0,.2);
 }
 
 .blue-app-status-alert,
@@ -39,7 +39,7 @@
     overflow: hidden;
     white-space: pre-wrap;
 
-    bottom: 40px + 64px + 15px;
+    bottom: 2.5rem + 4rem + 0.938rem;
     left: 1rem;
     right: 1rem;
 
@@ -53,25 +53,22 @@
 
 @media screen and (min-width: 768px) {
     .blue-app-status-alert {
-        left: calc(50% - 300px);
-        right: calc(50% - 300px);
+        left: calc(50% - 18.75rem);
+        right: calc(50% - 18.75rem);
     }
 }
 
 .blue-app-status-circle {
-   bottom: 40px;
-   left: calc(50% - 20px);
+   bottom: 2.5rem;
+   left: calc(50% - 1.25rem);
    border-radius: 50%;
-   width: 64px;
-   height: 64px;
+   width: 4rem;
+   height: 4rem;
    color: #fff;
 
    &:not(.blue-app-loading) {
-    //    display: flex;
        align-items: center;
        justify-content: center;
-        // text-align: center;
-        // padding-top: 5px;
         font-size: 2.5em;
    }
 }
@@ -121,7 +118,7 @@
     animation-delay: -1.0s;
 }
 
-$bla-status-bar-width: 600px;
+$bla-status-bar-width: 37.5rem;
 $bla-status-bar-loading-height: 2px;
 
 .blue-app-status-bar {

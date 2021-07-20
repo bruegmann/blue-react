@@ -70,7 +70,7 @@
         color: $sidebar-color;
         width: $normal-size;
         height: $normal-size;
-        padding: 4px 12px;
+        padding: 0.25rem 0.75rem;
         font-size: $bla-btn-font-size;
         display: flex;
         align-items: center;
@@ -87,10 +87,10 @@
         &.active::before {
             content: "";
             position: absolute;
-            top: 10px; 
-            bottom: 10px;
+            top: 0.625rem; 
+            bottom: 0.625;
             left: 0;
-            width: 4px;
+            width: 0.25rem;
             background-color: $sidebar-indicator-color;
             border-top-right-radius: 1rem;
             border-bottom-right-radius: 1rem;
