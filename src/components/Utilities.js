@@ -149,7 +149,7 @@ Utilities.registerFluentBtns = () => {
     })
 }
 
-Utilities.fetchData = function (input, init = undefined, showErrorDetail = true) {
+Utilities.fetchData = function (input, init = undefined, showErrorDetail = true, onError = undefined) {
     return fetch(input, init)
         .then((response) => {
             if (!response.ok) throw response
@@ -158,6 +158,10 @@ Utilities.fetchData = function (input, init = undefined, showErrorDetail = true)
         .catch((reason) => {
             reason.text().then((errorMessage) => {
                 Utilities.setAlertMessage(`${reason.status} - ${reason.statusText}`, "danger", true, showErrorDetail ? errorMessage : undefined)
+
+                if (onError) {
+                    onError(errorMessage, reason)
+                }
             })
         })
 }
