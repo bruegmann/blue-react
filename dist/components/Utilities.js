@@ -153,12 +153,17 @@ Utilities.registerFluentBtns = function () {
 Utilities.fetchData = function (input) {
   var init = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
   var showErrorDetail = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  var onError = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
   return fetch(input, init).then(function (response) {
     if (!response.ok) throw response;
     return response;
   }).catch(function (reason) {
     reason.text().then(function (errorMessage) {
       Utilities.setAlertMessage("".concat(reason.status, " - ").concat(reason.statusText), "danger", true, showErrorDetail ? errorMessage : undefined);
+
+      if (onError) {
+        onError(errorMessage, reason);
+      }
     });
   });
 };

@@ -16,5 +16,5 @@ declare namespace Utilities {
     export function fluentBtnsListener(event: any, btn: any): void;
     export function unregisterFluentBtns(): void;
     export function registerFluentBtns(): void;
-    export function fetchData(input: any, init?: any, showErrorDetail?: boolean): Promise<void | Response>;
+    export function fetchData(input: any, init?: any, showErrorDetail?: boolean, onError?: any): Promise<void | Response>;
 }
