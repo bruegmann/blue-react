@@ -163,6 +163,7 @@ Utilities.fetchData = function (input, init = undefined, showErrorDetail = true,
                     onError(errorMessage, reason)
                 }
             })
+            throw reason
         })
 }
 

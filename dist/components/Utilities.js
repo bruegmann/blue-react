@@ -165,6 +165,7 @@ Utilities.fetchData = function (input) {
         onError(errorMessage, reason);
       }
     });
+    throw reason;
   });
 };
 
