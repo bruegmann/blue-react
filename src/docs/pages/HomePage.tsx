@@ -2,6 +2,7 @@ import React from "react";
 import Page from "../../components/Page";
 import Body from "../../components/Body";
 import { logo, appTitle } from "../Global";
+import { VersionToggle } from "../components/VersionToggle";
 
 const packageJson = require("../../../package.json");
 
@@ -13,7 +14,7 @@ export const HomePage = () => (
                     <h1 className="display-1 d-inline-flex align-items-center">
                         <img src={logo} alt={appTitle} style={{ height: "1em" }} className="mr-3" /> Blue
                     </h1>
-                    <h4>{packageJson.version}</h4>
+                    <h4>{packageJson.version} <VersionToggle className="d-inline-block ml-1" /></h4>
                 </div>
             </div>
 
