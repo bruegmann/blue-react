@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/blue-react/v7/static/css/main.0a3e08bf.chunk.css",
-    "main.js": "/blue-react/v7/static/js/main.2b951708.chunk.js",
-    "main.js.map": "/blue-react/v7/static/js/main.2b951708.chunk.js.map",
+    "main.css": "/blue-react/v7/static/css/main.d56e3610.chunk.css",
+    "main.js": "/blue-react/v7/static/js/main.c0591055.chunk.js",
+    "main.js.map": "/blue-react/v7/static/js/main.c0591055.chunk.js.map",
     "runtime-main.js": "/blue-react/v7/static/js/runtime-main.bfb610d4.js",
     "runtime-main.js.map": "/blue-react/v7/static/js/runtime-main.bfb610d4.js.map",
     "static/css/2.d566850b.chunk.css": "/blue-react/v7/static/css/2.d566850b.chunk.css",
     "static/js/2.3daf4b6d.chunk.js": "/blue-react/v7/static/js/2.3daf4b6d.chunk.js",
     "static/js/2.3daf4b6d.chunk.js.map": "/blue-react/v7/static/js/2.3daf4b6d.chunk.js.map",
     "index.html": "/blue-react/v7/index.html",
-    "precache-manifest.389dd051a0c165add0cca251323f1759.js": "/blue-react/v7/precache-manifest.389dd051a0c165add0cca251323f1759.js",
+    "precache-manifest.5d5746316e7405bd15679b3f1fa43e41.js": "/blue-react/v7/precache-manifest.5d5746316e7405bd15679b3f1fa43e41.js",
     "service-worker.js": "/blue-react/v7/service-worker.js",
     "static/css/2.d566850b.chunk.css.map": "/blue-react/v7/static/css/2.d566850b.chunk.css.map",
-    "static/css/main.0a3e08bf.chunk.css.map": "/blue-react/v7/static/css/main.0a3e08bf.chunk.css.map",
+    "static/css/main.d56e3610.chunk.css.map": "/blue-react/v7/static/css/main.d56e3610.chunk.css.map",
     "static/js/2.3daf4b6d.chunk.js.LICENSE.txt": "/blue-react/v7/static/js/2.3daf4b6d.chunk.js.LICENSE.txt",
     "static/media/blue.svg": "/blue-react/v7/static/media/blue.beeb7a76.svg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.bfb610d4.js",
     "static/css/2.d566850b.chunk.css",
     "static/js/2.3daf4b6d.chunk.js",
-    "static/css/main.0a3e08bf.chunk.css",
-    "static/js/main.2b951708.chunk.js"
+    "static/css/main.d56e3610.chunk.css",
+    "static/js/main.c0591055.chunk.js"
   ]
 }
