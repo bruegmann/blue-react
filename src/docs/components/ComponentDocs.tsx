@@ -109,12 +109,6 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                             <div className="mb-3"><ExampleComponent /></div>
                                         }
 
-                                        <div className="alert alert-info">
-                                            Note, that when working in your own project, you need to import components differently. You need to import them from the{" "}
-                                            <strong>blue-react</strong> package like this:<br />
-                                            <code>{`import { FluentBtn, Caret } from "blue-react"`}</code>
-                                        </div>
-
                                         {comp.exampleCode &&
                                             <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">{comp.exampleCode}</SyntaxHighlighter>
                                         }
