@@ -7630,7 +7630,7 @@ label {
 
 .page-header {
   padding-bottom: 0.563rem;
-  margin: 2.5px 0 1.25rem;
+  margin: 2.5rem 0 1.25rem;
   border-bottom: 1px solid #dee2e6; }
 
 .dark-area {
@@ -7969,7 +7969,7 @@ body {
     content: "";
     position: absolute;
     top: 0.625rem;
-    bottom: 0.625;
+    bottom: 0.625rem;
     left: 0;
     width: 0.25rem;
     background-color: white;
@@ -8022,7 +8022,7 @@ body {
       content: "";
       position: absolute;
       top: 0.625rem;
-      bottom: 0.625;
+      bottom: 0.625rem;
       left: 0;
       width: 0.25rem;
       background-color: white;
