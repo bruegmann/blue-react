@@ -1,2 +1,4 @@
-export const logo = require("./images/blue.svg") as string;
-export const appTitle = "Blue";
+import image from "./images/blue.svg"
+
+export const logo = image
+export const appTitle = "Blue"
