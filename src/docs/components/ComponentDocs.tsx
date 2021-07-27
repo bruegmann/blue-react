@@ -1,7 +1,8 @@
-import React, { Component, ComponentClass } from "react";
+import React, { Component, ComponentClass } from "react"
 import MarkdownGitHub from "react-markdown-github"
-import Highlight from "react-highlight";
-import { Link } from "react-router-dom";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
+import { Link } from "react-router-dom"
 
 export interface IComponentDocsProps {
     standalone: boolean;
@@ -19,6 +20,17 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
     };
 
     componentDidMount() {
+        try {
+            const { comp } = this.props;
+            const ExampleComponent = require(`../examples/${comp.displayName}.tsx`);
+            // console.log(ExampleComponent);
+            this.setState({ ExampleComponent: ExampleComponent["default"] });
+        }
+        catch (ex) {
+            // console.error(ex);
+            // This component has no example
+        }
+
         try {
             const { comp } = this.props;
             const ExampleComponent = require(`../examples/${comp.displayName}.js`);
@@ -82,7 +94,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                             }
                                         </td>
                                         <td>
-                                            {comp.props[j].tsType && comp.props[j].tsType.name}
+                                            {comp.props[j].tsType && (comp.props[j].tsType.raw || comp.props[j].tsType.name)}
                                         </td>
                                     </tr>
                                 )}
@@ -99,8 +111,14 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                             <div className="mb-3"><ExampleComponent /></div>
                                         }
 
+                                        <div className="alert alert-info">
+                                            Note, that when working in your own project, you need to import components differently. You need to import them from the{" "}
+                                            <strong>blue-react</strong> package like this:<br />
+                                            <code>{`import { FluentBtn, Caret } from "blue-react"`}</code>
+                                        </div>
+
                                         {comp.exampleCode &&
-                                            <Highlight className="jsx">{comp.exampleCode}</Highlight>
+                                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">{comp.exampleCode}</SyntaxHighlighter>
                                         }
                                     </div>
                                     :

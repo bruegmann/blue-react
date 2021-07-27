@@ -25,10 +25,10 @@ export const ActionMenuExamplePage = () => {
                     </MenuItem>
                 </ActionMenu>
             </Header>
-            <Body className="bg-light mt-5">
+            <Body className="mt-5">
 
-                <label className="my-1 mr-2" htmlFor="ActionMenuExamplePage-breakProp"><code>break</code> prop</label>
-                <select className="custom-select my-1 mr-sm-2" id="ActionMenuExamplePage-breakProp"
+                <label className="my-1 me-2" htmlFor="ActionMenuExamplePage-breakProp"><code>break</code> prop</label>
+                <select className="form-select my-1 me-sm-2" id="ActionMenuExamplePage-breakProp"
                     value={breakProp}
                     onChange={({ target }) => setBreakProp(target.value as any)}
                 >

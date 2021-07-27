@@ -2,6 +2,9 @@ import React from "react";
 import Page from "../../components/Page";
 import Body from "../../components/Body";
 import { logo, appTitle } from "../Global";
+import { Bootstrap, BoxSeam, Code, WindowSidebar } from "react-bootstrap-icons";
+import { ReactIcon } from "../components/ReactIcon";
+import { ToastDemo } from "../components/ToastDemo";
 import { VersionToggle } from "../components/VersionToggle";
 import { Footer } from "../components/Footer";
 
@@ -11,12 +14,27 @@ export const HomePage = () => (
     <Page>
         <Body className="pt-0" containerClass="no-container d-flex flex-column docs-min-height-100vh">
             <main className="flex-grow-1">
-                <div className="welcome-jumbotron jumbotron jumbotron-fluid bg-theme text-white">
-                    <div className="container text-center">
-                        <h1 className="display-1 d-inline-flex align-items-center">
-                            <img src={logo} alt={appTitle} style={{ height: "1em" }} className="mr-3" /> Blue
-                        </h1>
-                        <h4>{packageJson.version} <VersionToggle className="d-inline-block ml-1" /></h4>
+                <div className="welcome-jumbotron py-5 bg-theme text-white">
+                    <div className="container">
+                        <section className="d-flex justify-content-between">
+                            <div>
+                                <h1>React component library based on Bootstrap 5</h1>
+                                <h2>
+                                    <Bootstrap /> <ReactIcon /> <Code /> <WindowSidebar /> <BoxSeam />
+                                </h2>
+                                <h3 className="d-flex align-content-center gap-3">
+                                    <span className="badge bg-white text-theme">{packageJson.version}</span>
+
+                                    <VersionToggle />
+                                </h3>
+                            </div>
+
+                            <div>
+                                <h1 className="display-1 d-inline-flex align-items-center">
+                                    <img src={logo} alt={appTitle} style={{ height: "1em" }} className="me-3" /> Blue
+                                </h1>
+                            </div>
+                        </section>
                     </div>
                 </div>
 
@@ -31,6 +49,8 @@ export const HomePage = () => (
 
                     <h2 className="mt-4 mb-3">Install to existing project</h2>
                     <code>npm i blue-react</code>
+
+                    <ToastDemo />
                 </div>
             </main>
 

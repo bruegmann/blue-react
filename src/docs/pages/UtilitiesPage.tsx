@@ -1,14 +1,13 @@
-import React from "react";
-import FluentBtn from "../../components/FluentBtn";
-import Utilities from "../../components/Utilities";
+import React from "react"
+import FluentBtn from "../../components/FluentBtn"
+import Utilities from "../../components/Utilities"
 import { PlayFill } from "react-bootstrap-icons"
-import Highlight from "react-highlight";
-import Page from "../../components/Page";
-import Header from "../../components/Header";
-import { logo, appTitle } from "../Global";
-import Body from "../../components/Body";
-import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo";
-import { Footer } from "../components/Footer";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
+import Page from "../../components/Page"
+import Body from "../../components/Body"
+import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo"
+import { Footer } from "../components/Footer"
 
 export interface UtilitiesPageProps { }
 
@@ -117,7 +116,7 @@ const utilitiesFunctions = [
         description: "Disables the effect of Fluent buttons."
     },
     {
-        definition: "fetchData(input, init?, showErrorDetail? = true, onError?: (errorMessage: string, reason: Response) => void)",
+        definition: "fetchData(input, init?, showErrorDetail? = true)",
         description: <span>Uses native <code>fetch</code> function, but adds error handling and shows error messages if there are any.</span>,
         // demo: (<Fragment>
         //     <FluentBtn className="btn btn-light"
@@ -202,7 +201,7 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                 <tr>
                                     <td><code>.blue-normal-scrollbar</code></td>
                                     <td>
-                                        <span className="badge badge-primary">NEW</span> {"Normalizes elements in areas which still should not have the theme colors for their scrollbars. "}
+                                        <span className="badge bg-primary">NEW</span> {"Normalizes elements in areas which still should not have the theme colors for their scrollbars. "}
                                         <NormalScrollbarDemo />
                                     </td>
                                 </tr>
@@ -222,8 +221,8 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                     <td><code>.form-control.underlined</code></td>
                                     <td>
                                         <span>Use underlined look for controls instead of the Bootstrap default.</span>
-                                        <input readOnly className="form-control underlined mb-1" placeholder="Like this (.form-control.underlined)" />
-                                        <input readOnly className="form-control" placeholder="Instead of this (.form-control)" />
+                                        <input className="form-control underlined mb-1" placeholder="Like this (.form-control.underlined)" />
+                                        <input className="form-control" placeholder="Instead of this (.form-control)" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -263,16 +262,16 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                     <tr key={index}>
                                         <td><code>Utilities.{fun.definition}</code></td>
                                         <td>{fun.description}</td>
-                                        {fun.demo && <td>{fun.demo}</td>}
+                                        {fun.demo ? <td>{fun.demo}</td> : <td />}
                                     </tr>
                                 )}
                             </tbody>
                         </table>
 
                         <h2 className="page-header">Example</h2>
-                        <Highlight className="js">{`import { Utilities } from "blue-react";
+                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="javascript">{`import { Utilities } from "blue-react"
                             
-Utilities.startLoading();`}</Highlight>
+Utilities.startLoading()`}</SyntaxHighlighter>
                     </div>
                 )
             }

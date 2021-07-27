@@ -69,8 +69,7 @@ var Grid = /*#__PURE__*/function (_Component) {
       sidebarIn: props.sidebarIn,
       match: null,
       history: [],
-      hash: window.location.hash,
-      hashHistory: []
+      hash: window.location.hash
     };
     _this.hideSidebar = _this.hideSidebar.bind(_assertThisInitialized(_this));
     window.addEventListener("hashchange", function (event) {
@@ -175,8 +174,7 @@ var Grid = /*#__PURE__*/function (_Component) {
       this.setState({
         match: newMatch,
         history: this.state.history,
-        hash: window.location.hash,
-        hashHistory: this.state.hashHistory.concat([window.location.hash])
+        hash: window.location.hash
       });
     }
   }, {
@@ -230,8 +228,9 @@ var Grid = /*#__PURE__*/function (_Component) {
         className: "blue-app-status-alert alert"
       }, /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
-        className: "close"
-      }, "\xD7"), /*#__PURE__*/_react.default.createElement("div", {
+        className: "btn-close mb-1",
+        "aria-label": "Close"
+      }), /*#__PURE__*/_react.default.createElement("div", {
         className: "alert-body"
       }))));
     }

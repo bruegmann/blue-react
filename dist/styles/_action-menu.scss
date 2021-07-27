@@ -36,11 +36,6 @@
         animation: fadeInDown 0.5s;
     }
 
-    .form-switch {
-        font-weight: normal;
-        height: $normal-size;
-    }
-
     &.none {
         @include actions(0px);
     }

@@ -1,12 +1,77 @@
-/*
-Open the following link to edit this config on Themify
-file:///C:/Users/lgk/AppData/Local/Programs/themify/resources/app.asar/docs/index.electron.html#/home/%7B%22name%22%3A%22Blue%20Docs%22%2C%22btHashVars%22%3A%7B%22%24primary%22%3A%22%234f1eff%22%7D%7D
-*/
-
-
-// Color system
+// Blue variables
 //
 
-$primary: #4f1eff;
-
-
+$gray-900: #121212;
+$white: #fff;
+$gray-800: #232323;
+$gray-700: #333333;
+$pink: #ff6caf;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$black: #000;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-600: #6c757d;
+$light: $gray-800;
+$body-bg: $gray-900;
+$body-color: $white;
+$table-bg: $gray-800;
+$table-border-color: $gray-700;
+$input-color: $body-color;
+$input-placeholder-color: $gray-400;
+$input-disabled-bg: $gray-500;
+$input-border-color: $gray-600;
+$input-group-addon-bg: $gray-700;
+$nav-tabs-link-active-color: $gray-300;
+$nav-tabs-border-color: $gray-700;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-color transparent;
+$nav-tabs-link-hover-border-color: $gray-800 $gray-800 transparent;
+$navbar-light-color: rgba($white, .5);
+$navbar-light-hover-color: rgba($white, .7);
+$navbar-light-active-color: rgba($white, .9);
+$navbar-light-disabled-color: rgba($white, .3);
+$navbar-light-toggler-border-color: rgba($white, .1);
+$pagination-bg: $body-bg;
+$pagination-border-color: $gray-700;
+$pagination-hover-bg: $gray-800;
+$pagination-hover-border-color: $gray-700;
+$pagination-disabled-border-color: $gray-700;
+$pagination-disabled-bg: $body-bg;
+$pagination-disabled-color: $gray-400;
+$jumbotron-bg: $gray-600;
+$card-bg: $body-bg;
+$card-cap-bg: rgba($white, .03);
+$card-border-color: rgba($white, .125);
+$primary: rgb(140, 130, 172);
+$link-color: $primary;
+$link-hover-color: lighten($link-color, 15%);
+$thumbnail-border-color: $gray-700;
+$close-color: $body-color;
+$close-text-shadow: 0 1px 0 $black;
+$list-group-action-active-bg: $gray-500;
+$list-group-action-color: $gray-200;
+$list-group-hover-bg: $gray-800;
+$list-group-border-color: rgba($white, .125);
+$modal-header-border-color: $gray-700;
+$modal-content-bg: $gray-800;
+$theme: rgb(38, 31, 49);
+$red: #ec808a;
+$yellow: #ffe185;
+$cyan: #72daea;
+$green: #70d286;
+$custom-select-indicator-color: $gray-200;
+$input-bg: $gray-800;
+$table-bg-level: 9;
+$alert-bg-level: 7;
+$table-border-level: 6;
+$alert-border-level: 9;
+$alert-color-level: -6;
+$nav-tabs-link-active-bg: $body-bg;
+$component-active-color: $black;
+$list-group-bg: $body-bg;
+$btn-close-color: $white;
+$toast-background-color: rgba($black, .85);
+$toast-border-color: rgba(white, .1);
+$toast-header-color: $gray-400;
+$toast-header-background-color: rgba($black, .85);
+$toast-header-border-color: rgba(white, .05);

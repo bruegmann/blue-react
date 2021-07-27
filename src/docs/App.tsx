@@ -3,7 +3,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    NavLink
+    NavLink,
+    Link
 } from "react-router-dom";
 import Grid from "../components/Grid";
 
@@ -12,7 +13,7 @@ import { HomePage } from "./pages/HomePage";
 import SidebarMenu from "../components/SidebarMenu";
 import MenuItem from "../components/MenuItem";
 
-import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, SignpostSplit } from "react-bootstrap-icons"
+import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, SignpostSplit, Palette2 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage";
 import { IntroDemoPage } from "./pages/IntroDemoPage";
@@ -40,18 +41,29 @@ function App() {
                 }}
                 disableHeaders
             >
-                <HeaderTitle logo={logo} appTitle={appTitle} sidebar />
+                <HeaderTitle sidebar>
+                    <Link to="/"><img src={logo} className="blue-app-header-logo-image" alt="B" /></Link> <Link to="/">{appTitle}</Link>
+                </HeaderTitle>
 
                 <SidebarMenu
                     bottomContent={
-                        <>
+                        <div className="fluent-btn">
+                            <div className="fluent-btn-ball" />
+
+                            <MenuItem
+                                href="https://bruegmann.github.io/themify/customize"
+                                target="_blank" rel="noopener noreferrer"
+                                label="Customize with Themify"
+                                icon={<Palette2 />}
+                            />
+
                             <MenuItem
                                 href="https://github.com/bruegmann/blue-react"
                                 icon={<CodeSquare />}
                                 label="Code on GitHub"
                                 target="_blank" rel="noopener noreferrer"
                             />
-                        </>
+                        </div>
                     }
                 >
                     <MenuItem icon={<House />} label="Start" elementType={NavLink} exact to="/" />

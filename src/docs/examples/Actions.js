@@ -15,7 +15,7 @@ function ActionsExample() {
     return (
         <div>
             <Switch
-                className="lg mr-3"
+                className="lg me-3"
                 checked={isChecked}
                 onChange={toggleIsChecked}
                 sliderLabel={isChecked ? "Mobile" : "PC"}
@@ -32,10 +32,9 @@ function ActionsExample() {
                 <Link to={`/actions-example/${headerless ? "headerless" : ""}`} target="_blank" rel="noopener noreferrer">Open in new tab</Link>
             </p>
 
-            <div className="embed-responsive embed-responsive-16by9" >
+            <div className="ratio ratio-16x9" >
                 <iframe
                     src={`${process.env.PUBLIC_URL}/actions-example/${headerless ? "headerless" : ""}`}
-                    className="embed-responsive-item"
                     style={style}
                     title="Actions Demo page"
                 />

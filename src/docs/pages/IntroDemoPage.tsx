@@ -15,7 +15,6 @@ export const IntroDemoPage = () => (
                 }
             }
         `}} />
-
         <Intro logo={logo} logoMaxWidth="100px" title="Here could be your introduction">
             <form
                 className="form-horizontal"
@@ -23,7 +22,7 @@ export const IntroDemoPage = () => (
                     event.preventDefault();
                 }}
             >
-                <div className="form-group row">
+                <div className="row mb-3">
                     <label className="col-sm-4 col-form-label">Please sign in</label>
                     <div className="col-sm-8">
                         <input type="text" className="form-control" placeholder="Enter something" />

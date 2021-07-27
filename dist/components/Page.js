@@ -9,7 +9,7 @@ exports.default = Page;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _classnames = _interopRequireDefault(require("classnames"));
+var _clsx = _interopRequireDefault(require("clsx"));
 
 var _Utilities = _interopRequireDefault(require("./Utilities"));
 
@@ -61,7 +61,7 @@ function Page(_ref) {
     }
   }, [title]);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _classnames.default)("blue-app-page-wrapper", {
+    className: (0, _clsx.default)("blue-app-page-wrapper", {
       "hasHeader": hasHeader
     }),
     ref: elementRef

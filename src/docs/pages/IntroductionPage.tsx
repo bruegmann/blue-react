@@ -1,141 +1,87 @@
-import React from "react";
-import Page from "../../components/Page";
-import Body from "../../components/Body";
-import Highlight from "react-highlight";
-import { Footer } from "../components/Footer";
+import React, { useEffect, useState } from "react"
+import Page from "../../components/Page"
+import Body from "../../components/Body"
+import { GitHubContent } from "../gitHubApiTypes"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
+import { Footer } from "../components/Footer"
 
-export interface IntroductionPageProps { }
+export function IntroductionPage() {
+    const [appCode, setAppCode] = useState<string>("")
+    const [pageCode, setPageCode] = useState<string>("")
+    const [scssCode, setScssCode] = useState<string>("")
 
-export interface IntroductionPageState {
-    content: any,
-    didScroll: boolean
-}
+    const fetchFromGitHub = async (path: string) => {
+        const url = `https://api.github.com/repos/bruegmann/cra-template-ts-blue/contents/template/${path}`
+        const r = await fetch(`${url}`)
 
-export class IntroductionPage extends React.Component<IntroductionPageProps, IntroductionPageState> {
-    constructor(props: IntroductionPageProps) {
-        super(props);
+        const ghContent: GitHubContent = await r.json()
 
-        this.state = {
-            content: [],
-            didScroll: false
+        if (ghContent.content) {
+            const decoded = atob(ghContent.content)
+
+            return decoded
         }
     }
-    componentDidMount() {
 
-        document.querySelector(".router-page.active")!.addEventListener("scroll", () => {
-            if (!this.state.didScroll) {
-                this.setState({ didScroll: true });
-            }
-        });
+    const fetchAppCode = async () => {
+        setAppCode(await fetchFromGitHub("src/App.tsx") || "")
+        setPageCode(await fetchFromGitHub("src/pages/HomePage.tsx") || "")
+        setScssCode(await fetchFromGitHub("src/styles/main.scss") || "")
     }
-    render() {
-        const sections = [
-            {
-                title: "Bootstrap",
-                body: (
-                    <div>
-                        An adapted Bootstrap is mainly used for the stylesheet.<br />
-                        Bootstrap documentation is available here: <a href="https://getbootstrap.com/docs/">https://getbootstrap.com/docs/</a>
-                    </div>
-                )
-            },
-            {
-                title: "Implementation",
-                body: (
-                    <div>
-                        <h2>Root (index.jsx)</h2>
-                        <Highlight className="js">{
-                            `import React from "react";
-import { render } from "react-dom";
 
-// Imports Components for Grid, SidebarMenu and Menu-Items
-import { Grid, SidebarMenu, MenuItem } from "blue-react";
+    useEffect(() => {
+        fetchAppCode()
+    }, [])
 
-// Imports a page
-import MyPage from "./MyPage.jsx";
+    const sections = [
+        {
+            title: "Bootstrap",
+            body: (
+                <div>
+                    An adapted Bootstrap is mainly used for the stylesheet.<br />
+                    Bootstrap documentation is available here: <a href="https://getbootstrap.com/docs/">https://getbootstrap.com/docs/</a>
+                </div>
+            )
+        },
+        {
+            title: "Implementation",
+            body: (
+                <div>
+                    <p>
+                        See the whole project: <a href="https://github.com/bruegmann/cra-template-ts-blue/tree/master/template" target="_blank" rel="noopener noreferrer">https://github.com/bruegmann/cra-template-ts-blue/tree/master/template</a>
+                    </p>
 
-// Imported CSS
-import "./main.scss";
+                    <h2>App (app.tsx)</h2>
+                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="javascript">{appCode}</SyntaxHighlighter>
 
-class App extends React.Component {
-    render() {
-        return (
-            <Router>
-                <Grid>
-                   <SidebarMenu>
-                       <MenuItem href="#/my-page" icon="bi-home" label="My Page" />
-                   </SidebarMenu> 
+                    <h2 className="mt-3">Page (pages/HomePage.tsx)</h2>
+                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="javascript">{pageCode}</SyntaxHighlighter>
 
-                    {/* Set "/my-page" as Home Page */}
-                    <Route exact path="/" render={() =>
-                        <Redirect href="#/my-page" />
-                    } />
-
-                    {/* Registered Route */}
-                    <Route exact path="/my-page" component={MyPage} />
-                </Grid>
-            </Router>
-        );
-    }
-}
-
-render(<App />, document.getElementById("app"));`
-                        }</Highlight>
-
-                        <h2>Page (MyPage.jsx)</h2>
-                        <Highlight className="js">{
-                            `import React from "react";
-import { Page, Header, HeaderTitle, Body } from "blue-react";
-
-class BootstrapDemoPage extends React.Component {
-    render() {
-        return (
-            <Page>
-                <Header>
-                  <HeaderTitle>Blue React</HeaderTitle>
-                </Header>
-                <Body>
-                   ...
-                <Body>
-            </Page>
-        );
-    }
-}
-
-export default BootstrapDemoPage;`
-                        }</Highlight>
-
-                        <h2>CSS (main.scss)</h2>
-                        <Highlight className="css">{
-                            `/* Stylesheet for blue-react. Bootstrap 4 is already included.*/
-$primary-color: #4dadf7; /* Define primary color */
-@import "~blue-react/dist/style.scss";
-`
-                        }</Highlight>
-                    </div>
-                )
-            }
-        ];
-        return (
-            <Page>
-                <Body containerClass="no-container d-flex flex-column docs-min-height-100vh">
-                    <div className="container flex-grow-1">
-                        <div className="row">
-                            <div className="col-md-12">
-                                {sections.map((s, i) =>
-                                    <article key={i} id={"section-" + encodeURIComponent(s.title)}>
-                                        <h1 className="page-header">{s.title}</h1>
-                                        {s.body}
-                                    </article>
-                                )}
-                            </div>
+                    <h2 className="mt-3">CSS (main.scss)</h2>
+                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="css">{scssCode}</SyntaxHighlighter>
+                </div>
+            )
+        }
+    ]
+    return (
+        <Page>
+            <Body containerClass="no-container d-flex flex-column docs-min-height-100vh">
+                <div className="container flex-grow-1">
+                    <div className="row">
+                        <div className="col-md-12">
+                            {sections.map((s, i) =>
+                                <article key={i} id={"section-" + encodeURIComponent(s.title)}>
+                                    <h1 className="page-header">{s.title}</h1>
+                                    {s.body}
+                                </article>
+                            )}
                         </div>
                     </div>
-
-                    <Footer />
-                </Body>
-            </Page>
-        );
-    }
+                </div>
+                <Footer />
+            </Body>
+        </Page>
+    )
 }
-export default IntroductionPage;
+export default IntroductionPage

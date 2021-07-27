@@ -141,10 +141,6 @@ label {
         animation: enabledBlueAppPage .5s;
     }
 
-    .jumbotron {
-        background-color: $body-bg;
-    }
-
     @media screen and (min-width: 768px) {
         .sign-in-container {
             padding: 0 calc(50% - 18rem);

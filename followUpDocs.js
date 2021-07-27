@@ -9,12 +9,19 @@ let doc = require(docPath);
 
 Object.keys(doc).forEach(prop => {
     const displayName = doc[prop].displayName;
-    const exampleFilePath = "./src/docs/examples/" + displayName + ".js";
 
-    if (fs.existsSync(exampleFilePath)) {
-        // console.log(displayName + " has example");
+    const exampleFilePathTsx = "./src/docs/examples/" + displayName + ".tsx";
 
-        const exampleCode = fs.readFileSync(exampleFilePath, "utf8");
+    if (fs.existsSync(exampleFilePathTsx)) {
+        const exampleCode = fs.readFileSync(exampleFilePathTsx, "utf8");
+
+        doc[prop].exampleCode = exampleCode.replace('"../../../index.js"', `"${packageName}"`);
+    }
+
+    const exampleFilePathJs = "./src/docs/examples/" + displayName + ".js";
+
+    if (fs.existsSync(exampleFilePathJs)) {
+        const exampleCode = fs.readFileSync(exampleFilePathJs, "utf8");
 
         doc[prop].exampleCode = exampleCode.replace('"../../../index.js"', `"${packageName}"`);
     }

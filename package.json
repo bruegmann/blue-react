@@ -1,11 +1,11 @@
 {
   "name": "blue-react",
-  "version": "6.29.2",
+  "version": "7.0.0-beta.8",
   "description": "Blue React Components",
   "license": "LGPL-3.0-or-later",
   "main": "index.js",
   "types": "index.d.ts",
-  "homepage": "https://bruegmann.github.io/blue-react/v6",
+  "homepage": "https://bruegmann.github.io/blue-react/v7",
   "repository": {
     "type": "git",
     "url": "https://github.com/bruegmann/blue-react.git"
@@ -24,14 +24,14 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build-docs",
-    "deploy": "gh-pages --dist build --dest v6",
+    "deploy": "gh-pages --dist build --dest v7",
     "prepublishOnly": "npm i && npm run build-release",
     "postpublish": "npm run deploy",
-    "release": "npm publish && npm run deploy"
+    "release": "npm publish --tag next && npm run deploy"
   },
   "dependencies": {
-    "bootstrap": "^4.6.0",
-    "classnames": "^2.3.1"
+    "bootstrap": "^5.0.1",
+    "clsx": "^1.1.1"
   },
   "peerDependencies": {
     "react": "^16.0.0 || ^17.0.0"
@@ -44,25 +44,24 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/bootstrap": "^5.0.17",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.47",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
-    "@types/react-highlight": "^0.12.2",
     "@types/react-router-dom": "^5.1.5",
     "@types/react-syntax-highlighter": "^13.5.0",
     "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.2",
-    "react-bootstrap-icons": "^1.0.0",
+    "react-bootstrap-icons": "^1.5.0",
     "react-docgen": "^5.4.0",
     "react-dom": "^17.0.2",
-    "react-highlight": "^0.14.0",
     "react-markdown-github": "^3.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-syntax-highlighter": "^15.4.3",
-    "reactstrap": "^8.9.0",
+    "reactstrap": "^9.0.0-0",
     "typescript": "^3.7.5"
   },
   "eslintConfig": {

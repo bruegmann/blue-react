@@ -61,7 +61,7 @@ function expandSection(element: HTMLElement) {
 }
 
 /**
- * An alternative to `ActionMenu`.
+ * @deprecated Please use `ActionMenu` instead.
  */
 export default function Actions(props: ActionsProps) {
     const [open, setOpen] = useState<boolean>(props.open || false)

@@ -23,6 +23,7 @@ export interface GitHubTree {
 export type GitHubContentResponse = GitHubContent[]
 
 export interface GitHubContent {
+    content?: string
     download_url?: string
     git_url: string
     html_url: string

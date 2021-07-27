@@ -5,11 +5,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Intro;
+exports.default = BsModal;
+
+var _bootstrap = require("bootstrap");
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _Utilities = _interopRequireDefault(require("./Utilities"));
+var _clsx = _interopRequireDefault(require("clsx"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18,32 +20,38 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /**
- * Can be used for a sign-in page.
+ * Wrapper for Bootstrap's Modal component.
  */
-function Intro(_ref) {
-  var logo = _ref.logo,
-      _ref$logoMaxWidth = _ref.logoMaxWidth,
-      logoMaxWidth = _ref$logoMaxWidth === void 0 ? "100px" : _ref$logoMaxWidth,
-      title = _ref.title,
-      children = _ref.children;
+function BsModal(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      show = _ref.show,
+      setShow = _ref.setShow;
+  var modalRef = (0, _react.useRef)();
   (0, _react.useEffect)(function () {
-    _Utilities.default.registerFluentBtns();
-  }, []);
+    var myModal = modalRef.current;
+
+    var bsModal = _bootstrap.Modal.getInstance(myModal);
+
+    if (!bsModal) {
+      bsModal = new _bootstrap.Modal(myModal);
+      bsModal.hide();
+      setShow(false); // When the user clicks on underlay to close the modal
+
+      myModal.addEventListener("hide.bs.modal", function () {
+        setShow(false);
+      });
+    } else {
+      show ? bsModal.show() : bsModal.hide();
+    }
+  }, [show]);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "sign-in-screen"
+    className: (0, _clsx.default)("modal fade", className),
+    ref: modalRef,
+    tabIndex: -1
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "sign-in-container mx-1"
+    className: "modal-dialog"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "bg-body rounded-3 shadow-lg px-4 py-5"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "text-center"
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    style: {
-      maxWidth: logoMaxWidth
-    },
-    src: logo,
-    alt: ""
-  }), /*#__PURE__*/_react.default.createElement("h2", {
-    className: "mt-4 mb-3"
-  }, title)), children)));
+    className: "modal-content"
+  }, children)));
 }

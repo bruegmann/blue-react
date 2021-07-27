@@ -12,10 +12,16 @@ class FluentBtnExample extends React.Component {
         return (
             <div>
                 <FluentBtn
-                    className="btn btn-primary btn-lg"
+                    className="btn btn-primary btn-lg mb-1"
                 >
                     Hover over this button and see the fancy fluent effect
                 </FluentBtn>
+                <br />
+                <FluentBtn className="btn btn-secondary mb-1">A secondary button in normal size</FluentBtn>
+                <br />
+                <FluentBtn className="btn btn-outline-secondary mb-1">A secondary outline button</FluentBtn>
+                <br />
+                <FluentBtn href="#" className="btn btn-light mb-1">A light button</FluentBtn>
             </div>
         );
     }

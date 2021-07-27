@@ -1,5 +1,5 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from "react"
-import cx from "classnames"
+import clsx from "clsx"
 import Utilities from "./Utilities"
 
 export interface PageProps {
@@ -36,7 +36,7 @@ export default function Page({ children, title }: PageProps) {
     }, [title])
 
     return (
-        <div className={cx("blue-app-page-wrapper", { "hasHeader": hasHeader })} ref={elementRef}>
+        <div className={clsx("blue-app-page-wrapper", { "hasHeader": hasHeader })} ref={elementRef}>
             {children}
         </div>
     )
