@@ -35,6 +35,9 @@ export { BsModalBodyProps } from "./dist/types/components/BsModalBody"
 export { default as BsModalHeader } from "./dist/types/components/BsModalHeader"
 export { BsModalHeaderProps } from "./dist/types/components/BsModalHeader"
 
+export { default as BsToast } from "./dist/types/components/BsToast"
+export { BsToastProps } from "./dist/types/components/BsToast"
+
 export { default as Caret } from "./dist/types/components/Caret"
 export { CaretProps } from "./dist/types/components/Caret"
 

@@ -18,4 +18,4 @@ export interface SwitchProps {
  */
 export default function Switch({ className, checked, onChange, sliderLabel, disabled, elementType }: SwitchProps): React.ReactElement<{
     className: string;
-}, string | ((props: any) => React.ReactElement<any, any> | null) | (new (props: any) => React.Component<any, any, any>)>;
+}, string | React.JSXElementConstructor<any>>;

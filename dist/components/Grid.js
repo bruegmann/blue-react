@@ -69,7 +69,8 @@ var Grid = /*#__PURE__*/function (_Component) {
       sidebarIn: props.sidebarIn,
       match: null,
       history: [],
-      hash: window.location.hash
+      hash: window.location.hash,
+      hashHistory: []
     };
     _this.hideSidebar = _this.hideSidebar.bind(_assertThisInitialized(_this));
     window.addEventListener("hashchange", function (event) {
@@ -174,7 +175,8 @@ var Grid = /*#__PURE__*/function (_Component) {
       this.setState({
         match: newMatch,
         history: this.state.history,
-        hash: window.location.hash
+        hash: window.location.hash,
+        hashHistory: this.state.hashHistory.concat([window.location.hash])
       });
     }
   }, {

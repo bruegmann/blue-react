@@ -4,7 +4,6 @@ import Body from "../../components/Body"
 import { logo, appTitle } from "../Global"
 import { Bootstrap, BoxSeam, Code, WindowSidebar } from "react-bootstrap-icons"
 import { ReactIcon } from "../components/ReactIcon"
-import { ToastDemo } from "../components/ToastDemo"
 import { VersionToggle } from "../components/VersionToggle"
 import { Footer } from "../components/Footer"
 
@@ -49,8 +48,6 @@ export const HomePage = () => (
 
                     <h2 className="mt-4 mb-3">Install to existing project</h2>
                     <code>npm i blue-react</code>
-
-                    <ToastDemo />
                 </div>
             </main>
 

@@ -26,6 +26,6 @@ export interface ActionsProps {
     break?: breakOption;
 }
 /**
- * An alternative to `ActionMenu`.
+ * @deprecated Please use `ActionMenu` instead.
  */
 export default function Actions(props: ActionsProps): JSX.Element;

@@ -57,7 +57,7 @@ function expandSection(element) {
   element.setAttribute("data-collapsed", "false");
 }
 /**
- * An alternative to `ActionMenu`.
+ * @deprecated Please use `ActionMenu` instead.
  */
 
 
