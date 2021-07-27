@@ -62,19 +62,19 @@ export default function DocumentView({ content, mimeType, src = "about:blank", s
                     className="document-view-iframe"
                     src={src}
                     onLoad={({ target }: any) => {
-                        Utilities.finishLoading();
+                        Utilities.finishLoading()
 
-                        const iframeContent = target.contentDocument || target.contentWindow.document;
+                        const iframeContent = target.contentDocument || target.contentWindow.document
 
                         if (mimeType.indexOf("image/") > -1) {
-                            let image = iframeContent.querySelector("img");
+                            let image = iframeContent.querySelector("img")
 
                             if (image) {
                                 if (image.offsetWidth > image.offsetHeight) {
-                                    image.style.width = "100%";
+                                    image.style.width = "100%"
                                 }
                                 else {
-                                    image.style.height = "100%";
+                                    image.style.height = "100%"
                                 }
                             }
                         }

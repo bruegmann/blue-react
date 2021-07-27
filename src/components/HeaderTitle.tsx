@@ -42,12 +42,12 @@ export default function HeaderTitle({ logo, appTitle, keepAppTitle, children, cl
             const element = document.querySelector(`#${uniqueId} .blue-app-header-logo-title-labels`) as HTMLElement
             const titleElement = document.querySelector("title")
             if (element && element.innerText && titleElement) {
-                const titlePaths = element.innerText.split("/");
+                const titlePaths = element.innerText.split("/")
                 if (titlePaths.length > 1) {
-                    titleElement.innerText = `${titlePaths[titlePaths.length - 1].trim()} - ${titlePaths[0].trim()}`;
+                    titleElement.innerText = `${titlePaths[titlePaths.length - 1].trim()} - ${titlePaths[0].trim()}`
                 }
                 else {
-                    titleElement.innerText = element.innerText;
+                    titleElement.innerText = element.innerText
                 }
             }
         }

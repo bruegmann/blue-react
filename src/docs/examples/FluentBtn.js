@@ -1,11 +1,11 @@
-import React from "react";
-import Utilities from "../../components/Utilities";
-import FluentBtn from "../../components/FluentBtn";
+import React from "react"
+import Utilities from "../../components/Utilities"
+import FluentBtn from "../../components/FluentBtn"
 
 class FluentBtnExample extends React.Component {
     componentDidMount() {
         // Beim normalen Einsatz innerhalb von <Page /> ist folgendes nicht nötig. Nur, wenn <FluentBtn /> z.B. asynchron eingebunden wird.
-        Utilities.registerFluentBtns();
+        Utilities.registerFluentBtns()
     }
 
     render() {
@@ -23,8 +23,8 @@ class FluentBtnExample extends React.Component {
                 <br />
                 <FluentBtn href="#" className="btn btn-light mb-1">A light button</FluentBtn>
             </div>
-        );
+        )
     }
 }
 
-export default FluentBtnExample;
+export default FluentBtnExample

@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
-import Page from "../../components/Page";
-import Body from "../../components/Body";
-import Header from "../../components/Header";
-import Actions from "../../components/Actions";
-import MenuItem from "../../components/MenuItem";
-import HeaderTitle from "../../components/HeaderTitle";
-import { useParams } from "react-router-dom";
+import React, { Fragment } from "react"
+import Page from "../../components/Page"
+import Body from "../../components/Body"
+import Header from "../../components/Header"
+import Actions from "../../components/Actions"
+import MenuItem from "../../components/MenuItem"
+import HeaderTitle from "../../components/HeaderTitle"
+import { useParams } from "react-router-dom"
 
 const MyFeaturedMenuItem = () => (
     <Fragment>

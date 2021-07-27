@@ -32,8 +32,8 @@ function ActionMenuExample() {
                 {
                     /**
                      * This is how the Code looks like: 
-                    import React from "react";
-                    import {Page, Body, Header, Actions, MenuItem} from "blue-react";
+                    import React from "react"
+                    import {Page, Body, Header, Actions, MenuItem} from "blue-react"
                     
                     export const ActionMenuExamplePage = () => {
                         return (
@@ -85,4 +85,4 @@ function ActionMenuExample() {
     )
 }
 
-export default ActionMenuExample;
+export default ActionMenuExample

@@ -1,7 +1,7 @@
-import React from "react";
-import Intro from "../../components/Intro";
-import { logo } from "../Global";
-import { Link } from "react-router-dom";
+import React from "react"
+import Intro from "../../components/Intro"
+import { logo } from "../Global"
+import { Link } from "react-router-dom"
 import { ChevronLeft } from "react-bootstrap-icons"
 
 export const IntroDemoPage = () => (
@@ -19,7 +19,7 @@ export const IntroDemoPage = () => (
             <form
                 className="form-horizontal"
                 onSubmit={event => {
-                    event.preventDefault();
+                    event.preventDefault()
                 }}
             >
                 <div className="row mb-3">
@@ -39,4 +39,4 @@ export const IntroDemoPage = () => (
             <Link to="/component/Intro"><ChevronLeft /> Back to the docs</Link>
         </Intro>
     </>
-);
+)

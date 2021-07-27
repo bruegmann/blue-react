@@ -1,29 +1,29 @@
-import React from "react";
+import React from "react"
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     NavLink,
     Link
-} from "react-router-dom";
-import Grid from "../components/Grid";
+} from "react-router-dom"
+import Grid from "../components/Grid"
 
-import "./docs.scss";
-import { HomePage } from "./pages/HomePage";
-import SidebarMenu from "../components/SidebarMenu";
-import MenuItem from "../components/MenuItem";
+import "./docs.scss"
+import { HomePage } from "./pages/HomePage"
+import SidebarMenu from "../components/SidebarMenu"
+import MenuItem from "../components/MenuItem"
 
 import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, SignpostSplit, Palette2 } from "react-bootstrap-icons"
 
-import { ComponentPage } from "./pages/ComponentPage";
-import { IntroDemoPage } from "./pages/IntroDemoPage";
-import IntroductionPage from "./pages/IntroductionPage";
-import UtilitiesPage from "./pages/UtilitiesPage";
-import { ActionsExamplePage } from "./pages/ActionsExamplePage";
-import HeaderTitle from "../components/HeaderTitle";
-import { appTitle, logo } from "./Global";
-import { RecipesPage } from "./pages/RecipesPage";
-import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage";
+import { ComponentPage } from "./pages/ComponentPage"
+import { IntroDemoPage } from "./pages/IntroDemoPage"
+import IntroductionPage from "./pages/IntroductionPage"
+import UtilitiesPage from "./pages/UtilitiesPage"
+import { ActionsExamplePage } from "./pages/ActionsExamplePage"
+import HeaderTitle from "../components/HeaderTitle"
+import { appTitle, logo } from "./Global"
+import { RecipesPage } from "./pages/RecipesPage"
+import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
 
 function App() {
     return (
@@ -108,7 +108,7 @@ function App() {
                 </div>
             </Grid>
         </Router>
-    );
+    )
 }
 
-export default App;
+export default App

@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Link, NavLink } from "react-router-dom";
-import Page from "../../components/Page";
-import Body from "../../components/Body";
+import React, { useEffect, useState } from "react"
+import { useParams, Link, NavLink } from "react-router-dom"
+import Page from "../../components/Page"
+import Body from "../../components/Body"
 
-import docs from "../data/docs.json";
-import { ComponentDocs } from "../components/ComponentDocs";
-import { IComponent } from "../types";
-import Search from "../../components/Search";
-import { appTitle } from "../Global";
-import { Footer } from "../components/Footer";
+import docs from "../data/docs.json"
+import { ComponentDocs } from "../components/ComponentDocs"
+import { IComponent } from "../types"
+import Search from "../../components/Search"
+import { appTitle } from "../Global"
+import { Footer } from "../components/Footer"
 
 console.log({ docs })
 
 export const ComponentPage = () => {
 
-    const { selectedComponent } = useParams<any>();
+    const { selectedComponent } = useParams<any>()
 
     // State of input Search value
-    const [value, setValue] = useState<string>("");
+    const [value, setValue] = useState<string>("")
     // Searched & found Components
-    const [components, setComponents] = useState<any>([]);
+    const [components, setComponents] = useState<any>([])
 
-    const array_docs = Object.values(docs) as IComponent[];
+    const array_docs = Object.values(docs) as IComponent[]
 
     useEffect(() => {
         const routerPageElement = document.querySelector(".router-page.active")
@@ -40,15 +40,15 @@ export const ComponentPage = () => {
                                 <div className="pt-3">
                                     <Search
                                         body
-                                        // onSubmit={(e: any) => { e.preventDefault(); }}
+                                        // onSubmit={(e: any) => { e.preventDefault() }}
                                         onChange={
                                             (a: any) => {
                                                 setValue(a.target.value)
                                                 // Array for the searched & found Components
-                                                let arr = [];
+                                                let arr = []
 
                                                 for (let i = 0; i < array_docs.length; i++) {
-                                                    const target_value = a.target.value.toLowerCase();
+                                                    const target_value = a.target.value.toLowerCase()
                                                     if (
                                                         typeof array_docs[i].props?.break !== "undefined" ||
                                                         typeof array_docs[i].props?.checked !== "undefined" ||
@@ -87,9 +87,9 @@ export const ComponentPage = () => {
                                                         typeof array_docs[i].props?.unrouteable !== "undefined"
 
                                                     ) {
-                                                        const description = array_docs[i].description?.toLowerCase();
-                                                        const display_Name = array_docs[i].displayName?.toLowerCase();
-                                                        const props = Object.keys(array_docs[i].props);
+                                                        const description = array_docs[i].description?.toLowerCase()
+                                                        const display_Name = array_docs[i].displayName?.toLowerCase()
+                                                        const props = Object.keys(array_docs[i].props)
 
                                                         if (
                                                             description?.includes(target_value) ||
@@ -210,8 +210,8 @@ export const ComponentPage = () => {
                                                             props.some(val => val.toLowerCase().includes(target_value)) ||
                                                             array_docs[i].exampleCode?.toLowerCase().includes(target_value)
                                                         ) {
-                                                            arr.push(array_docs[i]);
-                                                            setComponents(arr);
+                                                            arr.push(array_docs[i])
+                                                            setComponents(arr)
                                                         }
                                                     }
                                                 }
@@ -260,5 +260,5 @@ export const ComponentPage = () => {
                 <Footer containerClass="container-fluid" />
             </Body>
         </Page >
-    );
+    )
 }

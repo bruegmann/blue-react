@@ -1,13 +1,13 @@
-import React from "react";
-import Caret from "../../components/Caret";
+import React from "react"
+import Caret from "../../components/Caret"
 
 class CaretExample extends React.Component {
     constructor() {
-        super();
+        super()
 
         this.state = {
             isOpen: false
-        };
+        }
     }
 
     render() {
@@ -23,8 +23,8 @@ class CaretExample extends React.Component {
                     {" "}<span>Click to toggle the caret</span>
                 </button>
             </div>
-        );
+        )
     }
 }
 
-export default CaretExample;
+export default CaretExample

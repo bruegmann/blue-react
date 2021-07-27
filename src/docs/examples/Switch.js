@@ -1,13 +1,13 @@
-import React from "react";
-import Switch from "../../components/Switch";
+import React from "react"
+import Switch from "../../components/Switch"
 
 class SwitchExample extends React.Component {
     constructor() {
-        super();
+        super()
 
         this.state = {
             isChecked: true
-        };
+        }
     }
 
     render() {
@@ -20,8 +20,8 @@ class SwitchExample extends React.Component {
                     sliderLabel={this.state.isChecked ? "Yay🎉" : "😒"}
                 />
             </div>
-        );
+        )
     }
 }
 
-export default SwitchExample;
+export default SwitchExample

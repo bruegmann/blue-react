@@ -121,27 +121,27 @@ const utilitiesFunctions = [
         // demo: (<Fragment>
         //     <FluentBtn className="btn btn-light"
         //     // onClick={() => {
-        //     //     const url = "https://jsonplaceholder.typicode.com/todos/1";
+        //     //     const url = "https://jsonplaceholder.typicode.com/todos/1"
 
-        //     //     Utilities.startLoading();
+        //     //     Utilities.startLoading()
 
         //     //     Utilities.fetchData(url)
         //     //         .then((res: any) => {
-        //     //             Utilities.finishLoading();
-        //     //             return res.json();
+        //     //             Utilities.finishLoading()
+        //     //             return res.json()
         //     //         })
-        //     //         .then((json: any) => alert(`Here is the result of ${url}:\n\n ${JSON.stringify(json)}`));
+        //     //         .then((json: any) => alert(`Here is the result of ${url}:\n\n ${JSON.stringify(json)}`))
         //     // }}
         //     >
         //         <PlayFill />
         //     </FluentBtn>
         // </Fragment>)
     }
-];
+]
 
 export class UtilitiesPage extends React.Component<UtilitiesPageProps, UtilitiesPageState> {
     constructor(props: UtilitiesPageProps) {
-        super(props);
+        super(props)
 
         this.state = {
             content: [],
@@ -152,9 +152,9 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
 
         document.querySelector(".router-page.active")!.addEventListener("scroll", () => {
             if (!this.state.didScroll) {
-                this.setState({ didScroll: true });
+                this.setState({ didScroll: true })
             }
-        });
+        })
     }
     render() {
         const sections = [
@@ -275,7 +275,7 @@ Utilities.startLoading()`}</SyntaxHighlighter>
                     </div>
                 )
             }
-        ];
+        ]
         return (
             <Page>
                 <Body containerClass="no-container pt-5 pt-md-0 d-flex flex-column docs-min-height-100vh">
@@ -295,7 +295,7 @@ Utilities.startLoading()`}</SyntaxHighlighter>
                     <Footer />
                 </Body>
             </Page>
-        );
+        )
     }
 }
-export default UtilitiesPage;
+export default UtilitiesPage

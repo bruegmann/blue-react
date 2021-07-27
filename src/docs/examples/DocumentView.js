@@ -1,5 +1,5 @@
-import React from "react";
-import DocumentView from "../../components/DocumentView";
+import React from "react"
+import DocumentView from "../../components/DocumentView"
 
 class DocumentViewExample extends React.Component {
     render() {
@@ -31,8 +31,8 @@ class DocumentViewExample extends React.Component {
                     </html>`}
                 />
             </div>
-        );
+        )
     }
 }
 
-export default DocumentViewExample;
+export default DocumentViewExample

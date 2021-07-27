@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Page from "../../components/Page";
-import Body from "../../components/Body";
-import Header from "../../components/Header";
-import MenuItem from "../../components/MenuItem";
-import HeaderTitle from "../../components/HeaderTitle";
-import ActionMenu from "../../components/ActionMenu";
-import { CloudSleet, ThreeDotsVertical } from "react-bootstrap-icons";
-import { breakOption } from "../../components/shared";
+import React, { useState } from "react"
+import Page from "../../components/Page"
+import Body from "../../components/Body"
+import Header from "../../components/Header"
+import MenuItem from "../../components/MenuItem"
+import HeaderTitle from "../../components/HeaderTitle"
+import ActionMenu from "../../components/ActionMenu"
+import { CloudSleet, ThreeDotsVertical } from "react-bootstrap-icons"
+import { breakOption } from "../../components/shared"
 
 export const ActionMenuExamplePage = () => {
     const [breakProp, setBreakProp] = useState<breakOption | "none">("md")

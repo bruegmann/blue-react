@@ -1,6 +1,6 @@
-import React from "react";
-import MenuItem from "../../components/MenuItem";
-import DropdownMenuItem from "../../components/DropdownMenuItem";
+import React from "react"
+import MenuItem from "../../components/MenuItem"
+import DropdownMenuItem from "../../components/DropdownMenuItem"
 
 
 class DropdownMenuItemExample extends React.Component {
@@ -11,8 +11,8 @@ class DropdownMenuItemExample extends React.Component {
                     <MenuItem href="#" label="MenuItem"></MenuItem>
                 </DropdownMenuItem>
             </div>
-        );
+        )
     }
 }
 
-export default DropdownMenuItemExample;
+export default DropdownMenuItemExample

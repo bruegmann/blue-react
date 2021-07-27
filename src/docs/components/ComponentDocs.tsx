@@ -5,40 +5,38 @@ import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/
 import { Link } from "react-router-dom"
 
 export interface IComponentDocsProps {
-    standalone: boolean;
+    standalone: boolean
     comp: {
-        displayName: string;
-        description: string;
-        props: any;
-        exampleCode?: string;
+        displayName: string
+        description: string
+        props: any
+        exampleCode?: string
     }
 }
 
-export class ComponentDocs extends Component<IComponentDocsProps, { ExampleComponent: ComponentClass<any>; }> {
+export class ComponentDocs extends Component<IComponentDocsProps, { ExampleComponent: ComponentClass<any> }> {
     state = {
         ExampleComponent: null as unknown as ComponentClass<any>
-    };
+    }
 
     componentDidMount() {
         try {
-            const { comp } = this.props;
-            const ExampleComponent = require(`../examples/${comp.displayName}.tsx`);
-            // console.log(ExampleComponent);
-            this.setState({ ExampleComponent: ExampleComponent["default"] });
+            const { comp } = this.props
+            const ExampleComponent = require(`../examples/${comp.displayName}.tsx`)
+            this.setState({ ExampleComponent: ExampleComponent["default"] })
         }
         catch (ex) {
-            // console.error(ex);
+            // console.error(ex)
             // This component has no example
         }
 
         try {
-            const { comp } = this.props;
-            const ExampleComponent = require(`../examples/${comp.displayName}.js`);
-            // console.log(ExampleComponent);
-            this.setState({ ExampleComponent: ExampleComponent["default"] });
+            const { comp } = this.props
+            const ExampleComponent = require(`../examples/${comp.displayName}.js`)
+            this.setState({ ExampleComponent: ExampleComponent["default"] })
         }
         catch (ex) {
-            // console.error(ex);
+            // console.error(ex)
             // This component has no example
         }
     }
@@ -48,8 +46,8 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
     }
 
     render() {
-        const { comp, standalone } = this.props;
-        const { ExampleComponent } = this.state;
+        const { comp, standalone } = this.props
+        const { ExampleComponent } = this.state
 
         return (
             <article className="pt-5">
@@ -128,6 +126,6 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                     </div>
                 )}
             </article>
-        );
+        )
     }
 }

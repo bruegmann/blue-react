@@ -303,6 +303,6 @@ export default class Grid extends Component<GridProps, GridState>{
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }

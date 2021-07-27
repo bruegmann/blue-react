@@ -41,8 +41,8 @@ function ActionsExample() {
                 {
                     /**
                      * This is how the Code looks like: 
-                    import React from "react";
-                    import {Page, Body, Header, Actions, MenuItem} from "blue-react";
+                    import React from "react"
+                    import {Page, Body, Header, Actions, MenuItem} from "blue-react"
                     
                     export const ActionsExamplePage = () => {
                         return (
@@ -94,4 +94,4 @@ function ActionsExample() {
     )
 }
 
-export default ActionsExample;
+export default ActionsExample

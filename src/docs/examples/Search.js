@@ -1,13 +1,13 @@
-import React from "react";
-import Search from "../../components/Search";
+import React from "react"
+import Search from "../../components/Search"
 
 class SearchExample extends React.Component {
     constructor() {
-        super();
+        super()
 
         this.state = {
             search: ""
-        };
+        }
     }
 
     render() {
@@ -23,8 +23,8 @@ class SearchExample extends React.Component {
                     value={this.state.search}
                 />
             </div>
-        );
+        )
     }
 }
 
-export default SearchExample;
+export default SearchExample

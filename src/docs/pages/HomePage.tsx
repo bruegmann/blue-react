@@ -1,14 +1,14 @@
-import React from "react";
-import Page from "../../components/Page";
-import Body from "../../components/Body";
-import { logo, appTitle } from "../Global";
-import { Bootstrap, BoxSeam, Code, WindowSidebar } from "react-bootstrap-icons";
-import { ReactIcon } from "../components/ReactIcon";
-import { ToastDemo } from "../components/ToastDemo";
-import { VersionToggle } from "../components/VersionToggle";
-import { Footer } from "../components/Footer";
+import React from "react"
+import Page from "../../components/Page"
+import Body from "../../components/Body"
+import { logo, appTitle } from "../Global"
+import { Bootstrap, BoxSeam, Code, WindowSidebar } from "react-bootstrap-icons"
+import { ReactIcon } from "../components/ReactIcon"
+import { ToastDemo } from "../components/ToastDemo"
+import { VersionToggle } from "../components/VersionToggle"
+import { Footer } from "../components/Footer"
 
-const packageJson = require("../../../package.json");
+const packageJson = require("../../../package.json")
 
 export const HomePage = () => (
     <Page>
