@@ -8,6 +8,7 @@ import Header from "../../components/Header";
 import { logo, appTitle } from "../Global";
 import Body from "../../components/Body";
 import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo";
+import { Footer } from "../components/Footer";
 
 export interface UtilitiesPageProps { }
 
@@ -278,17 +279,21 @@ Utilities.startLoading();`}</Highlight>
         ];
         return (
             <Page>
-                <Body containerClass="container pt-5 pt-md-0">
-                    <div className="row">
-                        <div className="col-md-12">
-                            {sections.map((s, i) =>
-                                <article key={i} id={"section-" + encodeURIComponent(s.title)}>
-                                    <h1 className="page-header">{s.title}</h1>
-                                    {s.body}
-                                </article>
-                            )}
+                <Body containerClass="no-container pt-5 pt-md-0 d-flex flex-column docs-min-height-100vh">
+                    <div className="container flex-grow-1">
+                        <div className="row">
+                            <div className="col-md-12">
+                                {sections.map((s, i) =>
+                                    <article key={i} id={"section-" + encodeURIComponent(s.title)}>
+                                        <h1 className="page-header">{s.title}</h1>
+                                        {s.body}
+                                    </article>
+                                )}
+                            </div>
                         </div>
                     </div>
+
+                    <Footer />
                 </Body>
             </Page>
         );

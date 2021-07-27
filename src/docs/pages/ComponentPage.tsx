@@ -8,6 +8,7 @@ import { ComponentDocs } from "../components/ComponentDocs";
 import { IComponent } from "../types";
 import Search from "../../components/Search";
 import { appTitle } from "../Global";
+import { Footer } from "../components/Footer";
 
 console.log({ docs })
 
@@ -255,6 +256,8 @@ export const ComponentPage = () => {
                     </div>
 
                 </div>
+
+                <Footer containerClass="container-fluid" />
             </Body>
         </Page >
     );
