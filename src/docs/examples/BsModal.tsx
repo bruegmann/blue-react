@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import BsModal from "../../components/BsModal"
 import BsModalBody from "../../components/BsModalBody"
 import BsModalHeader from "../../components/BsModalHeader"
+import BsModalFooter from "../../components/BsModalFooter"
 
 export default function BsModalExample() {
     const [modal, setModal] = useState(false)
@@ -17,6 +18,10 @@ export default function BsModalExample() {
                 <BsModalBody>
                     What's up
                 </BsModalBody>
+
+                <BsModalFooter>
+                    <button className="btn btn-primary" onClick={toggleModal}>OK</button>
+                </BsModalFooter>
             </BsModal>
         </div>
     )
