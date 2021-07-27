@@ -5,67 +5,38 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = BsToast;
+exports.default = BsPopover;
 
 var _bootstrap = require("bootstrap");
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _clsx = _interopRequireDefault(require("clsx"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
 /**
- * Wrapper for Bootstrap's Toast component.
+ * Wrapper for Bootstrap's Popover component.
  */
-function BsToast(_ref) {
-  var _ref$autohide = _ref.autohide,
-      autohide = _ref$autohide === void 0 ? false : _ref$autohide,
-      className = _ref.className,
-      children = _ref.children,
-      show = _ref.show,
-      setShow = _ref.setShow,
-      timeInfo = _ref.timeInfo,
-      title = _ref.title;
-  var toastRef = (0, _react.useRef)();
+function BsPopover(_ref) {
+  _objectDestructuringEmpty(_ref);
+
+  var popoverRef = (0, _react.useRef)();
   (0, _react.useEffect)(function () {
-    var myToast = toastRef.current;
+    var myPopover = popoverRef.current;
 
-    var bsToast = _bootstrap.Toast.getInstance(myToast);
+    var bsPopover = _bootstrap.Popover.getInstance(myPopover);
 
-    if (!bsToast) {
-      bsToast = new _bootstrap.Toast(myToast, {
-        autohide: autohide
+    if (!bsPopover) {
+      bsPopover = new _bootstrap.Popover(myPopover, {
+        content: "Hello there"
       });
-      bsToast.hide();
-      setShow(false);
-      myToast.addEventListener("hide.bs.toast", function () {
-        setShow(false);
-      });
-    } else {
-      show ? bsToast.show() : bsToast.hide();
     }
-  }, [show]);
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _clsx.default)("toast hide", className),
-    role: "alert",
-    ref: toastRef
-  }, (title || timeInfo) && /*#__PURE__*/_react.default.createElement("div", {
-    className: "toast-header"
-  }, /*#__PURE__*/_react.default.createElement("strong", {
-    className: "me-auto"
-  }, title), /*#__PURE__*/_react.default.createElement("small", null, timeInfo), /*#__PURE__*/_react.default.createElement("button", {
+  }, []);
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    className: "btn-close",
-    onClick: function onClick() {
-      return setShow(false);
-    },
-    "aria-label": "Close"
-  })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "toast-body"
-  }, children));
+    ref: popoverRef
+  }, "click me"));
 }

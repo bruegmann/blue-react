@@ -35,6 +35,9 @@ export { BsModalBodyProps } from "./dist/types/components/BsModalBody"
 export { default as BsModalHeader } from "./dist/types/components/BsModalHeader"
 export { BsModalHeaderProps } from "./dist/types/components/BsModalHeader"
 
+export { default as BsPopover } from "./dist/types/components/BsPopover"
+export { BsPopoverProps } from "./dist/types/components/BsPopover"
+
 export { default as BsToast } from "./dist/types/components/BsToast"
 export { BsToastProps } from "./dist/types/components/BsToast"
 
