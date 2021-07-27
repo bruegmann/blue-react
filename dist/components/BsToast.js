@@ -27,6 +27,8 @@ function BsToast(_ref) {
       children = _ref.children,
       show = _ref.show,
       setShow = _ref.setShow,
+      timeInfo = _ref.timeInfo,
+      title = _ref.title,
       _ref$zIndex = _ref.zIndex,
       zIndex = _ref$zIndex === void 0 ? 11 : _ref$zIndex;
   var toastRef = (0, _react.useRef)();
@@ -58,7 +60,7 @@ function BsToast(_ref) {
     className: "toast-header"
   }, /*#__PURE__*/_react.default.createElement("strong", {
     className: "me-auto"
-  }, "Bootstrap 5"), /*#__PURE__*/_react.default.createElement("small", null, "4 mins ago"), /*#__PURE__*/_react.default.createElement("button", {
+  }, title), /*#__PURE__*/_react.default.createElement("small", null, timeInfo), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     className: "btn-close",
     onClick: function onClick() {
@@ -67,5 +69,5 @@ function BsToast(_ref) {
     "aria-label": "Close"
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "toast-body"
-  }, "Hello, world! This is a toast message.")));
+  }, children)));
 }

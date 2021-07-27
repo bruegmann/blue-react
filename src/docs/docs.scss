@@ -1,8 +1,6 @@
 @import "./theme";
 @import "../../dist/style.scss";
 
-@import "~highlight.js/styles/dark.css";
-
 .welcome-jumbotron {
     background-image: linear-gradient(transparent 60%, rgba(0,0,0,.05) 100%);
 
