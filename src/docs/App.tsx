@@ -13,11 +13,10 @@ import { HomePage } from "./pages/HomePage"
 import SidebarMenu from "../components/SidebarMenu"
 import MenuItem from "../components/MenuItem"
 
-import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, SignpostSplit, Palette2 } from "react-bootstrap-icons"
+import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, Palette2 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
 import { IntroDemoPage } from "./pages/IntroDemoPage"
-import IntroductionPage from "./pages/IntroductionPage"
 import UtilitiesPage from "./pages/UtilitiesPage"
 import { ActionsExamplePage } from "./pages/ActionsExamplePage"
 import HeaderTitle from "../components/HeaderTitle"
@@ -67,7 +66,6 @@ function App() {
                     }
                 >
                     <MenuItem icon={<House />} label="Start" elementType={NavLink} exact to="/" />
-                    <MenuItem icon={<SignpostSplit />} label="Introduction" elementType={NavLink} to="/introduction" />
                     <MenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
                     <MenuItem icon={<Puzzle />} label="React Components" elementType={NavLink} to="/component" />
                     <MenuItem icon={<Receipt />} label="Recipes" elementType={NavLink} to="/recipes" />
@@ -75,9 +73,6 @@ function App() {
 
                 <div className="router-page active">
                     <Switch>
-                        <Route path="/introduction">
-                            <IntroductionPage />
-                        </Route>
                         <Route path="/utilities">
                             <UtilitiesPage />
                         </Route>

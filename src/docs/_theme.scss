@@ -43,7 +43,7 @@ $card-bg: $body-bg;
 $card-cap-bg: rgba($white, .03);
 $card-border-color: rgba($white, .125);
 $primary: rgb(140, 130, 172);
-$link-color: $primary;
+$link-color: lighten($primary, 25%);
 $link-hover-color: lighten($link-color, 15%);
 $thumbnail-border-color: $gray-700;
 $close-color: $body-color;
