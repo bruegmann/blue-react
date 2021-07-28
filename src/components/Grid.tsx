@@ -296,9 +296,9 @@ export default class Grid extends Component<GridProps, GridState>{
                     <div className="blue-app-status-alert alert">
                         <button
                             type="button"
-                            className="btn-close mb-1"
+                            className="btn-close float-end mb-1"
                             aria-label="Close"
-                        ></button>
+                        />
                         <div className="alert-body" />
                     </div>
                 </div>
