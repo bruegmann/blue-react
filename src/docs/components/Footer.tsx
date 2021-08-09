@@ -6,7 +6,7 @@ interface FooterProps {
 
 export function Footer({ containerClass = "container" }: FooterProps) {
     return (
-        <footer className="docs-footer">
+        <footer className="docs-footer pb-1">
             <div className={`${containerClass} mt-5`}>
                 <p className="text-muted mb-0">
                     <small>

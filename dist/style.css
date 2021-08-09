@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Blue React v6.30.0 (https://bruegmann.github.io/blue-react)
+ * Blue React v6.30.1 (https://bruegmann.github.io/blue-react)
  * Licensed under GNU General Public License v3.0 (https://github.com/bruegmann/blue-react/blob/master/LICENSE).
 */
 /* Bootstrap */
@@ -8132,7 +8132,6 @@ body {
     box-shadow: 0 -2rem 2rem rgba(0, 0, 0, 0.1); }
 
 .blue-app-page {
-  padding-bottom: 0.625rem;
   background-color: #fff;
   min-height: calc(100vh - 3rem);
   margin-top: 3rem; }
