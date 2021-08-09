@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/blue-react/v6/static/css/main.f973aa12.chunk.css",
-    "main.js": "/blue-react/v6/static/js/main.c75bdec8.chunk.js",
-    "main.js.map": "/blue-react/v6/static/js/main.c75bdec8.chunk.js.map",
+    "main.css": "/blue-react/v6/static/css/main.781d2a5f.chunk.css",
+    "main.js": "/blue-react/v6/static/js/main.ec48add4.chunk.js",
+    "main.js.map": "/blue-react/v6/static/js/main.ec48add4.chunk.js.map",
     "runtime-main.js": "/blue-react/v6/static/js/runtime-main.86eb9a0d.js",
     "runtime-main.js.map": "/blue-react/v6/static/js/runtime-main.86eb9a0d.js.map",
     "static/css/2.a55bcd37.chunk.css": "/blue-react/v6/static/css/2.a55bcd37.chunk.css",
     "static/js/2.1a41375c.chunk.js": "/blue-react/v6/static/js/2.1a41375c.chunk.js",
     "static/js/2.1a41375c.chunk.js.map": "/blue-react/v6/static/js/2.1a41375c.chunk.js.map",
     "index.html": "/blue-react/v6/index.html",
-    "precache-manifest.576c9cea471b47daea383e5fe0a5b705.js": "/blue-react/v6/precache-manifest.576c9cea471b47daea383e5fe0a5b705.js",
+    "precache-manifest.cfacef086d8313447a67dca88c7143f1.js": "/blue-react/v6/precache-manifest.cfacef086d8313447a67dca88c7143f1.js",
     "service-worker.js": "/blue-react/v6/service-worker.js",
     "static/css/2.a55bcd37.chunk.css.map": "/blue-react/v6/static/css/2.a55bcd37.chunk.css.map",
-    "static/css/main.f973aa12.chunk.css.map": "/blue-react/v6/static/css/main.f973aa12.chunk.css.map",
+    "static/css/main.781d2a5f.chunk.css.map": "/blue-react/v6/static/css/main.781d2a5f.chunk.css.map",
     "static/js/2.1a41375c.chunk.js.LICENSE.txt": "/blue-react/v6/static/js/2.1a41375c.chunk.js.LICENSE.txt",
     "static/media/blue.svg": "/blue-react/v6/static/media/blue.beeb7a76.svg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.86eb9a0d.js",
     "static/css/2.a55bcd37.chunk.css",
     "static/js/2.1a41375c.chunk.js",
-    "static/css/main.f973aa12.chunk.css",
-    "static/js/main.c75bdec8.chunk.js"
+    "static/css/main.781d2a5f.chunk.css",
+    "static/js/main.ec48add4.chunk.js"
   ]
 }
