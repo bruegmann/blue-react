@@ -14,7 +14,7 @@ export const HomePage = () => (
     <Page>
         <Body className="pt-0" containerClass="no-container d-flex flex-column docs-min-height-100vh">
             <main className="flex-grow-1">
-                <div className="welcome-jumbotron py-5 bg-theme text-white">
+                <div className="welcome-jumbotron pt-5 bg-theme text-white">
                     <div className="container">
                         <section className="d-flex justify-content-between">
                             <div>
@@ -36,6 +36,8 @@ export const HomePage = () => (
                             </div>
                         </section>
                     </div>
+
+                    <div className="mt-5 rounded-top bg-body" style={{ height: "1rem" }} />
                 </div>
 
                 <div className="container">

@@ -1,4 +1,6 @@
-@import "./theme";
+// @import "./theme";
+$theme: rgb(38, 31, 49);
+$primary: rgb(140, 130, 172);
 @import "../../dist/style.scss";
 
 .welcome-jumbotron {
@@ -37,4 +39,8 @@
 
 .docs-min-height-100vh {
     min-height: calc(100vh - 0.625rem);
+}
+
+pre {
+    @extend .rounded;
 }
