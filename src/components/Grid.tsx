@@ -64,6 +64,11 @@ export interface GridProps {
      * Disables the header bars on pages.
      */
     disableHeaders?: boolean
+
+    /**
+     * Rounded corners for all `Body` components.
+     */
+    roundedBody?: boolean
 }
 
 type GridState = any
@@ -120,7 +125,8 @@ export default class Grid extends Component<GridProps, GridState>{
                 info: <span className="bi-information" />,
                 success: <span className="bi-check" />,
                 warning: <span className="bi-sign_warning" />
-            }
+            },
+            roundedBody: true
         }
     }
 
@@ -237,7 +243,8 @@ export default class Grid extends Component<GridProps, GridState>{
                         (this.state.sidebarIn ? " open" : "") +
                         (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") +
                         (this.props.expandSidebar ? " expand-sidebar" : "") +
-                        (this.props.disableHeaders ? " disableHeaders" : "")}
+                        (this.props.disableHeaders ? " disableHeaders" : "") +
+                        (this.props.roundedBody ? " roundedBody" : "")}
                     onClick={this.hideSidebar}
                 >
                     <div className="blue-app-sidebar-toggler">
