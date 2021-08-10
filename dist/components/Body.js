@@ -9,16 +9,29 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 /**
  * Contains the content of the page.
  */
-function Body(props) {
+function Body(_ref) {
+  var id = _ref.id,
+      className = _ref.className,
+      containerClass = _ref.containerClass,
+      hasActions = _ref.hasActions,
+      onClick = _ref.onClick,
+      children = _ref.children,
+      rounded = _ref.rounded,
+      rest = _objectWithoutProperties(_ref, ["id", "className", "containerClass", "hasActions", "onClick", "children", "rounded"]);
+
   var pageBodyClassName = "blue-app-page";
   return /*#__PURE__*/_react.default.createElement("div", {
-    id: props.id,
-    className: props.className ? pageBodyClassName + " " + props.className : pageBodyClassName + (props.hasActions ? " has-actions" : "") + " break-".concat(props.break || "md"),
-    onClick: props.onClick
+    id: id,
+    className: className ? pageBodyClassName + " " + className : pageBodyClassName + (hasActions ? " has-actions" : "") + " break-".concat(rest.break || "md") + (rounded ? " rounded" : ""),
+    onClick: onClick
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: props.containerClass || "container-fluid"
-  }, props.children));
+    className: containerClass || "container-fluid"
+  }, children));
 }

@@ -5131,7 +5131,7 @@ textarea.form-control-lg {
 .overflow-auto {
   overflow: auto !important; }
 
-.overflow-hidden {
+.overflow-hidden, .blue-app-page.rounded, .blue-app-grid.roundedBody .blue-app-page {
   overflow: hidden !important; }
 
 .overflow-visible {
@@ -6012,7 +6012,7 @@ textarea.form-control-lg {
 .pe-auto {
   pointer-events: auto !important; }
 
-.rounded {
+.rounded, .blue-app-grid.roundedBody .blue-app-page {
   border-radius: 0.5rem !important; }
 
 .rounded-0 {
@@ -8200,10 +8200,6 @@ body {
   background-color: #fff;
   border-radius: 0.3rem; }
 
-.blue-app-page {
-  margin-left: 3rem;
-  animation: enabledBlueAppPage .5s; }
-
 .blue-app-sidebar-btn {
   color: white;
   width: 3rem;
@@ -8381,14 +8377,19 @@ body {
     box-shadow: 0 -2rem 2rem rgba(0, 0, 0, 0.1); }
 
 .blue-app-page {
-  padding-bottom: 0.625rem;
   background-color: #fff;
   min-height: calc(100vh - 3rem);
-  margin-top: 3rem; }
+  margin-top: 3rem;
+  margin-left: 3rem;
+  animation: enabledBlueAppPage .5s; }
 
 .blue-app-grid.disableHeaders .blue-app-page {
   margin-top: initial;
   min-height: calc(100vh); }
+
+.blue-app-page.rounded, .blue-app-grid.roundedBody .blue-app-page {
+  padding: 0.125rem;
+  box-shadow: inset 0 0 0 0.125rem #0d6efd; }
 
 .blue-app-header-logo {
   padding: 0.625rem 0.938rem;
@@ -8410,7 +8411,6 @@ body {
   margin-top: -0.25rem; }
 
 .blue-app-sidebar-btn {
-  border-radius: 0;
   transition: width .5s !important;
   padding: .5rem .75rem;
   border: none;
