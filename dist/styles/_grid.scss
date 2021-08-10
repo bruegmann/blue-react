@@ -139,11 +139,6 @@
     @include custom-scrollbar($body-color, $body-bg, .3rem);
 }
 
-.blue-app-page {
-    margin-left: $normal-size;
-    animation: enabledBlueAppPage .5s;
-}
-
 @include blue-app-sidebar($normal-size);
 
 @media (max-width: 600px) {
@@ -225,6 +220,8 @@
    background-color: $body-bg;
    min-height: calc(100vh - #{$normal-size});
    margin-top: $normal-size;
+   margin-left: $normal-size;
+   animation: enabledBlueAppPage .5s;
 }
 
 .blue-app-grid.disableHeaders {
@@ -232,6 +229,16 @@
         margin-top: initial;
         min-height: calc(100vh);
     }
+}
+
+.blue-app-page.rounded {
+    @extend .overflow-hidden;
+    padding: 0.125rem;
+    box-shadow: inset 0 0 0 0.125rem $theme;
+}
+
+.blue-app-grid.roundedBody .blue-app-page {
+    @extend .rounded;
 }
 
 .blue-app-header-logo {
