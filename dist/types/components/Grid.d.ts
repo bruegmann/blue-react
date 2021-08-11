@@ -54,6 +54,10 @@ export interface GridProps {
      * Disables the header bars on pages.
      */
     disableHeaders?: boolean;
+    /**
+     * Rounded corners for all `Body` components.
+     */
+    roundedBody?: boolean;
 }
 declare type GridState = any;
 /**
@@ -85,6 +89,7 @@ export default class Grid extends Component<GridProps, GridState> {
             success: JSX.Element;
             warning: JSX.Element;
         };
+        roundedBody: boolean;
     };
     componentDidMount(): void;
     componentDidUpdate(prevProps: GridProps, prevState: GridState): void;

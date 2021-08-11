@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Blue React v6.30.1 (https://bruegmann.github.io/blue-react)
+ * Blue React v6.30.2 (https://bruegmann.github.io/blue-react)
  * Licensed under GNU General Public License v3.0 (https://github.com/bruegmann/blue-react/blob/master/LICENSE).
 */
 /* Bootstrap */
@@ -5159,7 +5159,7 @@ button.bg-black:focus {
 .rounded-sm {
   border-radius: 0.3rem !important; }
 
-.rounded {
+.rounded, .blue-app-grid.roundedBody .blue-app-page {
   border-radius: 0.5rem !important; }
 
 .rounded-top {
@@ -5803,7 +5803,7 @@ button.bg-black:focus {
 .overflow-auto {
   overflow: auto !important; }
 
-.overflow-hidden {
+.overflow-hidden, .blue-app-page.rounded, .blue-app-grid.roundedBody .blue-app-page {
   overflow: hidden !important; }
 
 .position-static {
@@ -7951,10 +7951,6 @@ body {
   background-color: #fff;
   border-radius: 0.3rem; }
 
-.blue-app-page {
-  margin-left: 3rem;
-  animation: enabledBlueAppPage .5s; }
-
 .blue-app-sidebar-btn {
   color: white;
   width: 3rem;
@@ -8134,11 +8130,17 @@ body {
 .blue-app-page {
   background-color: #fff;
   min-height: calc(100vh - 3rem);
-  margin-top: 3rem; }
+  margin-top: 3rem;
+  margin-left: 3rem;
+  animation: enabledBlueAppPage .5s; }
 
 .blue-app-grid.disableHeaders .blue-app-page {
   margin-top: initial;
   min-height: calc(100vh); }
+
+.blue-app-page.rounded, .blue-app-grid.roundedBody .blue-app-page {
+  padding: 0.125rem;
+  box-shadow: inset 0 0 0 0.125rem #007bff; }
 
 .blue-app-header-logo {
   padding: 0.625rem 0.938rem;
@@ -8160,7 +8162,6 @@ body {
   margin-top: -0.25rem; }
 
 .blue-app-sidebar-btn {
-  border-radius: 0;
   transition: width .5s !important;
   padding: .5rem .75rem;
   border: none;

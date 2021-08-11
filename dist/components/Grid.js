@@ -195,7 +195,7 @@ var Grid = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/_react.default.createElement("div", {
         id: this.props.id ? this.props.id : "",
         style: this.props.style ? this.props.style : {},
-        className: "blue-app-grid" + (this.props.className ? " " + this.props.className : "") + (this.state.sidebarIn ? " open" : "") + (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") + (this.props.expandSidebar ? " expand-sidebar" : "") + (this.props.disableHeaders ? " disableHeaders" : ""),
+        className: "blue-app-grid" + (this.props.className ? " " + this.props.className : "") + (this.state.sidebarIn ? " open" : "") + (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") + (this.props.expandSidebar ? " expand-sidebar" : "") + (this.props.disableHeaders ? " disableHeaders" : "") + (this.props.roundedBody ? " roundedBody" : ""),
         onClick: this.hideSidebar
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "blue-app-sidebar-toggler"
@@ -259,7 +259,8 @@ var Grid = /*#__PURE__*/function (_Component) {
           warning: /*#__PURE__*/_react.default.createElement("span", {
             className: "bi-sign_warning"
           })
-        }
+        },
+        roundedBody: true
       };
     }
   }]);
