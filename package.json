@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "7.0.0-beta.13",
+  "version": "7.0.0-beta.14",
   "description": "Blue React Components",
   "license": "LGPL-3.0-or-later",
   "main": "index.js",
@@ -30,7 +30,7 @@
     "release": "npm publish --tag next && npm run deploy"
   },
   "dependencies": {
-    "bootstrap": "^5.0.1",
+    "bootstrap": "~5.0.2",
     "clsx": "^1.1.1"
   },
   "peerDependencies": {

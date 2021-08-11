@@ -7,6 +7,8 @@ exports.default = Body;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _excluded = ["id", "className", "containerClass", "hasActions", "onClick", "children", "rounded"];
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
@@ -24,7 +26,7 @@ function Body(_ref) {
       onClick = _ref.onClick,
       children = _ref.children,
       rounded = _ref.rounded,
-      rest = _objectWithoutProperties(_ref, ["id", "className", "containerClass", "hasActions", "onClick", "children", "rounded"]);
+      rest = _objectWithoutProperties(_ref, _excluded);
 
   var pageBodyClassName = "blue-app-page";
   return /*#__PURE__*/_react.default.createElement("div", {
