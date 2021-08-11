@@ -1,13 +1,13 @@
-$light: #ecedf0;
+$light: #ecedf0 !default;
 
 // Components
 //
 
-$border-radius: .5rem;
-$border-radius-lg: .7rem;
-$border-radius-sm: .3rem;
+$border-radius: .5rem !default;
+$border-radius-lg: .7rem !default;
+$border-radius-sm: .3rem !default;
 
-$custom-checkbox-indicator-border-radius: $border-radius-sm;
+$custom-checkbox-indicator-border-radius: $border-radius-sm !default;
 
-$link-decoration: none;
-$link-hover-decoration: underline;
+$link-decoration: none !default;
+$link-hover-decoration: underline !default;
