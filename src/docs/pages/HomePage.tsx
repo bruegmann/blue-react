@@ -4,6 +4,7 @@ import Body from "../../components/Body";
 import { logo, appTitle } from "../Global";
 import { VersionToggle } from "../components/VersionToggle";
 import { Footer } from "../components/Footer";
+import StackblitzEmbed from "../components/StackblitzEmbed";
 
 const packageJson = require("../../../package.json");
 
@@ -23,6 +24,8 @@ export const HomePage = () => (
                 </div>
 
                 <div className="container">
+                    <StackblitzEmbed />
+
                     <h1 className="page-header">Use Blue React</h1>
 
                     <h2 className="mt-4 mb-3">Create new project using CRA</h2>
