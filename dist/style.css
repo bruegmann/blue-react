@@ -8334,7 +8334,7 @@ body {
     padding-top: 3rem; }
   .blue-app-sidebar-toggler {
     transition: transform .5s; }
-  .blue-app-grid:not(.open) .blue-app-sidebar-toggler {
+  .blue-app-grid:not(.open).disableHeaders .blue-app-sidebar-toggler {
     transform: translate(0.25rem, 0.25rem); } }
 
 @media (min-width: 1400px) {
