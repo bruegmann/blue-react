@@ -15,6 +15,10 @@ export interface MenuItemProps {
      */
     icon?: any;
     /**
+     * Icon component or a class name when the MenuItem is active.
+     */
+    iconForActive?: any;
+    /**
      * Label of the link.
      */
     label?: any;

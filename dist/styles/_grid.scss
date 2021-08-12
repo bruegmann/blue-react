@@ -287,6 +287,23 @@
    max-height: 100%;
 }
 
+.blue-app-menu-item-icon {
+    display: inline-block;
+
+    & > * {
+        display: block;
+    }
+}
+
+.blue-app-menu-item-icon.iconForActive {
+    display: none;
+}
+
+.blue-app-sidebar-btn.active {
+    .blue-app-menu-item-icon.hasIconForActive {display: none;}
+    .blue-app-menu-item-icon.iconForActive {display: inline-block;}
+}
+
 .blue-app-sidebar-dropdown {
     margin-left: 1rem;
     animation: blue-app-sidebar-dropdown .15s;

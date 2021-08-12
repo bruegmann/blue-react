@@ -12,7 +12,7 @@ import { HomePage } from "./pages/HomePage";
 import SidebarMenu from "../components/SidebarMenu";
 import MenuItem from "../components/MenuItem";
 
-import { List, House, CodeSquare, Puzzle, Receipt, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, SignpostSplit } from "react-bootstrap-icons"
+import { List, House, CodeSquare, Puzzle, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, HouseFill, PuzzleFill, Stickies, StickiesFill, SignpostSplit } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage";
 import { IntroDemoPage } from "./pages/IntroDemoPage";
@@ -54,11 +54,11 @@ function App() {
                         </>
                     }
                 >
-                    <MenuItem icon={<House />} label="Start" elementType={NavLink} exact to="/" />
+                    <MenuItem icon={<House />} iconForActive={<HouseFill />} label="Start" elementType={NavLink} exact to="/" />
                     <MenuItem icon={<SignpostSplit />} label="Introduction" elementType={NavLink} to="/introduction" />
                     <MenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
-                    <MenuItem icon={<Puzzle />} label="React Components" elementType={NavLink} to="/component" />
-                    <MenuItem icon={<Receipt />} label="Recipes" elementType={NavLink} to="/recipes" />
+                    <MenuItem icon={<Puzzle />} iconForActive={<PuzzleFill />} label="React Components" elementType={NavLink} to="/component" />
+                    <MenuItem icon={<Stickies />} iconForActive={<StickiesFill />} label="Recipes" elementType={NavLink} to="/recipes" />
                 </SidebarMenu>
 
                 <div className="router-page active">
