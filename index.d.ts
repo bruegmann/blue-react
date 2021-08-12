@@ -26,21 +26,6 @@ export { ActionsProps } from "./dist/types/components/Actions"
 export { default as Body } from "./dist/types/components/Body"
 export { BodyProps } from "./dist/types/components/Body"
 
-export { default as BsModal } from "./dist/types/components/BsModal"
-export { BsModalProps } from "./dist/types/components/BsModal"
-
-export { default as BsModalBody } from "./dist/types/components/BsModalBody"
-export { BsModalBodyProps } from "./dist/types/components/BsModalBody"
-
-export { default as BsModalHeader } from "./dist/types/components/BsModalHeader"
-export { BsModalHeaderProps } from "./dist/types/components/BsModalHeader"
-
-export { default as BsPopover } from "./dist/types/components/BsPopover"
-export { BsPopoverProps } from "./dist/types/components/BsPopover"
-
-export { default as BsToast } from "./dist/types/components/BsToast"
-export { BsToastProps } from "./dist/types/components/BsToast"
-
 export { default as Caret } from "./dist/types/components/Caret"
 export { CaretProps } from "./dist/types/components/Caret"
 
