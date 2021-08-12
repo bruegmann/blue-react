@@ -1,4 +1,4 @@
-import clsx from "clsx"
+import cx from "classnames"
 import React, { createElement, useEffect, useState } from "react"
 import Caret from "./Caret"
 import Outside from "./Outside"
@@ -172,7 +172,7 @@ export default function MenuItem(props: MenuItemProps) {
                     onClick
                 },
                 <>
-                    <span className={clsx("blue-app-menu-item-icon", { hasIconForActive: iconForActive })}>{icon}</span>
+                    <span className={cx("blue-app-menu-item-icon", { hasIconForActive: iconForActive })}>{icon}</span>
                     {iconForActive && <span className="blue-app-menu-item-icon iconForActive">{iconForActive}</span>}
                     {props.label && <span className="blue-app-sidebar-label text-truncate">{props.label}</span>}
                     {props.children &&

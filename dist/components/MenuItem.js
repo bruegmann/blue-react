@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = MenuItem;
 
-var _clsx = _interopRequireDefault(require("clsx"));
+var _classnames = _interopRequireDefault(require("classnames"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -129,7 +129,7 @@ function MenuItem(props) {
     className: className + (props.isActive || active ? " active" : "") + (props.label ? " has-label" : ""),
     onClick: onClick
   }), /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {
-    className: (0, _clsx.default)("blue-app-menu-item-icon", {
+    className: (0, _classnames.default)("blue-app-menu-item-icon", {
       hasIconForActive: iconForActive
     })
   }, icon), iconForActive && /*#__PURE__*/_react.default.createElement("span", {
