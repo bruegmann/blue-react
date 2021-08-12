@@ -37,7 +37,7 @@ export const ComponentPage = () => {
                     <div className="row">
                         <div className="col-md-2">
                             <div className="sticky-top" style={{ zIndex: 0 }}>
-                                <div className="pt-3">
+                                <div className="pt-1 pt-sm-3">
                                     <Search
                                         body
                                         // onSubmit={(e: any) => { e.preventDefault() }}
@@ -218,7 +218,7 @@ export const ComponentPage = () => {
 
                                             }}
                                         value={value}
-                                        className="mb-1"
+                                        className="mb-1 ms-5 ms-md-0 "
                                         placeholder="Search..."
                                     />
 
