@@ -139,6 +139,11 @@
     @include custom-scrollbar($body-color, $body-bg, .3rem);
 }
 
+.blue-app-page {
+    margin-left: $normal-size;
+    animation: enabledBlueAppPage .5s;
+}
+
 @include blue-app-sidebar($normal-size);
 
 @media (max-width: 600px) {
@@ -155,6 +160,14 @@
         .blue-app-page {
             padding-top: $normal-size;
         }
+    }
+
+    .blue-app-sidebar-toggler {
+        transition: transform .5s;
+    }
+
+    .blue-app-grid:not(.open) .blue-app-sidebar-toggler {
+        transform: translate(.25rem, .25rem);
     }
 }
 
@@ -220,8 +233,6 @@
    background-color: $body-bg;
    min-height: calc(100vh - #{$normal-size});
    margin-top: $normal-size;
-   margin-left: $normal-size;
-   animation: enabledBlueAppPage .5s;
 }
 
 .blue-app-grid.disableHeaders {
@@ -292,6 +303,7 @@
 
     & > * {
         display: block;
+        width: 100%;
     }
 }
 

@@ -247,7 +247,7 @@ export default class Grid extends Component<GridProps, GridState>{
                         (this.props.roundedBody ? " roundedBody" : "")}
                     onClick={this.hideSidebar}
                 >
-                    <div className="blue-app-sidebar-toggler">
+                    <div className="blue-app-sidebar-toggler rounded">
                         {
                             !this.props.hideSidebarMenu ?
                                 <button
