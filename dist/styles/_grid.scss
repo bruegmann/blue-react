@@ -166,7 +166,7 @@
         transition: transform .5s;
     }
 
-    .blue-app-grid:not(.open) .blue-app-sidebar-toggler {
+    .blue-app-grid:not(.open).disableHeaders .blue-app-sidebar-toggler {
         transform: translate(.25rem, .25rem);
     }
 }
