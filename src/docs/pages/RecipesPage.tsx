@@ -47,7 +47,7 @@ export function RecipesPage() {
     return (
         <Page>
             <Body containerClass="d-flex flex-column docs-min-height-100vh">
-                <div className="container-fluid flex-grow-1">
+                <div className="container-fluid pt-5 pt-md-0 flex-grow-1">
                     <div className="row">
                         <div className="col-md-2">
                             <div className="sticky-top" style={{ zIndex: 0 }}>

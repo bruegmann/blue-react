@@ -13,7 +13,7 @@ export const HomePage = () => (
         <Body className="pt-0" containerClass="no-container d-flex flex-column docs-min-height-100vh">
             <main className="flex-grow-1">
                 <div className="welcome-jumbotron jumbotron jumbotron-fluid pb-0 bg-theme text-white">
-                    <div className="container text-center mb-5 pb-3">
+                    <div className="container text-center mb-5 pb-3 pt-3 pt-md-0">
                         <h1 className="display-1 d-inline-flex align-items-center">
                             <img src={logo} alt={appTitle} style={{ height: "1em" }} className="mr-3" /> Blue
                         </h1>

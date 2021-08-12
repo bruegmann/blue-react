@@ -119,7 +119,7 @@ $primary-color: #4dadf7; /* Define primary color */
         return (
             <Page>
                 <Body containerClass="no-container d-flex flex-column docs-min-height-100vh">
-                    <div className="container flex-grow-1">
+                    <div className="container pt-5 pt-md-0 flex-grow-1">
                         <div className="row">
                             <div className="col-md-12">
                                 {sections.map((s, i) =>

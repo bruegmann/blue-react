@@ -39,8 +39,6 @@ export const ComponentPage = () => {
                             <div className="overflow-scroll">
                                 <nav className="nav nav-pills flex-column">
                                     <div className="nav-item">
-
-
                                         <Search
                                             body
                                             // onSubmit={(e: any) => { e.preventDefault(); }}
@@ -221,7 +219,7 @@ export const ComponentPage = () => {
 
                                                 }}
                                             value={value}
-                                            className="mt-3"
+                                            className="mt-1 mt-sm-3 ml-5 ml-sm-0"
                                             placeholder="Search..."
                                         />
                                     </div>
