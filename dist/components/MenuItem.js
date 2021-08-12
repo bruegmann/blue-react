@@ -7,6 +7,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = MenuItem;
 
+var _clsx = _interopRequireDefault(require("clsx"));
+
 var _react = _interopRequireWildcard(require("react"));
 
 var _Caret = _interopRequireDefault(require("./Caret"));
@@ -15,11 +17,11 @@ var _Outside = _interopRequireDefault(require("./Outside"));
 
 var _Utilities = _interopRequireDefault(require("./Utilities"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
@@ -92,7 +94,7 @@ function MenuItem(props) {
     });
   }, []);
   var className = "blue-app-toggle-page blue-app-sidebar-btn btn" + (props.isActive ? " active" : "") + (props.className ? " " + props.className : "") + (props.children ? " blue-app-sidebar-dropdown-toggle" : "");
-  var icon;
+  var icon, iconForActive;
 
   if (typeof props.icon === "string") {
     // is className
@@ -102,6 +104,16 @@ function MenuItem(props) {
   } else {
     // is element / component
     icon = props.icon;
+  }
+
+  if (typeof props.iconForActive === "string") {
+    // is className
+    iconForActive = /*#__PURE__*/_react.default.createElement("span", {
+      className: props.iconForActive + (props.children ? " blue-app-sidebar-dropdown-icon" : "")
+    });
+  } else {
+    // is element / component
+    iconForActive = props.iconForActive;
   }
 
   var passingProps = {
@@ -116,7 +128,13 @@ function MenuItem(props) {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/(0, _react.createElement)(props.elementType || (props.href ? "a" : "button"), _objectSpread(_objectSpread({}, passingProps), {}, {
     className: className + (props.isActive || active ? " active" : "") + (props.label ? " has-label" : ""),
     onClick: onClick
-  }), /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, icon, " ", props.label && /*#__PURE__*/_react.default.createElement("span", {
+  }), /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {
+    className: (0, _clsx.default)("blue-app-menu-item-icon", {
+      hasIconForActive: iconForActive
+    })
+  }, icon), iconForActive && /*#__PURE__*/_react.default.createElement("span", {
+    className: "blue-app-menu-item-icon iconForActive"
+  }, iconForActive), props.label && /*#__PURE__*/_react.default.createElement("span", {
     className: "blue-app-sidebar-label text-truncate"
   }, props.label), props.children && /*#__PURE__*/_react.default.createElement(_Caret.default, {
     open: showDropdown,

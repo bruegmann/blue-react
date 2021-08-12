@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import React, { createElement, useEffect, useState } from "react"
 import Caret from "./Caret"
 import Outside from "./Outside"
@@ -21,6 +22,11 @@ export interface MenuItemProps {
      * Icon component or a class name.
      */
     icon?: any
+
+    /**
+     * Icon component or a class name when the MenuItem is active.
+     */
+    iconForActive?: any
 
     /**
      * Label of the link.
@@ -124,7 +130,7 @@ export default function MenuItem(props: MenuItemProps) {
         (props.className ? " " + props.className : "") +
         (props.children ? " blue-app-sidebar-dropdown-toggle" : "")
 
-    let icon
+    let icon, iconForActive
 
     if (typeof (props.icon) === "string") {
         // is className
@@ -133,6 +139,15 @@ export default function MenuItem(props: MenuItemProps) {
     else {
         // is element / component
         icon = props.icon
+    }
+
+    if (typeof (props.iconForActive) === "string") {
+        // is className
+        iconForActive = <span className={props.iconForActive + (props.children ? " blue-app-sidebar-dropdown-icon" : "")} />
+    }
+    else {
+        // is element / component
+        iconForActive = props.iconForActive
     }
 
     let passingProps = {
@@ -157,7 +172,9 @@ export default function MenuItem(props: MenuItemProps) {
                     onClick
                 },
                 <>
-                    {icon} {props.label && <span className="blue-app-sidebar-label text-truncate">{props.label}</span>}
+                    <span className={clsx("blue-app-menu-item-icon", { hasIconForActive: iconForActive })}>{icon}</span>
+                    {iconForActive && <span className="blue-app-menu-item-icon iconForActive">{iconForActive}</span>}
+                    {props.label && <span className="blue-app-sidebar-label text-truncate">{props.label}</span>}
                     {props.children &&
                         <Caret
                             open={showDropdown}
