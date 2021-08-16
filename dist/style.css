@@ -8222,6 +8222,9 @@ body {
 .blue-app-page {
   margin-left: 3rem;
   animation: enabledBlueAppPage .5s; }
+  .blue-app-page::before, .blue-app-page::after {
+    content: "";
+    display: table; }
 
 .blue-app-sidebar-btn {
   color: white;
