@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "7.0.0-beta.18",
+  "version": "7.0.1",
   "description": "Blue React Components",
   "license": "LGPL-3.0-or-later",
   "main": "index.js",
@@ -27,7 +27,7 @@
     "deploy": "gh-pages --dist build --dest v7",
     "prepublishOnly": "npm i && npm run build-release",
     "postpublish": "npm run deploy",
-    "release": "npm publish --tag next && npm run deploy"
+    "release": "npm publish && npm run deploy"
   },
   "dependencies": {
     "bootstrap": "~5.0.2",

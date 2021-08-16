@@ -142,6 +142,12 @@
 .blue-app-page {
     margin-left: $normal-size;
     animation: enabledBlueAppPage .5s;
+
+    &::before,
+    &::after {
+        content: "";
+        display: table;
+    }
 }
 
 @include blue-app-sidebar($normal-size);
