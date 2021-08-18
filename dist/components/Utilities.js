@@ -158,13 +158,16 @@ Utilities.fetchData = function (input) {
     if (!response.ok) throw response;
     return response;
   }).catch(function (reason) {
-    reason.text().then(function (errorMessage) {
-      Utilities.setAlertMessage("".concat(reason.status, " - ").concat(reason.statusText), "danger", true, showErrorDetail ? errorMessage : undefined);
+    if (reason.text) {
+      reason.text().then(function (errorMessage) {
+        Utilities.setAlertMessage("".concat(reason.status, " - ").concat(reason.statusText), "danger", true, showErrorDetail ? errorMessage : undefined);
 
-      if (onError) {
-        onError(errorMessage, reason);
-      }
-    });
+        if (onError) {
+          onError(errorMessage, reason);
+        }
+      });
+    }
+
     throw reason;
   });
 };

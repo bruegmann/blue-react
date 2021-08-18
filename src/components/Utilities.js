@@ -156,13 +156,15 @@ Utilities.fetchData = function (input, init = undefined, showErrorDetail = true,
             return response
         })
         .catch((reason) => {
-            reason.text().then((errorMessage) => {
-                Utilities.setAlertMessage(`${reason.status} - ${reason.statusText}`, "danger", true, showErrorDetail ? errorMessage : undefined)
+            if (reason.text) {
+                reason.text().then((errorMessage) => {
+                    Utilities.setAlertMessage(`${reason.status} - ${reason.statusText}`, "danger", true, showErrorDetail ? errorMessage : undefined)
 
-                if (onError) {
-                    onError(errorMessage, reason)
-                }
-            })
+                    if (onError) {
+                        onError(errorMessage, reason)
+                    }
+                })
+            }
             throw reason
         })
 }
