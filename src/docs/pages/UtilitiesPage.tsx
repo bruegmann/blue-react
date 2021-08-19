@@ -244,6 +244,12 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                         Gives element the width of the sidebar, defined with <code>$bla-sidebar-width</code>.
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td><code data-tooltip-text=".blue-tooltip-[up|down|right|left]" className="blue-tooltip-right">.blue-tooltip-[up|down|right|left]</code></td>
+                                    <td>
+                                        Data Attribute of element is used as an Tooltip. To be used together with <code>data-tooltip-text</code>. Usage: <code>&lt;span data-tooltip-text="tooltip text" className="blue-tooltip-up"&gt;Tooltip&lt;/span&gt;</code>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
 
@@ -272,7 +278,7 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                         <SyntaxHighlighter style={syntaxHighlighterStyle} language="javascript">{`import { Utilities } from "blue-react"
                             
 Utilities.startLoading()`}</SyntaxHighlighter>
-                    </div>
+                    </div >
                 )
             }
         ]
@@ -294,7 +300,7 @@ Utilities.startLoading()`}</SyntaxHighlighter>
 
                     <Footer />
                 </Body>
-            </Page>
+            </Page >
         )
     }
 }
