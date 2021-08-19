@@ -71,7 +71,7 @@ const utilitiesFunctions = [
             Possible values for alertClassName:{" "}
             <code>loading</code>, <code>success</code>, <code>info</code>, <code>warning</code>, <code>danger</code></span>),
         demo: (<FluentBtn className="btn btn-light"
-            onClick={() => Utilities.setAlertMessage("Hey, dies ist eine Nachricht",
+            onClick={() => Utilities.setAlertMessage("Hey, this is a message",
                 "danger", true, `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
 
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -164,7 +164,7 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                     <div>
                         <p>A static class with a few useful helper functions</p>
 
-                        <h2 className="page-header">Useful CSS-Classes</h2>
+                        <h2 className="page-header">Useful CSS classes</h2>
                         <table className="table">
                             <thead>
                                 <tr>
@@ -245,9 +245,28 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><code data-tooltip-text=".blue-tooltip-[up|down|right|left]" className="blue-tooltip-right">.blue-tooltip-[up|down|right|left]</code></td>
                                     <td>
-                                        Data Attribute of element is used as an Tooltip. To be used together with <code>data-tooltip-text</code>. Usage: <code>&lt;span data-tooltip-text="tooltip text" className="blue-tooltip-up"&gt;Tooltip&lt;/span&gt;</code>
+                                        <code>.blue-tooltip-up</code>,<br />
+                                        <code>.blue-tooltip-down</code>,<br />
+                                        <code>.blue-tooltip-start</code>,<br />
+                                        <code>.blue-tooltip-end</code>
+                                    </td>
+                                    <td>
+                                        Data Attribute of element is used as an tooltip. To be used together with <code>data-tooltip</code>.<br />
+                                        Usage:<br />
+                                        <div className="row">
+                                            <div className="col-sm">
+                                                <strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
+                                                    Hover me!
+                                                </strong>
+                                            </div>
+
+                                            <div className="col-sm">
+                                                <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
+    Hover me!
+</strong>`}</SyntaxHighlighter>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -278,7 +297,7 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                         <SyntaxHighlighter style={syntaxHighlighterStyle} language="javascript">{`import { Utilities } from "blue-react"
                             
 Utilities.startLoading()`}</SyntaxHighlighter>
-                    </div >
+                    </div>
                 )
             }
         ]
@@ -300,7 +319,7 @@ Utilities.startLoading()`}</SyntaxHighlighter>
 
                     <Footer />
                 </Body>
-            </Page >
+            </Page>
         )
     }
 }
