@@ -1,7 +1,7 @@
 import React from "react"
 import FluentBtn from "../../components/FluentBtn"
 import Utilities from "../../components/Utilities"
-import { PlayFill } from "react-bootstrap-icons"
+import { CheckCircle, CheckCircleFill, PlayFill } from "react-bootstrap-icons"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
 import Page from "../../components/Page"
@@ -254,19 +254,76 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                     <td>
                                         Data Attribute of element is used as an tooltip. To be used together with <code>data-tooltip</code>.<br />
                                         Usage:<br />
-                                        <div className="row">
-                                            <div className="col-sm">
-                                                <strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
-                                                    Hover me!
-                                                </strong>
-                                            </div>
-
-                                            <div className="col-sm">
-                                                <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
+                                        <strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
+                                            Hover me!
+                                        </strong>
+                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
     Hover me!
 </strong>`}</SyntaxHighlighter>
-                                            </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>.blue-btn-silent</code></td>
+                                    <td>
+                                        Removes border when the button is in normal state (no hover). Should be used together with <code>.btn-outline-*</code>.<br />
+                                        Usage:<br />
+                                        <button className="btn btn-outline-secondary blue-btn-silent">
+                                            Button
+                                        </button>
+                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<button className="btn btn-outline-secondary blue-btn-silent">
+    Button
+</button>`}</SyntaxHighlighter>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>.blue-opacity-hover</code>,<br />
+                                        <code>.blue-opacity-hover-content-active</code>,<br />
+                                        <code>.blue-opacity-hover-content-default</code>
+                                    </td>
+                                    <td>
+                                        With <code>.blue-opacity-hover</code> you can hide things by default
+                                        and let them appear when the user hovers the area around it.
+                                        <br />
+                                        This way you can simplify the UI a bit and make controls disappear
+                                        when they are not needed. On touch screens the elements will always be
+                                        visible.<br />
+                                        Usage:<br />
+
+                                        <div className="card blue-opacity-hover p-3 flex-row justify-content-between">
+                                            <h5 className="blue-opacity-hover-content-default">Hover here to see a button</h5>
+                                            <button className="btn btn-secondary blue-opacity-hover-content-active">Hey there</button>
                                         </div>
+                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<div className="card blue-opacity-hover p-3 flex-row justify-content-between">
+    <h5 className="blue-opacity-hover-content-default">Hover here to see a button</h5>
+    <button className="btn btn-secondary blue-opacity-hover-content-active">Hey there</button>
+</div>`}</SyntaxHighlighter>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <code>.blue-d-hover</code>,<br />
+                                        <code>.blue-d-hover-content-active</code>,<br />
+                                        <code>.blue-d-hover-content-default</code>
+                                    </td>
+                                    <td>
+                                        <code>.blue-d-hover</code> is similar to{' '}
+                                        <code>.blue-opacity-hover</code>, but the elements will disappear and
+                                        appear with the <code>display</code> property.
+                                        <br />
+                                        It is ideal if you want to replace something with something else when
+                                        the user hovers. On the example I used it to change the edit and
+                                        delete icons from lineout to filled when hovering.<br />
+                                        Usage:<br />
+
+                                        <button className="btn blue-d-hover d-inline-flex align-items-center gap-1">
+                                            <CheckCircle className="blue-d-hover-content-default" />
+                                            <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
+                                        </button>
+                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<button className="btn blue-d-hover d-inline-flex align-items-center gap-1">
+    <CheckCircle className="blue-d-hover-content-default" />
+    <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
+</button>`}</SyntaxHighlighter>
                                     </td>
                                 </tr>
                             </tbody>
