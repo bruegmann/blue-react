@@ -51,8 +51,8 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
 
         return (
             <article className="pt-5">
-                <h1 className="page-header mt-0">
-                    <Link to={`/component/${comp.displayName}`}>#</Link> {comp.displayName}
+                <h1 className="page-header mt-0 blue-opacity-hover">
+                    {comp.displayName} <Link to={`/component/${comp.displayName}`} className="blue-opacity-hover-content-active">#</Link>
                 </h1>
 
                 <MarkdownGitHub>{this.prepareForMarkdown(comp.description)}</MarkdownGitHub>

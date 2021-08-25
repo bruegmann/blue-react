@@ -8,6 +8,7 @@ import Page from "../../components/Page"
 import Body from "../../components/Body"
 import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo"
 import { Footer } from "../components/Footer"
+import HashLink from "../components/HashLink"
 
 export interface UtilitiesPageProps { }
 
@@ -165,169 +166,112 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                         <p>A static class with a few useful helper functions</p>
 
                         <h2 className="page-header">Useful CSS classes</h2>
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th>Definition</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code>.blue-app-header-form</code></td>
-                                    <td>
-                                        Can be used within <code>{`<Page.Header.Actions />`}</code> to include a form in the Action-Bar.
-                                        Can be combined with <code>.form-horizontal</code>.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.blue-app-sidebar-bottom</code></td>
-                                    <td>
-                                        With Sidebar Bottom, for example, a registered user can be displayed at the bottom left. Usable within <code>&lt;SidebarMenu /&gt;</code>.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.blue-app-sidebar-hidden-on-open</code></td>
-                                    <td>
-                                        The element is hidden as long as the sidebar is open.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.blue-app-sidebar-visible-on-open</code></td>
-                                    <td>
-                                        The element is visible as long as the sidebar is open.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.blue-normal-scrollbar</code></td>
-                                    <td>
-                                        <span className="badge bg-primary">NEW</span> {"Normalizes elements in areas which still should not have the theme colors for their scrollbars. "}
-                                        <NormalScrollbarDemo />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.btn-black</code>, <code>.btn-outline-black</code></td>
-                                    <td>
-                                        Additionally Bootstrap theme variable "black" for always black buttons.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.btn-white</code>, <code>.btn-outline-white</code></td>
-                                    <td>
-                                        Additionally Bootstrap theme variable "white" for always white buttons.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.form-control.underlined</code></td>
-                                    <td>
-                                        <span>Use underlined look for controls instead of the Bootstrap default.</span>
-                                        <input className="form-control underlined mb-1" placeholder="Like this (.form-control.underlined)" />
-                                        <input className="form-control" placeholder="Instead of this (.form-control)" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.form-horizontal</code></td>
-                                    <td>
-                                        To be used together with <a href="https://getbootstrap.com/docs/4.0/components/forms/#horizontal-form">Bootstraps Solutions</a>
-                                        &nbsp;. <code>.form-horizontal</code> arranges the labels on the right on larger screens.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.form-switch</code></td>
-                                    <td>
-                                        Switch-Control. Usage: <code>&lt;label className="form-switch"&gt;&lt;input type="checkbox" /&gt;&lt;i /&lt; Do it!&lt;/label&gt;</code>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.w-bla-sidebar-width</code></td>
-                                    <td>
-                                        Gives element the width of the sidebar, defined with <code>$bla-sidebar-width</code>.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <code>.blue-tooltip-up</code>,<br />
-                                        <code>.blue-tooltip-down</code>,<br />
-                                        <code>.blue-tooltip-start</code>,<br />
-                                        <code>.blue-tooltip-end</code>
-                                    </td>
-                                    <td>
-                                        Data Attribute of element is used as an tooltip. To be used together with <code>data-tooltip</code>.<br />
-                                        Usage:<br />
-                                        <strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
-                                            Hover me!
-                                        </strong>
-                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
+
+                        <article className="mb-5">
+                            <HashLink id="blue-app-sidebar-bottom"><code>.blue-app-sidebar-bottom</code></HashLink>
+                            <p>With Sidebar Bottom, for example, a registered user can be displayed at the bottom left. Usable within <code>&lt;SidebarMenu {"bottomContent={}"} /&gt;</code>.</p>
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="blue-app-sidebar-hidden-on-open"><code>.blue-app-sidebar-hidden-on-open</code></HashLink>
+                            <p>The element is hidden as long as the sidebar is open.</p>
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="blue-app-sidebar-visible-on-open"><code>.blue-app-sidebar-visible-on-open</code></HashLink>
+                            <p>The element is visible as long as the sidebar is open.</p>
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="blue-normal-scrollbar"><code>.blue-normal-scrollbar</code></HashLink>
+                            <p>{"Normalizes elements in areas which still should not have the theme colors for their scrollbars. "}
+                                <NormalScrollbarDemo /></p>
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="btn-black"><code>.btn-black</code>, <code>.btn-outline-black</code></HashLink>
+                            <p>Additionally Bootstrap theme variable "black" for always black buttons.</p>
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="btn-white"><code>.btn-white</code>, <code>.btn-outline-white</code></HashLink>
+                            <p>Additionally Bootstrap theme variable "white" for always white buttons.</p>
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="form-horizontal"><code>.form-horizontal</code></HashLink>
+                            <p>To be used together with <a href="https://getbootstrap.com/docs/5.1/forms/layout/#horizontal-form">Bootstraps solutions</a>. <code>.form-horizontal</code> arranges the labels on the right on larger screens.</p>
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="w-bla-sidebar-width"><code>.w-bla-sidebar-width</code></HashLink>
+                            <p>Gives element the width of the sidebar, defined with <code>$bla-sidebar-width</code>.</p>
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="blue-tooltip-up"><code>.blue-tooltip-up</code>, <code>.blue-tooltip-down</code>, <code>.blue-tooltip-start</code>, <code>.blue-tooltip-end</code></HashLink>
+                            <p>Data Attribute of element is used as an tooltip. To be used together with <code>data-tooltip</code>.<br />
+                                Usage:</p>
+                            <strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
+                                Hover me!
+                            </strong>
+                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
     Hover me!
 </strong>`}</SyntaxHighlighter>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>.blue-btn-silent</code></td>
-                                    <td>
-                                        Removes border when the button is in normal state (no hover). Should be used together with <code>.btn-outline-*</code>.<br />
-                                        Usage:<br />
-                                        <button className="btn btn-outline-secondary blue-btn-silent">
-                                            Button
-                                        </button>
-                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<button className="btn btn-outline-secondary blue-btn-silent">
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="blue-btn-silent"><code>.blue-btn-silent</code></HashLink>
+                            <p>Removes border when the button is in normal state (no hover). Should be used together with <code>.btn-outline-*</code>.<br />
+                                Usage:</p>
+                            <button className="btn btn-outline-secondary blue-btn-silent">
+                                Button
+                            </button>
+                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<button className="btn btn-outline-secondary blue-btn-silent">
     Button
 </button>`}</SyntaxHighlighter>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <code>.blue-opacity-hover</code>,<br />
-                                        <code>.blue-opacity-hover-content-active</code>,<br />
-                                        <code>.blue-opacity-hover-content-default</code>
-                                    </td>
-                                    <td>
-                                        With <code>.blue-opacity-hover</code> you can hide things by default
-                                        and let them appear when the user hovers the area around it.
-                                        <br />
-                                        This way you can simplify the UI a bit and make controls disappear
-                                        when they are not needed. On touch screens the elements will always be
-                                        visible.<br />
-                                        Usage:<br />
+                        </article>
 
-                                        <div className="card blue-opacity-hover p-3 flex-row justify-content-between">
-                                            <h5 className="blue-opacity-hover-content-default">Hover here to see a button</h5>
-                                            <button className="btn btn-secondary blue-opacity-hover-content-active">Hey there</button>
-                                        </div>
-                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<div className="card blue-opacity-hover p-3 flex-row justify-content-between">
-    <h5 className="blue-opacity-hover-content-default">Hover here to see a button</h5>
+                        <article className="mb-5">
+                            <HashLink id="blue-opacity-hover"><code>.blue-opacity-hover</code>, <code>.blue-opacity-hover-content-active</code>, <code>.blue-opacity-hover-content-default</code></HashLink>
+                            <p>With <code>.blue-opacity-hover</code> you can hide things by default
+                                and let them appear when the user hovers the area around it.
+                                <br />
+                                This way you can simplify the UI a bit and make controls disappear
+                                when they are not needed. On touch screens the elements will always be
+                                visible.<br />
+                                Usage:</p>
+
+                            <div className="card blue-opacity-hover p-3 flex-row justify-content-between">
+                                <h5 className="blue-opacity-hover-content-default">Hover here to see a button</h5>
+                                <button className="btn btn-secondary blue-opacity-hover-content-active">Hey there</button>
+                            </div>
+                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<div className="card blue-opacity-hover p-3 flex-row justify-content-between">
+    <h5 className="blue-opacity-hover-content-default">Hover here to see a button</HashLink>
     <button className="btn btn-secondary blue-opacity-hover-content-active">Hey there</button>
 </div>`}</SyntaxHighlighter>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <code>.blue-d-hover</code>,<br />
-                                        <code>.blue-d-hover-content-active</code>,<br />
-                                        <code>.blue-d-hover-content-default</code>
-                                    </td>
-                                    <td>
-                                        <code>.blue-d-hover</code> is similar to{' '}
-                                        <code>.blue-opacity-hover</code>, but the elements will disappear and
-                                        appear with the <code>display</code> property.
-                                        <br />
-                                        It is ideal if you want to replace something with something else when
-                                        the user hovers. On the example I used it to change the edit and
-                                        delete icons from lineout to filled when hovering.<br />
-                                        Usage:<br />
+                        </article>
 
-                                        <button className="btn blue-d-hover d-inline-flex align-items-center gap-1">
-                                            <CheckCircle className="blue-d-hover-content-default" />
-                                            <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
-                                        </button>
-                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<button className="btn blue-d-hover d-inline-flex align-items-center gap-1">
+                        <article className="mb-5">
+                            <HashLink id="blue-d-hover"><code>.blue-d-hover</code>, <code>.blue-d-hover-content-active</code>, <code>.blue-d-hover-content-default</code></HashLink>
+                            <p><code>.blue-d-hover</code> is similar to{' '}
+                                <code>.blue-opacity-hover</code>, but the elements will disappear and
+                                appear with the <code>display</code> property.
+                                <br />
+                                It is ideal if you want to replace something with something else when
+                                the user hovers. On the example I used it to change the edit and
+                                delete icons from lineout to filled when hovering.<br />
+                                Usage:</p>
+
+                            <button className="btn blue-d-hover d-inline-flex align-items-center gap-1">
+                                <CheckCircle className="blue-d-hover-content-default" />
+                                <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
+                            </button>
+                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<button className="btn blue-d-hover d-inline-flex align-items-center gap-1">
     <CheckCircle className="blue-d-hover-content-default" />
     <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
 </button>`}</SyntaxHighlighter>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        </article>
 
                         <h2 className="page-header">JavaScript Functions</h2>
                         <table className="table">

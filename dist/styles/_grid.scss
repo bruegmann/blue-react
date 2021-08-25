@@ -107,26 +107,6 @@
     .navbar-right {
         float: right !important;
     }
-    
-    .blue-app-header-form {
-        padding: .4rem;
-        float: right;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        position: relative;
-
-        &.form-horizontal {
-            .form-group {
-                display: flex;
-                align-items: center;
-            }
-
-            .control-label {
-                padding-top: 0;
-            }
-        }
-    }
 
     .blue-app-search {
         width: 16rem;

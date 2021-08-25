@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Modal } from "reactstrap"
+import { Modal, ModalHeader } from "reactstrap"
 
 export function NormalScrollbarDemo() {
     const [showModal, setShowModal] = useState<boolean>(false)
@@ -10,6 +10,7 @@ export function NormalScrollbarDemo() {
             <button className="btn btn-link p-0 mb-1" onClick={toggleShowModal}>Show demo.</button>
 
             <Modal isOpen={showModal} toggle={toggleShowModal}>
+                <ModalHeader toggle={toggleShowModal}>Scrollbar demo</ModalHeader>
                 <div className="m-3">
                     <div className="mb-3">
                         <label>Area without <code>.blue-normal-scrollbar</code></label>
