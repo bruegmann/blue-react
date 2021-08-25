@@ -9278,6 +9278,20 @@ body {
 [data-tooltip='']::after, [data-tooltip='']::before {
   display: none !important; }
 
+.blue-btn-silent:not(:hover):not(:focus):not(:active) {
+  border-color: transparent;
+  color: inherit; }
+
+@media (hover: hover) {
+  .blue-d-hover:not(:hover):not(:focus):not(:active):not(.active) .blue-d-hover-content-active {
+    display: none; }
+  .blue-d-hover:hover .blue-d-hover-content-default, .blue-d-hover:focus .blue-d-hover-content-default, .blue-d-hover:active .blue-d-hover-content-default, .blue-d-hover.active .blue-d-hover-content-default {
+    display: none; }
+  .blue-opacity-hover:not(:hover):not(:focus):not(:active):not(.active) .blue-opacity-hover-content-active {
+    opacity: 0; }
+  .blue-opacity-hover:hover .blue-opacity-hover-content-default, .blue-opacity-hover:focus .blue-opacity-hover-content-default, .blue-opacity-hover:active .blue-opacity-hover-content-default, .blue-opacity-hover.active .blue-opacity-hover-content-default {
+    opacity: 0; } }
+
 .document-view-iframe {
   border: none;
   width: 100%;
