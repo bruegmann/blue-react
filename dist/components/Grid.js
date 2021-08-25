@@ -70,7 +70,8 @@ var Grid = /*#__PURE__*/function (_Component) {
       match: null,
       history: [],
       hash: window.location.hash,
-      hashHistory: []
+      hashHistory: [],
+      blockRouting: props.blockRouting || undefined
     };
     _this.hideSidebar = _this.hideSidebar.bind(_assertThisInitialized(_this));
     window.addEventListener("hashchange", function (event) {
@@ -107,6 +108,12 @@ var Grid = /*#__PURE__*/function (_Component) {
     value: function componentDidUpdate(prevProps, prevState) {
       var _this3 = this;
 
+      if (prevProps.blockRouting !== this.props.blockRouting && this.props.blockRouting !== this.state.blockRouting) {
+        this.setState({
+          blockRouting: this.props.blockRouting
+        });
+      }
+
       this.eventListeners.forEach(function (eventListener) {
         if (eventListener[0] === "componentDidUpdate") {
           eventListener[1](prevProps, prevState);
@@ -134,7 +141,7 @@ var Grid = /*#__PURE__*/function (_Component) {
   }, {
     key: "toggleSidebar",
     value: function toggleSidebar(event) {
-      if (this.state.sidebarIns) {
+      if (this.state.sidebarIn) {
         this.hideSidebar(event);
       }
 
@@ -168,16 +175,21 @@ var Grid = /*#__PURE__*/function (_Component) {
         newMatch = this.defaultMatch;
       }
 
-      if (!(this.state.history.indexOf(newMatch[0]) > -1)) {
-        this.state.history.push(newMatch[0]);
-      }
+      if (this.state.blockRouting) {
+        this.state.blockRouting(newMatch, this.state.match);
+        window.location.hash = this.state.hash;
+      } else {
+        if (!(this.state.history.indexOf(newMatch[0]) > -1)) {
+          this.state.history.push(newMatch[0]);
+        }
 
-      this.setState({
-        match: newMatch,
-        history: this.state.history,
-        hash: window.location.hash,
-        hashHistory: this.state.hashHistory.concat([window.location.hash])
-      });
+        this.setState({
+          match: newMatch,
+          history: this.state.history,
+          hash: window.location.hash,
+          hashHistory: this.state.hashHistory.concat([window.location.hash])
+        });
+      }
     }
   }, {
     key: "addEventListener",

@@ -58,8 +58,20 @@ export interface GridProps {
      * Rounded corners for all `Body` components.
      */
     roundedBody?: boolean;
+    /**
+     * When defined, the routing behaviour will be blocked when the hash changes. Instead the defined function will be triggered instead.
+     * You can use something like `window.blueGridRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
+     */
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void;
 }
-declare type GridState = any;
+export interface GridState {
+    sidebarIn?: boolean;
+    match: any;
+    history: string[];
+    hash: string;
+    hashHistory: string[];
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void;
+}
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
  * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`.
@@ -99,4 +111,3 @@ export default class Grid extends Component<GridProps, GridState> {
     addEventListener(param1: any, param2: any, param3: any): void;
     render(): JSX.Element;
 }
-export {};

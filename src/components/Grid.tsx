@@ -69,9 +69,22 @@ export interface GridProps {
      * Rounded corners for all `Body` components.
      */
     roundedBody?: boolean
+
+    /**
+     * When defined, the routing behaviour will be blocked when the hash changes. Instead the defined function will be triggered instead.
+     * You can use something like `window.blueGridRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
+     */
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void
 }
 
-type GridState = any
+export interface GridState {
+    sidebarIn?: boolean
+    match: any
+    history: string[]
+    hash: string
+    hashHistory: string[]
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void
+}
 
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
@@ -101,7 +114,8 @@ export default class Grid extends Component<GridProps, GridState>{
             match: null,
             history: [],
             hash: window.location.hash,
-            hashHistory: []
+            hashHistory: [],
+            blockRouting: props.blockRouting || undefined
         }
 
         this.hideSidebar = this.hideSidebar.bind(this)
@@ -154,6 +168,10 @@ export default class Grid extends Component<GridProps, GridState>{
     }
 
     componentDidUpdate(prevProps: GridProps, prevState: GridState) {
+        if (prevProps.blockRouting !== this.props.blockRouting && this.props.blockRouting !== this.state.blockRouting) {
+            this.setState({ blockRouting: this.props.blockRouting })
+        }
+
         this.eventListeners.forEach((eventListener) => {
             if (eventListener[0] === "componentDidUpdate") {
                 eventListener[1](prevProps, prevState)
@@ -180,7 +198,7 @@ export default class Grid extends Component<GridProps, GridState>{
     }
 
     toggleSidebar(event: any) {
-        if (this.state.sidebarIns) {
+        if (this.state.sidebarIn) {
             this.hideSidebar(event)
         }
         this.setState({ sidebarIn: true })
@@ -217,16 +235,22 @@ export default class Grid extends Component<GridProps, GridState>{
             newMatch = this.defaultMatch
         }
 
-        if (!(this.state.history.indexOf(newMatch[0]) > -1)) {
-            this.state.history.push(newMatch[0])
+        if (this.state.blockRouting) {
+            this.state.blockRouting(newMatch, this.state.match)
+            window.location.hash = this.state.hash
         }
+        else {
+            if (!(this.state.history.indexOf(newMatch[0]) > -1)) {
+                this.state.history.push(newMatch[0])
+            }
 
-        this.setState({
-            match: newMatch,
-            history: this.state.history,
-            hash: window.location.hash,
-            hashHistory: this.state.hashHistory.concat([window.location.hash])
-        })
+            this.setState({
+                match: newMatch,
+                history: this.state.history,
+                hash: window.location.hash,
+                hashHistory: this.state.hashHistory.concat([window.location.hash])
+            })
+        }
     }
 
     addEventListener(param1: any, param2: any, param3: any) {

@@ -8182,18 +8182,6 @@ body {
     float: left !important; }
   .blue-app-header .navbar-right {
     float: right !important; }
-  .blue-app-header .blue-app-header-form {
-    padding: .4rem;
-    float: right;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    position: relative; }
-    .blue-app-header .blue-app-header-form.form-horizontal .form-group {
-      display: flex;
-      align-items: center; }
-    .blue-app-header .blue-app-header-form.form-horizontal .control-label {
-      padding-top: 0; }
   .blue-app-header .blue-app-search {
     width: 16rem; }
 
@@ -8583,9 +8571,6 @@ body {
           align-items: center; }
       .blue-app-actions.none.open .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
         display: flex; }
-      .blue-app-actions.none.open .blue-app-header-form {
-        width: 100%;
-        margin-bottom: .4rem; }
       .blue-app-actions.none.open .blue-app-actions-menu .blue-app-sidebar-dropdown {
         --sidebar-bg: #01265c; }
     .blue-app-actions.none .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
@@ -8628,9 +8613,6 @@ body {
           align-items: center; }
       .blue-app-actions.sm.open .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
         display: flex; }
-      .blue-app-actions.sm.open .blue-app-header-form {
-        width: 100%;
-        margin-bottom: .4rem; }
       .blue-app-actions.sm.open .blue-app-actions-menu .blue-app-sidebar-dropdown {
         --sidebar-bg: #01265c; }
     .blue-app-actions.sm .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
@@ -8673,9 +8655,6 @@ body {
           align-items: center; }
       .blue-app-actions.md.open .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
         display: flex; }
-      .blue-app-actions.md.open .blue-app-header-form {
-        width: 100%;
-        margin-bottom: .4rem; }
       .blue-app-actions.md.open .blue-app-actions-menu .blue-app-sidebar-dropdown {
         --sidebar-bg: #01265c; }
     .blue-app-actions.md .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
@@ -8718,9 +8697,6 @@ body {
           align-items: center; }
       .blue-app-actions.lg.open .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
         display: flex; }
-      .blue-app-actions.lg.open .blue-app-header-form {
-        width: 100%;
-        margin-bottom: .4rem; }
       .blue-app-actions.lg.open .blue-app-actions-menu .blue-app-sidebar-dropdown {
         --sidebar-bg: #01265c; }
     .blue-app-actions.lg .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
@@ -9310,13 +9286,3 @@ body {
 @media (min-width: 576px) {
   .form-horizontal .col-form-label {
     text-align: right; } }
-
-.form-control.underlined {
-  border-top-color: transparent;
-  border-left: none;
-  border-right: none;
-  border-radius: 0; }
-  .form-control.underlined:not(:disabled):not([readonly]) {
-    background-color: transparent; }
-  .form-control.underlined:focus {
-    box-shadow: 0 1px 0 0 #86b7fe; }
