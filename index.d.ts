@@ -26,6 +26,11 @@ export { ActionsProps } from "./dist/types/components/Actions"
 export { default as Body } from "./dist/types/components/Body"
 export { BodyProps } from "./dist/types/components/Body"
 
+export { default as BlueModal } from "./dist/types/components/BlueModal"
+export { BlueModalProps } from "./dist/types/components/BlueModal"
+
+export { BlueModalProvider, useBlueModal } from "./dist/types/components/BlueModalProvider"
+
 export { default as Caret } from "./dist/types/components/Caret"
 export { CaretProps } from "./dist/types/components/Caret"
 

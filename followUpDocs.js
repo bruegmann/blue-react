@@ -17,6 +17,11 @@ function prepareExampleCode(exampleCode) {
 
     const componentNames = matches.map(match => match[2])
 
+    if (exampleCode.includes("CaretExample")) {
+        console.log({ matches })
+        console.log({ componentNames })
+    }
+
     const importCode = `import { ${componentNames.sort().join(", ")} } from "${packageName}"`
 
     matches.forEach(match => {
