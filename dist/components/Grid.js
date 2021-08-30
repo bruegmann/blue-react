@@ -81,7 +81,6 @@ var Grid = /*#__PURE__*/function (_Component) {
   _createClass(Grid, [{
     key: "onHashChange",
     value: function onHashChange(event) {
-      console.log("this.onHashChange", event);
       window.blueGridRef.initMatch();
     }
   }, {

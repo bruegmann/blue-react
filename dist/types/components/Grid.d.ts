@@ -59,7 +59,7 @@ export interface GridProps {
      */
     roundedBody?: boolean;
     /**
-     * When defined, the routing behaviour will be blocked when the hash changes. Instead the defined function will be triggered instead.
+     * Define a function, that will be fired when switching routes. When your function returns `true`, the default route behaviour will be blocked.
      * You can use something like `window.blueGridRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
      */
     blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean;
