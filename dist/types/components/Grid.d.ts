@@ -62,7 +62,7 @@ export interface GridProps {
      * When defined, the routing behaviour will be blocked when the hash changes. Instead the defined function will be triggered instead.
      * You can use something like `window.blueGridRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
      */
-    blockRouting?: (newMatch: string[], currentMatch: string[]) => void;
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean;
 }
 export interface GridState {
     sidebarIn?: boolean;
@@ -70,7 +70,7 @@ export interface GridState {
     history: string[];
     hash: string;
     hashHistory: string[];
-    blockRouting?: (newMatch: string[], currentMatch: string[]) => void;
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean;
 }
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
@@ -89,6 +89,7 @@ export default class Grid extends Component<GridProps, GridState> {
     defaultMatch: string[];
     eventListeners: any[];
     constructor(props: GridProps);
+    onHashChange(event: HashChangeEvent): void;
     static get defaultProps(): {
         expandSidebar: boolean;
         hideSidebarMenu: boolean;
@@ -104,6 +105,7 @@ export default class Grid extends Component<GridProps, GridState> {
         roundedBody: boolean;
     };
     componentDidMount(): void;
+    componentWillUnmount(): void;
     componentDidUpdate(prevProps: GridProps, prevState: GridState): void;
     toggleSidebar(event: any): void;
     hideSidebar(e: any): void;

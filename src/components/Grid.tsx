@@ -74,7 +74,7 @@ export interface GridProps {
      * When defined, the routing behaviour will be blocked when the hash changes. Instead the defined function will be triggered instead.
      * You can use something like `window.blueGridRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
      */
-    blockRouting?: (newMatch: string[], currentMatch: string[]) => void
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean
 }
 
 export interface GridState {
@@ -83,7 +83,7 @@ export interface GridState {
     history: string[]
     hash: string
     hashHistory: string[]
-    blockRouting?: (newMatch: string[], currentMatch: string[]) => void
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean
 }
 
 /**
@@ -120,11 +120,11 @@ export default class Grid extends Component<GridProps, GridState>{
 
         this.hideSidebar = this.hideSidebar.bind(this)
 
-        window.addEventListener("hashchange", event => {
-            window.blueGridRef.initMatch()
-        })
-
         this.eventListeners = []
+    }
+
+    onHashChange(event: HashChangeEvent) {
+        window.blueGridRef.initMatch()
     }
 
     static get defaultProps() {
@@ -165,6 +165,12 @@ export default class Grid extends Component<GridProps, GridState>{
         })
 
         Utilities.registerFluentBtns()
+
+        window.addEventListener("hashchange", this.onHashChange)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("hashchange", this.onHashChange)
     }
 
     componentDidUpdate(prevProps: GridProps, prevState: GridState) {
@@ -235,8 +241,7 @@ export default class Grid extends Component<GridProps, GridState>{
             newMatch = this.defaultMatch
         }
 
-        if (this.state.blockRouting) {
-            this.state.blockRouting(newMatch, this.state.match)
+        if (this.state.blockRouting && this.state.blockRouting(newMatch, this.state.match) === true) {
             window.location.hash = this.state.hash
         }
         else {

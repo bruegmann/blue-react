@@ -74,14 +74,17 @@ var Grid = /*#__PURE__*/function (_Component) {
       blockRouting: props.blockRouting || undefined
     };
     _this.hideSidebar = _this.hideSidebar.bind(_assertThisInitialized(_this));
-    window.addEventListener("hashchange", function (event) {
-      window.blueGridRef.initMatch();
-    });
     _this.eventListeners = [];
     return _this;
   }
 
   _createClass(Grid, [{
+    key: "onHashChange",
+    value: function onHashChange(event) {
+      console.log("this.onHashChange", event);
+      window.blueGridRef.initMatch();
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -102,6 +105,13 @@ var Grid = /*#__PURE__*/function (_Component) {
       });
 
       _Utilities.default.registerFluentBtns();
+
+      window.addEventListener("hashchange", this.onHashChange);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener("hashchange", this.onHashChange);
     }
   }, {
     key: "componentDidUpdate",
@@ -175,8 +185,7 @@ var Grid = /*#__PURE__*/function (_Component) {
         newMatch = this.defaultMatch;
       }
 
-      if (this.state.blockRouting) {
-        this.state.blockRouting(newMatch, this.state.match);
+      if (this.state.blockRouting && this.state.blockRouting(newMatch, this.state.match) === true) {
         window.location.hash = this.state.hash;
       } else {
         if (!(this.state.history.indexOf(newMatch[0]) > -1)) {
