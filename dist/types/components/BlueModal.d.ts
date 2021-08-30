@@ -3,7 +3,7 @@ import { BlueModalType } from "./shared";
 export interface BlueModalProps {
     modalContent?: string;
     unSetModalContent: (modalContent?: string) => void;
-    onSubmit?: (input: string | boolean) => void;
+    onSubmit?: (input: string | boolean | null) => void;
     defaultInput?: string;
     type: BlueModalType;
 }

@@ -14,14 +14,26 @@ import { BlueModalType } from "./shared"
 export interface BlueModalProps {
     modalContent?: string
     unSetModalContent: (modalContent?: string) => void
-    onSubmit?: (input: string | boolean) => void
+
+    /**
+     * Type of `input` depends on `type` prop and which action occured.
+     * When it's a string, the user entered something. When it's a boolean, the user clicked "Yes" or "No".
+     * When it's `null`, the user cancelled the modal.
+     */
+    onSubmit?: (input: string | boolean | null) => void
     defaultInput?: string
+
+    /**
+     * `"ask"` | `"tell"` | `"verify"`
+     */
     type: BlueModalType
 }
 
 /**
  * Simple modal/dialog. Designed to be as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
  * It uses Bootstrap's Modal components. 
+ * 
+ * For easy use, you should use the hook `useBlueModal` together with `BlueModalProvider`. See the example below.
  */
 export default function BlueModal({
     modalContent,
@@ -33,6 +45,12 @@ export default function BlueModal({
     const modalRef = useRef() as MutableRefObject<HTMLDivElement>
     const [input, setInput] = useState<string>(defaultInput || "")
     const cancel = () => {
+        unSetModalContent()
+        if (onSubmit) {
+            onSubmit(null)
+        }
+    }
+    const sayNo = () => {
         unSetModalContent()
         if (onSubmit) {
             onSubmit(false)
@@ -102,13 +120,23 @@ export default function BlueModal({
                                 {type === "verify" ? "Yes" : "OK"}
                             </FluentBtn>
                             {(type === "ask" || type === "verify") && (
-                                <FluentBtn
-                                    className="btn btn-outline-primary d-block w-100"
-                                    style={btnStyle}
-                                    onClick={cancel}
-                                >
-                                    {type === "verify" ? "No" : "Cancel"}
-                                </FluentBtn>
+
+                                type === "verify" ?
+                                    <FluentBtn
+                                        className="btn btn-outline-primary d-block w-100"
+                                        style={btnStyle}
+                                        onClick={sayNo}
+                                    >
+                                        No
+                                    </FluentBtn>
+                                    :
+                                    <FluentBtn
+                                        className="btn btn-outline-primary d-block w-100"
+                                        style={btnStyle}
+                                        onClick={cancel}
+                                    >
+                                        Cancel
+                                    </FluentBtn>
                             )}
                         </div>
                     </form>

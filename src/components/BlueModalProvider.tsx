@@ -21,7 +21,7 @@ const BlueModalProvider = (props: any) => {
         setModalContent(undefined)
     }, [setModalContent])
 
-    const [onSubmit, setOnSubmit] = useState<((input: string | boolean) => void) | undefined>()
+    const [onSubmit, setOnSubmit] = useState<((input: string | boolean | null) => void) | undefined>()
 
     const ask = (text: string) => {
         return new Promise((resolve: (input: string | boolean) => void) => {

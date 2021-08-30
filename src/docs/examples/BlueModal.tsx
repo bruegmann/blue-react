@@ -1,5 +1,5 @@
-import { BlueModalProvider, useBlueModal } from "../../components/BlueModalProvider";
-import FluentBtn from "../../components/FluentBtn";
+import { BlueModalProvider, useBlueModal } from "../../components/BlueModalProvider"
+import FluentBtn from "../../components/FluentBtn"
 
 function InsideComp() {
     // Use the `useBlueModal` hook.
@@ -18,7 +18,7 @@ function InsideComp() {
                 async () => {
                     // Use "await" to wait until the user enters something
                     const answer = await ask("What is 1 + 1?")
-                    if (parseInt(answer.toString()) === 2) {
+                    if (answer && parseInt(answer.toString()) === 2) {
                         tell("That's correct!")
                     }
                     else {
@@ -32,6 +32,7 @@ function InsideComp() {
             <FluentBtn className="btn btn-outline-secondary" onClick={
                 async () => {
                     const answer = await verify("Are you sure?")
+                    console.log({ answer })
                     if (answer === true) {
                         tell("So, you're sure")
                     }
@@ -41,7 +42,7 @@ function InsideComp() {
             </FluentBtn>
 
             <FluentBtn
-                className="btn btn-primary"
+                className="btn btn-secondary"
                 onClick={async () => {
                     const name = await ask('What is your name?');
                     console.log(name);

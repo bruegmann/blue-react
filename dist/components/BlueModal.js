@@ -54,6 +54,14 @@ function BlueModal(_ref) {
     unSetModalContent();
 
     if (onSubmit) {
+      onSubmit(null);
+    }
+  };
+
+  var sayNo = function sayNo() {
+    unSetModalContent();
+
+    if (onSubmit) {
       onSubmit(false);
     }
   };
@@ -112,7 +120,7 @@ function BlueModal(_ref) {
     onClick: cancel
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-body"
-  }, modalContent, input !== undefined && /*#__PURE__*/_react.default.createElement("input", {
+  }, modalContent, type === "ask" && /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     className: "form-control mt-1",
     value: input,
@@ -127,9 +135,13 @@ function BlueModal(_ref) {
     type: "submit",
     className: "btn btn-primary d-block w-100",
     style: btnStyle
-  }, type === "verify" ? "Yes" : "OK"), (type === "ask" || type === "verify") && /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
+  }, type === "verify" ? "Yes" : "OK"), (type === "ask" || type === "verify") && (type === "verify" ? /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
+    className: "btn btn-outline-primary d-block w-100",
+    style: btnStyle,
+    onClick: sayNo
+  }, "No") : /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
     className: "btn btn-outline-primary d-block w-100",
     style: btnStyle,
     onClick: cancel
-  }, type === "verify" ? "No" : "Cancel"))))));
+  }, "Cancel")))))));
 }
