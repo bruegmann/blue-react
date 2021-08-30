@@ -7,11 +7,11 @@ import React, {
     MutableRefObject,
     useRef
 } from "react"
-import { Modal } from "bootstrap"
-import { BlueModalType } from "./shared"
+import { Modal as BootstrapModal } from "bootstrap"
+import { ModalType } from "./shared"
 
 
-export interface BlueModalProps {
+export interface ModalProps {
     modalContent?: string
     unSetModalContent: (modalContent?: string) => void
 
@@ -26,22 +26,22 @@ export interface BlueModalProps {
     /**
      * `"ask"` | `"tell"` | `"verify"`
      */
-    type: BlueModalType
+    type: ModalType
 }
 
 /**
- * Simple modal/dialog. Designed to be as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
+ * Simple modal/dialog. Designed to work as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
  * It uses Bootstrap's Modal components. 
  * 
- * For easy use, you should use the hook `useBlueModal` together with `BlueModalProvider`. See the example below.
+ * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example below.
  */
-export default function BlueModal({
+export default function Modal({
     modalContent,
     unSetModalContent,
     onSubmit,
     defaultInput,
     type
-}: BlueModalProps) {
+}: ModalProps) {
     const modalRef = useRef() as MutableRefObject<HTMLDivElement>
     const [input, setInput] = useState<string>(defaultInput || "")
     const cancel = () => {
@@ -72,10 +72,10 @@ export default function BlueModal({
 
     useEffect(() => {
         const myModal = (modalRef.current as unknown) as Element
-        let bsModal = Modal.getInstance(myModal)
+        let bsModal = BootstrapModal.getInstance(myModal)
 
         if (!bsModal) {
-            bsModal = new Modal(myModal)
+            bsModal = new BootstrapModal(myModal)
             bsModal.hide()
             // setShow(false)
 

@@ -39,28 +39,28 @@ var ModalContext = /*#__PURE__*/(0, _react.createContext)({
 
 var ModalProvider = function ModalProvider(props) {
   var _useState = (0, _react.useState)("tell"),
-    _useState2 = _slicedToArray(_useState, 2),
-    type = _useState2[0],
-    setType = _useState2[1];
+      _useState2 = _slicedToArray(_useState, 2),
+      type = _useState2[0],
+      setType = _useState2[1];
 
   var _useState3 = (0, _react.useState)(),
-    _useState4 = _slicedToArray(_useState3, 2),
-    modalContent = _useState4[0],
-    setModalContent = _useState4[1];
+      _useState4 = _slicedToArray(_useState3, 2),
+      modalContent = _useState4[0],
+      setModalContent = _useState4[1];
 
   var _useState5 = (0, _react.useState)(),
-    _useState6 = _slicedToArray(_useState5, 2),
-    defaultInput = _useState6[0],
-    setDefaultInput = _useState6[1];
+      _useState6 = _slicedToArray(_useState5, 2),
+      defaultInput = _useState6[0],
+      setDefaultInput = _useState6[1];
 
   var unSetModalContent = (0, _react.useCallback)(function () {
     setModalContent(undefined);
   }, [setModalContent]);
 
   var _useState7 = (0, _react.useState)(),
-    _useState8 = _slicedToArray(_useState7, 2),
-    onSubmit = _useState8[0],
-    setOnSubmit = _useState8[1];
+      _useState8 = _slicedToArray(_useState7, 2),
+      onSubmit = _useState8[0],
+      setOnSubmit = _useState8[1];
 
   var ask = function ask(text) {
     return new Promise(function (resolve) {

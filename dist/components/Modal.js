@@ -34,21 +34,23 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /**
- * Simple modal/dialog. Designed to be as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
+ * Simple modal/dialog. Designed to work as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
  * It uses Bootstrap's Modal components. 
+ * 
+ * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example below.
  */
 function Modal(_ref) {
   var modalContent = _ref.modalContent,
-    unSetModalContent = _ref.unSetModalContent,
-    onSubmit = _ref.onSubmit,
-    defaultInput = _ref.defaultInput,
-    type = _ref.type;
+      unSetModalContent = _ref.unSetModalContent,
+      onSubmit = _ref.onSubmit,
+      defaultInput = _ref.defaultInput,
+      type = _ref.type;
   var modalRef = (0, _react.useRef)();
 
   var _useState = (0, _react.useState)(defaultInput || ""),
-    _useState2 = _slicedToArray(_useState, 2),
-    input = _useState2[0],
-    setInput = _useState2[1];
+      _useState2 = _slicedToArray(_useState, 2),
+      input = _useState2[0],
+      setInput = _useState2[1];
 
   var cancel = function cancel() {
     unSetModalContent();

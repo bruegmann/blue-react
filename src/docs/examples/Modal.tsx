@@ -1,9 +1,9 @@
-import { BlueModalProvider, useBlueModal } from "../../components/BlueModalProvider"
+import { ModalProvider, useModal } from "../../components/ModalProvider"
 import FluentBtn from "../../components/FluentBtn"
 
 function InsideComp() {
-    // Use the `useBlueModal` hook.
-    const { tell, verify, ask } = useBlueModal()
+    // Use the `useModal` hook.
+    const { tell, verify, ask } = useModal()
 
     return (
         <div className="d-flex gap-2">
@@ -65,13 +65,13 @@ function InsideComp() {
 }
 
 /**
- * Your component where you use `useBlueModal` has to be wrapped around `<BlueModalProvider></BlueModalProvider>`.
+ * Your component where you use `useModal` has to be wrapped around `<ModalProvider></ModalProvider>`.
  * Best practice is to wrap it around your root component.
  */
-export default function BlueModalExample() {
+export default function ModalExample() {
     return (
-        <BlueModalProvider>
+        <ModalProvider>
             <InsideComp />
-        </BlueModalProvider>
+        </ModalProvider>
     )
 }

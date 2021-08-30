@@ -4,17 +4,17 @@ import React, {
     useContext,
     useState
 } from "react"
-import { BlueModalType } from "./shared"
-import BlueModal from "./BlueModal"
+import { ModalType } from "./shared"
+import Modal from "./Modal"
 
-const BlueModalContext = createContext({
+const ModalContext = createContext({
     ask: undefined as unknown as (text: string) => Promise<string | boolean>,
     tell: undefined as unknown as (text: string) => Promise<boolean>,
     verify: undefined as unknown as (text: string) => Promise<boolean>,
 })
 
-const BlueModalProvider = (props: any) => {
-    const [type, setType] = useState<BlueModalType>("tell")
+const ModalProvider = (props: any) => {
+    const [type, setType] = useState<ModalType>("tell")
     const [modalContent, setModalContent] = useState<string | undefined>()
     const [defaultInput, setDefaultInput] = useState<string | undefined>()
     const unSetModalContent = useCallback(() => {
@@ -59,7 +59,7 @@ const BlueModalProvider = (props: any) => {
     }
 
     return (
-        <BlueModalContext.Provider
+        <ModalContext.Provider
             value={{
                 ask,
                 tell,
@@ -68,23 +68,23 @@ const BlueModalProvider = (props: any) => {
             {...props}
         >
             {props.children}
-            <BlueModal
+            <Modal
                 modalContent={modalContent}
                 unSetModalContent={unSetModalContent}
                 onSubmit={onSubmit}
                 defaultInput={defaultInput}
                 type={type}
             />
-        </BlueModalContext.Provider>
+        </ModalContext.Provider>
     )
 }
 
-const useBlueModal = () => {
-    const context = useContext(BlueModalContext)
+const useModal = () => {
+    const context = useContext(ModalContext)
     if (context === undefined) {
-        throw new Error("useBlueModal must be used within a BlueModalProvider")
+        throw new Error("useModal must be used within a ModalProvider")
     }
     return context
 }
 
-export { BlueModalProvider, useBlueModal }
+export { ModalProvider, useModal }
