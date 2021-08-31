@@ -53,6 +53,11 @@ export { IntroProps } from "./dist/types/components/Intro"
 export { default as MenuItem } from "./dist/types/components/MenuItem"
 export { MenuItemProps } from "./dist/types/components/MenuItem"
 
+export { default as Modal } from "./dist/types/components/Modal"
+export { ModalProps } from "./dist/types/components/Modal"
+
+export { ModalProvider, useModal } from "./dist/types/components/ModalProvider"
+
 export { default as Outside } from "./dist/types/components/Outside"
 export { OutsideProps, useOutside } from "./dist/types/components/Outside"
 

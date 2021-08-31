@@ -20,7 +20,7 @@
     "build": "babel ./src/components --out-dir ./dist/components --extensions \".tsx,.js\"",
     "build-css": "node-sass ./dist/style.scss ./dist/style.css",
     "build-release": "npm run build-types && npm run build && npm run build-css && npm run docgen",
-    "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js --extension tsx && node followUpDocs",
+    "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js --exclude ModalProvider.tsx --extension tsx && node followUpDocs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build-docs",

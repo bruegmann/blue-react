@@ -15,7 +15,22 @@ function prepareExampleCode(exampleCode) {
 
     const matches = [...exampleCode.matchAll(/import (.*) from "..\/..\/components\/(.*)"/gm)]
 
-    const componentNames = matches.map(match => match[2])
+    let extraModules = []
+
+    let componentNames = matches.map((match, idx, array) => {
+        if (match[1].includes(",")) {
+            match[1].replace("{", "").replace("}", "").split(",").forEach(s => {
+                const moduleName = s.trim()
+                if (match[2] !== moduleName) {
+                    extraModules.push(moduleName)
+                }
+            })
+        }
+
+        return match[2]
+    })
+
+    componentNames = [...componentNames, ...extraModules]
 
     const importCode = `import { ${componentNames.sort().join(", ")} } from "${packageName}"`
 
@@ -27,6 +42,7 @@ function prepareExampleCode(exampleCode) {
             exampleCode = exampleCode.replace(match[0], importCode)
         }
     })
+
     return exampleCode
 }
 
