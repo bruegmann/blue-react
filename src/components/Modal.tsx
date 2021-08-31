@@ -8,7 +8,7 @@ import React, {
     useRef
 } from "react"
 import { Modal as BootstrapModal } from "bootstrap"
-import { ModalType } from "./shared"
+import { getPhrase, ModalType } from "./shared"
 
 
 export interface ModalProps {
@@ -77,10 +77,9 @@ export default function Modal({
         if (!bsModal) {
             bsModal = new BootstrapModal(myModal)
             bsModal.hide()
-            // setShow(false)
 
             // When the user clicks on underlay to close the modal
-            myModal.addEventListener("hide.bs.modal", () => {
+            myModal.addEventListener("hidden.bs.modal", () => {
                 cancel()
             })
         } else {
@@ -94,7 +93,7 @@ export default function Modal({
                 <div className="modal-content">
                     <form onSubmit={submit}>
                         <div className="modal-header">
-                            <h5 className="modal-title">Message</h5>
+                            <h5 className="modal-title">{getPhrase("Message")}</h5>
                             <button type="button" className="btn-close" onClick={cancel} />
                         </div>
 
@@ -117,7 +116,7 @@ export default function Modal({
                                 className="btn btn-primary d-block w-100"
                                 style={btnStyle}
                             >
-                                {type === "verify" ? "Yes" : "OK"}
+                                {type === "verify" ? getPhrase("Yes") : "OK"}
                             </FluentBtn>
                             {(type === "ask" || type === "verify") && (
 
@@ -127,7 +126,7 @@ export default function Modal({
                                         style={btnStyle}
                                         onClick={sayNo}
                                     >
-                                        No
+                                        {getPhrase("No")}
                                     </FluentBtn>
                                     :
                                     <FluentBtn
@@ -135,7 +134,7 @@ export default function Modal({
                                         style={btnStyle}
                                         onClick={cancel}
                                     >
-                                        Cancel
+                                        {getPhrase("Cancel")}
                                     </FluentBtn>
                             )}
                         </div>

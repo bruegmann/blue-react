@@ -15,6 +15,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _bootstrap = require("bootstrap");
 
+var _shared = require("./shared");
+
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -92,10 +94,9 @@ function Modal(_ref) {
 
     if (!bsModal) {
       bsModal = new _bootstrap.Modal(myModal);
-      bsModal.hide(); // setShow(false)
-      // When the user clicks on underlay to close the modal
+      bsModal.hide(); // When the user clicks on underlay to close the modal
 
-      myModal.addEventListener("hide.bs.modal", function () {
+      myModal.addEventListener("hidden.bs.modal", function () {
         cancel();
       });
     } else {
@@ -116,7 +117,7 @@ function Modal(_ref) {
     className: "modal-header"
   }, /*#__PURE__*/_react.default.createElement("h5", {
     className: "modal-title"
-  }, "Message"), /*#__PURE__*/_react.default.createElement("button", {
+  }, (0, _shared.getPhrase)("Message")), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
     className: "btn-close",
     onClick: cancel
@@ -137,13 +138,13 @@ function Modal(_ref) {
     type: "submit",
     className: "btn btn-primary d-block w-100",
     style: btnStyle
-  }, type === "verify" ? "Yes" : "OK"), (type === "ask" || type === "verify") && (type === "verify" ? /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
+  }, type === "verify" ? (0, _shared.getPhrase)("Yes") : "OK"), (type === "ask" || type === "verify") && (type === "verify" ? /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
     className: "btn btn-outline-primary d-block w-100",
     style: btnStyle,
     onClick: sayNo
-  }, "No") : /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
+  }, (0, _shared.getPhrase)("No")) : /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
     className: "btn btn-outline-primary d-block w-100",
     style: btnStyle,
     onClick: cancel
-  }, "Cancel")))))));
+  }, (0, _shared.getPhrase)("Cancel"))))))));
 }
