@@ -8445,7 +8445,7 @@ body {
   display: inline-block; }
   .blue-app-menu-item-icon > * {
     display: block;
-    width: 100%; }
+    width: 1.5rem; }
 
 .blue-app-menu-item-icon.iconForActive {
   display: none; }
