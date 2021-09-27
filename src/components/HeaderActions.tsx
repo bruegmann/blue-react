@@ -17,9 +17,5 @@ export interface HeaderActionsProps {
  * @deprecated This component isn't neccessary anymore. Just use `ActionMenu` directly in `Header`.
  */
 export default function HeaderActions(props: HeaderActionsProps) {
-    return (
-        <>
-            {props.children}
-        </>
-    )
+    return <>{props.children}</>
 }

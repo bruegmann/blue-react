@@ -20,17 +20,22 @@ function ActionMenuExample() {
             />
 
             <p>
-                <Link to="/action-menu-example" target="_blank" rel="noopener noreferrer">Open in new tab</Link>
+                <Link
+                    to="/action-menu-example"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Open in new tab
+                </Link>
             </p>
 
-            <div className="ratio ratio-16x9" >
+            <div className="ratio ratio-16x9">
                 <iframe
                     src={`${process.env.PUBLIC_URL}/action-menu-example`}
                     style={style}
                     title="Actions Demo page"
                 />
-                {
-                    /**
+                {/**
                      * This is how the Code looks like: 
                     import React from "react"
                     import {Page, Body, Header, Actions, MenuItem} from "blue-react"
@@ -78,8 +83,7 @@ function ActionMenuExample() {
                             </Page>
                         )
                     }
-                    */
-                }
+                    */}
             </div>
         </div>
     )

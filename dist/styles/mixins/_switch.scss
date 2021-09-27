@@ -1,4 +1,10 @@
-@mixin switch($width: 35px, $height: 20px, $padding: 3px, $color: $body-color, $color-active: $success) {
+@mixin switch(
+    $width: 35px,
+    $height: 20px,
+    $padding: 3px,
+    $color: $body-color,
+    $color-active: $success
+) {
     $slider-size: $height - ($padding * 2);
 
     & {
@@ -6,13 +12,13 @@
         display: inline-block;
         width: $width;
         height: $height;
-        
+
         input {
-            display:none;
+            display: none;
         }
 
         &.disabled {
-            opacity: .8;
+            opacity: 0.8;
         }
 
         &:not(.disabled) {
@@ -28,8 +34,8 @@
             right: 0;
             bottom: 0;
             background-color: $input-group-addon-bg;
-            transition: .4s;
-            box-shadow: inset 0 0 0 1px rgba($color, .5);
+            transition: 0.4s;
+            box-shadow: inset 0 0 0 1px rgba($color, 0.5);
 
             &::before {
                 content: "";
@@ -39,7 +45,7 @@
                 left: $padding;
                 bottom: $padding;
                 background-color: $color;
-                transition: .4s;
+                transition: 0.4s;
             }
 
             &::after {
@@ -49,18 +55,20 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
                 margin-left: ($slider-size / 2);
-                transition: margin-left .4s;
+                transition: margin-left 0.4s;
                 color: $color;
             }
         }
 
-        input:checked{ 
-            &+ .slider {
+        input:checked {
+            & + .slider {
                 background-color: $color-active;
                 box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.3);
 
                 &::before {
-                    transform: translateX($width - $slider-size - ($padding * 2));
+                    transform: translateX(
+                        $width - $slider-size - ($padding * 2)
+                    );
                     background-color: white;
                 }
 

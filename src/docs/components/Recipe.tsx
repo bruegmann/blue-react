@@ -7,7 +7,13 @@ import { GitHubContent } from "../gitHubApiTypes"
 
 const renderers = {
     code: ({ language, value }: any) => {
-        return <SyntaxHighlighter style={syntaxHighlighterStyle} language={language} children={value} />
+        return (
+            <SyntaxHighlighter
+                style={syntaxHighlighterStyle}
+                language={language}
+                children={value}
+            />
+        )
     }
 }
 
@@ -27,9 +33,12 @@ export function Recipe({ recipe }: RecipeProps) {
             const r = await fetch(recipe.download_url)
             const text = await r.text()
             setMarkdown(text)
-        }
-        else {
-            Utilities.setAlertMessage("This GitHub file has no download_url", "danger", true)
+        } else {
+            Utilities.setAlertMessage(
+                "This GitHub file has no download_url",
+                "danger",
+                true
+            )
         }
     }
 
@@ -40,7 +49,7 @@ export function Recipe({ recipe }: RecipeProps) {
 
     return (
         <>
-            {markdown !== null ?
+            {markdown !== null ? (
                 <MarkdownGitHub
                     source={markdown}
                     sourceUri={recipe.html_url}
@@ -48,8 +57,9 @@ export function Recipe({ recipe }: RecipeProps) {
                     renderers={renderers}
                     className="recipe-markdown"
                 />
-                :
-                <div>...</div>}
+            ) : (
+                <div>...</div>
+            )}
         </>
     )
 }

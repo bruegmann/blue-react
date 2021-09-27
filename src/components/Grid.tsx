@@ -54,9 +54,9 @@ export interface GridProps {
      * This can be a SVG component or a normal element component.
      */
     statusIcons?: {
-        danger: any,
-        info: any,
-        success: any,
+        danger: any
+        info: any
+        success: any
         warning: any
     }
 
@@ -74,7 +74,10 @@ export interface GridProps {
      * Define a function, that will be fired when switching routes. When your function returns `true`, the default route behaviour will be blocked.
      * You can use something like `window.blueGridRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
      */
-    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean
+    blockRouting?: (
+        newMatch: string[],
+        currentMatch: string[]
+    ) => void | boolean
 }
 
 export interface GridState {
@@ -83,23 +86,26 @@ export interface GridState {
     history: string[]
     hash: string
     hashHistory: string[]
-    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean
+    blockRouting?: (
+        newMatch: string[],
+        currentMatch: string[]
+    ) => void | boolean
 }
 
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
  * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`.
- * 
+ *
  * Allowed event listeners:
- * 
- * * **componentDidUpdate** - Component was updated.  
+ *
+ * * **componentDidUpdate** - Component was updated.
  *   Example: `blueGridRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
- * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.  
+ * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.
  *   Example: `blueGridRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
- * * **pageDidHide** - This page disappeared and another page appears instead.  
+ * * **pageDidHide** - This page disappeared and another page appears instead.
  *   Example: `blueGridRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
  */
-export default class Grid extends Component<GridProps, GridState>{
+export default class Grid extends Component<GridProps, GridState> {
     defaultMatch: string[]
     eventListeners: any[]
     constructor(props: GridProps) {
@@ -147,9 +153,13 @@ export default class Grid extends Component<GridProps, GridState>{
     componentDidMount() {
         const me = this
 
-        document.addEventListener("toggleSidebar", () => {
-            this.toggleSidebar(undefined)
-        }, false)
+        document.addEventListener(
+            "toggleSidebar",
+            () => {
+                this.toggleSidebar(undefined)
+            },
+            false
+        )
 
         this.initMatch()
 
@@ -158,8 +168,7 @@ export default class Grid extends Component<GridProps, GridState>{
 
             if (xPos < 5) {
                 me.toggleSidebar(event)
-            }
-            else if (me.state.sidebarIn && xPos > 20) {
+            } else if (me.state.sidebarIn && xPos > 20) {
                 me.toggleSidebar(event)
             }
         })
@@ -174,7 +183,10 @@ export default class Grid extends Component<GridProps, GridState>{
     }
 
     componentDidUpdate(prevProps: GridProps, prevState: GridState) {
-        if (prevProps.blockRouting !== this.props.blockRouting && this.props.blockRouting !== this.state.blockRouting) {
+        if (
+            prevProps.blockRouting !== this.props.blockRouting &&
+            this.props.blockRouting !== this.state.blockRouting
+        ) {
             this.setState({ blockRouting: this.props.blockRouting })
         }
 
@@ -187,7 +199,10 @@ export default class Grid extends Component<GridProps, GridState>{
                 let pageId = eventListener[1]
                 let callback = eventListener[2]
 
-                if (prevState.hash !== this.state.hash && this.state.match[0] === pageId) {
+                if (
+                    prevState.hash !== this.state.hash &&
+                    this.state.match[0] === pageId
+                ) {
                     callback(prevProps, prevState)
                 }
             }
@@ -196,7 +211,10 @@ export default class Grid extends Component<GridProps, GridState>{
                 let pageId = eventListener[1]
                 let callback = eventListener[2]
 
-                if (prevState.hash !== this.state.hash && prevState.match[0] === pageId) {
+                if (
+                    prevState.hash !== this.state.hash &&
+                    prevState.match[0] === pageId
+                ) {
                     callback(prevProps, prevState)
                 }
             }
@@ -211,18 +229,29 @@ export default class Grid extends Component<GridProps, GridState>{
     }
 
     hideSidebar(e: any) {
-        if (!(
-            Utilities.hasClass(e.target, "blue-app-open-menu") ||
-            Utilities.hasClass(e.target, "bi-menu") ||
-            Utilities.hasClass(e.target, "blue-app-search") ||
-            Utilities.hasClass(e.target, "blue-app-search-control") ||
-            Utilities.hasClass(e.target, "blue-app-search-btn") ||
-            Utilities.hasClass(e.target, "blue-app-search-btn-icon") ||
-            Utilities.hasClass(e.target, "blue-app-sidebar-dropdown-toggle") ||
-            Utilities.hasClass(e.target, "blue-app-sidebar-dropdown-caret") ||
-            Utilities.hasClass(e.target, "blue-app-sidebar-dropdown-icon") ||
-            Utilities.hasClass(e.target, "blue-app-sidebar-exception")
-        )) {
+        if (
+            !(
+                Utilities.hasClass(e.target, "blue-app-open-menu") ||
+                Utilities.hasClass(e.target, "bi-menu") ||
+                Utilities.hasClass(e.target, "blue-app-search") ||
+                Utilities.hasClass(e.target, "blue-app-search-control") ||
+                Utilities.hasClass(e.target, "blue-app-search-btn") ||
+                Utilities.hasClass(e.target, "blue-app-search-btn-icon") ||
+                Utilities.hasClass(
+                    e.target,
+                    "blue-app-sidebar-dropdown-toggle"
+                ) ||
+                Utilities.hasClass(
+                    e.target,
+                    "blue-app-sidebar-dropdown-caret"
+                ) ||
+                Utilities.hasClass(
+                    e.target,
+                    "blue-app-sidebar-dropdown-icon"
+                ) ||
+                Utilities.hasClass(e.target, "blue-app-sidebar-exception")
+            )
+        ) {
             this.setState({ sidebarIn: false })
         }
     }
@@ -230,10 +259,16 @@ export default class Grid extends Component<GridProps, GridState>{
     initMatch() {
         let newMatch
 
-        if (window.location.hash && window.location.hash !== "" && window.location.hash !== "#/") {
-            newMatch = window.location.hash.replace("#", "").split("/").filter(n => n !== "")
-        }
-        else {
+        if (
+            window.location.hash &&
+            window.location.hash !== "" &&
+            window.location.hash !== "#/"
+        ) {
+            newMatch = window.location.hash
+                .replace("#", "")
+                .split("/")
+                .filter((n) => n !== "")
+        } else {
             newMatch = this.defaultMatch
         }
 
@@ -241,10 +276,12 @@ export default class Grid extends Component<GridProps, GridState>{
             newMatch = this.defaultMatch
         }
 
-        if (this.state.blockRouting && this.state.blockRouting(newMatch, this.state.match) === true) {
+        if (
+            this.state.blockRouting &&
+            this.state.blockRouting(newMatch, this.state.match) === true
+        ) {
             window.location.hash = this.state.hash
-        }
-        else {
+        } else {
             if (!(this.state.history.indexOf(newMatch[0]) > -1)) {
                 this.state.history.push(newMatch[0])
             }
@@ -253,7 +290,9 @@ export default class Grid extends Component<GridProps, GridState>{
                 match: newMatch,
                 history: this.state.history,
                 hash: window.location.hash,
-                hashHistory: this.state.hashHistory.concat([window.location.hash])
+                hashHistory: this.state.hashHistory.concat([
+                    window.location.hash
+                ])
             })
         }
     }
@@ -266,44 +305,60 @@ export default class Grid extends Component<GridProps, GridState>{
         return (
             <div>
                 <div className="blue-app-wrapper"></div>
-                <div id={this.props.id ? this.props.id : ""}
+                <div
+                    id={this.props.id ? this.props.id : ""}
                     style={this.props.style ? this.props.style : {}}
-                    className={"blue-app-grid" + (this.props.className ? " " + this.props.className : "") +
+                    className={
+                        "blue-app-grid" +
+                        (this.props.className
+                            ? " " + this.props.className
+                            : "") +
                         (this.state.sidebarIn ? " open" : "") +
-                        (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") +
+                        (this.props.hideSidebarMenu
+                            ? " hasNoSidebarMenu"
+                            : " hasSidebarMenu") +
                         (this.props.expandSidebar ? " expand-sidebar" : "") +
                         (this.props.disableHeaders ? " disableHeaders" : "") +
-                        (this.props.roundedBody ? " roundedBody" : "")}
+                        (this.props.roundedBody ? " roundedBody" : "")
+                    }
                     onClick={this.hideSidebar}
                 >
                     <div className="blue-app-sidebar-toggler rounded">
-                        {
-                            !this.props.hideSidebarMenu ?
-                                <button
-                                    type="button"
-                                    className="fluent-btn blue-app-open-menu blue-app-sidebar-btn btn"
-                                    onClick={() => {
-                                        this.setState({ sidebarIn: !this.state.sidebarIn })
-                                    }}
-                                >
-                                    <div className="fluent-btn-ball blue-app-sidebar-exception" />
-                                    {this.props.sidebarToggleIconComponent}
-                                </button>
-                                :
-                                ""
-                        }
+                        {!this.props.hideSidebarMenu ? (
+                            <button
+                                type="button"
+                                className="fluent-btn blue-app-open-menu blue-app-sidebar-btn btn"
+                                onClick={() => {
+                                    this.setState({
+                                        sidebarIn: !this.state.sidebarIn
+                                    })
+                                }}
+                            >
+                                <div className="fluent-btn-ball blue-app-sidebar-exception" />
+                                {this.props.sidebarToggleIconComponent}
+                            </button>
+                        ) : (
+                            ""
+                        )}
                     </div>
 
                     {this.props.children}
 
-                    {this.props.pages?.map(page =>
-                        this.state.history.indexOf(page.name) > -1 &&
-                        <div
-                            key={page.name}
-                            className={"router-page " + (this.state.match[0] === page.name ? "active" : "")}
-                        >
-                            {page.component}
-                        </div>
+                    {this.props.pages?.map(
+                        (page) =>
+                            this.state.history.indexOf(page.name) > -1 && (
+                                <div
+                                    key={page.name}
+                                    className={
+                                        "router-page " +
+                                        (this.state.match[0] === page.name
+                                            ? "active"
+                                            : "")
+                                    }
+                                >
+                                    {page.component}
+                                </div>
+                            )
                     )}
 
                     <div className="blue-app-status-circle blue-app-loading blue-app-status-loading">

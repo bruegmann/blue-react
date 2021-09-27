@@ -4,7 +4,10 @@ $primary: rgb(140, 130, 172);
 @import "../../dist/style.scss";
 
 .welcome-jumbotron {
-    background-image: linear-gradient(transparent 60%, rgba(0,0,0,.05) 100%);
+    background-image: linear-gradient(
+        transparent 60%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
 
     .display-1 {
         font-family: "Work Sans", sans-serif;
@@ -20,7 +23,7 @@ $primary: rgb(140, 130, 172);
     .headline-primary {
         @extend .mt-4;
         @extend .mb-3;
-        
+
         & > a {
             color: inherit;
         }
@@ -30,7 +33,6 @@ $primary: rgb(140, 130, 172);
     h1.headline-primary {
         @extend .page-header;
     }
-
 
     > .headline-primary:first-child {
         @extend .display-4;

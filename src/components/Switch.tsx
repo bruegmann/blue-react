@@ -21,24 +21,28 @@ export interface SwitchProps {
 /**
  * Switch.
  */
-export default function Switch({ className, checked, onChange, sliderLabel, disabled, elementType = "label" }: SwitchProps) {
+export default function Switch({
+    className,
+    checked,
+    onChange,
+    sliderLabel,
+    disabled,
+    elementType = "label"
+}: SwitchProps) {
     return createElement(
         elementType,
         {
             className: "switch " + (disabled ? "disabled " : "") + className
-        }, [
-        <input
-            key={0}
-            type="checkbox"
-            checked={checked}
-            onChange={onChange}
-            disabled={disabled}
-        />,
-        <span
-            key={1}
-            className="slider round"
-            data-label={sliderLabel}
-        />
-    ]
+        },
+        [
+            <input
+                key={0}
+                type="checkbox"
+                checked={checked}
+                onChange={onChange}
+                disabled={disabled}
+            />,
+            <span key={1} className="slider round" data-label={sliderLabel} />
+        ]
     )
 }

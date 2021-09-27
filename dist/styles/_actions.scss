@@ -7,9 +7,9 @@ $blue-actions-indicator-height: 2rem !default;
     align-items: stretch;
     color: $header-color;
     position: fixed;
-    right: .5rem;
+    right: 0.5rem;
     z-index: 41;
-    transition: height .3s;
+    transition: height 0.3s;
 
     .blue-app-sidebar-btn {
         color: $header-color;

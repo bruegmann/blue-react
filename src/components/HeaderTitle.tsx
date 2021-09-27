@@ -17,7 +17,7 @@ export interface HeaderTitleProps {
      */
     keepAppTitle?: boolean
 
-    children?: any,
+    children?: any
 
     /**
      * Extends `className` from parent element.
@@ -34,19 +34,33 @@ export interface HeaderTitleProps {
  * The title area at the header bar.
  * Depending on its content, the document's title will be set aswell (what will be shown in the browser title bar).
  */
-export default function HeaderTitle({ logo, appTitle, keepAppTitle, children, className, sidebar }: HeaderTitleProps) {
+export default function HeaderTitle({
+    logo,
+    appTitle,
+    keepAppTitle,
+    children,
+    className,
+    sidebar
+}: HeaderTitleProps) {
     const uniqueId = "HeaderTitle-" + Utilities.guid()
 
     const setDocumentTitle = () => {
-        if (window.blueGridRef && window.blueGridRef.props && window.blueGridRef.props.disableTitleSet === false) {
-            const element = document.querySelector(`#${uniqueId} .blue-app-header-logo-title-labels`) as HTMLElement
+        if (
+            window.blueGridRef &&
+            window.blueGridRef.props &&
+            window.blueGridRef.props.disableTitleSet === false
+        ) {
+            const element = document.querySelector(
+                `#${uniqueId} .blue-app-header-logo-title-labels`
+            ) as HTMLElement
             const titleElement = document.querySelector("title")
             if (element && element.innerText && titleElement) {
                 const titlePaths = element.innerText.split("/")
                 if (titlePaths.length > 1) {
-                    titleElement.innerText = `${titlePaths[titlePaths.length - 1].trim()} - ${titlePaths[0].trim()}`
-                }
-                else {
+                    titleElement.innerText = `${titlePaths[
+                        titlePaths.length - 1
+                    ].trim()} - ${titlePaths[0].trim()}`
+                } else {
                     titleElement.innerText = element.innerText
                 }
             }
@@ -57,11 +71,42 @@ export default function HeaderTitle({ logo, appTitle, keepAppTitle, children, cl
     useEffect(setDocumentTitle, [children])
 
     return (
-        <h3 id={uniqueId} className={"blue-app-header-logo" + (className ? ` ${className}` : "") + (sidebar ? " sidebar" : "")}>
+        <h3
+            id={uniqueId}
+            className={
+                "blue-app-header-logo" +
+                (className ? ` ${className}` : "") +
+                (sidebar ? " sidebar" : "")
+            }
+        >
             <span className="blue-app-header-logo-title">
-                {logo ? <span><a href="#"><img src={logo} className="blue-app-header-logo-image" /></a>&nbsp;</span> : ""}
-                <span className={"blue-app-header-logo-title-labels " + (keepAppTitle ? "keep" : "")}>
-                    {appTitle ? <span><a href="#">{appTitle}</a> {(children ? "/" : "")}&nbsp;</span> : ""}
+                {logo ? (
+                    <span>
+                        <a href="#">
+                            <img
+                                src={logo}
+                                className="blue-app-header-logo-image"
+                            />
+                        </a>
+                        &nbsp;
+                    </span>
+                ) : (
+                    ""
+                )}
+                <span
+                    className={
+                        "blue-app-header-logo-title-labels " +
+                        (keepAppTitle ? "keep" : "")
+                    }
+                >
+                    {appTitle ? (
+                        <span>
+                            <a href="#">{appTitle}</a> {children ? "/" : ""}
+                            &nbsp;
+                        </span>
+                    ) : (
+                        ""
+                    )}
                     {children}
                 </span>
             </span>

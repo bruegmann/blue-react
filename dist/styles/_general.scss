@@ -10,14 +10,14 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-  -webkit-appearance:none;
+    -webkit-appearance: none;
 }
 
 @media screen and (min-width: 768px) {
     ::-webkit-scrollbar {
         height: $scrollbar-size;
         overflow: visible;
-        width: $scrollbar-size
+        width: $scrollbar-size;
     }
     ::-webkit-scrollbar-thumb {
         background-clip: padding-box;
@@ -25,22 +25,23 @@ input[type="search"]::-webkit-search-results-decoration {
         border-width: 1px;
         min-height: 28px;
         padding: 100px 0 0;
-        border-radius: .3rem;
+        border-radius: 0.3rem;
     }
     ::-webkit-scrollbar-button {
         height: 0;
-        width: 0
+        width: 0;
     }
     ::-webkit-scrollbar-track {
         border: solid transparent;
-        border-width: 0 0 0 4px
+        border-width: 0 0 0 4px;
     }
     ::-webkit-scrollbar-corner {
-        background: 0 0
+        background: 0 0;
     }
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -49,11 +50,15 @@ body {
 
     .blue-app-wrapper {
         position: fixed;
-        width: 100%; width: 100%;
-        left: 0; right: 0; top: 0; bottom: 0;
+        width: 100%;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
         z-index: 1;
         display: none;
-    }    
+    }
 
     &.open {
         .blue-app-wrapper {
@@ -62,7 +67,8 @@ body {
     }
 }
 
-h1, h2 {
+h1,
+h2 {
     font-weight: 300;
 }
 
@@ -72,14 +78,16 @@ label {
 
 // Idee für Effekt von http://www.w3schools.com/howto/howto_css_animate_buttons.asp
 .btn,
-.nav-pills>li>a,
-.pager li>a,
-.pagination>li>a,
+.nav-pills > li > a,
+.pager li > a,
+.pagination > li > a,
 .list-group a.list-group-item {
     &:not(.disabled):not(.readonly):not(.dropdown-toggle) {
-        -webkit-transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;
-        transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;  
-        position: relative; 
+        -webkit-transition: background-color 0.3s, color 0.15s, box-shadow 0.3s,
+            opacity 0.3s;
+        transition: background-color 0.3s, color 0.15s, box-shadow 0.3s,
+            opacity 0.3s;
+        position: relative;
 
         &:hover,
         &:active,
@@ -138,7 +146,7 @@ label {
     padding-top: $normal-size;
 
     .sign-in-container {
-        animation: enabledBlueAppPage .5s;
+        animation: enabledBlueAppPage 0.5s;
     }
 
     @media screen and (min-width: 768px) {
@@ -157,6 +165,6 @@ label {
     width: $bla-sidebar-width;
     padding-left: calc(#{$normal-size} + #{$spacer});
     transform: translateX(-100%);
-    transition: transform .4s;
+    transition: transform 0.4s;
     background: var(--sidebar-bg);
 }

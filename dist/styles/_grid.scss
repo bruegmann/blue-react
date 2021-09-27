@@ -27,7 +27,7 @@
         @media screen and (max-width: 1400px) {
             .router-page.active {
                 .blue-app-page {
-                    filter: blur(3px) brightness(.8);
+                    filter: blur(3px) brightness(0.8);
                 }
             }
         }
@@ -35,7 +35,7 @@
         @include openSidebarMenu();
     }
 
-    &:not(.open){
+    &:not(.open) {
         .blue-app-sidebar-visible-on-open {
             display: none;
         }
@@ -48,7 +48,10 @@
 
 .ui-header-wrapper {
     position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .blue-app-sidebar-toggler {
@@ -81,29 +84,30 @@
     @media screen and (min-width: 768px) {
         right: $scrollbar-size;
     }
-    
+
     .navbar-nav {
         margin: 0;
-        
+
         > li {
             float: left;
-            
+
             > a {
                 background-color: transparent;
                 color: $header-color;
                 padding: $bla-header-nav-padding;
-                
-                &:hover, &:focus {
+
+                &:hover,
+                &:focus {
                     background-color: $bla-button-bg-hover;
                 }
-            }            
+            }
         }
     }
-    
+
     .navbar-left {
         float: left !important;
     }
-    
+
     .navbar-right {
         float: right !important;
     }
@@ -116,12 +120,12 @@
 .blue-normal-scrollbar,
 .modal-body,
 .blue-app-page {
-    @include custom-scrollbar($body-color, $body-bg, .3rem);
+    @include custom-scrollbar($body-color, $body-bg, 0.3rem);
 }
 
 .blue-app-page {
     margin-left: $normal-size;
-    animation: enabledBlueAppPage .5s;
+    animation: enabledBlueAppPage 0.5s;
 
     &::before,
     &::after {
@@ -137,11 +141,11 @@
     .blue-app-grid:not(.open) .blue-app-sidebar {
         left: -$normal-size;
     }
-    
+
     .blue-app-page {
         margin-left: 0;
     }
-    
+
     .blue-app-grid.disableHeaders {
         .blue-app-page {
             padding-top: $normal-size;
@@ -149,11 +153,11 @@
     }
 
     .blue-app-sidebar-toggler {
-        transition: transform .5s;
+        transition: transform 0.5s;
     }
 
     .blue-app-grid:not(.open).disableHeaders .blue-app-sidebar-toggler {
-        transform: translate(.25rem, .25rem);
+        transform: translate(0.25rem, 0.25rem);
     }
 }
 
@@ -185,19 +189,19 @@
 }
 
 .blue-app-open-menu {
-   position: absolute !important;
-   margin-top: 0 !important;
-   left: 0;
-   background-color: $bla-button-bg-normal !important;
-   border-color: transparent !important;
-   justify-content: center;
+    position: absolute !important;
+    margin-top: 0 !important;
+    left: 0;
+    background-color: $bla-button-bg-normal !important;
+    border-color: transparent !important;
+    justify-content: center;
 
-   &:hover,
-   &:focus {
-       color: $sidebar-color;
-       background-color: $bla-button-bg-hover;
-       border-color: transparent;
-   }
+    &:hover,
+    &:focus {
+        color: $sidebar-color;
+        background-color: $bla-button-bg-hover;
+        border-color: transparent;
+    }
 }
 
 .blue-app-sidebar {
@@ -207,18 +211,17 @@
 .blue-app-sidebar-bottom {
     width: auto;
     background-color: var(--sidebar-bg);
-    transition: box-shadow .2s;
+    transition: box-shadow 0.2s;
 
     &.has-shadow {
-        box-shadow: 0 -2rem 2rem rgba(black,.1);
-        
+        box-shadow: 0 -2rem 2rem rgba(black, 0.1);
     }
 }
 
 .blue-app-page {
-   background-color: $body-bg;
-   min-height: calc(100vh - #{$normal-size});
-   margin-top: $normal-size;
+    background-color: $body-bg;
+    min-height: calc(100vh - #{$normal-size});
+    margin-top: $normal-size;
 }
 
 .blue-app-grid.disableHeaders {
@@ -239,33 +242,33 @@
 }
 
 .blue-app-header-logo {
-   padding: 0.625rem 0.938rem;
-   margin: 0;
-   cursor: default;
-   display: inline-block;
-   font-weight: 300;
-   font-size: $bla-header-logo-font-size;
-   position: absolute;
-   z-index: 1;
+    padding: 0.625rem 0.938rem;
+    margin: 0;
+    cursor: default;
+    display: inline-block;
+    font-weight: 300;
+    font-size: $bla-header-logo-font-size;
+    position: absolute;
+    z-index: 1;
 
-   a {
-       color: $header-color;
+    a {
+        color: $header-color;
 
-       &:focus {
-           text-decoration: none;
-       }
-   }
+        &:focus {
+            text-decoration: none;
+        }
+    }
 }
 
 .blue-app-header-logo-image {
-   width: 2rem;
-   height: 2rem;
-   margin-top: -0.25rem;
+    width: 2rem;
+    height: 2rem;
+    margin-top: -0.25rem;
 }
 
 .blue-app-sidebar-btn {
-    transition: width .5s !important;
-    padding: .5rem .75rem;
+    transition: width 0.5s !important;
+    padding: 0.5rem 0.75rem;
     border: none;
     margin-top: 0.125rem;
     margin-bottom: 0.125rem;
@@ -280,8 +283,8 @@
 }
 
 .blue-app-sidebar-label {
-   display: none;
-   max-height: 100%;
+    display: none;
+    max-height: 100%;
 }
 
 .blue-app-menu-item-icon {
@@ -298,13 +301,17 @@
 }
 
 .blue-app-sidebar-btn.active {
-    .blue-app-menu-item-icon.hasIconForActive {display: none;}
-    .blue-app-menu-item-icon.iconForActive {display: inline-block;}
+    .blue-app-menu-item-icon.hasIconForActive {
+        display: none;
+    }
+    .blue-app-menu-item-icon.iconForActive {
+        display: inline-block;
+    }
 }
 
 .blue-app-sidebar-dropdown {
     margin-left: 1rem;
-    animation: blue-app-sidebar-dropdown .15s;
+    animation: blue-app-sidebar-dropdown 0.15s;
 
     --sidebar-bg: #{$sidebar-deep-bg};
     background: var(--sidebar-bg);

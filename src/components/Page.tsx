@@ -23,7 +23,8 @@ export default function Page({ children, title }: PageProps) {
 
     useEffect(() => {
         if (elementRef && elementRef.current) {
-            const headerElement = elementRef.current.querySelector(".blue-app-header")
+            const headerElement =
+                elementRef.current.querySelector(".blue-app-header")
             setHasHeader(headerElement !== null && headerElement !== undefined)
         }
     }, [elementRef])
@@ -36,7 +37,10 @@ export default function Page({ children, title }: PageProps) {
     }, [title])
 
     return (
-        <div className={clsx("blue-app-page-wrapper", { "hasHeader": hasHeader })} ref={elementRef}>
+        <div
+            className={clsx("blue-app-page-wrapper", { hasHeader: hasHeader })}
+            ref={elementRef}
+        >
             {children}
         </div>
     )

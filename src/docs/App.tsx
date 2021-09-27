@@ -13,7 +13,22 @@ import { HomePage } from "./pages/HomePage"
 import SidebarMenu from "../components/SidebarMenu"
 import MenuItem from "../components/MenuItem"
 
-import { List, House, CodeSquare, Puzzle, Tools, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill, Palette2, HouseFill, PuzzleFill, Stickies, StickiesFill } from "react-bootstrap-icons"
+import {
+    List,
+    House,
+    CodeSquare,
+    Puzzle,
+    Tools,
+    XCircleFill,
+    InfoCircleFill,
+    CheckCircleFill,
+    ExclamationCircleFill,
+    Palette2,
+    HouseFill,
+    PuzzleFill,
+    Stickies,
+    StickiesFill
+} from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
 import { IntroDemoPage } from "./pages/IntroDemoPage"
@@ -41,7 +56,14 @@ function App() {
                 disableHeaders
             >
                 <HeaderTitle sidebar>
-                    <Link to="/"><img src={logo} className="blue-app-header-logo-image" alt="B" /></Link> <Link to="/">{appTitle}</Link>
+                    <Link to="/">
+                        <img
+                            src={logo}
+                            className="blue-app-header-logo-image"
+                            alt="B"
+                        />
+                    </Link>{" "}
+                    <Link to="/">{appTitle}</Link>
                 </HeaderTitle>
 
                 <SidebarMenu
@@ -51,7 +73,8 @@ function App() {
 
                             <MenuItem
                                 href="https://bruegmann.github.io/themify/customize"
-                                target="_blank" rel="noopener noreferrer"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 label="Customize with Themify"
                                 icon={<Palette2 />}
                             />
@@ -60,15 +83,40 @@ function App() {
                                 href="https://github.com/bruegmann/blue-react"
                                 icon={<CodeSquare />}
                                 label="Code on GitHub"
-                                target="_blank" rel="noopener noreferrer"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             />
                         </div>
                     }
                 >
-                    <MenuItem icon={<House />} iconForActive={<HouseFill />} label="Start" elementType={NavLink} exact to="/" />
-                    <MenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
-                    <MenuItem icon={<Puzzle />} iconForActive={<PuzzleFill />} label="React Components" elementType={NavLink} to="/component" />
-                    <MenuItem icon={<Stickies />} iconForActive={<StickiesFill />} label="Recipes" elementType={NavLink} to="/recipes" />
+                    <MenuItem
+                        icon={<House />}
+                        iconForActive={<HouseFill />}
+                        label="Start"
+                        elementType={NavLink}
+                        exact
+                        to="/"
+                    />
+                    <MenuItem
+                        icon={<Tools />}
+                        label="Utilities"
+                        elementType={NavLink}
+                        to="/utilities"
+                    />
+                    <MenuItem
+                        icon={<Puzzle />}
+                        iconForActive={<PuzzleFill />}
+                        label="React Components"
+                        elementType={NavLink}
+                        to="/component"
+                    />
+                    <MenuItem
+                        icon={<Stickies />}
+                        iconForActive={<StickiesFill />}
+                        label="Recipes"
+                        elementType={NavLink}
+                        to="/recipes"
+                    />
                 </SidebarMenu>
 
                 <div className="router-page active">

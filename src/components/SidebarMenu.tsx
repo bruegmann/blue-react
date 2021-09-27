@@ -54,7 +54,9 @@ export default function SidebarMenu(props: SidebarMenuProps) {
     }
 
     useEffect(() => {
-        const blueAppSidebar = document.querySelector(".blue-app-sidebar") as HTMLElement
+        const blueAppSidebar = document.querySelector(
+            ".blue-app-sidebar"
+        ) as HTMLElement
 
         window.addEventListener("resize", updateDimensions)
 
@@ -63,7 +65,10 @@ export default function SidebarMenu(props: SidebarMenuProps) {
         }
 
         blueAppSidebar.addEventListener("scroll", () => {
-            if (blueAppSidebar.scrollHeight - blueAppSidebar.scrollTop === blueAppSidebar.clientHeight) {
+            if (
+                blueAppSidebar.scrollHeight - blueAppSidebar.scrollTop ===
+                blueAppSidebar.clientHeight
+            ) {
                 setHasShadow(false)
             } else {
                 setHasShadow(true)
@@ -76,29 +81,43 @@ export default function SidebarMenu(props: SidebarMenuProps) {
     }, [])
 
     return (
-        <div className={"blue-app-sidebar " + (props.sidebarClass ? props.sidebarClass : "")}
+        <div
+            className={
+                "blue-app-sidebar " +
+                (props.sidebarClass ? props.sidebarClass : "")
+            }
             style={props.sidebarStyle ? props.sidebarStyle : {}}
         >
-            {props.topContent &&
-                <div className="blue-app-sidebar-top">
-                    {props.topContent}
-                </div>
-            }
+            {props.topContent && (
+                <div className="blue-app-sidebar-top">{props.topContent}</div>
+            )}
 
-            <div className={"blue-app-menu " + (props.menuClass ? props.menuClass : "")}
+            <div
+                className={
+                    "blue-app-menu " + (props.menuClass ? props.menuClass : "")
+                }
                 style={props.menuStyle ? props.menuStyle : {}}
             >
                 <div className={fluent === true ? "fluent-btn" : ""}>
-                    {fluent === true ? <div className="fluent-btn-ball" /> : <Fragment />}
+                    {fluent === true ? (
+                        <div className="fluent-btn-ball" />
+                    ) : (
+                        <Fragment />
+                    )}
                     {props.children}
                 </div>
             </div>
 
-            {props.bottomContent &&
-                <div className={"blue-app-sidebar-bottom " + (hasShadow ? " has-shadow" : "")}>
+            {props.bottomContent && (
+                <div
+                    className={
+                        "blue-app-sidebar-bottom " +
+                        (hasShadow ? " has-shadow" : "")
+                    }
+                >
                     {props.bottomContent}
                 </div>
-            }
+            )}
         </div>
     )
 }

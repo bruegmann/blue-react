@@ -16,7 +16,9 @@ class SearchExample extends React.Component {
                 <Search
                     body
                     className="w-50"
-                    onChange={({ target }) => this.setState({ search: target.value })}
+                    onChange={({ target }) =>
+                        this.setState({ search: target.value })
+                    }
                     onSubmit={() => alert("Do form submit now!")}
                     placeholder="Begin typing..."
                     reset

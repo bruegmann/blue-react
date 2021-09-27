@@ -1,0 +1,6 @@
+# Ignore artifacts:
+build
+dist/components
+dist/types
+public
+src/docs/data

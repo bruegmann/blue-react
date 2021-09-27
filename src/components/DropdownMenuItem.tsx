@@ -25,11 +25,17 @@ export default function DropdownMenuItem(props: DropdownMenuItemProps) {
 
     let icon
 
-    if (typeof (props.icon) === "string") {
+    if (typeof props.icon === "string") {
         // is className
-        icon = <span className={props.icon + (props.children ? " blue-app-sidebar-dropdown-icon" : "")} />
-    }
-    else {
+        icon = (
+            <span
+                className={
+                    props.icon +
+                    (props.children ? " blue-app-sidebar-dropdown-icon" : "")
+                }
+            />
+        )
+    } else {
         // is element / component
         icon = props.icon
     }
@@ -40,14 +46,18 @@ export default function DropdownMenuItem(props: DropdownMenuItemProps) {
     return (
         <div>
             <div className="btn-group w-100">
-
                 <a
                     {...id}
-                    className={"blue-app-toggle-page blue-app-sidebar-btn btn pe-0 " + (active ? "active" : "")}
+                    className={
+                        "blue-app-toggle-page blue-app-sidebar-btn btn pe-0 " +
+                        (active ? "active" : "")
+                    }
                     href={props.to}
                 >
                     {icon}
-                    <span className="blue-app-sidebar-label">{props.label}</span>
+                    <span className="blue-app-sidebar-label">
+                        {props.label}
+                    </span>
                 </a>
 
                 <button
@@ -62,15 +72,12 @@ export default function DropdownMenuItem(props: DropdownMenuItemProps) {
                         className="w-auto ps-5 mt-2"
                     />
                 </button>
-
-
             </div>
-            {showDropdown &&
+            {showDropdown && (
                 <div className="blue-app-sidebar-dropdown">
                     {props.children}
                 </div>
-            }
-
+            )}
         </div>
     )
 }

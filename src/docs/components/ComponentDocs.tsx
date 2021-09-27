@@ -14,7 +14,10 @@ export interface IComponentDocsProps {
     }
 }
 
-export class ComponentDocs extends Component<IComponentDocsProps, { ExampleComponent: ComponentClass<any> }> {
+export class ComponentDocs extends Component<
+    IComponentDocsProps,
+    { ExampleComponent: ComponentClass<any> }
+> {
     state = {
         ExampleComponent: null as unknown as ComponentClass<any>
     }
@@ -24,8 +27,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
             const { comp } = this.props
             const ExampleComponent = require(`../examples/${comp.displayName}.tsx`)
             this.setState({ ExampleComponent: ExampleComponent["default"] })
-        }
-        catch (ex) {
+        } catch (ex) {
             // console.error(ex)
             // This component has no example
         }
@@ -34,8 +36,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
             const { comp } = this.props
             const ExampleComponent = require(`../examples/${comp.displayName}.js`)
             this.setState({ ExampleComponent: ExampleComponent["default"] })
-        }
-        catch (ex) {
+        } catch (ex) {
             // console.error(ex)
             // This component has no example
         }
@@ -52,16 +53,24 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
         return (
             <article className="pt-5">
                 <h1 className="page-header mt-0 blue-opacity-hover">
-                    {comp.displayName} <Link to={`/component/${comp.displayName}`} className="blue-opacity-hover-content-active">#</Link>
+                    {comp.displayName}{" "}
+                    <Link
+                        to={`/component/${comp.displayName}`}
+                        className="blue-opacity-hover-content-active"
+                    >
+                        #
+                    </Link>
                 </h1>
 
-                <MarkdownGitHub>{this.prepareForMarkdown(comp.description)}</MarkdownGitHub>
+                <MarkdownGitHub>
+                    {this.prepareForMarkdown(comp.description)}
+                </MarkdownGitHub>
 
-                {comp.displayName == "Intro" &&
+                {comp.displayName == "Intro" && (
                     <p>
                         <Link to="/intro-demo">Take a look at this demo</Link>
                     </p>
-                }
+                )}
 
                 {comp.props && (
                     <div>
@@ -77,46 +86,75 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                             </thead>
 
                             <tbody>
-                                {comp.props && Object.keys(comp.props).map(j =>
-                                    <tr key={j}>
-                                        <th>{j}</th>
-                                        <td>
-                                            <MarkdownGitHub>{this.prepareForMarkdown(comp.props[j].description)}</MarkdownGitHub>
+                                {comp.props &&
+                                    Object.keys(comp.props).map((j) => (
+                                        <tr key={j}>
+                                            <th>{j}</th>
+                                            <td>
+                                                <MarkdownGitHub>
+                                                    {this.prepareForMarkdown(
+                                                        comp.props[j]
+                                                            .description
+                                                    )}
+                                                </MarkdownGitHub>
 
-                                            {comp.props[j].defaultValue ?
-                                                <div>
-                                                    <strong>Default:</strong>
-                                                    &nbsp;<code>{comp.props[j].defaultValue.value}</code>
-                                                </div>
-                                                : ""
-                                            }
-                                        </td>
-                                        <td>
-                                            {comp.props[j].tsType && (comp.props[j].tsType.raw || comp.props[j].tsType.name)}
-                                        </td>
-                                    </tr>
-                                )}
+                                                {comp.props[j].defaultValue ? (
+                                                    <div>
+                                                        <strong>
+                                                            Default:
+                                                        </strong>
+                                                        &nbsp;
+                                                        <code>
+                                                            {
+                                                                comp.props[j]
+                                                                    .defaultValue
+                                                                    .value
+                                                            }
+                                                        </code>
+                                                    </div>
+                                                ) : (
+                                                    ""
+                                                )}
+                                            </td>
+                                            <td>
+                                                {comp.props[j].tsType &&
+                                                    (comp.props[j].tsType.raw ||
+                                                        comp.props[j].tsType
+                                                            .name)}
+                                            </td>
+                                        </tr>
+                                    ))}
                             </tbody>
                         </table>
 
                         {(ExampleComponent || comp.exampleCode) &&
-                            (
-                                standalone ?
-                                    <div>
-                                        <h2 className="mt-4 mb-3">Example</h2>
+                            (standalone ? (
+                                <div>
+                                    <h2 className="mt-4 mb-3">Example</h2>
 
-                                        {ExampleComponent &&
-                                            <div className="mb-3"><ExampleComponent /></div>
-                                        }
+                                    {ExampleComponent && (
+                                        <div className="mb-3">
+                                            <ExampleComponent />
+                                        </div>
+                                    )}
 
-                                        {comp.exampleCode &&
-                                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">{comp.exampleCode}</SyntaxHighlighter>
-                                        }
-                                    </div>
-                                    :
-                                    <Link to={"/component/" + comp.displayName} onClick={() => window.scrollTo(0, 0)}>Show example</Link>
-                            )
-                        }
+                                    {comp.exampleCode && (
+                                        <SyntaxHighlighter
+                                            style={syntaxHighlighterStyle}
+                                            language="jsx"
+                                        >
+                                            {comp.exampleCode}
+                                        </SyntaxHighlighter>
+                                    )}
+                                </div>
+                            ) : (
+                                <Link
+                                    to={"/component/" + comp.displayName}
+                                    onClick={() => window.scrollTo(0, 0)}
+                                >
+                                    Show example
+                                </Link>
+                            ))}
                     </div>
                 )}
             </article>

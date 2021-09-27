@@ -15,12 +15,12 @@ class CaretExample extends React.Component {
             <div>
                 <button
                     className="btn btn-secondary"
-                    onClick={() => this.setState({ isOpen: !this.state.isOpen })}
+                    onClick={() =>
+                        this.setState({ isOpen: !this.state.isOpen })
+                    }
                 >
-                    <Caret
-                        open={this.state.isOpen}
-                    />
-                    {" "}<span>Click to toggle the caret</span>
+                    <Caret open={this.state.isOpen} />{" "}
+                    <span>Click to toggle the caret</span>
                 </button>
             </div>
         )

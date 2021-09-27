@@ -1,16 +1,11 @@
-import React, {
-    createContext,
-    useCallback,
-    useContext,
-    useState
-} from "react"
+import React, { createContext, useCallback, useContext, useState } from "react"
 import { ModalType } from "./shared"
 import Modal from "./Modal"
 
 const ModalContext = createContext({
     ask: undefined as unknown as (text: string) => Promise<string | boolean>,
     tell: undefined as unknown as (text: string) => Promise<boolean>,
-    verify: undefined as unknown as (text: string) => Promise<boolean>,
+    verify: undefined as unknown as (text: string) => Promise<boolean>
 })
 
 const ModalProvider = (props: any) => {
@@ -21,7 +16,9 @@ const ModalProvider = (props: any) => {
         setModalContent(undefined)
     }, [setModalContent])
 
-    const [onSubmit, setOnSubmit] = useState<((input: string | boolean | null) => void) | undefined>()
+    const [onSubmit, setOnSubmit] = useState<
+        ((input: string | boolean | null) => void) | undefined
+    >()
 
     const ask = (text: string) => {
         return new Promise((resolve: (input: string | boolean) => void) => {

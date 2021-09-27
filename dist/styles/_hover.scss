@@ -1,42 +1,42 @@
 .blue-btn-silent {
     &:not(:hover):not(:focus):not(:active) {
-      border-color: transparent;
-      color: inherit;
+        border-color: transparent;
+        color: inherit;
     }
-  }
-  
-  @media (hover: hover) {
+}
+
+@media (hover: hover) {
     .blue-d-hover {
-      &:not(:hover):not(:focus):not(:active):not(.active) {
-        .blue-d-hover-content-active {
-          display: none;
+        &:not(:hover):not(:focus):not(:active):not(.active) {
+            .blue-d-hover-content-active {
+                display: none;
+            }
         }
-      }
-  
-      &:hover,
-      &:focus,
-      &:active,
-      &.active {
-        .blue-d-hover-content-default {
-          display: none;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            .blue-d-hover-content-default {
+                display: none;
+            }
         }
-      }
     }
-  
+
     .blue-opacity-hover {
-      &:not(:hover):not(:focus):not(:active):not(.active) {
-        .blue-opacity-hover-content-active {
-          opacity: 0;
+        &:not(:hover):not(:focus):not(:active):not(.active) {
+            .blue-opacity-hover-content-active {
+                opacity: 0;
+            }
         }
-      }
-  
-      &:hover,
-      &:focus,
-      &:active,
-      &.active {
-        .blue-opacity-hover-content-default {
-          opacity: 0;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            .blue-opacity-hover-content-default {
+                opacity: 0;
+            }
         }
-      }
     }
-  }
+}

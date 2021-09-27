@@ -7,25 +7,39 @@ import { ChevronLeft } from "react-bootstrap-icons"
 export const IntroDemoPage = () => (
     <>
         {/* Changes background and sidebar background when on dark mode. */}
-        <style type="text/css" dangerouslySetInnerHTML={{
-            __html: /* css */`
+        <style
+            type="text/css"
+            dangerouslySetInnerHTML={{
+                __html: /* css */ `
             @media (prefers-color-scheme: dark) {
                 :root {
                     --sidebar-bg: var(--black, #212529);
                 }
             }
-        `}} />
-        <Intro logo={logo} logoMaxWidth="100px" title="Here could be your introduction">
+        `
+            }}
+        />
+        <Intro
+            logo={logo}
+            logoMaxWidth="100px"
+            title="Here could be your introduction"
+        >
             <form
                 className="form-horizontal"
-                onSubmit={event => {
+                onSubmit={(event) => {
                     event.preventDefault()
                 }}
             >
                 <div className="row mb-3">
-                    <label className="col-sm-4 col-form-label">Please sign in</label>
+                    <label className="col-sm-4 col-form-label">
+                        Please sign in
+                    </label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control" placeholder="Enter something" />
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter something"
+                        />
                     </div>
                 </div>
 
@@ -36,7 +50,9 @@ export const IntroDemoPage = () => (
                 </div>
             </form>
 
-            <Link to="/component/Intro"><ChevronLeft /> Back to the docs</Link>
+            <Link to="/component/Intro">
+                <ChevronLeft /> Back to the docs
+            </Link>
         </Intro>
     </>
 )

@@ -9,22 +9,28 @@ let doc = require(docPath)
 
 function prepareExampleCode(exampleCode) {
     /**
- * Transforms imports to package imports from "blue-react"
- * */
+     * Transforms imports to package imports from "blue-react"
+     * */
     exampleCode.replace('"../../../index.js"', `"${packageName}"`)
 
-    const matches = [...exampleCode.matchAll(/import (.*) from "..\/..\/components\/(.*)"/gm)]
+    const matches = [
+        ...exampleCode.matchAll(/import (.*) from "..\/..\/components\/(.*)"/gm)
+    ]
 
     let extraModules = []
 
     let componentNames = matches.map((match, idx, array) => {
         if (match[1].includes(",")) {
-            match[1].replace("{", "").replace("}", "").split(",").forEach(s => {
-                const moduleName = s.trim()
-                if (match[2] !== moduleName) {
-                    extraModules.push(moduleName)
-                }
-            })
+            match[1]
+                .replace("{", "")
+                .replace("}", "")
+                .split(",")
+                .forEach((s) => {
+                    const moduleName = s.trim()
+                    if (match[2] !== moduleName) {
+                        extraModules.push(moduleName)
+                    }
+                })
         }
 
         return match[2]
@@ -32,13 +38,14 @@ function prepareExampleCode(exampleCode) {
 
     componentNames = [...componentNames, ...extraModules]
 
-    const importCode = `import { ${componentNames.sort().join(", ")} } from "${packageName}"`
+    const importCode = `import { ${componentNames
+        .sort()
+        .join(", ")} } from "${packageName}"`
 
-    matches.forEach(match => {
+    matches.forEach((match) => {
         if (exampleCode.includes(importCode)) {
             exampleCode = exampleCode.replace(`${match[0]}\r\n`, "")
-        }
-        else {
+        } else {
             exampleCode = exampleCode.replace(match[0], importCode)
         }
     })
@@ -46,7 +53,7 @@ function prepareExampleCode(exampleCode) {
     return exampleCode
 }
 
-Object.keys(doc).forEach(prop => {
+Object.keys(doc).forEach((prop) => {
     const displayName = doc[prop].displayName
 
     const exampleFilePathTsx = "./src/docs/examples/" + displayName + ".tsx"

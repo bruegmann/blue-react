@@ -33,28 +33,24 @@ export default function FluentBtn(props: FluentBtnProps) {
 
     let _props: { [key: string]: any } = {}
 
-    Object.keys(props).forEach(key => {
+    Object.keys(props).forEach((key) => {
         if (key !== "light") {
             _props[key] = (props as { [key: string]: any })[key]
         }
     })
 
-    _props.className = "fluent-btn " + (props.className) + (props.light ? " light" : "")
+    _props.className =
+        "fluent-btn " + props.className + (props.light ? " light" : "")
 
-    return (
-        props.href ?
-            <a
-                {..._props}
-            >
-                <div className={ballClassName} />
-                {props.children}
-            </a>
-            :
-            <button
-                {..._props}
-            >
-                <div className={ballClassName} />
-                {props.children}
-            </button>
+    return props.href ? (
+        <a {..._props}>
+            <div className={ballClassName} />
+            {props.children}
+        </a>
+    ) : (
+        <button {..._props}>
+            <div className={ballClassName} />
+            {props.children}
+        </button>
     )
 }

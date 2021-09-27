@@ -6,7 +6,7 @@
 .blue-app-status-circle {
     position: fixed;
     display: none;
-    box-shadow: 0 0.313rem 0.938rem rgba(0,0,0,.2);
+    box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.2);
 }
 
 .blue-app-status-alert,
@@ -15,7 +15,7 @@
 }
 
 .blue-app-status-alert {
-    @include custom-scrollbar(white, rgba(black, .5), .3rem);
+    @include custom-scrollbar(white, rgba(black, 0.5), 0.3rem);
 
     &:after {
         content: "";
@@ -26,13 +26,17 @@
         top: 50%;
         left: 0;
         pointer-events: none;
-        background-image: radial-gradient(circle, rgba(black, .7) 10%, transparent 10.01%);
+        background-image: radial-gradient(
+            circle,
+            rgba(black, 0.7) 10%,
+            transparent 10.01%
+        );
         background-repeat: no-repeat;
         background-position: 50%;
         animation: alert-in 1s;
         transform: scale(10, 10);
         opacity: 0;
-        transition: transform .5s, opacity 1s;
+        transition: transform 0.5s, opacity 1s;
     }
 
     transform: translate3d(0, 0, 0);
@@ -59,22 +63,22 @@
 }
 
 .blue-app-status-circle {
-   bottom: 2.5rem;
-   left: calc(50% - 1.25rem);
-   border-radius: 50%;
-   width: 4rem;
-   height: 4rem;
-   color: #fff;
+    bottom: 2.5rem;
+    left: calc(50% - 1.25rem);
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    color: #fff;
 
-   &:not(.blue-app-loading) {
-       align-items: center;
-       justify-content: center;
+    &:not(.blue-app-loading) {
+        align-items: center;
+        justify-content: center;
         font-size: 2.5em;
-   }
+    }
 }
 
 .blue-app-status-success {
-   background-color: #5cb85c;
+    background-color: #5cb85c;
 }
 
 .blue-app-status-info {
@@ -89,8 +93,7 @@
     background-color: #d43f3a;
 }
 
-.spinner-bounce-circle
-{
+.spinner-bounce-circle {
     width: 100%;
     height: 100%;
 
@@ -98,8 +101,7 @@
     margin: 0;
 }
 
-.spinner-bounce-circle div
-{
+.spinner-bounce-circle div {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -109,20 +111,20 @@
     top: 0;
     left: 0;
 
-    -webkit-animation: circlebounce 2.0s infinite ease-in-out;
-    animation: circlebounce 2.0s infinite ease-in-out;
+    -webkit-animation: circlebounce 2s infinite ease-in-out;
+    animation: circlebounce 2s infinite ease-in-out;
 }
 
 .spinner-bounce-circle div:nth-child(1) {
-    -webkit-animation-delay: -1.0s;
-    animation-delay: -1.0s;
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
 }
 
 $bla-status-bar-width: 37.5rem;
 $bla-status-bar-loading-height: 2px;
 
 .blue-app-status-bar {
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     position: fixed;
     z-index: 6;
@@ -130,8 +132,8 @@ $bla-status-bar-loading-height: 2px;
     box-sizing: border-box;
     right: 0;
     bottom: 0;
-    padding: .4rem;
-    padding-top: calc(.4rem + #{$bla-status-bar-loading-height});
+    padding: 0.4rem;
+    padding-top: calc(0.4rem + #{$bla-status-bar-loading-height});
     overflow: hidden;
 
     &::after {

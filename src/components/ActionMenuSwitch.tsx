@@ -21,14 +21,13 @@ export default function ActionMenuSwitch(props: ActionMenuSwitchProps) {
                     if (props.onChange) props.onChange()
                 }}
             >
-                <Switch
-                    {...props}
-                    elementType="span"
-                />
+                <Switch {...props} elementType="span" />
 
-                {props.label &&
-                    <span className="blue-app-actions-label">&nbsp;{props.label}</span>
-                }
+                {props.label && (
+                    <span className="blue-app-actions-label">
+                        &nbsp;{props.label}
+                    </span>
+                )}
             </a>
         </li>
     )

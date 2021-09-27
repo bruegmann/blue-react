@@ -13,13 +13,13 @@ export interface ActionMenuItemProps {
     className?: string
 
     /**
-    * URL.
-    */
+     * URL.
+     */
     href?: string
 
     /**
-    * onClick Eventhandler.
-    */
+     * onClick Eventhandler.
+     */
     onClick?: (e?: any) => void
 
     /**
@@ -43,7 +43,6 @@ export interface ActionMenuItemProps {
     useDeprecated?: boolean
 }
 
-
 /**
  * @deprecated This is just an alias for `MenuItem`, so you should use that component instead.
  * If you need the older `ActionMenuItem`, make sure to the prop `useDeprecated`.
@@ -53,29 +52,36 @@ export default function ActionMenuItem(props: ActionMenuItemProps) {
     if (props.useDeprecated) {
         let _props = {} as { [key: string]: any }
 
-        Object.keys(props).map(key => {
-            if (key !== "navItemClassName" && key !== "icon" && key !== "label") {
+        Object.keys(props).map((key) => {
+            if (
+                key !== "navItemClassName" &&
+                key !== "icon" &&
+                key !== "label"
+            ) {
                 _props[key] = (props as { [key: string]: any })[key]
             }
         })
 
         return (
             <li className={"nav-item " + props.navItemClassName}>
-                <a {..._props} href={props.href} className={"nav-link blue-app-actions-menu-item " + props.className}>
+                <a
+                    {..._props}
+                    href={props.href}
+                    className={
+                        "nav-link blue-app-actions-menu-item " + props.className
+                    }
+                >
                     <span className={props.icon} />
-                    {props.label &&
+                    {props.label && (
                         <span className="blue-app-actions-label">
-                            {props.icon &&
-                                <span>&nbsp;</span>
-                            }
+                            {props.icon && <span>&nbsp;</span>}
                             {props.label}
                         </span>
-                    }
+                    )}
                 </a>
             </li>
         )
-    }
-    else {
+    } else {
         return <MenuItem {...props} />
     }
 }

@@ -1,3 +1,3 @@
 /// <reference types="react-scripts" />
 
-declare module 'react-markdown-github';
+declare module "react-markdown-github"

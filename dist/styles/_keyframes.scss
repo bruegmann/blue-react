@@ -48,14 +48,19 @@
 @keyframes alert-in {
     from {
         transform: scale(0, 0);
-        opacity: .2;
+        opacity: 0.2;
         transition: 0s;
     }
 }
 
 @keyframes circlebounce {
-    0%, 100% { transform: scale(0.0); }
-    50% { transform: scale(1.0); }
+    0%,
+    100% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
 }
 
 @keyframes scrolling {

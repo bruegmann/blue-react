@@ -2,7 +2,7 @@
     max-height: initial;
     overflow: initial;
 
-    .blue-app-actions-menu { 
+    .blue-app-actions-menu {
         max-width: initial;
     }
 }
@@ -19,11 +19,11 @@
             z-index: 1;
             left: 0;
             top: 0;
-            box-shadow: .6rem 6rem 6rem rgba(0,0,0,.3);
+            box-shadow: 0.6rem 6rem 6rem rgba(0, 0, 0, 0.3);
             animation: fadeInDown 0.5s;
 
             @include show-action-menu-again();
-                
+
             .navbar-nav {
                 display: flex;
                 flex-wrap: wrap;
@@ -37,7 +37,7 @@
                     align-items: center;
                 }
             }
-            
+
             .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
                 display: flex;
             }

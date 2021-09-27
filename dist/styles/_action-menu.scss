@@ -26,12 +26,11 @@
         max-width: $normal-size;
     }
 
-
     &.open {
         left: -#{$normal-size};
         width: calc(100% + #{$normal-size});
     }
-    
+
     .navbar-nav > li > a {
         animation: fadeInDown 0.5s;
     }

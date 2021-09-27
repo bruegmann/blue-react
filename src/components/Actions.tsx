@@ -74,8 +74,7 @@ export default function Actions(props: ActionsProps) {
             setOpen(newOpen)
             if (newOpen) {
                 expandSection(element)
-            }
-            else {
+            } else {
                 collapseSection(element)
             }
 
@@ -94,9 +93,18 @@ export default function Actions(props: ActionsProps) {
     return (
         <div
             id={id}
-            className={"blue-actions " + props.className + " " + (open ? "open" : "closed") + ` break-${props.break || "md"}`}
+            className={
+                "blue-actions " +
+                props.className +
+                " " +
+                (open ? "open" : "closed") +
+                ` break-${props.break || "md"}`
+            }
         >
-            <div className={`blue-actions-indicator d-${props.break}-none`} onClick={toggle} />
+            <div
+                className={`blue-actions-indicator d-${props.break}-none`}
+                onClick={toggle}
+            />
 
             <div className={"blue-actions-controls " + props.controlsClassName}>
                 {props.children}

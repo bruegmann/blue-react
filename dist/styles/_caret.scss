@@ -1,6 +1,6 @@
 .caret {
     /* treat like a font icon */
-    font-family: 'blueicon' !important;
+    font-family: "blueicon" !important;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -16,8 +16,8 @@
     display: inline-block;
     /* END treat like a font icon */
 
-    --caret-size: .5em;
-    --caret-strength: .09em;
+    --caret-size: 0.5em;
+    --caret-strength: 0.09em;
 
     width: 1em;
 
@@ -33,7 +33,7 @@
         box-shadow: var(--caret-strength) var(--caret-strength) 0 currentColor;
         transform: rotate(-45deg) translate(-50%, -50%);
         margin-top: calc((var(--caret-size) + var(--caret-strength)) * -1);
-        transition: all .2s;
+        transition: all 0.2s;
     }
 
     &.caret-mirrored {

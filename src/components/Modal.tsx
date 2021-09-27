@@ -10,7 +10,6 @@ import React, {
 import { Modal as BootstrapModal } from "bootstrap"
 import { getPhrase, ModalType } from "./shared"
 
-
 export interface ModalProps {
     modalContent?: string
     unSetModalContent: (modalContent?: string) => void
@@ -31,8 +30,8 @@ export interface ModalProps {
 
 /**
  * Simple modal/dialog. Designed to work as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
- * It uses Bootstrap's Modal components. 
- * 
+ * It uses Bootstrap's Modal components.
+ *
  * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example below.
  */
 export default function Modal({
@@ -71,7 +70,7 @@ export default function Modal({
     })
 
     useEffect(() => {
-        const myModal = (modalRef.current as unknown) as Element
+        const myModal = modalRef.current as unknown as Element
         let bsModal = BootstrapModal.getInstance(myModal)
 
         if (!bsModal) {
@@ -93,8 +92,14 @@ export default function Modal({
                 <div className="modal-content">
                     <form onSubmit={submit}>
                         <div className="modal-header">
-                            <h5 className="modal-title">{getPhrase("Message")}</h5>
-                            <button type="button" className="btn-close" onClick={cancel} />
+                            <h5 className="modal-title">
+                                {getPhrase("Message")}
+                            </h5>
+                            <button
+                                type="button"
+                                className="btn-close"
+                                onClick={cancel}
+                            />
                         </div>
 
                         <div className="modal-body">
@@ -104,7 +109,9 @@ export default function Modal({
                                     type="text"
                                     className="form-control mt-1"
                                     value={input}
-                                    onChange={({ target }) => setInput(target.value)}
+                                    onChange={({ target }) =>
+                                        setInput(target.value)
+                                    }
                                     autoFocus
                                 />
                             )}
@@ -118,9 +125,8 @@ export default function Modal({
                             >
                                 {type === "verify" ? getPhrase("Yes") : "OK"}
                             </FluentBtn>
-                            {(type === "ask" || type === "verify") && (
-
-                                type === "verify" ?
+                            {(type === "ask" || type === "verify") &&
+                                (type === "verify" ? (
                                     <FluentBtn
                                         className="btn btn-outline-primary d-block w-100"
                                         style={btnStyle}
@@ -128,7 +134,7 @@ export default function Modal({
                                     >
                                         {getPhrase("No")}
                                     </FluentBtn>
-                                    :
+                                ) : (
                                     <FluentBtn
                                         className="btn btn-outline-primary d-block w-100"
                                         style={btnStyle}
@@ -136,7 +142,7 @@ export default function Modal({
                                     >
                                         {getPhrase("Cancel")}
                                     </FluentBtn>
-                            )}
+                                ))}
                         </div>
                     </form>
                 </div>

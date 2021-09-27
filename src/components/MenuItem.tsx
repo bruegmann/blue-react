@@ -87,7 +87,14 @@ export default function MenuItem(props: MenuItemProps) {
     const [active, setActive] = useState<boolean>(false)
 
     const checkActive = () => {
-        setActive(((props.href && window.location.hash.indexOf(props.href) > -1)) || (props.isHome && (window.location.hash === "" || window.location.hash === "#/")) ? true : false)
+        setActive(
+            (props.href && window.location.hash.indexOf(props.href) > -1) ||
+                (props.isHome &&
+                    (window.location.hash === "" ||
+                        window.location.hash === "#/"))
+                ? true
+                : false
+        )
     }
 
     const onClick = (event: MouseEvent) => {
@@ -111,8 +118,10 @@ export default function MenuItem(props: MenuItemProps) {
 
     const onClickOutside = ({ target }: MouseEvent) => {
         // Don't trigger when clicking on MenuItem
-        if (!Utilities.hasClass(target, "blue-app-sidebar-dropdown-toggle") &&
-            !Utilities.hasClass(target, "blue-app-sidebar-label")) {
+        if (
+            !Utilities.hasClass(target, "blue-app-sidebar-dropdown-toggle") &&
+            !Utilities.hasClass(target, "blue-app-sidebar-label")
+        ) {
             setShowDropdown(false)
         }
     }
@@ -124,28 +133,40 @@ export default function MenuItem(props: MenuItemProps) {
         })
     }, [])
 
-
-    const className = "blue-app-toggle-page blue-app-sidebar-btn btn" +
+    const className =
+        "blue-app-toggle-page blue-app-sidebar-btn btn" +
         (props.isActive ? " active" : "") +
         (props.className ? " " + props.className : "") +
         (props.children ? " blue-app-sidebar-dropdown-toggle" : "")
 
     let icon, iconForActive
 
-    if (typeof (props.icon) === "string") {
+    if (typeof props.icon === "string") {
         // is className
-        icon = <span className={props.icon + (props.children ? " blue-app-sidebar-dropdown-icon" : "")} />
-    }
-    else {
+        icon = (
+            <span
+                className={
+                    props.icon +
+                    (props.children ? " blue-app-sidebar-dropdown-icon" : "")
+                }
+            />
+        )
+    } else {
         // is element / component
         icon = props.icon
     }
 
-    if (typeof (props.iconForActive) === "string") {
+    if (typeof props.iconForActive === "string") {
         // is className
-        iconForActive = <span className={props.iconForActive + (props.children ? " blue-app-sidebar-dropdown-icon" : "")} />
-    }
-    else {
+        iconForActive = (
+            <span
+                className={
+                    props.iconForActive +
+                    (props.children ? " blue-app-sidebar-dropdown-icon" : "")
+                }
+            />
+        )
+    } else {
         // is element / component
         iconForActive = props.iconForActive
     }
@@ -154,9 +175,17 @@ export default function MenuItem(props: MenuItemProps) {
         id: "blue-action-menu-item-" + Utilities.guid()
     } as { [key: string]: any }
 
-    const removeFromAttrs = ["isActive", "isHome", "children", "dropdownClassName", "showDropdown", "supportOutside", "elementType"]
+    const removeFromAttrs = [
+        "isActive",
+        "isHome",
+        "children",
+        "dropdownClassName",
+        "showDropdown",
+        "supportOutside",
+        "elementType"
+    ]
 
-    Object.keys(props).forEach(key => {
+    Object.keys(props).forEach((key) => {
         if (!removeFromAttrs.includes(key)) {
             passingProps[key] = (props as { [key: string]: any })[key]
         }
@@ -168,33 +197,55 @@ export default function MenuItem(props: MenuItemProps) {
                 props.elementType || (props.href ? "a" : "button"),
                 {
                     ...passingProps,
-                    className: className + (props.isActive || active ? " active" : "") + (props.label ? " has-label" : ""),
+                    className:
+                        className +
+                        (props.isActive || active ? " active" : "") +
+                        (props.label ? " has-label" : ""),
                     onClick
                 },
                 <>
-                    <span className={clsx("blue-app-menu-item-icon", { hasIconForActive: iconForActive })}>{icon}</span>
-                    {iconForActive && <span className="blue-app-menu-item-icon iconForActive">{iconForActive}</span>}
-                    {props.label && <span className="blue-app-sidebar-label text-truncate">{props.label}</span>}
-                    {props.children &&
+                    <span
+                        className={clsx("blue-app-menu-item-icon", {
+                            hasIconForActive: iconForActive
+                        })}
+                    >
+                        {icon}
+                    </span>
+                    {iconForActive && (
+                        <span className="blue-app-menu-item-icon iconForActive">
+                            {iconForActive}
+                        </span>
+                    )}
+                    {props.label && (
+                        <span className="blue-app-sidebar-label text-truncate">
+                            {props.label}
+                        </span>
+                    )}
+                    {props.children && (
                         <Caret
                             open={showDropdown}
                             mirrored
                             className="blue-app-sidebar-dropdown-caret mt-2"
                         />
-                    }
+                    )}
                 </>
             )}
 
-            {showDropdown && (
-                props.supportOutside ?
-                    <Outside className={`blue-app-sidebar-dropdown ${props.dropdownClassName}`} onClickOutside={onClickOutside}>
+            {showDropdown &&
+                (props.supportOutside ? (
+                    <Outside
+                        className={`blue-app-sidebar-dropdown ${props.dropdownClassName}`}
+                        onClickOutside={onClickOutside}
+                    >
                         {props.children}
                     </Outside>
-                    :
-                    <div className={`blue-app-sidebar-dropdown ${props.dropdownClassName}`}>
+                ) : (
+                    <div
+                        className={`blue-app-sidebar-dropdown ${props.dropdownClassName}`}
+                    >
                         {props.children}
                     </div>
-            )}
+                ))}
         </div>
     )
 }

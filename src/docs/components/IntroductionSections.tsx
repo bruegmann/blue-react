@@ -22,9 +22,9 @@ export default function IntroductionSections() {
     }
 
     const fetchAppCode = async () => {
-        setAppCode(await fetchFromGitHub("src/App.tsx") || "")
-        setPageCode(await fetchFromGitHub("src/pages/HomePage.tsx") || "")
-        setScssCode(await fetchFromGitHub("src/styles/main.scss") || "")
+        setAppCode((await fetchFromGitHub("src/App.tsx")) || "")
+        setPageCode((await fetchFromGitHub("src/pages/HomePage.tsx")) || "")
+        setScssCode((await fetchFromGitHub("src/styles/main.scss")) || "")
     }
 
     useEffect(() => {
@@ -36,9 +36,28 @@ export default function IntroductionSections() {
             title: "Bootstrap",
             body: (
                 <div>
-                    An adapted Bootstrap is mainly used for the stylesheet.<br />
-                    Bootstrap documentation is available here: <a href="https://getbootstrap.com/docs/" target="_blank" rel="noopener noreferrer">https://getbootstrap.com/docs/</a><br /><br />
-                    To use Bootstrap components with JavaScript functions in React, you should use a library like <a href="https://reactstrap.github.io/" target="_blank" rel="noopener noreferrer">React Bootstrap</a>.
+                    An adapted Bootstrap is mainly used for the stylesheet.
+                    <br />
+                    Bootstrap documentation is available here:{" "}
+                    <a
+                        href="https://getbootstrap.com/docs/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        https://getbootstrap.com/docs/
+                    </a>
+                    <br />
+                    <br />
+                    To use Bootstrap components with JavaScript functions in
+                    React, you should use a library like{" "}
+                    <a
+                        href="https://reactstrap.github.io/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        React Bootstrap
+                    </a>
+                    .
                 </div>
             )
         },
@@ -47,17 +66,39 @@ export default function IntroductionSections() {
             body: (
                 <div>
                     <p>
-                        See the whole project: <a href="https://github.com/bruegmann/cra-template-ts-blue/tree/master/template" target="_blank" rel="noopener noreferrer">https://github.com/bruegmann/cra-template-ts-blue/tree/master/template</a>
+                        See the whole project:{" "}
+                        <a
+                            href="https://github.com/bruegmann/cra-template-ts-blue/tree/master/template"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            https://github.com/bruegmann/cra-template-ts-blue/tree/master/template
+                        </a>
                     </p>
 
                     <h2>App (app.tsx)</h2>
-                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="javascript">{appCode}</SyntaxHighlighter>
+                    <SyntaxHighlighter
+                        style={syntaxHighlighterStyle}
+                        language="javascript"
+                    >
+                        {appCode}
+                    </SyntaxHighlighter>
 
                     <h2 className="mt-3">Page (pages/HomePage.tsx)</h2>
-                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="javascript">{pageCode}</SyntaxHighlighter>
+                    <SyntaxHighlighter
+                        style={syntaxHighlighterStyle}
+                        language="javascript"
+                    >
+                        {pageCode}
+                    </SyntaxHighlighter>
 
                     <h2 className="mt-3">CSS (main.scss)</h2>
-                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="scss">{scssCode}</SyntaxHighlighter>
+                    <SyntaxHighlighter
+                        style={syntaxHighlighterStyle}
+                        language="scss"
+                    >
+                        {scssCode}
+                    </SyntaxHighlighter>
                 </div>
             )
         }
@@ -66,12 +107,15 @@ export default function IntroductionSections() {
     return (
         <div className="row">
             <div className="col-md-12">
-                {sections.map((s, i) =>
-                    <article key={i} id={"section-" + encodeURIComponent(s.title)}>
+                {sections.map((s, i) => (
+                    <article
+                        key={i}
+                        id={"section-" + encodeURIComponent(s.title)}
+                    >
                         <h1 className="page-header">{s.title}</h1>
                         {s.body}
                     </article>
-                )}
+                ))}
             </div>
         </div>
     )

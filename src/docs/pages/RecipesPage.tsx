@@ -24,22 +24,24 @@ export function RecipesPage() {
                     setActiveRecipe(recipe)
                 }
             })
-        }
-        else {
+        } else {
             setActiveRecipe(null)
         }
     }, [active, recipes])
 
     const fetchRecipes = async () => {
-        const url = "https://api.github.com/repos/bruegmann/blue-react/contents/recipes"
+        const url =
+            "https://api.github.com/repos/bruegmann/blue-react/contents/recipes"
         const r = await fetch(`${url}`)
 
-        const contents = await r.json() as GitHubContent[]
+        const contents = (await r.json()) as GitHubContent[]
 
         if (contents && Array.isArray(contents)) {
-            const recipes = contents.filter((c: GitHubContent) => (
-                c.name.endsWith(".md") && c.name.toLowerCase() !== "readme.md"
-            ))
+            const recipes = contents.filter(
+                (c: GitHubContent) =>
+                    c.name.endsWith(".md") &&
+                    c.name.toLowerCase() !== "readme.md"
+            )
             setRecipes(recipes)
         }
     }
@@ -53,32 +55,48 @@ export function RecipesPage() {
                             <div className="sticky-top" style={{ zIndex: 0 }}>
                                 <div>
                                     <nav className="nav nav-pills flex-column mt-3">
-                                        {recipes !== null ?
-                                            recipes.map((recipe: GitHubContent) =>
-                                                <div key={recipe.sha} className="nav-item">
-                                                    <NavLink to={`/recipes/${recipe.name}`} className="nav-link">
-                                                        {recipe.name.replace(".md", "")}
-                                                    </NavLink>
-                                                </div>
+                                        {recipes !== null ? (
+                                            recipes.map(
+                                                (recipe: GitHubContent) => (
+                                                    <div
+                                                        key={recipe.sha}
+                                                        className="nav-item"
+                                                    >
+                                                        <NavLink
+                                                            to={`/recipes/${recipe.name}`}
+                                                            className="nav-link"
+                                                        >
+                                                            {recipe.name.replace(
+                                                                ".md",
+                                                                ""
+                                                            )}
+                                                        </NavLink>
+                                                    </div>
+                                                )
                                             )
-                                            :
+                                        ) : (
                                             <div>Loading...</div>
-                                        }
+                                        )}
                                     </nav>
                                 </div>
                             </div>
                         </div>
 
                         <div className="col-md-10">
-                            {activeRecipe !== null ?
+                            {activeRecipe !== null ? (
                                 <Recipe recipe={activeRecipe} />
-                                :
+                            ) : (
                                 <>
                                     <h1 className="page-header">Recipes</h1>
 
-                                    <p>Recipes are short tutorials or instructions for specific scenarious. On the side you see a list of all available recipes.</p>
+                                    <p>
+                                        Recipes are short tutorials or
+                                        instructions for specific scenarious. On
+                                        the side you see a list of all available
+                                        recipes.
+                                    </p>
                                 </>
-                            }
+                            )}
                         </div>
                     </div>
                 </div>

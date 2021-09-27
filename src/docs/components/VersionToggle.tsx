@@ -15,8 +15,7 @@ export function VersionToggle() {
             bsDropdown = new Dropdown(myElement)
             bsDropdown.hide()
             setShow(false)
-        }
-        else {
+        } else {
             show ? bsDropdown.show() : bsDropdown.hide()
         }
     }, [show])
@@ -24,11 +23,24 @@ export function VersionToggle() {
     return (
         <Outside onClickOutside={() => setShow(false)}>
             <div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" onClick={toggle} ref={dropdownRef} title="Switch to another version">
+                <button
+                    className="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    onClick={toggle}
+                    ref={dropdownRef}
+                    title="Switch to another version"
+                >
                     /v7
                 </button>
-                <ul className="dropdown-menu dropdown-menu-end" style={{ minWidth: "5rem" }}>
-                    <li><a className="dropdown-item" href="/blue-react/v6/">/v6</a></li>
+                <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    style={{ minWidth: "5rem" }}
+                >
+                    <li>
+                        <a className="dropdown-item" href="/blue-react/v6/">
+                            /v6
+                        </a>
+                    </li>
                 </ul>
             </div>
         </Outside>

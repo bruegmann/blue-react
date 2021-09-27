@@ -1,11 +1,11 @@
 $primary-color: #007bff !default;
 
 /* Bootstrap */
-$primary:       $primary-color !default;
-$success:       #4BD763 !default;
-$info:          rgb(62, 158, 187) !default;
-$warning:       #F0AD4E !default;
-$danger:        #D9534F !default;
+$primary: $primary-color !default;
+$success: #4bd763 !default;
+$info: rgb(62, 158, 187) !default;
+$warning: #f0ad4e !default;
+$danger: #d9534f !default;
 /* Bootstrap ENDE */
 
 // Main color theme. E.g. used for background for body and sidebar.
@@ -14,22 +14,22 @@ $theme: $primary !default;
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
-  (
-    "theme":    $theme,
-    "white": white,
-    "black": #212529
-  ),
-  $theme-colors
+    (
+        "theme": $theme,
+        "white": white,
+        "black": #212529
+    ),
+    $theme-colors
 );
 
 // Opacity of the light from a Fluent button when hovering.
-$fluent-halo-opacity: .15 !default;
+$fluent-halo-opacity: 0.15 !default;
 
 // Color of lightning on a Fluent button element.
 $fluent-halo-color: white !default;
 
 // Alpha value (RGBA) e.g. for header background.
-$shimmering: .7 !default;
+$shimmering: 0.7 !default;
 
 // Thumb color of scrollbar
 $scrollbar-thumb-color: white !default;
@@ -41,10 +41,10 @@ $normal-size: 3rem !default;
 $actions-height: 7.5rem !default;
 
 // Background color of menu toggle button.
-$bla-button-bg-normal: rgba(0,0,0,.1) !default;
+$bla-button-bg-normal: rgba(0, 0, 0, 0.1) !default;
 
 // Background color of menu toggle button on hover state.
-$bla-button-bg-hover: rgba(white,.07) !default;
+$bla-button-bg-hover: rgba(white, 0.07) !default;
 
 // Font size for sidebar menu items.
 $bla-btn-font-size: 1em !default;

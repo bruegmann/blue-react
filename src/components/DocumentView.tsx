@@ -26,24 +26,31 @@ export interface DocumentViewProps {
 /**
  * Tries to display content in an iframe. When the content can't displayed in an iframe, it will show a download button instead.
  */
-export default function DocumentView({ content, mimeType, src = "about:blank", showDocumentLabel = "Show document" }: DocumentViewProps) {
+export default function DocumentView({
+    content,
+    mimeType,
+    src = "about:blank",
+    showDocumentLabel = "Show document"
+}: DocumentViewProps) {
     const uniqueId = "document-view-" + Utilities.guid()
 
-    const supportsIframe = () => (
+    const supportsIframe = () =>
         mimeType === "application/pdf" ||
         mimeType === "image/png" ||
         mimeType === "image/jpeg" ||
         mimeType === "image/gif" ||
         mimeType === "image/tiff" ||
         mimeType === "text/plain" ||
-        mimeType === "text/html")
+        mimeType === "text/html"
 
     useEffect(() => {
         if (supportsIframe()) {
             Utilities.startLoading()
 
             if (content) {
-                let iframe = document.getElementById(uniqueId) as HTMLIFrameElement
+                let iframe = document.getElementById(
+                    uniqueId
+                ) as HTMLIFrameElement
 
                 if (iframe && iframe.contentWindow) {
                     iframe.contentWindow.document.open()
@@ -56,7 +63,7 @@ export default function DocumentView({ content, mimeType, src = "about:blank", s
 
     return (
         <div>
-            {supportsIframe() ?
+            {supportsIframe() ? (
                 <iframe
                     id={uniqueId}
                     className="document-view-iframe"
@@ -64,7 +71,9 @@ export default function DocumentView({ content, mimeType, src = "about:blank", s
                     onLoad={({ target }: any) => {
                         Utilities.finishLoading()
 
-                        const iframeContent = target.contentDocument || target.contentWindow.document
+                        const iframeContent =
+                            target.contentDocument ||
+                            target.contentWindow.document
 
                         if (mimeType.indexOf("image/") > -1) {
                             let image = iframeContent.querySelector("img")
@@ -72,21 +81,18 @@ export default function DocumentView({ content, mimeType, src = "about:blank", s
                             if (image) {
                                 if (image.offsetWidth > image.offsetHeight) {
                                     image.style.width = "100%"
-                                }
-                                else {
+                                } else {
                                     image.style.height = "100%"
                                 }
                             }
                         }
-
                     }}
                 />
-                :
+            ) : (
                 <a href={src} className="btn btn-secondary btn-lg d-block">
                     {showDocumentLabel}
                 </a>
-
-            }
+            )}
         </div>
     )
 }

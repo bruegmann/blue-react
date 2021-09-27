@@ -5,26 +5,28 @@ Blue React has its own build-in hash based routing system. But sometimes you nee
 In this recipe I will explain, how to use React Router in a Blue React app.
 
 ## Create the project
+
 1. Create a new project with `npx create-react-app new-app --template blue`
 2. Open the new folder `new-app` with your favorite code editor and start the debug service with `npm start`.
 
 ## Install React Router
+
 1. Run this to install `react-router-dom`:
+
 ```
 npm i react-router-dom
 ```
 
 ## Implement components from React Router
+
 1. Open `./src/App.js` in your editor and add the following imports. In this case we're using `HashRouter`, but you can also use `BrowserRouter`.
+
 ```jsx
-import {
-    HashRouter as Router,
-    Switch,
-    Route,
-    NavLink
-} from "react-router-dom"
+import { HashRouter as Router, Switch, Route, NavLink } from "react-router-dom"
 ```
+
 2. In the `App` component wrap the `Router` component around the `Grid` from Blue React:
+
 ```jsx
 // ...
 
@@ -32,7 +34,7 @@ function App() {
     return (
         <Router>
             <Grid
-                // ...
+            // ...
             >
                 <SidebarMenu>
                     <MenuItem href="#" icon={<House />} label="Home" isHome />
@@ -44,7 +46,9 @@ function App() {
 
 export default App
 ```
+
 3. Inside of `Grid` after `</SidebarMenu>` put the following to register the routes:
+
 ```jsx
 // ...
 
@@ -52,7 +56,7 @@ function App() {
     return (
         <Router>
             <Grid
-                // ...
+            // ...
             >
                 <SidebarMenu>
                     <MenuItem href="#" icon={<House />} label="Home" isHome />
@@ -66,7 +70,6 @@ function App() {
                         </Route>
                     </Switch>
                 </div>
-
             </Grid>
         </Router>
     )
@@ -74,7 +77,9 @@ function App() {
 
 export default App
 ```
+
 4. Empty the `pages` prop of the `Grid` component to disable Blue React's routing behaviour. It still have to contain an empty array, otherwise you would get an error.
+
 ```jsx
             {/* ... */}
             <Grid
@@ -90,32 +95,45 @@ export default App
             >
             {/* ... */}
 ```
+
 5. Change the `MenuItem`, so it can use the the `NavLink` component from React Router for the link.
 
 **Replace:**
+
 ```jsx
-                <SidebarMenu>
-                    <MenuItem href="#" icon={<House />} label="Home" isHome />
-                </SidebarMenu>
+<SidebarMenu>
+    <MenuItem href="#" icon={<House />} label="Home" isHome />
+</SidebarMenu>
 ```
+
 **with:**
+
 ```jsx
-                <SidebarMenu>
-                    <MenuItem icon={<House />} label="Home" elementType={NavLink} exact to="/" />
-                </SidebarMenu>
+<SidebarMenu>
+    <MenuItem
+        icon={<House />}
+        label="Home"
+        elementType={NavLink}
+        exact
+        to="/"
+    />
+</SidebarMenu>
 ```
 
 The final `./src/App.js` should look like this:
+
 ```jsx
 import React from "react"
 import { Grid, SidebarMenu, MenuItem } from "blue-react"
-import { List, House, XCircleFill, InfoCircleFill, CheckCircleFill, ExclamationCircleFill } from "react-bootstrap-icons"
 import {
-    HashRouter as Router,
-    Switch,
-    Route,
-    NavLink
-} from "react-router-dom"
+    List,
+    House,
+    XCircleFill,
+    InfoCircleFill,
+    CheckCircleFill,
+    ExclamationCircleFill
+} from "react-bootstrap-icons"
+import { HashRouter as Router, Switch, Route, NavLink } from "react-router-dom"
 
 import HomePage from "./pages/HomePage"
 
@@ -136,7 +154,13 @@ function App() {
                 }}
             >
                 <SidebarMenu>
-                    <MenuItem icon={<House />} label="Home" elementType={NavLink} exact to="/" />
+                    <MenuItem
+                        icon={<House />}
+                        label="Home"
+                        elementType={NavLink}
+                        exact
+                        to="/"
+                    />
                 </SidebarMenu>
 
                 <div className="router-page active">

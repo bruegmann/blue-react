@@ -9,8 +9,6 @@ export default global
 export { default as Grid } from "./dist/types/components/Grid"
 export { GridProps } from "./dist/types/components/Grid"
 
-
-
 export { default as ActionMenu } from "./dist/types/components/ActionMenu"
 export { ActionMenuProps } from "./dist/types/components/ActionMenu"
 

@@ -16,19 +16,32 @@ export const ActionMenuExamplePage = () => {
             <Header>
                 <HeaderTitle appTitle="My app with an action menu" />
 
-                <ActionMenu toggleIcon={<ThreeDotsVertical />} break={breakProp}>
+                <ActionMenu
+                    toggleIcon={<ThreeDotsVertical />}
+                    break={breakProp}
+                >
                     <MenuItem label="I'm a MenuItem" />
 
-                    <MenuItem label="I'm a MenuItem with children" supportOutside icon={<CloudSleet />}>
+                    <MenuItem
+                        label="I'm a MenuItem with children"
+                        supportOutside
+                        icon={<CloudSleet />}
+                    >
                         <MenuItem label="I'm a MenuItem" />
                         <MenuItem label="Another one" />
                     </MenuItem>
                 </ActionMenu>
             </Header>
             <Body className="mt-5">
-
-                <label className="my-1 me-2" htmlFor="ActionMenuExamplePage-breakProp"><code>break</code> prop</label>
-                <select className="form-select my-1 me-sm-2" id="ActionMenuExamplePage-breakProp"
+                <label
+                    className="my-1 me-2"
+                    htmlFor="ActionMenuExamplePage-breakProp"
+                >
+                    <code>break</code> prop
+                </label>
+                <select
+                    className="form-select my-1 me-sm-2"
+                    id="ActionMenuExamplePage-breakProp"
                     value={breakProp}
                     onChange={({ target }) => setBreakProp(target.value as any)}
                 >
