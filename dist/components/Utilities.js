@@ -7,7 +7,7 @@ exports.default = void 0;
 var Utilities = {};
 
 Utilities.hasClass = function (el, className) {
-  if (el.classList) return el.classList.contains(className);else return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+  if (el.classList) return el.classList.contains(className);else return !!el.className.match(new RegExp("(\\s|^)" + className + "(\\s|$)"));
 };
 
 Utilities.addClass = function (el, className) {
@@ -15,7 +15,7 @@ Utilities.addClass = function (el, className) {
 };
 
 Utilities.removeClass = function (el, className) {
-  if (el.classList) el.classList.remove(className);else if (Utilities.hasClass(el, className)) el.className = el.className.replace(new RegExp('(\\s|^)' + className + '(\\s|$)'), ' ');
+  if (el.classList) el.classList.remove(className);else if (Utilities.hasClass(el, className)) el.className = el.className.replace(new RegExp("(\\s|^)" + className + "(\\s|$)"), " ");
 };
 
 Utilities.toggleClass = function (element, className) {
@@ -27,7 +27,7 @@ Utilities.toggleClass = function (element, className) {
       nameIndex = classString.indexOf(className);
 
   if (nameIndex === -1) {
-    classString += ' ' + className;
+    classString += " " + className;
   } else {
     classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length);
   }
@@ -106,7 +106,7 @@ Utilities.guid = function () {
     return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
   }
 
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  return s4() + s4() + "-" + s4() + "-" + s4() + "-" + s4() + "-" + s4() + s4() + s4();
 };
 
 Utilities.scrollToTop = function () {

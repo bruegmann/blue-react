@@ -42,14 +42,14 @@ window.toggleSidebarEvent = new CustomEvent("toggleSidebar");
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
  * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`.
- * 
+ *
  * Allowed event listeners:
- * 
- * * **componentDidUpdate** - Component was updated.  
+ *
+ * * **componentDidUpdate** - Component was updated.
  *   Example: `blueGridRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
- * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.  
+ * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.
  *   Example: `blueGridRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
- * * **pageDidHide** - This page disappeared and another page appears instead.  
+ * * **pageDidHide** - This page disappeared and another page appears instead.
  *   Example: `blueGridRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
  */
 var Grid = /*#__PURE__*/function (_Component) {

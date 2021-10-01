@@ -62,7 +62,7 @@ function Page(_ref) {
   }, [title]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _clsx.default)("blue-app-page-wrapper", {
-      "hasHeader": hasHeader
+      hasHeader: hasHeader
     }),
     ref: elementRef
   }, children);

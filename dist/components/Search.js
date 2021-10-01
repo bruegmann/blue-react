@@ -148,6 +148,7 @@ function Search(props) {
       setTimeout(function () {
         var _document$querySelect;
 
+        ;
         (_document$querySelect = document.querySelector(".blue-app-search-control")) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.select();
       }, 200);
     }

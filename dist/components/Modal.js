@@ -37,8 +37,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /**
  * Simple modal/dialog. Designed to work as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
- * It uses Bootstrap's Modal components. 
- * 
+ * It uses Bootstrap's Modal components.
+ *
  * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example below.
  */
 function Modal(_ref) {

@@ -5,10 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getPhrase = getPhrase;
 var phrases = {
-  "Cancel": ["Cancel", "Abbrechen"],
-  "Yes": ["Yes", "Ja"],
-  "No": ["No", "Nein"],
-  "Message": ["Message", "Nachricht"]
+  Cancel: ["Cancel", "Abbrechen"],
+  Yes: ["Yes", "Ja"],
+  No: ["No", "Nein"],
+  Message: ["Message", "Nachricht"]
 };
 
 function getPhrase(keyword) {
