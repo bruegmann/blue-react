@@ -18,7 +18,7 @@
         "build-docs": "react-scripts build && npm run docgen",
         "build-types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --noEmit false",
         "build": "babel ./src/components --out-dir ./dist/components --extensions \".tsx,.js,.ts\"",
-        "build-css": "node-sass ./dist/style.scss ./dist/style.css",
+        "build-css": "node ./setVersionToStyleScss.js && node-sass ./dist/style.scss ./dist/style.css",
         "build-release": "npm run build-types && npm run build && npm run build-css && npm run docgen",
         "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js --exclude ModalProvider.tsx --extension tsx && node followUpDocs",
         "test": "react-scripts test",
