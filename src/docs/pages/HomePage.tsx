@@ -85,6 +85,13 @@ export const HomePage = () => (
             </main>
 
             <Footer />
+
+            <div
+                className="RoundedBottom bg-theme pb-1"
+                style={{ height: "1rem" }}
+            >
+                <div className="rounded-bottom bg-body w-100 h-100" />
+            </div>
         </Body>
     </Page>
 )

@@ -18,12 +18,6 @@ export interface BodyProps {
     onClick?: (event: any) => void
 
     children?: any
-
-    /**
-     * If `roundedBody` On `Grid` is `true`, rounded corners are already applied for all `Body` components.
-     * If it's `false` you can enable it separately with this prop.
-     */
-    rounded?: boolean
 }
 
 /**
@@ -36,7 +30,6 @@ export default function Body({
     hasActions,
     onClick,
     children,
-    rounded,
     ...rest
 }: BodyProps) {
     const pageBodyClassName = "blue-app-page"
@@ -49,8 +42,7 @@ export default function Body({
                     ? pageBodyClassName + " " + className
                     : pageBodyClassName +
                       (hasActions ? " has-actions" : "") +
-                      ` break-${rest.break || "md"}` +
-                      (rounded ? " rounded" : "")
+                      ` break-${rest.break || "md"}`
             }
             onClick={onClick}
         >
