@@ -3,7 +3,11 @@
     --action-link-bg-color: var(--theme);
 }
 
-@include custom-scrollbar($scrollbar-thumb-color, $theme);
+@include custom-scrollbar($scrollbar-thumb-color, $theme, false);
+
+* {
+    scrollbar-width: thin;
+}
 
 /* Versteckt Clear-Button für input[type="search"], da Blue bereits selbst Clear-Buttons liefert */
 input[type="search"]::-webkit-search-decoration,
