@@ -133,6 +133,11 @@ export default function MenuItem(props: MenuItemProps) {
         })
     }, [])
 
+    useEffect(() => {
+        if (props.showDropdown !== undefined)
+            setShowDropdown(props.showDropdown)
+    }, [props.showDropdown])
+
     const className =
         "blue-app-toggle-page blue-app-sidebar-btn btn" +
         (props.isActive ? " active" : "") +

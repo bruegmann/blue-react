@@ -93,6 +93,9 @@ function MenuItem(props) {
       checkActive();
     });
   }, []);
+  (0, _react.useEffect)(function () {
+    if (props.showDropdown !== undefined) setShowDropdown(props.showDropdown);
+  }, [props.showDropdown]);
   var className = "blue-app-toggle-page blue-app-sidebar-btn btn" + (props.isActive ? " active" : "") + (props.className ? " " + props.className : "") + (props.children ? " blue-app-sidebar-dropdown-toggle" : "");
   var icon, iconForActive;
 
