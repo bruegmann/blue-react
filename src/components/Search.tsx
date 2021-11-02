@@ -155,7 +155,7 @@ export default function Search(props: SearchProps) {
                                 className={
                                     "bi bi-search mt-n1 " +
                                     (isLightMode
-                                        ? ".blue-app-search-color-dark"
+                                        ? "blue-app-search-color-dark"
                                         : "blue-app-search-color-light")
                                 }
                                 fill="currentColor"
