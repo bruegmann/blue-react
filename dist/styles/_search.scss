@@ -51,3 +51,11 @@
         color: $input-color;
     }
 }
+
+.blue-app-search.blue-app-search-sidebar {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.blue-app-search.blue-app-search-sidebar:not(:hover):not(.focus) {
+    opacity: 0.5;
+}
