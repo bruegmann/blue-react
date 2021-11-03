@@ -65,7 +65,7 @@ function Search(props) {
   };
 
   return /*#__PURE__*/_react.default.createElement("form", {
-    className: "blue-app-search " + (body ? "blue-app-search-body " : "") + (focus ? "focus " : "") + className,
+    className: "blue-app-search " + (body ? "blue-app-search-body " : "") + (focus ? "focus " : "") + (sidebar ? "blue-app-search-sidebar " : "") + className,
     onSubmit: function onSubmit(event) {
       event.preventDefault();
       toggleSidebar();
