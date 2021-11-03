@@ -231,16 +231,6 @@
     }
 }
 
-.blue-app-page.rounded {
-    @extend .overflow-hidden;
-    padding: 0.125rem;
-    box-shadow: inset 0 0 0 0.125rem $theme;
-}
-
-.blue-app-grid.roundedBody .blue-app-page {
-    @extend .rounded;
-}
-
 .blue-app-header-logo {
     padding: 0.625rem 0.938rem;
     margin: 0;

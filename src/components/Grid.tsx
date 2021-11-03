@@ -66,11 +66,6 @@ export interface GridProps {
     disableHeaders?: boolean
 
     /**
-     * Rounded corners for all `Body` components.
-     */
-    roundedBody?: boolean
-
-    /**
      * Define a function, that will be fired when switching routes. When your function returns `true`, the default route behaviour will be blocked.
      * You can use something like `window.blueGridRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
      */
@@ -145,8 +140,7 @@ export default class Grid extends Component<GridProps, GridState> {
                 info: <span className="bi-information" />,
                 success: <span className="bi-check" />,
                 warning: <span className="bi-sign_warning" />
-            },
-            roundedBody: true
+            }
         }
     }
 
@@ -318,8 +312,7 @@ export default class Grid extends Component<GridProps, GridState> {
                             ? " hasNoSidebarMenu"
                             : " hasSidebarMenu") +
                         (this.props.expandSidebar ? " expand-sidebar" : "") +
-                        (this.props.disableHeaders ? " disableHeaders" : "") +
-                        (this.props.roundedBody ? " roundedBody" : "")
+                        (this.props.disableHeaders ? " disableHeaders" : "")
                     }
                     onClick={this.hideSidebar}
                 >

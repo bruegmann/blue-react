@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams, Link, NavLink } from "react-router-dom"
 import Page from "../../components/Page"
-import Body from "../../components/Body"
+import Body from "../../components/BodyRounded"
 
 import docs from "../data/docs.json"
 import { ComponentDocs } from "../components/ComponentDocs"
