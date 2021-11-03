@@ -54,71 +54,10 @@ export default function Search(props: SearchProps) {
 
     const [value, setValue] = useState<string>(props.value || "")
     const [focus, setFocus] = useState<boolean>(false)
-    const [isLightMode, setIsLightMode] = useState<boolean>(false)
-
-    useEffect(() => {
-        if (window.matchMedia) {
-            let darkMode = window.matchMedia("(prefers-color-scheme: dark)")
-            darkMode.addEventListener("change", () => {
-                setLightOrDarkMode()
-            })
-            setLightOrDarkMode()
-        }
-    }, [])
 
     const toggleSidebar = () => {
         if (sidebar) {
             document.dispatchEvent(window.toggleSidebarEvent)
-        }
-    }
-
-    const setLightOrDarkMode = () => {
-        let color: any = window
-            .getComputedStyle(document.body, null)
-            .getPropertyValue("--sidebar-bg")
-        // Checks if the color is light or dark
-        let colorCode: string = lightOrDark(color)
-
-        if (colorCode === "light") {
-            setIsLightMode(true)
-        } else {
-            setIsLightMode(false)
-        }
-    }
-
-    const lightOrDark = (color: any) => {
-        let r
-        let g
-        let b
-        // Check the format of the color, HEX or RGB?
-        if (color.match(/^rgb/)) {
-            // If HEX --> store the red, green, blue values in separate variables
-            color = color.match(
-                /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
-            )
-
-            r = color[1]
-            g = color[2]
-            b = color[3]
-        } else {
-            // If RGB --> Convert it to HEX: http://gist.github.com/983661
-            color = +(
-                "0x" + color.slice(1).replace(color.length < 5 && /./g, "$&$&")
-            )
-
-            r = color >> 16
-            g = (color >> 8) & 255
-            b = color & 255
-        }
-
-        // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
-        let hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b))
-
-        // Using the HSP value, determine whether the color is light or dark
-        if (hsp > 127.5) {
-            return "light"
-        } else {
-            return "dark"
         }
     }
 
@@ -128,9 +67,7 @@ export default function Search(props: SearchProps) {
                 "blue-app-search " +
                 (body ? "blue-app-search-body " : "") +
                 (focus ? "focus " : "") +
-                (isLightMode
-                    ? "blue-app-search-background-dark "
-                    : "blue-app-search-background-light ") +
+                (sidebar ? "blue-app-search-sidebar " : "") +
                 className
             }
             onSubmit={(event) => {
@@ -152,12 +89,7 @@ export default function Search(props: SearchProps) {
                                 width="1em"
                                 height="1em"
                                 viewBox="0 0 16 16"
-                                className={
-                                    "bi bi-search mt-n1 " +
-                                    (isLightMode
-                                        ? "blue-app-search-color-dark"
-                                        : "blue-app-search-color-light")
-                                }
+                                className="bi bi-search mt-n1"
                                 fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
@@ -182,12 +114,7 @@ export default function Search(props: SearchProps) {
                         if (onChange) onChange(event)
                     }}
                     id={SearchControlId}
-                    className={
-                        "blue-app-search-control form-control default input-lg " +
-                        (isLightMode
-                            ? "blue-app-search-color-dark"
-                            : "blue-app-search-color-light")
-                    }
+                    className="blue-app-search-control form-control default input-lg"
                     placeholder={placeholder}
                     autoFocus={autoFocus}
                     style={{
@@ -201,12 +128,7 @@ export default function Search(props: SearchProps) {
                     <div className="input-group-btn">
                         <button
                             type="button"
-                            className={
-                                "blue-app-search-reset-btn btn btn-link btn-lg " +
-                                (isLightMode
-                                    ? "blue-app-search-color-dark"
-                                    : "blue-app-search-color-light")
-                            }
+                            className="blue-app-search-reset-btn btn btn-link btn-lg"
                             onClick={() => {
                                 setValue("")
                                 document

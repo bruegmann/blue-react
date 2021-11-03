@@ -52,23 +52,11 @@
     }
 }
 
-.blue-app-search-background-dark {
-    background-color: rgba(0, 0, 0, 0.1) !important;
+.blue-app-sidebar .blue-app-search.blue-app-search-sidebar {
+    transition: opacity 0.2s ease-in-out;
 }
 
-.blue-app-search-background-light {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-.blue-app-search-color-light {
-    color: var(--bs-white) !important;
-    &::placeholder {
-        color: var(--bs-white) !important;
-    }
-}
-.blue-app-search-color-dark {
-    color: var(--bs-black) !important;
-    &::placeholder {
-        color: var(--bs-black) !important;
-    }
+.blue-app-sidebar
+    .blue-app-search.blue-app-search-sidebar:not(:hover):not(.focus) {
+    opacity: 0.5;
 }
