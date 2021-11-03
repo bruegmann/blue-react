@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import MenuItem from "./MenuItem"
 import Utilities from "./Utilities"
 
