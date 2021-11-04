@@ -14,13 +14,8 @@ export interface BodyProps {
     break?: breakOption;
     onClick?: (event: any) => void;
     children?: any;
-    /**
-     * If `roundedBody` On `Grid` is `true`, rounded corners are already applied for all `Body` components.
-     * If it's `false` you can enable it separately with this prop.
-     */
-    rounded?: boolean;
 }
 /**
  * Contains the content of the page.
  */
-export default function Body({ id, className, containerClass, hasActions, onClick, children, rounded, ...rest }: BodyProps): JSX.Element;
+export default function Body({ id, className, containerClass, hasActions, onClick, children, ...rest }: BodyProps): JSX.Element;

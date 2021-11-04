@@ -24,6 +24,9 @@ export { ActionsProps } from "./dist/types/components/Actions"
 export { default as Body } from "./dist/types/components/Body"
 export { BodyProps } from "./dist/types/components/Body"
 
+export { default as BodyRounded } from "./dist/types/components/BodyRounded"
+export { BodyRoundedProps } from "./dist/types/components/BodyRounded"
+
 export { default as Caret } from "./dist/types/components/Caret"
 export { CaretProps } from "./dist/types/components/Caret"
 

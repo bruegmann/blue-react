@@ -3,11 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Body;
+exports.default = BodyRounded;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _excluded = ["id", "className", "containerClass", "hasActions", "onClick", "children"];
+var _Body = _interopRequireDefault(require("./Body"));
+
+var _excluded = ["classNameTop", "classNameBottom", "children"];
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16,23 +18,27 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 /**
- * Contains the content of the page.
+ * Extended variation of `Body` with rounded elements on top and bottom of the page.
  */
-function Body(_ref) {
-  var id = _ref.id,
-      className = _ref.className,
-      containerClass = _ref.containerClass,
-      hasActions = _ref.hasActions,
-      onClick = _ref.onClick,
+function BodyRounded(_ref) {
+  var classNameTop = _ref.classNameTop,
+      classNameBottom = _ref.classNameBottom,
       children = _ref.children,
-      rest = _objectWithoutProperties(_ref, _excluded);
+      bodyProps = _objectWithoutProperties(_ref, _excluded);
 
-  var pageBodyClassName = "blue-app-page";
-  return /*#__PURE__*/_react.default.createElement("div", {
-    id: id,
-    className: className ? pageBodyClassName + " " + className : pageBodyClassName + (hasActions ? " has-actions" : "") + " break-".concat(rest.break || "md"),
-    onClick: onClick
+  return /*#__PURE__*/_react.default.createElement(_Body.default, bodyProps, /*#__PURE__*/_react.default.createElement("div", {
+    className: "blue-app-body-rounded-top bg-theme pt-1 " + classNameTop,
+    style: {
+      height: "1rem"
+    }
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: containerClass || "container-fluid"
-  }, children));
+    className: "rounded-top bg-body w-100 h-100"
+  })), children, /*#__PURE__*/_react.default.createElement("div", {
+    className: "blue-app-body-rounded-bottom bg-theme pb-1 " + classNameBottom,
+    style: {
+      height: "1rem"
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "rounded-bottom bg-body w-100 h-100"
+  })));
 }
