@@ -103,9 +103,5 @@ function Actions(props) {
     className: "blue-actions-controls " + props.controlsClassName
   }, props.children), /*#__PURE__*/_react.default.createElement("div", {
     className: "blue-actions-featured d-".concat(props.break, "-none")
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "fluent-btn"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "fluent-btn-ball"
-  }), props.featured)));
+  }, props.featured));
 }

@@ -111,10 +111,7 @@ export default function Actions(props: ActionsProps) {
             </div>
 
             <div className={`blue-actions-featured d-${props.break}-none`}>
-                <div className="fluent-btn">
-                    <div className="fluent-btn-ball" />
-                    {props.featured}
-                </div>
+                {props.featured}
             </div>
         </div>
     )

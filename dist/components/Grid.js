@@ -221,14 +221,14 @@ var Grid = /*#__PURE__*/function (_Component) {
         className: "blue-app-sidebar-toggler rounded"
       }, !this.props.hideSidebarMenu ? /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
-        className: "fluent-btn blue-app-open-menu blue-app-sidebar-btn btn",
+        className: "blue-app-open-menu blue-app-sidebar-btn btn",
         onClick: function onClick() {
           _this4.setState({
             sidebarIn: !_this4.state.sidebarIn
           });
         }
       }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "fluent-btn-ball blue-app-sidebar-exception"
+        className: "blue-app-sidebar-exception position-absolute w-100 h-100"
       }), this.props.sidebarToggleIconComponent) : ""), this.props.children, (_this$props$pages = this.props.pages) === null || _this$props$pages === void 0 ? void 0 : _this$props$pages.map(function (page) {
         return _this4.state.history.indexOf(page.name) > -1 && /*#__PURE__*/_react.default.createElement("div", {
           key: page.name,

@@ -257,7 +257,8 @@
 }
 
 .blue-app-sidebar-btn {
-    transition: width 0.5s !important;
+    transition: width 0.5s, background-color 0.3s, color 0.15s, box-shadow 0.3s,
+ opacity 0.3s !important;
     padding: 0.5rem 0.75rem;
     border: none;
     margin-top: 0.125rem;

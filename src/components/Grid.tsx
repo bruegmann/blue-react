@@ -320,14 +320,14 @@ export default class Grid extends Component<GridProps, GridState> {
                         {!this.props.hideSidebarMenu ? (
                             <button
                                 type="button"
-                                className="fluent-btn blue-app-open-menu blue-app-sidebar-btn btn"
+                                className="blue-app-open-menu blue-app-sidebar-btn btn"
                                 onClick={() => {
                                     this.setState({
                                         sidebarIn: !this.state.sidebarIn
                                     })
                                 }}
                             >
-                                <div className="fluent-btn-ball blue-app-sidebar-exception" />
+                                <div className="blue-app-sidebar-exception position-absolute w-100 h-100" />
                                 {this.props.sidebarToggleIconComponent}
                             </button>
                         ) : (

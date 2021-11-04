@@ -117,38 +117,24 @@ Utilities.scrollToTop = function () {
     top: 0
   });
 };
+/**
+ * @deprecated Fluent buttons got removed from blue-react.
+ */
 
-Utilities.fluentBtnsListener = function (event, btn) {
-  var btnBall = btn.querySelector(".fluent-btn-ball");
-  var el = btn.getBoundingClientRect();
-  var offset = {
-    left: el.left + window.scrollX,
-    top: el.top + window.scrollY
-  };
-  var x = event.pageX - offset.left;
-  var y = event.pageY - offset.top;
-  btnBall.style.left = x + "px";
-  btnBall.style.top = y + "px";
-};
 
-Utilities.unregisterFluentBtns = function () {
-  var btns = document.querySelectorAll(".fluent-btn");
-  btns.forEach(function (btn) {
-    btn.removeEventListener("mousemove", function (event) {
-      return Utilities.fluentBtnsListener(event, btn);
-    });
-  });
-};
+Utilities.fluentBtnsListener = function (event, btn) {};
+/**
+ * @deprecated Fluent buttons got removed from blue-react.
+ */
 
-Utilities.registerFluentBtns = function () {
-  Utilities.unregisterFluentBtns();
-  var btns = document.querySelectorAll(".fluent-btn");
-  btns.forEach(function (btn) {
-    btn.addEventListener("mousemove", function (event) {
-      return Utilities.fluentBtnsListener(event, btn);
-    });
-  });
-};
+
+Utilities.unregisterFluentBtns = function () {};
+/**
+ * @deprecated Fluent buttons got removed from blue-react.
+ */
+
+
+Utilities.registerFluentBtns = function () {};
 
 Utilities.fetchData = function (input) {
   var init = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;

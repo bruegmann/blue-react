@@ -10,6 +10,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
+ * @deprecated Fluent buttons got removed from blue-react.
  * Shortcut for `<button class="fluent-btn"><div className="fluent-btn-ball"></div></button>`.
  * Button with a fancy and fluent acrylic effect.
  */
