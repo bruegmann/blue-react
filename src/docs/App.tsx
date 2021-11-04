@@ -68,9 +68,7 @@ function App() {
 
                 <SidebarMenu
                     bottomContent={
-                        <div className="fluent-btn">
-                            <div className="fluent-btn-ball" />
-
+                        <>
                             <MenuItem
                                 href="https://bruegmann.github.io/themify/customize"
                                 target="_blank"
@@ -86,7 +84,7 @@ function App() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             />
-                        </div>
+                        </>
                     }
                 >
                     <MenuItem

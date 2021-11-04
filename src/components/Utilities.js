@@ -148,41 +148,22 @@ Utilities.scrollToTop = () => {
     })
 }
 
+/**
+ * @deprecated Fluent buttons got removed from blue-react.
+ */
 Utilities.fluentBtnsListener = (event, btn) => {
-    const btnBall = btn.querySelector(".fluent-btn-ball")
-    const el = btn.getBoundingClientRect()
-    const offset = {
-        left: el.left + window.scrollX,
-        top: el.top + window.scrollY
-    }
-
-    const x = event.pageX - offset.left
-    const y = event.pageY - offset.top
-
-    btnBall.style.left = x + "px"
-    btnBall.style.top = y + "px"
 }
 
+/**
+ * @deprecated Fluent buttons got removed from blue-react.
+ */
 Utilities.unregisterFluentBtns = () => {
-    const btns = document.querySelectorAll(".fluent-btn")
-
-    btns.forEach((btn) => {
-        btn.removeEventListener("mousemove", (event) =>
-            Utilities.fluentBtnsListener(event, btn)
-        )
-    })
 }
 
+/**
+ * @deprecated Fluent buttons got removed from blue-react.
+ */
 Utilities.registerFluentBtns = () => {
-    Utilities.unregisterFluentBtns()
-
-    const btns = document.querySelectorAll(".fluent-btn")
-
-    btns.forEach((btn) => {
-        btn.addEventListener("mousemove", (event) =>
-            Utilities.fluentBtnsListener(event, btn)
-        )
-    })
 }
 
 Utilities.fetchData = function (

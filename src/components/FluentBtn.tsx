@@ -25,6 +25,7 @@ export interface FluentBtnProps {
 }
 
 /**
+ * @deprecated Fluent buttons got removed from blue-react.
  * Shortcut for `<button class="fluent-btn"><div className="fluent-btn-ball"></div></button>`.
  * Button with a fancy and fluent acrylic effect.
  */
