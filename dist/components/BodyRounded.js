@@ -27,14 +27,14 @@ function BodyRounded(_ref) {
       bodyProps = _objectWithoutProperties(_ref, _excluded);
 
   return /*#__PURE__*/_react.default.createElement(_Body.default, bodyProps, /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-body-rounded-top bg-theme pt-1 " + classNameTop,
+    className: "blue-app-body-rounded-top bg-theme pt-1 d-none d-md-block " + classNameTop,
     style: {
       height: "1rem"
     }
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "rounded-top bg-body w-100 h-100"
   })), children, /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-body-rounded-bottom bg-theme pb-1 " + classNameBottom,
+    className: "blue-app-body-rounded-bottom bg-theme pb-1 d-none d-md-block " + classNameBottom,
     style: {
       height: "1rem"
     }

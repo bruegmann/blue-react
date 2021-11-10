@@ -218,7 +218,7 @@ var Grid = /*#__PURE__*/function (_Component) {
         className: "blue-app-grid" + (this.props.className ? " " + this.props.className : "") + (this.state.sidebarIn ? " open" : "") + (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") + (this.props.expandSidebar ? " expand-sidebar" : "") + (this.props.disableHeaders ? " disableHeaders" : ""),
         onClick: this.hideSidebar
       }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-sidebar-toggler rounded"
+        className: "blue-app-sidebar-toggler"
       }, !this.props.hideSidebarMenu ? /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
         className: "blue-app-open-menu blue-app-sidebar-btn btn",

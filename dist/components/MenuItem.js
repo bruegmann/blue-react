@@ -128,7 +128,7 @@ function MenuItem(props) {
       passingProps[key] = props[key];
     }
   });
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/(0, _react.createElement)(props.elementType || (props.href ? "a" : "button"), _objectSpread(_objectSpread({}, passingProps), {}, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/(0, _react.createElement)(props.elementType || (props.href ? "a" : "button"), _objectSpread(_objectSpread({}, passingProps), {}, {
     className: className + (props.isActive || active ? " active" : "") + (props.label ? " has-label" : ""),
     onClick: onClick
   }), /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {

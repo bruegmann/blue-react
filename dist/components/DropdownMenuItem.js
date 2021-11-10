@@ -34,6 +34,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /**
+ * @deprecated Use nested `MenuItem`s instead.
  * Dropdown with button for sidebar.
  */
 function DropdownMenuItem(props) {

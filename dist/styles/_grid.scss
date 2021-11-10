@@ -158,6 +158,7 @@
 
     .blue-app-grid:not(.open).disableHeaders .blue-app-sidebar-toggler {
         transform: translate(0.25rem, 0.25rem);
+        border-radius: $border-radius;
     }
 }
 

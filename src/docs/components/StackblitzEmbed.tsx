@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { PencilSquare, PlayFill } from "react-bootstrap-icons"
-import FluentBtn from "../../components/FluentBtn"
 import image from "../images/stackblitz.png"
 
 export default function StackblitzEmbed() {
@@ -30,13 +29,12 @@ export default function StackblitzEmbed() {
                             demo app with Blue React.
                         </p>
 
-                        <FluentBtn
+                        <button
                             className="btn btn-white d-inline-flex align-items-center"
-                            light
                             onClick={() => setLoadIframe(true)}
                         >
                             <PlayFill className="me-1" /> Load content
-                        </FluentBtn>
+                        </button>
                         <a
                             className="btn btn-link text-white"
                             href="https://stackblitz.com/edit/blue-react-app-stackblitz-rr6xeh?"

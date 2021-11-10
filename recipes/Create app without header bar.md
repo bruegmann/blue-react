@@ -70,7 +70,7 @@ The `<Header />` component is inside of each page component. You can now delete 
 
 ```jsx
 import React from "react"
-import { Page, Header, HeaderTitle, Body, FluentBtn } from "blue-react"
+import { Page, Header, HeaderTitle, Body } from "blue-react"
 
 import { appLogo, appTitle, getPhrase as _ } from "../shared"
 
@@ -86,12 +86,12 @@ function HomePage() {
             <Body containerClass="container">
                 <h1 className="mt-4 mb-3">{_("HELLO_WORLD")}</h1>
 
-                <FluentBtn
+                <button
                     className="btn btn-lg btn-primary"
                     onClick={() => alert(_("HELLO_WORLD"))}
                 >
                     Why don't you click this
-                </FluentBtn>
+                </button>
             </Body>
         </Page>
     )
@@ -104,7 +104,7 @@ export default HomePage
 
 ```jsx
 import React from "react"
-import { Page, Body, FluentBtn } from "blue-react"
+import { Page, Body } from "blue-react"
 
 import { getPhrase as _ } from "../shared"
 
@@ -114,12 +114,12 @@ function HomePage() {
             <Body containerClass="container">
                 <h1 className="mt-4 mb-3">{_("HELLO_WORLD")}</h1>
 
-                <FluentBtn
+                <button
                     className="btn btn-lg btn-primary"
                     onClick={() => alert(_("HELLO_WORLD"))}
                 >
                     Why don't you click this
-                </FluentBtn>
+                </button>
             </Body>
         </Page>
     )
