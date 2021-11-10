@@ -30,7 +30,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
  */
 function SidebarMenu(props) {
   var _props$fluent = props.fluent,
-      fluent = _props$fluent === void 0 ? true : _props$fluent;
+      fluent = _props$fluent === void 0 ? false : _props$fluent;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
