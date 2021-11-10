@@ -7,6 +7,7 @@ export interface DropdownMenuItemProps {
     children?: any;
 }
 /**
+ * @deprecated Use nested `MenuItem`s instead.
  * Dropdown with button for sidebar.
  */
 export default function DropdownMenuItem(props: DropdownMenuItemProps): JSX.Element;

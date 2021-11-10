@@ -9,8 +9,6 @@ exports.default = Modal;
 
 var _Utilities = _interopRequireDefault(require("./Utilities"));
 
-var _FluentBtn = _interopRequireDefault(require("./FluentBtn"));
-
 var _react = _interopRequireWildcard(require("react"));
 
 var _bootstrap = require("bootstrap");
@@ -134,15 +132,15 @@ function Modal(_ref) {
     autoFocus: true
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-footer"
-  }, /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
+  }, /*#__PURE__*/_react.default.createElement("button", {
     type: "submit",
     className: "btn btn-primary d-block w-100",
     style: btnStyle
-  }, type === "verify" ? (0, _shared.getPhrase)("Yes") : "OK"), (type === "ask" || type === "verify") && (type === "verify" ? /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
+  }, type === "verify" ? (0, _shared.getPhrase)("Yes") : "OK"), (type === "ask" || type === "verify") && (type === "verify" ? /*#__PURE__*/_react.default.createElement("button", {
     className: "btn btn-outline-primary d-block w-100",
     style: btnStyle,
     onClick: sayNo
-  }, (0, _shared.getPhrase)("No")) : /*#__PURE__*/_react.default.createElement(_FluentBtn.default, {
+  }, (0, _shared.getPhrase)("No")) : /*#__PURE__*/_react.default.createElement("button", {
     className: "btn btn-outline-primary d-block w-100",
     style: btnStyle,
     onClick: cancel
