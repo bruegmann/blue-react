@@ -43,7 +43,7 @@ export interface SidebarMenuProps {
  * Sidebar for the `Grid` component.
  */
 export default function SidebarMenu(props: SidebarMenuProps) {
-    const { fluent = true } = props
+    const { fluent = false } = props
 
     const [hasShadow, setHasShadow] = useState<boolean>(false)
 
