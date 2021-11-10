@@ -1,5 +1,4 @@
 import { ModalProvider, useModal } from "../../components/ModalProvider"
-import FluentBtn from "../../components/FluentBtn"
 
 function InsideComp() {
     // Use the `useModal` hook.
@@ -7,16 +6,16 @@ function InsideComp() {
 
     return (
         <div className="d-flex gap-2">
-            <FluentBtn
+            <button
                 className="btn btn-outline-secondary"
                 onClick={() => {
                     tell("Hey, what's up")
                 }}
             >
                 tell
-            </FluentBtn>
+            </button>
 
-            <FluentBtn
+            <button
                 className="btn btn-outline-secondary"
                 onClick={
                     // Make sure to make your function "async" when using "await"
@@ -32,9 +31,9 @@ function InsideComp() {
                 }
             >
                 ask
-            </FluentBtn>
+            </button>
 
-            <FluentBtn
+            <button
                 className="btn btn-outline-secondary"
                 onClick={async () => {
                     const answer = await verify("Are you sure?")
@@ -45,9 +44,9 @@ function InsideComp() {
                 }}
             >
                 verify
-            </FluentBtn>
+            </button>
 
-            <FluentBtn
+            <button
                 className="btn btn-secondary"
                 onClick={async () => {
                     const name = await ask("What is your name?")
@@ -65,7 +64,7 @@ function InsideComp() {
                 }}
             >
                 Start a conversation
-            </FluentBtn>
+            </button>
         </div>
     )
 }

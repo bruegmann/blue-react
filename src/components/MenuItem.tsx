@@ -197,7 +197,7 @@ export default function MenuItem(props: MenuItemProps) {
     })
 
     return (
-        <div>
+        <>
             {createElement(
                 props.elementType || (props.href ? "a" : "button"),
                 {
@@ -251,6 +251,6 @@ export default function MenuItem(props: MenuItemProps) {
                         {props.children}
                     </div>
                 ))}
-        </div>
+        </>
     )
 }

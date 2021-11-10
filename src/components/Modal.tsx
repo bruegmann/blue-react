@@ -1,5 +1,4 @@
 import Utilities from "./Utilities"
-import FluentBtn from "./FluentBtn"
 import React, {
     FormEvent,
     useEffect,
@@ -118,30 +117,30 @@ export default function Modal({
                         </div>
 
                         <div className="modal-footer">
-                            <FluentBtn
+                            <button
                                 type="submit"
                                 className="btn btn-primary d-block w-100"
                                 style={btnStyle}
                             >
                                 {type === "verify" ? getPhrase("Yes") : "OK"}
-                            </FluentBtn>
+                            </button>
                             {(type === "ask" || type === "verify") &&
                                 (type === "verify" ? (
-                                    <FluentBtn
+                                    <button
                                         className="btn btn-outline-primary d-block w-100"
                                         style={btnStyle}
                                         onClick={sayNo}
                                     >
                                         {getPhrase("No")}
-                                    </FluentBtn>
+                                    </button>
                                 ) : (
-                                    <FluentBtn
+                                    <button
                                         className="btn btn-outline-primary d-block w-100"
                                         style={btnStyle}
                                         onClick={cancel}
                                     >
                                         {getPhrase("Cancel")}
-                                    </FluentBtn>
+                                    </button>
                                 ))}
                         </div>
                     </form>

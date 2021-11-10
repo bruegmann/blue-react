@@ -1,5 +1,4 @@
 import React from "react"
-import FluentBtn from "../../components/FluentBtn"
 import Utilities from "../../components/Utilities"
 import { CheckCircle, CheckCircleFill, PlayFill } from "react-bootstrap-icons"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
@@ -10,7 +9,7 @@ import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo"
 import { Footer } from "../components/Footer"
 import HashLink from "../components/HashLink"
 
-export interface UtilitiesPageProps {}
+export interface UtilitiesPageProps { }
 
 export interface UtilitiesPageState {
     content: any
@@ -39,48 +38,48 @@ const utilitiesFunctions = [
         definition: "startLoading()",
         description: "Shows loading animation.",
         demo: (
-            <FluentBtn
+            <button
                 className="btn btn-light"
                 onClick={() => Utilities.startLoading()}
             >
                 <PlayFill />
-            </FluentBtn>
+            </button>
         )
     },
     {
         definition: "finishLoading()",
         description: "Hides loading animation.",
         demo: (
-            <FluentBtn
+            <button
                 className="btn btn-light"
                 onClick={() => Utilities.finishLoading()}
             >
                 <PlayFill />
-            </FluentBtn>
+            </button>
         )
     },
     {
         definition: "showSuccess()",
         description: "Shows success symbol.",
         demo: (
-            <FluentBtn
+            <button
                 className="btn btn-light"
                 onClick={() => Utilities.showSuccess()}
             >
                 <PlayFill />
-            </FluentBtn>
+            </button>
         )
     },
     {
         definition: "hideSuccess()",
         description: "Hides success symbol.",
         demo: (
-            <FluentBtn
+            <button
                 className="btn btn-light"
                 onClick={() => Utilities.hideSuccess()}
             >
                 <PlayFill />
-            </FluentBtn>
+            </button>
         )
     },
     {
@@ -100,7 +99,7 @@ const utilitiesFunctions = [
             </span>
         ),
         demo: (
-            <FluentBtn
+            <button
                 className="btn btn-light"
                 onClick={() =>
                     Utilities.setAlertMessage(
@@ -115,52 +114,44 @@ const utilitiesFunctions = [
                 }
             >
                 <PlayFill />
-            </FluentBtn>
+            </button>
         )
     },
     {
         definition: "resetAlertMessage(alertClassName)",
         description: "Resets alert message and removes it.",
         demo: (
-            <FluentBtn
+            <button
                 className="btn btn-light"
                 onClick={() => Utilities.resetAlertMessage("danger")}
             >
                 <PlayFill />
-            </FluentBtn>
+            </button>
         )
     },
     {
         definition: "guid()",
         description: "Returns string of random characters.",
         demo: (
-            <FluentBtn
+            <button
                 className="btn btn-light"
                 onClick={() => alert("Generated GUID: " + Utilities.guid())}
             >
                 <PlayFill />
-            </FluentBtn>
+            </button>
         )
     },
     {
         definition: "scrollToTop()",
         description: "Scrolls to the top of the page.",
         demo: (
-            <FluentBtn
+            <button
                 className="btn btn-light"
                 onClick={() => Utilities.scrollToTop()}
             >
                 <PlayFill />
-            </FluentBtn>
+            </button>
         )
-    },
-    {
-        definition: "registerFluentBtns()",
-        description: "Enables the effect of Fluent buttons."
-    },
-    {
-        definition: "unregisterFluentBtns()",
-        description: "Disables the effect of Fluent buttons."
     },
     {
         definition: "fetchData(input, init?, showErrorDetail? = true)",
@@ -171,7 +162,7 @@ const utilitiesFunctions = [
             </span>
         )
         // demo: (<Fragment>
-        //     <FluentBtn className="btn btn-light"
+        //     <button className="btn btn-light"
         //     // onClick={() => {
         //     //     const url = "https://jsonplaceholder.typicode.com/todos/1"
 
@@ -186,7 +177,7 @@ const utilitiesFunctions = [
         //     // }}
         //     >
         //         <PlayFill />
-        //     </FluentBtn>
+        //     </button>
         // </Fragment>)
     }
 ]
@@ -449,8 +440,8 @@ export class UtilitiesPage extends React.Component<
                                         a.definition > b.definition
                                             ? 1
                                             : b.definition > a.definition
-                                            ? -1
-                                            : 0
+                                                ? -1
+                                                : 0
                                     )
                                     .map((fun, index) => (
                                         <tr key={index}>
