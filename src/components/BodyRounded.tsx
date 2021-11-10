@@ -18,14 +18,14 @@ export default function BodyRounded({
     return (
         <Body {...bodyProps}>
             <div
-                className={"blue-app-body-rounded-top bg-theme pt-1 " + classNameTop}
+                className={"blue-app-body-rounded-top bg-theme pt-1 d-none d-md-block " + classNameTop}
                 style={{ height: "1rem" }}
             >
                 <div className="rounded-top bg-body w-100 h-100" />
             </div>
             {children}
             <div
-                className={"blue-app-body-rounded-bottom bg-theme pb-1 " + classNameBottom}
+                className={"blue-app-body-rounded-bottom bg-theme pb-1 d-none d-md-block " + classNameBottom}
                 style={{ height: "1rem" }}
             >
                 <div className="rounded-bottom bg-body w-100 h-100" />
