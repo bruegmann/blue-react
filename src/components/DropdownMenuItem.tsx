@@ -11,6 +11,7 @@ export interface DropdownMenuItemProps {
 }
 
 /**
+ * @deprecated Use nested `MenuItem`s instead.
  * Dropdown with button for sidebar.
  */
 export default function DropdownMenuItem(props: DropdownMenuItemProps) {
