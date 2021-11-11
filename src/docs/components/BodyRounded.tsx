@@ -1,5 +1,5 @@
 import React from "react"
-import Body, { BodyProps } from "./Body"
+import Body, { BodyProps } from "../../components/Body"
 
 export interface BodyRoundedProps extends BodyProps {
     classNameTop?: string

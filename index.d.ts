@@ -12,14 +12,8 @@ export { GridProps } from "./dist/types/components/Grid"
 export { default as ActionMenu } from "./dist/types/components/ActionMenu"
 export { ActionMenuProps } from "./dist/types/components/ActionMenu"
 
-export { default as ActionMenuItem } from "./dist/types/components/ActionMenuItem"
-export { ActionMenuItemProps } from "./dist/types/components/ActionMenuItem"
-
 export { default as ActionMenuSwitch } from "./dist/types/components/ActionMenuSwitch"
 export { ActionMenuSwitchProps } from "./dist/types/components/ActionMenuSwitch"
-
-export { default as Actions } from "./dist/types/components/Actions"
-export { ActionsProps } from "./dist/types/components/Actions"
 
 export { default as Body } from "./dist/types/components/Body"
 export { BodyProps } from "./dist/types/components/Body"
@@ -33,17 +27,8 @@ export { CaretProps } from "./dist/types/components/Caret"
 export { default as DocumentView } from "./dist/types/components/DocumentView"
 export { DocumentViewProps } from "./dist/types/components/DocumentView"
 
-export { default as DropdownMenuItem } from "./dist/types/components/DropdownMenuItem"
-export { DropdownMenuItemProps } from "./dist/types/components/DropdownMenuItem"
-
-export { default as FluentBtn } from "./dist/types/components/FluentBtn"
-export { FluentBtnProps } from "./dist/types/components/FluentBtn"
-
 export { default as Header } from "./dist/types/components/Header"
 export { HeaderProps } from "./dist/types/components/Header"
-
-export { default as HeaderActions } from "./dist/types/components/HeaderActions"
-export { HeaderActionsProps } from "./dist/types/components/HeaderActions"
 
 export { default as HeaderTitle } from "./dist/types/components/HeaderTitle"
 export { HeaderTitleProps } from "./dist/types/components/HeaderTitle"

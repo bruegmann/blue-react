@@ -33,7 +33,6 @@ import {
 import { ComponentPage } from "./pages/ComponentPage"
 import { IntroDemoPage } from "./pages/IntroDemoPage"
 import UtilitiesPage from "./pages/UtilitiesPage"
-import { ActionsExamplePage } from "./pages/ActionsExamplePage"
 import HeaderTitle from "../components/HeaderTitle"
 import { appTitle, logo } from "./Global"
 import { RecipesPage } from "./pages/RecipesPage"
@@ -128,10 +127,6 @@ function App() {
 
                         <Route path="/intro-demo">
                             <IntroDemoPage />
-                        </Route>
-
-                        <Route path="/actions-example/:headerless?">
-                            <ActionsExamplePage />
                         </Route>
 
                         <Route path="/action-menu-example">

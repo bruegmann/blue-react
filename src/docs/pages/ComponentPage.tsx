@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams, Link, NavLink } from "react-router-dom"
 import Page from "../../components/Page"
-import Body from "../../components/BodyRounded"
+import Body from "../components/BodyRounded"
 
 import docs from "../data/docs.json"
 import { ComponentDocs } from "../components/ComponentDocs"
@@ -31,9 +31,8 @@ export const ComponentPage = () => {
 
     return (
         <Page
-            title={`${
-                selectedComponent ? `${selectedComponent} - ` : ""
-            }React Components - ${appTitle}`}
+            title={`${selectedComponent ? `${selectedComponent} - ` : ""
+                }React Components - ${appTitle}`}
         >
             <Body containerClass="d-flex flex-column docs-min-height-100vh">
                 <div className="container-fluid flex-grow-1">
@@ -59,84 +58,84 @@ export const ComponentPage = () => {
                                                 if (
                                                     typeof array_docs[i].props
                                                         ?.break !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.checked !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.children !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.className !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.containerClass !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.content !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.disableTitleSet !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.expandSidebar !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.featured !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.hasActions !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.hideSidebarMenu !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.hideToggleAction !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.href !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.icon !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.label !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.light !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.mimeType !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.mirrored !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.navItemClassName !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.onChange !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.onToggle !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.open !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.pages !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.showDocumentLabel !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.sidebarToggleIconComponent !==
-                                                        "undefined" ||
+                                                    "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.src !== "undefined" ||
                                                     typeof array_docs[i].props
                                                         ?.unrouteable !==
-                                                        "undefined"
+                                                    "undefined"
                                                 ) {
                                                     const description =
                                                         array_docs[
@@ -779,45 +778,45 @@ export const ComponentPage = () => {
                                     >
                                         <nav className="nav nav-pills flex-column">
                                             {components.length > 0 &&
-                                            value !== ""
+                                                value !== ""
                                                 ? components.map(
-                                                      (
-                                                          i: any,
-                                                          index: number
-                                                      ) => (
-                                                          <div key={index}>
-                                                              <Link
-                                                                  to={`/component/${i.displayName}`}
-                                                                  className="nav-link"
-                                                              >
-                                                                  {
-                                                                      i.displayName
-                                                                  }
-                                                              </Link>
-                                                          </div>
-                                                      )
-                                                  )
+                                                    (
+                                                        i: any,
+                                                        index: number
+                                                    ) => (
+                                                        <div key={index}>
+                                                            <Link
+                                                                to={`/component/${i.displayName}`}
+                                                                className="nav-link"
+                                                            >
+                                                                {
+                                                                    i.displayName
+                                                                }
+                                                            </Link>
+                                                        </div>
+                                                    )
+                                                )
                                                 : docs &&
-                                                  Object.values(docs).map(
-                                                      (
-                                                          i: any,
-                                                          index: number
-                                                      ) => (
-                                                          <div
-                                                              key={index}
-                                                              className="nav-item"
-                                                          >
-                                                              <NavLink
-                                                                  to={`/component/${i.displayName}`}
-                                                                  className="nav-link"
-                                                              >
-                                                                  {
-                                                                      i.displayName
-                                                                  }
-                                                              </NavLink>
-                                                          </div>
-                                                      )
-                                                  )}
+                                                Object.values(docs).map(
+                                                    (
+                                                        i: any,
+                                                        index: number
+                                                    ) => (
+                                                        <div
+                                                            key={index}
+                                                            className="nav-item"
+                                                        >
+                                                            <NavLink
+                                                                to={`/component/${i.displayName}`}
+                                                                className="nav-link"
+                                                            >
+                                                                {
+                                                                    i.displayName
+                                                                }
+                                                            </NavLink>
+                                                        </div>
+                                                    )
+                                                )}
                                         </nav>
                                     </div>
                                 </div>
@@ -830,7 +829,7 @@ export const ComponentPage = () => {
                                     (i: any, index: number) =>
                                         (!selectedComponent ||
                                             selectedComponent ===
-                                                i.displayName) &&
+                                            i.displayName) &&
                                         i.props && (
                                             <ComponentDocs
                                                 key={index}

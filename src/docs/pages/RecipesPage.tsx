@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link, NavLink, useParams } from "react-router-dom"
-import Body from "../../components/BodyRounded"
+import Body from "../components/BodyRounded"
 import Page from "../../components/Page"
 import { Footer } from "../components/Footer"
 import { Recipe } from "../components/Recipe"
