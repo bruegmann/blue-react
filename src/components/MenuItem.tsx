@@ -119,8 +119,8 @@ export default function MenuItem(props: MenuItemProps) {
     const onClickOutside = ({ target }: MouseEvent) => {
         // Don't trigger when clicking on MenuItem
         if (
-            !Utilities.hasClass(target, "blue-app-sidebar-dropdown-toggle") &&
-            !Utilities.hasClass(target, "blue-app-sidebar-label")
+            !Utilities.hasClass(target, "blue-sidebar-dropdown-toggle") &&
+            !Utilities.hasClass(target, "blue-sidebar-label")
         ) {
             setShowDropdown(false)
         }
@@ -139,10 +139,10 @@ export default function MenuItem(props: MenuItemProps) {
     }, [props.showDropdown])
 
     const className =
-        "blue-app-toggle-page blue-app-sidebar-btn btn" +
+        "blue-toggle-page blue-sidebar-btn btn" +
         (props.isActive ? " active" : "") +
         (props.className ? " " + props.className : "") +
-        (props.children ? " blue-app-sidebar-dropdown-toggle" : "")
+        (props.children ? " blue-sidebar-dropdown-toggle" : "")
 
     let icon, iconForActive
 
@@ -152,7 +152,7 @@ export default function MenuItem(props: MenuItemProps) {
             <span
                 className={
                     props.icon +
-                    (props.children ? " blue-app-sidebar-dropdown-icon" : "")
+                    (props.children ? " blue-sidebar-dropdown-icon" : "")
                 }
             />
         )
@@ -167,7 +167,7 @@ export default function MenuItem(props: MenuItemProps) {
             <span
                 className={
                     props.iconForActive +
-                    (props.children ? " blue-app-sidebar-dropdown-icon" : "")
+                    (props.children ? " blue-sidebar-dropdown-icon" : "")
                 }
             />
         )
@@ -210,19 +210,19 @@ export default function MenuItem(props: MenuItemProps) {
                 },
                 <>
                     <span
-                        className={clsx("blue-app-menu-item-icon", {
+                        className={clsx("blue-menu-item-icon", {
                             hasIconForActive: iconForActive
                         })}
                     >
                         {icon}
                     </span>
                     {iconForActive && (
-                        <span className="blue-app-menu-item-icon iconForActive">
+                        <span className="blue-menu-item-icon iconForActive">
                             {iconForActive}
                         </span>
                     )}
                     {props.label && (
-                        <span className="blue-app-sidebar-label text-truncate">
+                        <span className="blue-sidebar-label text-truncate">
                             {props.label}
                         </span>
                     )}
@@ -230,7 +230,7 @@ export default function MenuItem(props: MenuItemProps) {
                         <Caret
                             open={showDropdown}
                             mirrored
-                            className="blue-app-sidebar-dropdown-caret mt-2"
+                            className="blue-sidebar-dropdown-caret mt-2"
                         />
                     )}
                 </>
@@ -239,14 +239,14 @@ export default function MenuItem(props: MenuItemProps) {
             {showDropdown &&
                 (props.supportOutside ? (
                     <Outside
-                        className={`blue-app-sidebar-dropdown ${props.dropdownClassName}`}
+                        className={`blue-sidebar-dropdown ${props.dropdownClassName}`}
                         onClickOutside={onClickOutside}
                     >
                         {props.children}
                     </Outside>
                 ) : (
                     <div
-                        className={`blue-app-sidebar-dropdown ${props.dropdownClassName}`}
+                        className={`blue-sidebar-dropdown ${props.dropdownClassName}`}
                     >
                         {props.children}
                     </div>

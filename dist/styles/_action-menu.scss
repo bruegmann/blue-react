@@ -1,4 +1,4 @@
-.blue-app-actions-menu {
+.blue-actions-menu {
     .nav-link {
         position: relative;
         margin-left: 2px;
@@ -11,7 +11,7 @@
     }
 }
 
-.blue-app-actions {
+.blue-actions {
     display: inline;
     transition: background-color 0.5s linear;
     position: absolute;
@@ -22,7 +22,7 @@
     max-height: $normal-size;
     overflow: hidden;
 
-    .blue-app-actions-menu {
+    .blue-actions-menu {
         max-width: $normal-size;
     }
 
@@ -52,29 +52,29 @@
     }
 
     // Support for MenuItems
-    .blue-app-sidebar-btn {
+    .blue-sidebar-btn {
         width: auto;
         margin-top: 0;
         margin-bottom: 0;
     }
 
-    .blue-app-sidebar-dropdown-toggle .blue-app-sidebar-label {
+    .blue-sidebar-dropdown-toggle .blue-sidebar-label {
         margin-right: 2rem;
     }
 
-    .blue-app-sidebar-label,
-    .blue-app-sidebar-dropdown-caret.caret {
+    .blue-sidebar-label,
+    .blue-sidebar-dropdown-caret.caret {
         display: initial;
     }
 }
 
-.blue-app-actions-menu-toggle {
+.blue-actions-menu-toggle {
     & > span:first-child {
         transform: rotate(90deg);
     }
 }
 
-.blue-app-actions-menu-item {
+.blue-actions-menu-item {
     display: flex;
     align-items: center;
     color: inherit;

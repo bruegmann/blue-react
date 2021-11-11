@@ -32,7 +32,7 @@ export default function Body({
     children,
     ...rest
 }: BodyProps) {
-    const pageBodyClassName = "blue-app-page"
+    const pageBodyClassName = "blue-page"
 
     return (
         <div
@@ -41,8 +41,8 @@ export default function Body({
                 className
                     ? pageBodyClassName + " " + className
                     : pageBodyClassName +
-                      (hasActions ? " has-actions" : "") +
-                      ` break-${rest.break || "md"}`
+                    (hasActions ? " has-actions" : "") +
+                    ` break-${rest.break || "md"}`
             }
             onClick={onClick}
         >

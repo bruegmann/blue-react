@@ -1,13 +1,13 @@
-.blue-app-search {
+.blue-search {
     height: $normal-size;
     display: flex;
     align-items: center;
     border-radius: $input-border-radius;
 
-    &.blue-app-search-body {
+    &.blue-search-body {
         border: 1px solid $input-border-color;
 
-        .blue-app-search-input-group {
+        .blue-search-input-group {
             display: flex;
         }
 
@@ -21,12 +21,12 @@
     }
 }
 
-.blue-app-sidebar .blue-app-search:not(.blue-app-search-body) {
+.blue-sidebar .blue-search:not(.blue-search-body) {
     margin-left: map-get($spacers, 1);
     margin-right: map-get($spacers, 1);
 }
 
-.blue-app-search-input-group {
+.blue-search-input-group {
     display: none;
 
     .input-group-text {
@@ -35,7 +35,7 @@
     }
 }
 
-.blue-app-search-control {
+.blue-search-control {
     border: none;
     background-color: transparent !important;
 
@@ -44,7 +44,7 @@
     }
 }
 
-.blue-app-search-reset-btn {
+.blue-search-reset-btn {
     color: rgba($input-color, 0.7);
 
     &:hover {
@@ -52,10 +52,10 @@
     }
 }
 
-.blue-app-search.blue-app-search-sidebar {
+.blue-search.blue-search-sidebar {
     transition: opacity 0.2s ease-in-out;
 }
 
-.blue-app-search.blue-app-search-sidebar:not(:hover):not(.focus) {
+.blue-search.blue-search-sidebar:not(:hover):not(.focus) {
     opacity: 0.7;
 }

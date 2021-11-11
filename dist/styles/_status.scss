@@ -1,20 +1,20 @@
-.blue-app-loading {
+.blue-loading {
     background-color: $primary;
 }
 
-.blue-app-status-alert,
-.blue-app-status-circle {
+.blue-status-alert,
+.blue-status-circle {
     position: fixed;
     display: none;
     box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.2);
 }
 
-.blue-app-status-alert,
-.blue-app-status-circle {
+.blue-status-alert,
+.blue-status-circle {
     z-index: 6000;
 }
 
-.blue-app-status-alert {
+.blue-status-alert {
     @include custom-scrollbar(white, rgba(black, 0.5), 0.3rem);
 
     &:after {
@@ -56,13 +56,13 @@
 }
 
 @media screen and (min-width: 768px) {
-    .blue-app-status-alert {
+    .blue-status-alert {
         left: calc(50% - 18.75rem);
         right: calc(50% - 18.75rem);
     }
 }
 
-.blue-app-status-circle {
+.blue-status-circle {
     bottom: 2.5rem;
     left: calc(50% - 1.25rem);
     border-radius: 50%;
@@ -70,26 +70,26 @@
     height: 4rem;
     color: #fff;
 
-    &:not(.blue-app-loading) {
+    &:not(.blue-loading) {
         align-items: center;
         justify-content: center;
         font-size: 2.5em;
     }
 }
 
-.blue-app-status-success {
+.blue-status-success {
     background-color: #5cb85c;
 }
 
-.blue-app-status-info {
+.blue-status-info {
     background-color: #5bc0de;
 }
 
-.blue-app-status-warning {
+.blue-status-warning {
     background-color: #d58512;
 }
 
-.blue-app-status-danger {
+.blue-status-danger {
     background-color: #d43f3a;
 }
 
@@ -123,7 +123,7 @@
 $bla-status-bar-width: 37.5rem;
 $bla-status-bar-loading-height: 2px;
 
-.blue-app-status-bar {
+.blue-status-bar {
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     position: fixed;

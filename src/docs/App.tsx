@@ -58,7 +58,7 @@ function App() {
                     <Link to="/">
                         <img
                             src={logo}
-                            className="blue-app-header-logo-image"
+                            className="blue-header-logo-image"
                             alt="B"
                         />
                     </Link>{" "}

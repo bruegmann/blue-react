@@ -173,12 +173,12 @@ Some components of Blue React are fixed to the very top of the document. So make
 ```scss
 $own-header-height: 56px;
 
-.blue-app-header,
-.blue-app-sidebar-toggler {
+.blue-header,
+.blue-sidebar-toggler {
     top: $own-header-height;
 }
 
-.blue-app-sidebar {
+.blue-sidebar {
     top: $normal-size + $own-header-height;
 }
 ```

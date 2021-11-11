@@ -2,7 +2,7 @@
     max-height: initial;
     overflow: initial;
 
-    .blue-app-actions-menu {
+    .blue-actions-menu {
         max-width: initial;
     }
 }
@@ -38,18 +38,18 @@
                 }
             }
 
-            .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
+            .blue-actions-menu-item:not(.blue-actions-menu-toggle) {
                 display: flex;
             }
 
-            .blue-app-actions-menu {
-                .blue-app-sidebar-dropdown {
+            .blue-actions-menu {
+                .blue-sidebar-dropdown {
                     --sidebar-bg: #{darken($theme, 34%)};
                 }
             }
         }
 
-        .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
+        .blue-actions-menu-item:not(.blue-actions-menu-toggle) {
             display: none;
         }
     }
@@ -57,11 +57,11 @@
     @media screen and (min-width: $breakpoint) {
         @include show-action-menu-again();
 
-        .blue-app-actions-menu .blue-app-actions-label {
+        .blue-actions-menu .blue-actions-label {
             display: inline;
         }
 
-        .blue-app-actions-menu-toggle {
+        .blue-actions-menu-toggle {
             display: none;
         }
     }

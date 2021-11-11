@@ -11,7 +11,7 @@ $blue-actions-indicator-height: 2rem !default;
     z-index: 41;
     transition: height 0.3s;
 
-    .blue-app-sidebar-btn {
+    .blue-sidebar-btn {
         color: $header-color;
 
         &:hover,
@@ -73,11 +73,11 @@ $blue-actions-indicator-height: 2rem !default;
 }
 
 .blue-actions-controls {
-    .blue-app-sidebar-btn {
+    .blue-sidebar-btn {
         width: 100%;
     }
 
-    .blue-app-sidebar-label {
+    .blue-sidebar-label {
         display: inline-block;
     }
 }
@@ -91,13 +91,13 @@ $blue-actions-indicator-height: 2rem !default;
         justify-content: center;
     }
 
-    .blue-app-sidebar-btn {
+    .blue-sidebar-btn {
         margin: 2px;
 
         &.has-label {
             width: auto;
 
-            .blue-app-sidebar-label {
+            .blue-sidebar-label {
                 display: inline-block;
             }
         }
@@ -122,7 +122,7 @@ $blue-actions-indicator-height: 2rem !default;
     }
 }
 
-.blue-app-page-wrapper:not(.hasHeader) {
+.blue-page-wrapper:not(.hasHeader) {
     .blue-actions {
         background-color: $theme;
         @extend .mt-1 !optional;

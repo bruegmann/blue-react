@@ -214,8 +214,8 @@ export class UtilitiesPage extends React.Component<
                         <h2 className="page-header">Useful CSS classes</h2>
 
                         <article className="mb-5">
-                            <HashLink id="blue-app-sidebar-bottom">
-                                <code>.blue-app-sidebar-bottom</code>
+                            <HashLink id="blue-sidebar-bottom">
+                                <code>.blue-sidebar-bottom</code>
                             </HashLink>
                             <p>
                                 With Sidebar Bottom, for example, a registered
@@ -229,8 +229,8 @@ export class UtilitiesPage extends React.Component<
                         </article>
 
                         <article className="mb-5">
-                            <HashLink id="blue-app-sidebar-hidden-on-open">
-                                <code>.blue-app-sidebar-hidden-on-open</code>
+                            <HashLink id="blue-sidebar-hidden-on-open">
+                                <code>.blue-sidebar-hidden-on-open</code>
                             </HashLink>
                             <p>
                                 The element is hidden as long as the sidebar is
@@ -239,8 +239,8 @@ export class UtilitiesPage extends React.Component<
                         </article>
 
                         <article className="mb-5">
-                            <HashLink id="blue-app-sidebar-visible-on-open">
-                                <code>.blue-app-sidebar-visible-on-open</code>
+                            <HashLink id="blue-sidebar-visible-on-open">
+                                <code>.blue-sidebar-visible-on-open</code>
                             </HashLink>
                             <p>
                                 The element is visible as long as the sidebar is

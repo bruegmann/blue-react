@@ -1,69 +1,69 @@
 @mixin openSidebarMenu() {
-    .blue-app-sidebar-hidden-on-open {
+    .blue-sidebar-hidden-on-open {
         display: none;
     }
 
-    .blue-app-sidebar-visible-on-open {
+    .blue-sidebar-visible-on-open {
         animation: fade-in 1s;
         display: flex;
     }
 
-    .blue-app-sidebar-label {
+    .blue-sidebar-label {
         display: inline-block;
     }
 
-    .blue-app-sidebar {
+    .blue-sidebar {
         z-index: 42;
         box-shadow: 0.6rem 6rem 6rem rgba(0, 0, 0, 0.4);
         // background-color: darken($theme, 30%);
     }
 
-    .blue-app-sidebar,
-    .blue-app-sidebar .blue-app-sidebar-btn {
+    .blue-sidebar,
+    .blue-sidebar .blue-sidebar-btn {
         width: $bla-sidebar-width;
     }
 
-    .blue-app-sidebar .blue-app-sidebar-btn {
+    .blue-sidebar .blue-sidebar-btn {
         & > * {
             width: auto;
         }
     }
 
-    .blue-app-sub-sidebar {
+    .blue-sub-sidebar {
         left: $bla-sidebar-width;
     }
 
-    .blue-app-sidebar-dropdown-caret.caret {
+    .blue-sidebar-dropdown-caret.caret {
         display: flex;
     }
 
-    .blue-app-sidebar-dropdown {
-        .blue-app-sidebar-btn {
+    .blue-sidebar-dropdown {
+        .blue-sidebar-btn {
             width: 100%;
         }
     }
 
     /* search */
-    .blue-app-search {
+    .blue-search {
         background-color: $sidebar-search-bg;
     }
 
-    .blue-app-search-btn {
+    .blue-search-btn {
         display: none;
     }
 
-    .blue-app-search-input-group {
+    .blue-search-input-group {
         display: flex;
         align-items: center;
     }
 
-    .blue-app-header-logo.sidebar {
+    .blue-header-logo.sidebar {
         transform: translateX(0);
     }
 }
 
-@mixin blue-app-sidebar($width) {
-    .blue-app-sidebar-btn {
+@mixin blue-sidebar($width) {
+    .blue-sidebar-btn {
         color: $sidebar-color;
         width: $normal-size;
         height: $normal-size;
@@ -94,12 +94,12 @@
             animation: sidebar-menu-item-indicator-in 0.2s ease-in-out;
         }
 
-        & > * + .blue-app-sidebar-label {
+        & > * + .blue-sidebar-label {
             margin-left: 0.5rem;
         }
     }
 
-    .blue-app-sidebar {
+    .blue-sidebar {
         width: $width;
         color: $sidebar-color;
         background: var(--sidebar-bg);
@@ -112,19 +112,19 @@
         flex-direction: column;
         @include slide-transition();
 
-        .blue-app-menu {
+        .blue-menu {
             overflow-y: auto;
             flex: 1;
             @include scroll-shadow(var(--sidebar-bg), $sidebar-bg);
         }
 
         &:hover {
-            .blue-app-sidebar-btn {
+            .blue-sidebar-btn {
                 background-color: var(--sidebar-bg);
             }
         }
 
-        .blue-app-sidebar-btn {
+        .blue-sidebar-btn {
             & > * {
                 width: 100%;
             }

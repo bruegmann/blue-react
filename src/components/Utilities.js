@@ -40,36 +40,36 @@ Utilities.toggleClass = function (element, className) {
 }
 
 Utilities.startLoading = function () {
-    document.querySelectorAll(".blue-app-loading")[0].style.display = "block"
+    document.querySelectorAll(".blue-loading")[0].style.display = "block"
 }
 
 Utilities.finishLoading = function () {
-    document.querySelectorAll(".blue-app-loading")[0].style.display = ""
+    document.querySelectorAll(".blue-loading")[0].style.display = ""
 }
 
 Utilities.showSuccess = function () {
-    document.querySelectorAll(".blue-app-status-success")[0].style.display =
+    document.querySelectorAll(".blue-status-success")[0].style.display =
         "flex"
 }
 
 Utilities.hideSuccess = function () {
-    document.querySelectorAll(".blue-app-status-success")[0].style.display = ""
+    document.querySelectorAll(".blue-status-success")[0].style.display = ""
 }
 
 Utilities.toggleActions = function () {
-    this.toggleClass(document.querySelector(".blue-app-wrapper"), "active")
-    this.toggleClass(document.querySelector(".blue-app-grid"), "wrapper-in")
+    this.toggleClass(document.querySelector(".blue-wrapper"), "active")
+    this.toggleClass(document.querySelector(".blue-grid"), "wrapper-in")
 
-    var els = document.querySelectorAll(".blue-app-actions")
+    var els = document.querySelectorAll(".blue-actions")
     for (var i = 0; i < els.length; i++) {
         this.toggleClass(els[i], "open")
     }
 }
 
 Utilities.resetAlertMessage = function (alertClassName = "info") {
-    const alertElement = document.querySelectorAll(".blue-app-status-alert")[0]
+    const alertElement = document.querySelectorAll(".blue-status-alert")[0]
     document.querySelectorAll(
-        ".blue-app-status-" + alertClassName
+        ".blue-status-" + alertClassName
     )[0].style.display = ""
     alertElement.style.display = ""
     this.removeClass(
@@ -84,14 +84,14 @@ Utilities.setAlertMessage = function (
     close = undefined,
     detailText = undefined
 ) {
-    const alertElement = document.querySelectorAll(".blue-app-status-alert")[0]
+    const alertElement = document.querySelectorAll(".blue-status-alert")[0]
 
     if (alertClassName.indexOf("alert-") > -1) {
         alertClassName = alertClassName.replace("alert-", "")
     }
 
     document.querySelectorAll(
-        ".blue-app-status-" + alertClassName
+        ".blue-status-" + alertClassName
     )[0].style.display = "flex"
     alertElement.style.display = "block"
     this.addClass(

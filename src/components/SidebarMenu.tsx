@@ -55,7 +55,7 @@ export default function SidebarMenu(props: SidebarMenuProps) {
 
     useEffect(() => {
         const blueAppSidebar = document.querySelector(
-            ".blue-app-sidebar"
+            ".blue-sidebar"
         ) as HTMLElement
 
         window.addEventListener("resize", updateDimensions)
@@ -83,18 +83,18 @@ export default function SidebarMenu(props: SidebarMenuProps) {
     return (
         <div
             className={
-                "blue-app-sidebar " +
+                "blue-sidebar " +
                 (props.sidebarClass ? props.sidebarClass : "")
             }
             style={props.sidebarStyle ? props.sidebarStyle : {}}
         >
             {props.topContent && (
-                <div className="blue-app-sidebar-top">{props.topContent}</div>
+                <div className="blue-sidebar-top">{props.topContent}</div>
             )}
 
             <div
                 className={
-                    "blue-app-menu " + (props.menuClass ? props.menuClass : "")
+                    "blue-menu " + (props.menuClass ? props.menuClass : "")
                 }
                 style={props.menuStyle ? props.menuStyle : {}}
             >
@@ -111,7 +111,7 @@ export default function SidebarMenu(props: SidebarMenuProps) {
             {props.bottomContent && (
                 <div
                     className={
-                        "blue-app-sidebar-bottom " +
+                        "blue-sidebar-bottom " +
                         (hasShadow ? " has-shadow" : "")
                     }
                 >

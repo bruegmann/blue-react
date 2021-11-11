@@ -225,25 +225,25 @@ export default class Grid extends Component<GridProps, GridState> {
     hideSidebar(e: any) {
         if (
             !(
-                Utilities.hasClass(e.target, "blue-app-open-menu") ||
+                Utilities.hasClass(e.target, "blue-open-menu") ||
                 Utilities.hasClass(e.target, "bi-menu") ||
-                Utilities.hasClass(e.target, "blue-app-search") ||
-                Utilities.hasClass(e.target, "blue-app-search-control") ||
-                Utilities.hasClass(e.target, "blue-app-search-btn") ||
-                Utilities.hasClass(e.target, "blue-app-search-btn-icon") ||
+                Utilities.hasClass(e.target, "blue-search") ||
+                Utilities.hasClass(e.target, "blue-search-control") ||
+                Utilities.hasClass(e.target, "blue-search-btn") ||
+                Utilities.hasClass(e.target, "blue-search-btn-icon") ||
                 Utilities.hasClass(
                     e.target,
-                    "blue-app-sidebar-dropdown-toggle"
+                    "blue-sidebar-dropdown-toggle"
                 ) ||
                 Utilities.hasClass(
                     e.target,
-                    "blue-app-sidebar-dropdown-caret"
+                    "blue-sidebar-dropdown-caret"
                 ) ||
                 Utilities.hasClass(
                     e.target,
-                    "blue-app-sidebar-dropdown-icon"
+                    "blue-sidebar-dropdown-icon"
                 ) ||
-                Utilities.hasClass(e.target, "blue-app-sidebar-exception")
+                Utilities.hasClass(e.target, "blue-sidebar-exception")
             )
         ) {
             this.setState({ sidebarIn: false })
@@ -298,12 +298,12 @@ export default class Grid extends Component<GridProps, GridState> {
     render() {
         return (
             <div>
-                <div className="blue-app-wrapper"></div>
+                <div className="blue-wrapper"></div>
                 <div
                     id={this.props.id ? this.props.id : ""}
                     style={this.props.style ? this.props.style : {}}
                     className={
-                        "blue-app-grid" +
+                        "blue-grid" +
                         (this.props.className
                             ? " " + this.props.className
                             : "") +
@@ -316,18 +316,18 @@ export default class Grid extends Component<GridProps, GridState> {
                     }
                     onClick={this.hideSidebar}
                 >
-                    <div className="blue-app-sidebar-toggler">
+                    <div className="blue-sidebar-toggler">
                         {!this.props.hideSidebarMenu ? (
                             <button
                                 type="button"
-                                className="blue-app-open-menu blue-app-sidebar-btn btn"
+                                className="blue-open-menu blue-sidebar-btn btn"
                                 onClick={() => {
                                     this.setState({
                                         sidebarIn: !this.state.sidebarIn
                                     })
                                 }}
                             >
-                                <div className="blue-app-sidebar-exception position-absolute w-100 h-100" />
+                                <div className="blue-sidebar-exception position-absolute w-100 h-100" />
                                 {this.props.sidebarToggleIconComponent}
                             </button>
                         ) : (
@@ -354,30 +354,30 @@ export default class Grid extends Component<GridProps, GridState> {
                             )
                     )}
 
-                    <div className="blue-app-status-circle blue-app-loading blue-app-status-loading">
+                    <div className="blue-status-circle blue-loading blue-status-loading">
                         <div className="spinner-bounce-circle">
                             <div></div>
                             <div></div>
                         </div>
                     </div>
 
-                    <div className="blue-app-status-circle blue-app-status-success">
+                    <div className="blue-status-circle blue-status-success">
                         {this.props.statusIcons!.success}
                     </div>
 
-                    <div className="blue-app-status-circle blue-app-status-info">
+                    <div className="blue-status-circle blue-status-info">
                         {this.props.statusIcons!.info}
                     </div>
 
-                    <div className="blue-app-status-circle blue-app-status-warning">
+                    <div className="blue-status-circle blue-status-warning">
                         {this.props.statusIcons!.warning}
                     </div>
 
-                    <div className="blue-app-status-circle blue-app-status-danger">
+                    <div className="blue-status-circle blue-status-danger">
                         {this.props.statusIcons!.danger}
                     </div>
 
-                    <div className="blue-app-status-alert alert">
+                    <div className="blue-status-alert alert">
                         <button
                             type="button"
                             className="btn-close float-end mb-1"

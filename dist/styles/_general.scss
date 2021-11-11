@@ -52,7 +52,7 @@ body {
 body {
     background: var(--sidebar-bg, $theme);
 
-    .blue-app-wrapper {
+    .blue-wrapper {
         position: fixed;
         width: 100%;
         width: 100%;
@@ -65,7 +65,7 @@ body {
     }
 
     &.open {
-        .blue-app-wrapper {
+        .blue-wrapper {
             display: block;
         }
     }
@@ -132,7 +132,7 @@ label {
     top: -0.375rem;
 }
 
-.blue-app-wrapper {
+.blue-wrapper {
     z-index: 3 !important;
 
     &.active {
@@ -141,7 +141,7 @@ label {
 }
 
 @media screen and (max-width: 768px) {
-    .blue-app-header-extension .blue-app-header-logo-title-labels:not(.keep) {
+    .blue-header-extension .blue-header-logo-title-labels:not(.keep) {
         display: none;
     }
 }
@@ -165,7 +165,7 @@ label {
     width: $bla-sidebar-width;
 }
 
-.blue-app-header-logo.sidebar {
+.blue-header-logo.sidebar {
     width: $bla-sidebar-width;
     padding-left: calc(#{$normal-size} + #{$spacer});
     transform: translateX(-100%);

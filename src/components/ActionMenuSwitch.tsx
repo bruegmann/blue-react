@@ -16,7 +16,7 @@ export default function ActionMenuSwitch(props: ActionMenuSwitchProps) {
         <li className="nav-item">
             <a
                 href="javascript:void(0)"
-                className="nav-link blue-app-actions-menu-item"
+                className="nav-link blue-actions-menu-item"
                 onClick={() => {
                     if (props.onChange) props.onChange()
                 }}
@@ -24,7 +24,7 @@ export default function ActionMenuSwitch(props: ActionMenuSwitchProps) {
                 <Switch {...props} elementType="span" />
 
                 {props.label && (
-                    <span className="blue-app-actions-label">
+                    <span className="blue-actions-label">
                         &nbsp;{props.label}
                     </span>
                 )}

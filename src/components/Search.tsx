@@ -50,7 +50,7 @@ export default function Search(props: SearchProps) {
         resetIcon,
         sidebar
     } = props
-    const SearchControlId = "blue-app-search-control-" + Utilities.guid()
+    const SearchControlId = "blue-search-control-" + Utilities.guid()
 
     const [value, setValue] = useState<string>(props.value || "")
     const [focus, setFocus] = useState<boolean>(false)
@@ -64,10 +64,10 @@ export default function Search(props: SearchProps) {
     return (
         <form
             className={
-                "blue-app-search " +
-                (body ? "blue-app-search-body " : "") +
+                "blue-search " +
+                (body ? "blue-search-body " : "") +
                 (focus ? "focus " : "") +
-                (sidebar ? "blue-app-search-sidebar " : "") +
+                (sidebar ? "blue-search-sidebar " : "") +
                 className
             }
             onSubmit={(event) => {
@@ -76,7 +76,7 @@ export default function Search(props: SearchProps) {
                 if (onSubmit) onSubmit(event)
             }}
         >
-            <div className="blue-app-search-input-group input-group">
+            <div className="blue-search-input-group input-group">
                 <span
                     className="input-group-text"
                     onClick={() =>
@@ -114,7 +114,7 @@ export default function Search(props: SearchProps) {
                         if (onChange) onChange(event)
                     }}
                     id={SearchControlId}
-                    className="blue-app-search-control form-control default input-lg"
+                    className="blue-search-control form-control default input-lg"
                     placeholder={placeholder}
                     autoFocus={autoFocus}
                     style={{
@@ -128,7 +128,7 @@ export default function Search(props: SearchProps) {
                     <div className="input-group-btn">
                         <button
                             type="button"
-                            className="blue-app-search-reset-btn btn btn-link btn-lg"
+                            className="blue-search-reset-btn btn btn-link btn-lg"
                             onClick={() => {
                                 setValue("")
                                 document
@@ -162,15 +162,15 @@ export default function Search(props: SearchProps) {
             {sidebar && (
                 <MenuItem
                     href="#"
-                    className="blue-app-search-btn"
+                    className="blue-search-btn"
                     icon={icon}
                     onClick={(event) => {
                         event.preventDefault()
                         toggleSidebar()
                         setTimeout(() => {
-                            ;(
+                            ; (
                                 document.querySelector(
-                                    ".blue-app-search-control"
+                                    ".blue-search-control"
                                 ) as HTMLInputElement | null
                             )?.select()
                         }, 200)

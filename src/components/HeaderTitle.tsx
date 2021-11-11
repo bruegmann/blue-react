@@ -51,7 +51,7 @@ export default function HeaderTitle({
             window.blueGridRef.props.disableTitleSet === false
         ) {
             const element = document.querySelector(
-                `#${uniqueId} .blue-app-header-logo-title-labels`
+                `#${uniqueId} .blue-header-logo-title-labels`
             ) as HTMLElement
             const titleElement = document.querySelector("title")
             if (element && element.innerText && titleElement) {
@@ -74,18 +74,18 @@ export default function HeaderTitle({
         <h3
             id={uniqueId}
             className={
-                "blue-app-header-logo" +
+                "blue-header-logo" +
                 (className ? ` ${className}` : "") +
                 (sidebar ? " sidebar" : "")
             }
         >
-            <span className="blue-app-header-logo-title">
+            <span className="blue-header-logo-title">
                 {logo ? (
                     <span>
                         <a href="#">
                             <img
                                 src={logo}
-                                className="blue-app-header-logo-image"
+                                className="blue-header-logo-image"
                             />
                         </a>
                         &nbsp;
@@ -95,7 +95,7 @@ export default function HeaderTitle({
                 )}
                 <span
                     className={
-                        "blue-app-header-logo-title-labels " +
+                        "blue-header-logo-title-labels " +
                         (keepAppTitle ? "keep" : "")
                     }
                 >

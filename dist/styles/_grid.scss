@@ -1,23 +1,23 @@
-.blue-app-grid {
+.blue-grid {
     position: relative;
     // padding-top: $normal-size;
     min-height: 100vh;
 
     &.hasNoSidebarMenu {
-        .blue-app-page,
-        .blue-app-header {
+        .blue-page,
+        .blue-header {
             padding-left: 0;
         }
 
-        .blue-app-sidebar-toggler {
+        .blue-sidebar-toggler {
             display: none;
         }
 
-        .blue-app-page {
+        .blue-page {
             margin-left: 0;
         }
 
-        .blue-app-header-extension {
+        .blue-header-extension {
             left: 0;
             padding-right: 0;
         }
@@ -26,7 +26,7 @@
     &.open {
         @media screen and (max-width: 1400px) {
             .router-page.active {
-                .blue-app-page {
+                .blue-page {
                     filter: blur(3px) brightness(0.8);
                 }
             }
@@ -36,11 +36,11 @@
     }
 
     &:not(.open) {
-        .blue-app-sidebar-visible-on-open {
+        .blue-sidebar-visible-on-open {
             display: none;
         }
 
-        .blue-app-sidebar-hidden-on-open {
+        .blue-sidebar-hidden-on-open {
             animation: fade-in 1s;
         }
     }
@@ -54,7 +54,7 @@
     left: 0;
 }
 
-.blue-app-sidebar-toggler {
+.blue-sidebar-toggler {
     position: fixed;
     width: $normal-size;
     height: $normal-size;
@@ -63,16 +63,16 @@
     z-index: 3;
 }
 
-.blue-app-sidebar-toggler,
-.blue-app-header {
+.blue-sidebar-toggler,
+.blue-header {
     @include header-bg();
 }
 
-// .blue-app-grid:not(.wrapper-in) .blue-app-header {
+// .blue-grid:not(.wrapper-in) .blue-header {
 //     overflow: hidden;
 // }
 
-.blue-app-header {
+.blue-header {
     height: $normal-size;
     color: $header-color;
     position: fixed;
@@ -112,18 +112,18 @@
         float: right !important;
     }
 
-    .blue-app-search {
+    .blue-search {
         width: 16rem;
     }
 }
 
 .blue-normal-scrollbar,
 .modal-body,
-.blue-app-page {
+.blue-page {
     @include custom-scrollbar($body-color, $body-bg, 0.3rem);
 }
 
-.blue-app-page {
+.blue-page {
     margin-left: $normal-size;
     animation: enabledBlueAppPage 0.5s;
 
@@ -134,62 +134,62 @@
     }
 }
 
-@include blue-app-sidebar($normal-size);
+@include blue-sidebar($normal-size);
 
 @media (max-width: 600px) {
-    @include blue-app-sidebar(0);
-    .blue-app-grid:not(.open) .blue-app-sidebar {
+    @include blue-sidebar(0);
+    .blue-grid:not(.open) .blue-sidebar {
         left: -$normal-size;
     }
 
-    .blue-app-page {
+    .blue-page {
         margin-left: 0;
     }
 
-    .blue-app-grid.disableHeaders {
-        .blue-app-page {
+    .blue-grid.disableHeaders {
+        .blue-page {
             padding-top: $normal-size;
         }
     }
 
-    .blue-app-sidebar-toggler {
+    .blue-sidebar-toggler {
         transition: transform 0.5s;
     }
 
-    .blue-app-grid:not(.open).disableHeaders .blue-app-sidebar-toggler {
+    .blue-grid:not(.open).disableHeaders .blue-sidebar-toggler {
         transform: translate(0.25rem, 0.25rem);
         border-radius: $border-radius;
     }
 }
 
 @media (min-width: 1400px) {
-    .blue-app-grid.expand-sidebar {
+    .blue-grid.expand-sidebar {
         @include openSidebarMenu();
 
-        .blue-app-sidebar {
+        .blue-sidebar {
             box-shadow: none !important;
             // background: transparent;
         }
 
-        .blue-app-page {
+        .blue-page {
             margin-left: $bla-sidebar-width;
         }
 
-        .blue-app-sidebar-toggler {
+        .blue-sidebar-toggler {
             display: none;
         }
 
-        .blue-app-header {
+        .blue-header {
             left: 0;
         }
     }
 
-    .blue-app-grid > .blue-app-header-logo {
+    .blue-grid > .blue-header-logo {
         padding-left: $spacer;
     }
 }
 
-.blue-app-open-menu {
+.blue-open-menu {
     position: absolute !important;
     margin-top: 0 !important;
     left: 0;
@@ -205,11 +205,11 @@
     }
 }
 
-.blue-app-sidebar {
+.blue-sidebar {
     overflow-y: auto;
 }
 
-.blue-app-sidebar-bottom {
+.blue-sidebar-bottom {
     width: auto;
     background-color: var(--sidebar-bg);
     transition: box-shadow 0.2s;
@@ -219,20 +219,20 @@
     }
 }
 
-.blue-app-page {
+.blue-page {
     background-color: $body-bg;
     min-height: calc(100vh - #{$normal-size});
     margin-top: $normal-size;
 }
 
-.blue-app-grid.disableHeaders {
-    .blue-app-page {
+.blue-grid.disableHeaders {
+    .blue-page {
         margin-top: initial;
         min-height: calc(100vh);
     }
 }
 
-.blue-app-header-logo {
+.blue-header-logo {
     padding: 0.625rem 0.938rem;
     margin: 0;
     cursor: default;
@@ -251,13 +251,13 @@
     }
 }
 
-.blue-app-header-logo-image {
+.blue-header-logo-image {
     width: 2rem;
     height: 2rem;
     margin-top: -0.25rem;
 }
 
-.blue-app-sidebar-btn {
+.blue-sidebar-btn {
     transition: width 0.5s, background-color 0.3s, color 0.15s, box-shadow 0.3s,
  opacity 0.3s !important;
     padding: 0.5rem 0.75rem;
@@ -274,12 +274,12 @@
     }
 }
 
-.blue-app-sidebar-label {
+.blue-sidebar-label {
     display: none;
     max-height: 100%;
 }
 
-.blue-app-menu-item-icon {
+.blue-menu-item-icon {
     display: inline-block;
 
     & > * {
@@ -288,39 +288,39 @@
     }
 }
 
-.blue-app-menu-item-icon.iconForActive {
+.blue-menu-item-icon.iconForActive {
     display: none;
 }
 
-.blue-app-sidebar-btn.active {
-    .blue-app-menu-item-icon.hasIconForActive {
+.blue-sidebar-btn.active {
+    .blue-menu-item-icon.hasIconForActive {
         display: none;
     }
-    .blue-app-menu-item-icon.iconForActive {
+    .blue-menu-item-icon.iconForActive {
         display: inline-block;
     }
 }
 
-.blue-app-sidebar-dropdown {
+.blue-sidebar-dropdown {
     margin-left: 1rem;
-    animation: blue-app-sidebar-dropdown 0.15s;
+    animation: blue-sidebar-dropdown 0.15s;
 
     --sidebar-bg: #{$sidebar-deep-bg};
     background: var(--sidebar-bg);
 
-    .blue-app-sidebar-dropdown {
+    .blue-sidebar-dropdown {
         --sidebar-bg: #{darken($sidebar-deep-bg, 4%)};
 
-        .blue-app-sidebar-dropdown {
+        .blue-sidebar-dropdown {
             --sidebar-bg: #{darken($sidebar-deep-bg, 8%)};
 
-            .blue-app-sidebar-dropdown {
+            .blue-sidebar-dropdown {
                 --sidebar-bg: #{darken($sidebar-deep-bg, 12%)};
 
-                .blue-app-sidebar-dropdown {
+                .blue-sidebar-dropdown {
                     --sidebar-bg: #{darken($sidebar-deep-bg, 16%)};
 
-                    .blue-app-sidebar-dropdown {
+                    .blue-sidebar-dropdown {
                         --sidebar-bg: #{darken($sidebar-deep-bg, 20%)};
                     }
                 }
@@ -329,7 +329,7 @@
     }
 }
 
-.blue-app-sidebar-dropdown-caret.caret {
+.blue-sidebar-dropdown-caret.caret {
     display: none;
     position: absolute;
     right: 1.5rem;
@@ -338,7 +338,7 @@
     align-items: center;
 }
 
-.blue-app-page-nav-btn {
+.blue-page-nav-btn {
     position: relative;
     z-index: 1;
 }

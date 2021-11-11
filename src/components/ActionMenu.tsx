@@ -46,7 +46,7 @@ export default function ActionMenu(props: ActionMenuProps) {
     const initToggleStatus = () => {
         setActionsToggledIn(
             Utilities.hasClass(
-                document.querySelector(".blue-app-actions"),
+                document.querySelector(".blue-actions"),
                 "open"
             )
         )
@@ -56,14 +56,14 @@ export default function ActionMenu(props: ActionMenuProps) {
         initToggleStatus()
 
         const appWrapper = document.querySelector(
-            ".blue-app-wrapper"
+            ".blue-wrapper"
         ) as HTMLElement
         if (appWrapper) {
             appWrapper.onclick = toggleActions
         }
 
         document
-            .querySelectorAll(".blue-app-actions-menu .nav-link")
+            .querySelectorAll(".blue-actions-menu .nav-link")
             .forEach((link) => {
                 link.addEventListener("click", () => {
                     if (actionsToggledIn) {
@@ -75,20 +75,19 @@ export default function ActionMenu(props: ActionMenuProps) {
 
     return (
         <div
-            className={`blue-app-actions navbar ${className} navbar-expand${
-                _break !== "none" ? `-${_break}` : ""
-            } ${_break}`}
+            className={`blue-actions navbar ${className} navbar-expand${_break !== "none" ? `-${_break}` : ""
+                } ${_break}`}
         >
             <div
                 className="ui-header-wrapper"
                 onClick={Utilities.scrollToTop}
             />
-            <ul className="blue-app-actions-menu nav navbar-nav navbar-right fluent-btn">
+            <ul className="blue-actions-menu nav navbar-nav navbar-right fluent-btn">
                 <div className="fluent-btn-ball" />
 
                 {!actionsToggledIn && !hideToggleAction ? (
                     <MenuItem
-                        className="blue-app-actions-menu-toggle"
+                        className="blue-actions-menu-toggle"
                         onClick={() => toggleActions()}
                         icon={toggleIcon}
                         aria-label="Toggle menu"
