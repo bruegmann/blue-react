@@ -56,6 +56,9 @@ export { SearchProps } from "./dist/types/components/Search"
 export { default as SidebarMenu } from "./dist/types/components/SidebarMenu"
 export { SidebarMenuProps } from "./dist/types/components/SidebarMenu"
 
+export { default as Status } from "./dist/types/components/Status"
+export { StatusProps } from "./dist/types/components/Status"
+
 export { default as Switch } from "./dist/types/components/Switch"
 export { SwitchProps } from "./dist/types/components/Switch"
 

@@ -11,7 +11,7 @@ export interface LayoutProps {
     open: boolean
     onChangeOpen: (open: boolean) => void
     style?: CSSProperties,
-    sidebarToggleIconComponent?: ReactNode
+    toggleIcon?: ReactNode
 }
 
 export default function Layout({
@@ -22,7 +22,7 @@ export default function Layout({
     hideSidebarMenu = false,
     open,
     onChangeOpen,
-    sidebarToggleIconComponent,
+    toggleIcon = "☰",
     ...rest
 }: LayoutProps) {
     const toggleOpen = () => onChangeOpen(!open)
@@ -46,7 +46,7 @@ export default function Layout({
                         onClick={toggleOpen}
                     >
                         <div className="blue-sidebar-exception position-absolute w-100 h-100" />
-                        {sidebarToggleIconComponent || "☰"}
+                        {toggleIcon}
                     </button>
                 )}
             </div>

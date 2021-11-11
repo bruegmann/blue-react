@@ -76,6 +76,10 @@ function MenuItem(props) {
     if (props.href && props.href === window.location.hash) {
       _Utilities.default.scrollToTop();
     }
+
+    if (props.onClickAttached !== undefined) {
+      props.onClickAttached(event);
+    }
   };
 
   var onClickOutside = function onClickOutside(_ref) {

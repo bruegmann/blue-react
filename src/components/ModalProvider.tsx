@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useState } from "react"
+import React, { createContext, ReactNode, useCallback, useContext, useState } from "react"
 import { ModalType } from "./shared"
 import Modal from "./Modal"
 
@@ -8,7 +8,11 @@ const ModalContext = createContext({
     verify: undefined as unknown as (text: string) => Promise<boolean>
 })
 
-const ModalProvider = (props: any) => {
+export interface ModalProviderProps {
+    children?: ReactNode
+}
+
+const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
     const [type, setType] = useState<ModalType>("tell")
     const [modalContent, setModalContent] = useState<string | undefined>()
     const [defaultInput, setDefaultInput] = useState<string | undefined>()
@@ -62,9 +66,9 @@ const ModalProvider = (props: any) => {
                 tell,
                 verify
             }}
-            {...props}
+            {...rest}
         >
-            {props.children}
+            {children}
             <Modal
                 modalContent={modalContent}
                 unSetModalContent={unSetModalContent}

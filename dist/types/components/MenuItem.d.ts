@@ -11,6 +11,10 @@ export interface MenuItemProps {
     href?: string;
     onClick?: (event: React.MouseEvent) => void;
     /**
+     * Will be fired after `onClick`
+     */
+    onClickAttached?: (event: React.MouseEvent) => void;
+    /**
      * Icon component or a class name.
      */
     icon?: any;
