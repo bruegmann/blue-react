@@ -303,7 +303,7 @@ export default class Grid extends Component<GridProps, GridState> {
                     id={this.props.id ? this.props.id : ""}
                     style={this.props.style ? this.props.style : {}}
                     className={
-                        "blue-grid" +
+                        "blue-layout" +
                         (this.props.className
                             ? " " + this.props.className
                             : "") +

@@ -1,4 +1,4 @@
-.blue-grid {
+.blue-layout {
     position: relative;
     // padding-top: $normal-size;
     min-height: 100vh;
@@ -68,7 +68,7 @@
     @include header-bg();
 }
 
-// .blue-grid:not(.wrapper-in) .blue-header {
+// .blue-layout:not(.wrapper-in) .blue-header {
 //     overflow: hidden;
 // }
 
@@ -138,7 +138,7 @@
 
 @media (max-width: 600px) {
     @include blue-sidebar(0);
-    .blue-grid:not(.open) .blue-sidebar {
+    .blue-layout:not(.open) .blue-sidebar {
         left: -$normal-size;
     }
 
@@ -146,7 +146,7 @@
         margin-left: 0;
     }
 
-    .blue-grid.disableHeaders {
+    .blue-layout.disableHeaders {
         .blue-page {
             padding-top: $normal-size;
         }
@@ -156,14 +156,14 @@
         transition: transform 0.5s;
     }
 
-    .blue-grid:not(.open).disableHeaders .blue-sidebar-toggler {
+    .blue-layout:not(.open).disableHeaders .blue-sidebar-toggler {
         transform: translate(0.25rem, 0.25rem);
         border-radius: $border-radius;
     }
 }
 
 @media (min-width: 1400px) {
-    .blue-grid.expand-sidebar {
+    .blue-layout.expand-sidebar {
         @include openSidebarMenu();
 
         .blue-sidebar {
@@ -184,7 +184,7 @@
         }
     }
 
-    .blue-grid > .blue-header-logo {
+    .blue-layout > .blue-header-logo {
         padding-left: $spacer;
     }
 }
@@ -225,7 +225,7 @@
     margin-top: $normal-size;
 }
 
-.blue-grid.disableHeaders {
+.blue-layout.disableHeaders {
     .blue-page {
         margin-top: initial;
         min-height: calc(100vh);

@@ -58,7 +58,7 @@ Utilities.hideSuccess = function () {
 
 Utilities.toggleActions = function () {
     this.toggleClass(document.querySelector(".blue-wrapper"), "active")
-    this.toggleClass(document.querySelector(".blue-grid"), "wrapper-in")
+    this.toggleClass(document.querySelector(".blue-layout"), "wrapper-in")
 
     var els = document.querySelectorAll(".blue-actions")
     for (var i = 0; i < els.length; i++) {
