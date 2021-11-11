@@ -19,6 +19,11 @@ export interface MenuItemProps {
     onClick?: (event: React.MouseEvent) => void
 
     /**
+     * Will be fired after `onClick`
+     */
+    onClickAttached?: (event: React.MouseEvent) => void
+
+    /**
      * Icon component or a class name.
      */
     icon?: any
@@ -113,6 +118,10 @@ export default function MenuItem(props: MenuItemProps) {
         // When user clicks again on active menu item, scroll to top of page
         if (props.href && props.href === window.location.hash) {
             Utilities.scrollToTop()
+        }
+
+        if (props.onClickAttached !== undefined) {
+            props.onClickAttached(event as any)
         }
     }
 

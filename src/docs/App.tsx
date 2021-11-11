@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
     BrowserRouter as Router,
     Switch,
@@ -38,84 +38,106 @@ import HeaderTitle from "../components/HeaderTitle"
 import { appTitle, logo } from "./Global"
 import { RecipesPage } from "./pages/RecipesPage"
 import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
+import Outside from "../components/Outside"
 
-function _App() {
+function App() {
+    const [open, setOpen] = useState<boolean>(false)
+    const closeSidebar = () => setOpen(!open)
+
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <Layout
-            // pages={[]}
-            // unrouteable
-            // expandSidebar
-            // sidebarToggleIconComponent={<List />}
-            // statusIcons={{
-            //     danger: <XCircleFill />,
-            //     info: <InfoCircleFill />,
-            //     success: <CheckCircleFill />,
-            //     warning: <ExclamationCircleFill />
-            // }}
-            // disableHeaders
+                // pages={[]}
+                // unrouteable
+                expandSidebar
+                // sidebarToggleIconComponent={<List />}
+                // statusIcons={{
+                //     danger: <XCircleFill />,
+                //     info: <InfoCircleFill />,
+                //     success: <CheckCircleFill />,
+                //     warning: <ExclamationCircleFill />
+                // }}
+                disableHeaders
+                open={open}
+                onChangeOpen={setOpen}
             >
-                <HeaderTitle sidebar>
-                    <Link to="/">
-                        <img
-                            src={logo}
-                            className="blue-header-logo-image"
-                            alt="B"
-                        />
-                    </Link>{" "}
-                    <Link to="/">{appTitle}</Link>
-                </HeaderTitle>
-
-                <SidebarMenu
-                    bottomContent={
-                        <>
-                            <MenuItem
-                                href="https://bruegmann.github.io/themify/customize"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                label="Customize with Themify"
-                                icon={<Palette2 />}
-                            />
-
-                            <MenuItem
-                                href="https://github.com/bruegmann/blue-react"
-                                icon={<CodeSquare />}
-                                label="Code on GitHub"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            />
-                        </>
+                <Outside onClickOutside={({ target }) => {
+                    if (target) {
+                        const t = target as HTMLElement
+                        if (t.classList?.contains("blue-sidebar-exception")) {
+                            return
+                        }
                     }
-                >
-                    <MenuItem
-                        icon={<House />}
-                        iconForActive={<HouseFill />}
-                        label="Start"
-                        elementType={NavLink}
-                        exact
-                        to="/"
-                    />
-                    <MenuItem
-                        icon={<Tools />}
-                        label="Utilities"
-                        elementType={NavLink}
-                        to="/utilities"
-                    />
-                    <MenuItem
-                        icon={<Puzzle />}
-                        iconForActive={<PuzzleFill />}
-                        label="React Components"
-                        elementType={NavLink}
-                        to="/component"
-                    />
-                    <MenuItem
-                        icon={<Stickies />}
-                        iconForActive={<StickiesFill />}
-                        label="Recipes"
-                        elementType={NavLink}
-                        to="/recipes"
-                    />
-                </SidebarMenu>
+                    closeSidebar()
+                }}>
+                    <HeaderTitle sidebar>
+                        <Link to="/">
+                            <img
+                                src={logo}
+                                className="blue-header-logo-image"
+                                alt="B"
+                            />
+                        </Link>{" "}
+                        <Link to="/">{appTitle}</Link>
+                    </HeaderTitle>
+
+                    <SidebarMenu
+                        bottomContent={
+                            <>
+                                <MenuItem
+                                    href="https://bruegmann.github.io/themify/customize"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    label="Customize with Themify"
+                                    icon={<Palette2 />}
+                                    onClickAttached={closeSidebar}
+                                />
+
+                                <MenuItem
+                                    href="https://github.com/bruegmann/blue-react"
+                                    icon={<CodeSquare />}
+                                    label="Code on GitHub"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClickAttached={closeSidebar}
+                                />
+                            </>
+                        }
+                    >
+                        <MenuItem
+                            icon={<House />}
+                            iconForActive={<HouseFill />}
+                            label="Start"
+                            elementType={NavLink}
+                            exact
+                            to="/"
+                            onClickAttached={closeSidebar}
+                        />
+                        <MenuItem
+                            icon={<Tools />}
+                            label="Utilities"
+                            elementType={NavLink}
+                            to="/utilities"
+                            onClickAttached={closeSidebar}
+                        />
+                        <MenuItem
+                            icon={<Puzzle />}
+                            iconForActive={<PuzzleFill />}
+                            label="React Components"
+                            elementType={NavLink}
+                            to="/component"
+                            onClickAttached={closeSidebar}
+                        />
+                        <MenuItem
+                            icon={<Stickies />}
+                            iconForActive={<StickiesFill />}
+                            label="Recipes"
+                            elementType={NavLink}
+                            to="/recipes"
+                            onClickAttached={closeSidebar}
+                        />
+                    </SidebarMenu>
+                </Outside>
 
                 <div className="router-page active">
                     <Switch>
@@ -148,7 +170,7 @@ function _App() {
     )
 }
 
-function App() {
+function _App() {
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <Grid

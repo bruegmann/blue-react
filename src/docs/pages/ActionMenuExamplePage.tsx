@@ -22,14 +22,16 @@ export const ActionMenuExamplePage = () => {
                 >
                     <MenuItem label="I'm a MenuItem" />
 
-                    <MenuItem
-                        label="I'm a MenuItem with children"
-                        supportOutside
-                        icon={<CloudSleet />}
-                    >
-                        <MenuItem label="I'm a MenuItem" />
-                        <MenuItem label="Another one" />
-                    </MenuItem>
+                    <div>
+                        <MenuItem
+                            label="I'm a MenuItem with children"
+                            supportOutside
+                            icon={<CloudSleet />}
+                        >
+                            <MenuItem label="I'm a MenuItem" />
+                            <MenuItem label="Another one" />
+                        </MenuItem>
+                    </div>
                 </ActionMenu>
             </Header>
             <Body className="mt-5">

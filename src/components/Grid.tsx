@@ -309,7 +309,7 @@ export default class Grid extends Component<GridProps, GridState> {
                         (this.props.hideSidebarMenu
                             ? " hasNoSidebarMenu"
                             : " hasSidebarMenu") +
-                        (this.props.expandSidebar ? " expand-sidebar" : "") +
+                        (this.props.expandSidebar ? " expandSidebar" : "") +
                         (this.props.disableHeaders ? " disableHeaders" : "")
                     }
                     onClick={this.hideSidebar}

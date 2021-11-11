@@ -162,7 +162,7 @@
 }
 
 @media (min-width: 1400px) {
-    .blue-layout.expand-sidebar {
+    .blue-layout.expandSidebar {
         @include openSidebarMenu();
 
         .blue-sidebar {
@@ -183,7 +183,7 @@
         }
     }
 
-    .blue-layout > .blue-header-logo {
+    .blue-layout .blue-header-logo {
         padding-left: $spacer;
     }
 }
@@ -335,9 +335,4 @@
     top: 50%;
     transform: translateY(-50%);
     align-items: center;
-}
-
-.blue-page-nav-btn {
-    position: relative;
-    z-index: 1;
 }
