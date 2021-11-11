@@ -1,6 +1,5 @@
 .blue-layout {
     position: relative;
-    // padding-top: $normal-size;
     min-height: 100vh;
 
     &.hasNoSidebarMenu {
@@ -46,7 +45,7 @@
     }
 }
 
-.ui-header-wrapper {
+.blue-header-wrapper {
     position: absolute;
     top: 0;
     right: 0;
