@@ -36,25 +36,25 @@ Utilities.toggleClass = function (element, className) {
 };
 
 Utilities.startLoading = function () {
-  document.querySelectorAll(".blue-app-loading")[0].style.display = "block";
+  document.querySelectorAll(".blue-loading")[0].style.display = "block";
 };
 
 Utilities.finishLoading = function () {
-  document.querySelectorAll(".blue-app-loading")[0].style.display = "";
+  document.querySelectorAll(".blue-loading")[0].style.display = "";
 };
 
 Utilities.showSuccess = function () {
-  document.querySelectorAll(".blue-app-status-success")[0].style.display = "flex";
+  document.querySelectorAll(".blue-status-success")[0].style.display = "flex";
 };
 
 Utilities.hideSuccess = function () {
-  document.querySelectorAll(".blue-app-status-success")[0].style.display = "";
+  document.querySelectorAll(".blue-status-success")[0].style.display = "";
 };
 
 Utilities.toggleActions = function () {
-  this.toggleClass(document.querySelector(".blue-app-wrapper"), "active");
-  this.toggleClass(document.querySelector(".blue-app-grid"), "wrapper-in");
-  var els = document.querySelectorAll(".blue-app-actions");
+  this.toggleClass(document.querySelector(".blue-wrapper"), "active");
+  this.toggleClass(document.querySelector(".blue-layout"), "wrapper-in");
+  var els = document.querySelectorAll(".blue-actions");
 
   for (var i = 0; i < els.length; i++) {
     this.toggleClass(els[i], "open");
@@ -63,8 +63,8 @@ Utilities.toggleActions = function () {
 
 Utilities.resetAlertMessage = function () {
   var alertClassName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "info";
-  var alertElement = document.querySelectorAll(".blue-app-status-alert")[0];
-  document.querySelectorAll(".blue-app-status-" + alertClassName)[0].style.display = "";
+  var alertElement = document.querySelectorAll(".blue-status-alert")[0];
+  document.querySelectorAll(".blue-status-" + alertClassName)[0].style.display = "";
   alertElement.style.display = "";
   this.removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
 };
@@ -75,13 +75,13 @@ Utilities.setAlertMessage = function (message) {
   var alertClassName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "info";
   var close = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
   var detailText = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
-  var alertElement = document.querySelectorAll(".blue-app-status-alert")[0];
+  var alertElement = document.querySelectorAll(".blue-status-alert")[0];
 
   if (alertClassName.indexOf("alert-") > -1) {
     alertClassName = alertClassName.replace("alert-", "");
   }
 
-  document.querySelectorAll(".blue-app-status-" + alertClassName)[0].style.display = "flex";
+  document.querySelectorAll(".blue-status-" + alertClassName)[0].style.display = "flex";
   alertElement.style.display = "block";
   this.addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
   alertElement.querySelector(".alert-body").innerHTML = "<h2>" + message + "</h2>";
@@ -117,24 +117,6 @@ Utilities.scrollToTop = function () {
     top: 0
   });
 };
-/**
- * @deprecated Fluent buttons got removed from blue-react.
- */
-
-
-Utilities.fluentBtnsListener = function (event, btn) {};
-/**
- * @deprecated Fluent buttons got removed from blue-react.
- */
-
-
-Utilities.unregisterFluentBtns = function () {};
-/**
- * @deprecated Fluent buttons got removed from blue-react.
- */
-
-
-Utilities.registerFluentBtns = function () {};
 
 Utilities.fetchData = function (input) {
   var init = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;

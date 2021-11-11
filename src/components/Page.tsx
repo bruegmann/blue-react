@@ -1,6 +1,5 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from "react"
 import clsx from "clsx"
-import Utilities from "./Utilities"
 
 export interface PageProps {
     /**
@@ -16,10 +15,6 @@ export interface PageProps {
 export default function Page({ children, title }: PageProps) {
     const [hasHeader, setHasHeader] = useState(false)
     const elementRef = useRef(null) as MutableRefObject<any>
-
-    useEffect(() => {
-        Utilities.registerFluentBtns()
-    })
 
     useEffect(() => {
         if (elementRef && elementRef.current) {

@@ -1,4 +1,3 @@
-import Utilities from "./Utilities"
 import React, {
     FormEvent,
     useEffect,
@@ -64,9 +63,6 @@ export default function Modal({
     useEffect(() => {
         setInput(defaultInput || "")
     }, [defaultInput])
-    useEffect(() => {
-        Utilities.registerFluentBtns()
-    })
 
     useEffect(() => {
         const myModal = modalRef.current as unknown as Element

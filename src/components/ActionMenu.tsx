@@ -79,12 +79,10 @@ export default function ActionMenu(props: ActionMenuProps) {
                 } ${_break}`}
         >
             <div
-                className="ui-header-wrapper"
+                className="blue-header-wrapper"
                 onClick={Utilities.scrollToTop}
             />
-            <ul className="blue-actions-menu nav navbar-nav navbar-right fluent-btn">
-                <div className="fluent-btn-ball" />
-
+            <ul className="blue-actions-menu nav navbar-nav navbar-right">
                 {!actionsToggledIn && !hideToggleAction ? (
                     <MenuItem
                         className="blue-actions-menu-toggle"

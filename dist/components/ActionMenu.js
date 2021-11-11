@@ -55,18 +55,18 @@ function ActionMenu(props) {
   };
 
   var initToggleStatus = function initToggleStatus() {
-    setActionsToggledIn(_Utilities.default.hasClass(document.querySelector(".blue-app-actions"), "open"));
+    setActionsToggledIn(_Utilities.default.hasClass(document.querySelector(".blue-actions"), "open"));
   };
 
   (0, _react.useEffect)(function () {
     initToggleStatus();
-    var appWrapper = document.querySelector(".blue-app-wrapper");
+    var appWrapper = document.querySelector(".blue-wrapper");
 
     if (appWrapper) {
       appWrapper.onclick = toggleActions;
     }
 
-    document.querySelectorAll(".blue-app-actions-menu .nav-link").forEach(function (link) {
+    document.querySelectorAll(".blue-actions-menu .nav-link").forEach(function (link) {
       link.addEventListener("click", function () {
         if (actionsToggledIn) {
           toggleActions();
@@ -75,16 +75,14 @@ function ActionMenu(props) {
     });
   }, []);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-actions navbar ".concat(className, " navbar-expand").concat(_break !== "none" ? "-".concat(_break) : "", " ").concat(_break)
+    className: "blue-actions navbar ".concat(className, " navbar-expand").concat(_break !== "none" ? "-".concat(_break) : "", " ").concat(_break)
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "ui-header-wrapper",
+    className: "blue-header-wrapper",
     onClick: _Utilities.default.scrollToTop
   }), /*#__PURE__*/_react.default.createElement("ul", {
-    className: "blue-app-actions-menu nav navbar-nav navbar-right fluent-btn"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "fluent-btn-ball"
-  }), !actionsToggledIn && !hideToggleAction ? /*#__PURE__*/_react.default.createElement(_MenuItem.default, {
-    className: "blue-app-actions-menu-toggle",
+    className: "blue-actions-menu nav navbar-nav navbar-right"
+  }, !actionsToggledIn && !hideToggleAction ? /*#__PURE__*/_react.default.createElement(_MenuItem.default, {
+    className: "blue-actions-menu-toggle",
     onClick: function onClick() {
       return toggleActions();
     },

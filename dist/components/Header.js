@@ -17,9 +17,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Header(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-header blue-app-header-extension"
+    className: "blue-header blue-header-extension"
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "ui-header-wrapper",
+    className: "blue-header-wrapper",
     onClick: _Utilities.default.scrollToTop
   }), children);
 }

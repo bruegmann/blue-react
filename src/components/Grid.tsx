@@ -167,8 +167,6 @@ export default class Grid extends Component<GridProps, GridState> {
             }
         })
 
-        Utilities.registerFluentBtns()
-
         window.addEventListener("hashchange", this.onHashChange)
     }
 

@@ -12,7 +12,7 @@ export default function Header({ children }: HeaderProps) {
     return (
         <div className="blue-header blue-header-extension">
             <div
-                className="ui-header-wrapper"
+                className="blue-header-wrapper"
                 onClick={Utilities.scrollToTop}
             />
 

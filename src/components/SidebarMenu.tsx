@@ -2,11 +2,6 @@ import React, { Fragment, useEffect, useState } from "react"
 
 export interface SidebarMenuProps {
     /**
-     * Should menu items have a Fluent effect. Default: `true`
-     */
-    fluent?: boolean
-
-    /**
      * Extends the class name by the sidebar.
      */
     sidebarClass?: string
@@ -43,8 +38,6 @@ export interface SidebarMenuProps {
  * Sidebar for the `Grid` component.
  */
 export default function SidebarMenu(props: SidebarMenuProps) {
-    const { fluent = false } = props
-
     const [hasShadow, setHasShadow] = useState<boolean>(false)
 
     const updateDimensions = () => {
@@ -98,14 +91,7 @@ export default function SidebarMenu(props: SidebarMenuProps) {
                 }
                 style={props.menuStyle ? props.menuStyle : {}}
             >
-                <div className={fluent === true ? "fluent-btn" : ""}>
-                    {fluent === true ? (
-                        <div className="fluent-btn-ball" />
-                    ) : (
-                        <Fragment />
-                    )}
-                    {props.children}
-                </div>
+                {props.children}
             </div>
 
             {props.bottomContent && (

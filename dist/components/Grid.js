@@ -102,9 +102,6 @@ var Grid = /*#__PURE__*/function (_Component) {
           me.toggleSidebar(event);
         }
       });
-
-      _Utilities.default.registerFluentBtns();
-
       window.addEventListener("hashchange", this.onHashChange);
     }
   }, {
@@ -161,7 +158,7 @@ var Grid = /*#__PURE__*/function (_Component) {
   }, {
     key: "hideSidebar",
     value: function hideSidebar(e) {
-      if (!(_Utilities.default.hasClass(e.target, "blue-app-open-menu") || _Utilities.default.hasClass(e.target, "bi-menu") || _Utilities.default.hasClass(e.target, "blue-app-search") || _Utilities.default.hasClass(e.target, "blue-app-search-control") || _Utilities.default.hasClass(e.target, "blue-app-search-btn") || _Utilities.default.hasClass(e.target, "blue-app-search-btn-icon") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-dropdown-toggle") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-dropdown-caret") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-dropdown-icon") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-exception"))) {
+      if (!(_Utilities.default.hasClass(e.target, "blue-open-menu") || _Utilities.default.hasClass(e.target, "bi-menu") || _Utilities.default.hasClass(e.target, "blue-search") || _Utilities.default.hasClass(e.target, "blue-search-control") || _Utilities.default.hasClass(e.target, "blue-search-btn") || _Utilities.default.hasClass(e.target, "blue-search-btn-icon") || _Utilities.default.hasClass(e.target, "blue-sidebar-dropdown-toggle") || _Utilities.default.hasClass(e.target, "blue-sidebar-dropdown-caret") || _Utilities.default.hasClass(e.target, "blue-sidebar-dropdown-icon") || _Utilities.default.hasClass(e.target, "blue-sidebar-exception"))) {
         this.setState({
           sidebarIn: false
         });
@@ -211,43 +208,43 @@ var Grid = /*#__PURE__*/function (_Component) {
           _this$props$pages;
 
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-wrapper"
+        className: "blue-wrapper"
       }), /*#__PURE__*/_react.default.createElement("div", {
         id: this.props.id ? this.props.id : "",
         style: this.props.style ? this.props.style : {},
-        className: "blue-app-grid" + (this.props.className ? " " + this.props.className : "") + (this.state.sidebarIn ? " open" : "") + (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") + (this.props.expandSidebar ? " expand-sidebar" : "") + (this.props.disableHeaders ? " disableHeaders" : ""),
+        className: "blue-layout" + (this.props.className ? " " + this.props.className : "") + (this.state.sidebarIn ? " open" : "") + (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") + (this.props.expandSidebar ? " expand-sidebar" : "") + (this.props.disableHeaders ? " disableHeaders" : ""),
         onClick: this.hideSidebar
       }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-sidebar-toggler"
+        className: "blue-sidebar-toggler"
       }, !this.props.hideSidebarMenu ? /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
-        className: "blue-app-open-menu blue-app-sidebar-btn btn",
+        className: "blue-open-menu blue-sidebar-btn btn",
         onClick: function onClick() {
           _this4.setState({
             sidebarIn: !_this4.state.sidebarIn
           });
         }
       }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-sidebar-exception position-absolute w-100 h-100"
+        className: "blue-sidebar-exception position-absolute w-100 h-100"
       }), this.props.sidebarToggleIconComponent) : ""), this.props.children, (_this$props$pages = this.props.pages) === null || _this$props$pages === void 0 ? void 0 : _this$props$pages.map(function (page) {
         return _this4.state.history.indexOf(page.name) > -1 && /*#__PURE__*/_react.default.createElement("div", {
           key: page.name,
           className: "router-page " + (_this4.state.match[0] === page.name ? "active" : "")
         }, page.component);
       }), /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-status-circle blue-app-loading blue-app-status-loading"
+        className: "blue-status-circle blue-loading blue-status-loading"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "spinner-bounce-circle"
       }, /*#__PURE__*/_react.default.createElement("div", null), /*#__PURE__*/_react.default.createElement("div", null))), /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-status-circle blue-app-status-success"
+        className: "blue-status-circle blue-status-success"
       }, this.props.statusIcons.success), /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-status-circle blue-app-status-info"
+        className: "blue-status-circle blue-status-info"
       }, this.props.statusIcons.info), /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-status-circle blue-app-status-warning"
+        className: "blue-status-circle blue-status-warning"
       }, this.props.statusIcons.warning), /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-status-circle blue-app-status-danger"
+        className: "blue-status-circle blue-status-danger"
       }, this.props.statusIcons.danger), /*#__PURE__*/_react.default.createElement("div", {
-        className: "blue-app-status-alert alert"
+        className: "blue-status-alert alert"
       }, /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
         className: "btn-close float-end mb-1",

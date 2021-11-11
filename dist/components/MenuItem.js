@@ -82,7 +82,7 @@ function MenuItem(props) {
     var target = _ref.target;
 
     // Don't trigger when clicking on MenuItem
-    if (!_Utilities.default.hasClass(target, "blue-app-sidebar-dropdown-toggle") && !_Utilities.default.hasClass(target, "blue-app-sidebar-label")) {
+    if (!_Utilities.default.hasClass(target, "blue-sidebar-dropdown-toggle") && !_Utilities.default.hasClass(target, "blue-sidebar-label")) {
       setShowDropdown(false);
     }
   };
@@ -96,13 +96,13 @@ function MenuItem(props) {
   (0, _react.useEffect)(function () {
     if (props.showDropdown !== undefined) setShowDropdown(props.showDropdown);
   }, [props.showDropdown]);
-  var className = "blue-app-toggle-page blue-app-sidebar-btn btn" + (props.isActive ? " active" : "") + (props.className ? " " + props.className : "") + (props.children ? " blue-app-sidebar-dropdown-toggle" : "");
+  var className = "blue-toggle-page blue-sidebar-btn btn" + (props.isActive ? " active" : "") + (props.className ? " " + props.className : "") + (props.children ? " blue-sidebar-dropdown-toggle" : "");
   var icon, iconForActive;
 
   if (typeof props.icon === "string") {
     // is className
     icon = /*#__PURE__*/_react.default.createElement("span", {
-      className: props.icon + (props.children ? " blue-app-sidebar-dropdown-icon" : "")
+      className: props.icon + (props.children ? " blue-sidebar-dropdown-icon" : "")
     });
   } else {
     // is element / component
@@ -112,7 +112,7 @@ function MenuItem(props) {
   if (typeof props.iconForActive === "string") {
     // is className
     iconForActive = /*#__PURE__*/_react.default.createElement("span", {
-      className: props.iconForActive + (props.children ? " blue-app-sidebar-dropdown-icon" : "")
+      className: props.iconForActive + (props.children ? " blue-sidebar-dropdown-icon" : "")
     });
   } else {
     // is element / component
@@ -132,21 +132,21 @@ function MenuItem(props) {
     className: className + (props.isActive || active ? " active" : "") + (props.label ? " has-label" : ""),
     onClick: onClick
   }), /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {
-    className: (0, _clsx.default)("blue-app-menu-item-icon", {
+    className: (0, _clsx.default)("blue-menu-item-icon", {
       hasIconForActive: iconForActive
     })
   }, icon), iconForActive && /*#__PURE__*/_react.default.createElement("span", {
-    className: "blue-app-menu-item-icon iconForActive"
+    className: "blue-menu-item-icon iconForActive"
   }, iconForActive), props.label && /*#__PURE__*/_react.default.createElement("span", {
-    className: "blue-app-sidebar-label text-truncate"
+    className: "blue-sidebar-label text-truncate"
   }, props.label), props.children && /*#__PURE__*/_react.default.createElement(_Caret.default, {
     open: showDropdown,
     mirrored: true,
-    className: "blue-app-sidebar-dropdown-caret mt-2"
+    className: "blue-sidebar-dropdown-caret mt-2"
   }))), showDropdown && (props.supportOutside ? /*#__PURE__*/_react.default.createElement(_Outside.default, {
-    className: "blue-app-sidebar-dropdown ".concat(props.dropdownClassName),
+    className: "blue-sidebar-dropdown ".concat(props.dropdownClassName),
     onClickOutside: onClickOutside
   }, props.children) : /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-sidebar-dropdown ".concat(props.dropdownClassName)
+    className: "blue-sidebar-dropdown ".concat(props.dropdownClassName)
   }, props.children)));
 }

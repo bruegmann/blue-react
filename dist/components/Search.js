@@ -46,7 +46,7 @@ function Search(props) {
       resetIcon = props.resetIcon,
       sidebar = props.sidebar;
 
-  var SearchControlId = "blue-app-search-control-" + _Utilities.default.guid();
+  var SearchControlId = "blue-search-control-" + _Utilities.default.guid();
 
   var _useState = (0, _react.useState)(props.value || ""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -65,14 +65,14 @@ function Search(props) {
   };
 
   return /*#__PURE__*/_react.default.createElement("form", {
-    className: "blue-app-search " + (body ? "blue-app-search-body " : "") + (focus ? "focus " : "") + (sidebar ? "blue-app-search-sidebar " : "") + className,
+    className: "blue-search " + (body ? "blue-search-body " : "") + (focus ? "focus " : "") + (sidebar ? "blue-search-sidebar " : "") + className,
     onSubmit: function onSubmit(event) {
       event.preventDefault();
       toggleSidebar();
       if (_onSubmit) _onSubmit(event);
     }
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-search-input-group input-group"
+    className: "blue-search-input-group input-group"
   }, /*#__PURE__*/_react.default.createElement("span", {
     className: "input-group-text",
     onClick: function onClick() {
@@ -101,7 +101,7 @@ function Search(props) {
       if (_onChange) _onChange(event);
     },
     id: SearchControlId,
-    className: "blue-app-search-control form-control default input-lg",
+    className: "blue-search-control form-control default input-lg",
     placeholder: placeholder,
     autoFocus: autoFocus,
     style: {
@@ -117,7 +117,7 @@ function Search(props) {
     className: "input-group-btn"
   }, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    className: "blue-app-search-reset-btn btn btn-link btn-lg",
+    className: "blue-search-reset-btn btn btn-link btn-lg",
     onClick: function onClick() {
       var _document$getElementB2;
 
@@ -140,7 +140,7 @@ function Search(props) {
     d: "M4.646 4.646a.5.5 0 01.708 0L8 7.293l2.646-2.647a.5.5 0 01.708.708L8.707 8l2.647 2.646a.5.5 0 01-.708.708L8 8.707l-2.646 2.647a.5.5 0 01-.708-.708L7.293 8 4.646 5.354a.5.5 0 010-.708z"
   }))))), sidebar && /*#__PURE__*/_react.default.createElement(_MenuItem.default, {
     href: "#",
-    className: "blue-app-search-btn",
+    className: "blue-search-btn",
     icon: icon,
     onClick: function onClick(event) {
       event.preventDefault();
@@ -149,7 +149,7 @@ function Search(props) {
         var _document$querySelect;
 
         ;
-        (_document$querySelect = document.querySelector(".blue-app-search-control")) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.select();
+        (_document$querySelect = document.querySelector(".blue-search-control")) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.select();
       }, 200);
     }
   }));

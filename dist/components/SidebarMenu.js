@@ -29,9 +29,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
  * Sidebar for the `Grid` component.
  */
 function SidebarMenu(props) {
-  var _props$fluent = props.fluent,
-      fluent = _props$fluent === void 0 ? false : _props$fluent;
-
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       hasShadow = _useState2[0],
@@ -44,7 +41,7 @@ function SidebarMenu(props) {
   };
 
   (0, _react.useEffect)(function () {
-    var blueAppSidebar = document.querySelector(".blue-app-sidebar");
+    var blueAppSidebar = document.querySelector(".blue-sidebar");
     window.addEventListener("resize", updateDimensions);
 
     if (blueAppSidebar.scrollHeight > blueAppSidebar.clientHeight) {
@@ -63,18 +60,14 @@ function SidebarMenu(props) {
     };
   }, []);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-sidebar " + (props.sidebarClass ? props.sidebarClass : ""),
+    className: "blue-sidebar " + (props.sidebarClass ? props.sidebarClass : ""),
     style: props.sidebarStyle ? props.sidebarStyle : {}
   }, props.topContent && /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-sidebar-top"
+    className: "blue-sidebar-top"
   }, props.topContent), /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-menu " + (props.menuClass ? props.menuClass : ""),
+    className: "blue-menu " + (props.menuClass ? props.menuClass : ""),
     style: props.menuStyle ? props.menuStyle : {}
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: fluent === true ? "fluent-btn" : ""
-  }, fluent === true ? /*#__PURE__*/_react.default.createElement("div", {
-    className: "fluent-btn-ball"
-  }) : /*#__PURE__*/_react.default.createElement(_react.Fragment, null), props.children)), props.bottomContent && /*#__PURE__*/_react.default.createElement("div", {
-    className: "blue-app-sidebar-bottom " + (hasShadow ? " has-shadow" : "")
+  }, props.children), props.bottomContent && /*#__PURE__*/_react.default.createElement("div", {
+    className: "blue-sidebar-bottom " + (hasShadow ? " has-shadow" : "")
   }, props.bottomContent));
 }

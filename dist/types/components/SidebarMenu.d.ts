@@ -1,10 +1,6 @@
 /// <reference types="react" />
 export interface SidebarMenuProps {
     /**
-     * Should menu items have a Fluent effect. Default: `true`
-     */
-    fluent?: boolean;
-    /**
      * Extends the class name by the sidebar.
      */
     sidebarClass?: string;

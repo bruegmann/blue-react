@@ -33,7 +33,7 @@ function HeaderTitle(_ref) {
 
   var setDocumentTitle = function setDocumentTitle() {
     if (window.blueGridRef && window.blueGridRef.props && window.blueGridRef.props.disableTitleSet === false) {
-      var element = document.querySelector("#".concat(uniqueId, " .blue-app-header-logo-title-labels"));
+      var element = document.querySelector("#".concat(uniqueId, " .blue-header-logo-title-labels"));
       var titleElement = document.querySelector("title");
 
       if (element && element.innerText && titleElement) {
@@ -52,16 +52,16 @@ function HeaderTitle(_ref) {
   (0, _react.useEffect)(setDocumentTitle, [children]);
   return /*#__PURE__*/_react.default.createElement("h3", {
     id: uniqueId,
-    className: "blue-app-header-logo" + (className ? " ".concat(className) : "") + (sidebar ? " sidebar" : "")
+    className: "blue-header-logo" + (className ? " ".concat(className) : "") + (sidebar ? " sidebar" : "")
   }, /*#__PURE__*/_react.default.createElement("span", {
-    className: "blue-app-header-logo-title"
+    className: "blue-header-logo-title"
   }, logo ? /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("a", {
     href: "#"
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: logo,
-    className: "blue-app-header-logo-image"
+    className: "blue-header-logo-image"
   })), "\xA0") : "", /*#__PURE__*/_react.default.createElement("span", {
-    className: "blue-app-header-logo-title-labels " + (keepAppTitle ? "keep" : "")
+    className: "blue-header-logo-title-labels " + (keepAppTitle ? "keep" : "")
   }, appTitle ? /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("a", {
     href: "#"
   }, appTitle), " ", children ? "/" : "", "\xA0") : "", children)));

@@ -27,7 +27,7 @@ function Body(_ref) {
       children = _ref.children,
       rest = _objectWithoutProperties(_ref, _excluded);
 
-  var pageBodyClassName = "blue-app-page";
+  var pageBodyClassName = "blue-page";
   return /*#__PURE__*/_react.default.createElement("div", {
     id: id,
     className: className ? pageBodyClassName + " " + className : pageBodyClassName + (hasActions ? " has-actions" : "") + " break-".concat(rest.break || "md"),

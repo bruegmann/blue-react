@@ -148,24 +148,6 @@ Utilities.scrollToTop = () => {
     })
 }
 
-/**
- * @deprecated Fluent buttons got removed from blue-react.
- */
-Utilities.fluentBtnsListener = (event, btn) => {
-}
-
-/**
- * @deprecated Fluent buttons got removed from blue-react.
- */
-Utilities.unregisterFluentBtns = () => {
-}
-
-/**
- * @deprecated Fluent buttons got removed from blue-react.
- */
-Utilities.registerFluentBtns = () => {
-}
-
 Utilities.fetchData = function (
     input,
     init = undefined,

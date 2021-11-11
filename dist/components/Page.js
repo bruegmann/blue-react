@@ -11,8 +11,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _clsx = _interopRequireDefault(require("clsx"));
 
-var _Utilities = _interopRequireDefault(require("./Utilities"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -45,11 +43,8 @@ function Page(_ref) {
 
   var elementRef = (0, _react.useRef)(null);
   (0, _react.useEffect)(function () {
-    _Utilities.default.registerFluentBtns();
-  });
-  (0, _react.useEffect)(function () {
     if (elementRef && elementRef.current) {
-      var headerElement = elementRef.current.querySelector(".blue-app-header");
+      var headerElement = elementRef.current.querySelector(".blue-header");
       setHasHeader(headerElement !== null && headerElement !== undefined);
     }
   }, [elementRef]);
@@ -61,7 +56,7 @@ function Page(_ref) {
     }
   }, [title]);
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _clsx.default)("blue-app-page-wrapper", {
+    className: (0, _clsx.default)("blue-page-wrapper", {
       hasHeader: hasHeader
     }),
     ref: elementRef

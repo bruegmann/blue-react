@@ -1,5 +1,4 @@
-import React, { useEffect } from "react"
-import Utilities from "./Utilities"
+import React from "react"
 
 export interface IntroProps {
     /**
@@ -32,10 +31,6 @@ export default function Intro({
     title,
     children
 }: IntroProps) {
-    useEffect(() => {
-        Utilities.registerFluentBtns()
-    }, [])
-
     return (
         <div className="sign-in-screen">
             <div className="sign-in-container mx-1">

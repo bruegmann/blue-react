@@ -21,13 +21,13 @@ function ActionMenuSwitch(props) {
     className: "nav-item"
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "javascript:void(0)",
-    className: "nav-link blue-app-actions-menu-item",
+    className: "nav-link blue-actions-menu-item",
     onClick: function onClick() {
       if (props.onChange) props.onChange();
     }
   }, /*#__PURE__*/_react.default.createElement(_Switch.default, _extends({}, props, {
     elementType: "span"
   })), props.label && /*#__PURE__*/_react.default.createElement("span", {
-    className: "blue-app-actions-label"
+    className: "blue-actions-label"
   }, "\xA0", props.label)));
 }
