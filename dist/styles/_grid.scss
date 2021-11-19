@@ -256,7 +256,7 @@
     margin-top: -0.25rem;
 }
 
-.blue-sidebar-btn {
+.blue-menu-item {
     transition: width 0.5s, background-color 0.3s, color 0.15s, box-shadow 0.3s,
  opacity 0.3s !important;
     padding: 0.5rem 0.75rem;
@@ -273,7 +273,7 @@
     }
 }
 
-.blue-sidebar-label {
+.blue-menu-item-label {
     display: none;
     max-height: 100%;
 }
@@ -291,7 +291,7 @@
     display: none;
 }
 
-.blue-sidebar-btn.active {
+.blue-menu-item.active {
     .blue-menu-item-icon.hasIconForActive {
         display: none;
     }
@@ -300,26 +300,26 @@
     }
 }
 
-.blue-sidebar-dropdown {
+.blue-menu-item-dropdown {
     margin-left: 1rem;
-    animation: blue-sidebar-dropdown 0.15s;
+    animation: blue-menu-item-dropdown 0.15s;
 
     --sidebar-bg: #{$sidebar-deep-bg};
     background: var(--sidebar-bg);
 
-    .blue-sidebar-dropdown {
+    .blue-menu-item-dropdown {
         --sidebar-bg: #{darken($sidebar-deep-bg, 4%)};
 
-        .blue-sidebar-dropdown {
+        .blue-menu-item-dropdown {
             --sidebar-bg: #{darken($sidebar-deep-bg, 8%)};
 
-            .blue-sidebar-dropdown {
+            .blue-menu-item-dropdown {
                 --sidebar-bg: #{darken($sidebar-deep-bg, 12%)};
 
-                .blue-sidebar-dropdown {
+                .blue-menu-item-dropdown {
                     --sidebar-bg: #{darken($sidebar-deep-bg, 16%)};
 
-                    .blue-sidebar-dropdown {
+                    .blue-menu-item-dropdown {
                         --sidebar-bg: #{darken($sidebar-deep-bg, 20%)};
                     }
                 }
@@ -328,7 +328,7 @@
     }
 }
 
-.blue-sidebar-dropdown-caret.caret {
+.blue-menu-item-dropdown-caret.caret {
     display: none;
     position: absolute;
     right: 1.5rem;

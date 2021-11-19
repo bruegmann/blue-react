@@ -52,18 +52,18 @@
     }
 
     // Support for MenuItems
-    .blue-sidebar-btn {
+    .blue-menu-item {
         width: auto;
         margin-top: 0;
         margin-bottom: 0;
     }
 
-    .blue-sidebar-dropdown-toggle .blue-sidebar-label {
+    .blue-menu-item-dropdown-toggle .blue-menu-item-label {
         margin-right: 2rem;
     }
 
-    .blue-sidebar-label,
-    .blue-sidebar-dropdown-caret.caret {
+    .blue-menu-item-label,
+    .blue-menu-item-dropdown-caret.caret {
         display: initial;
     }
 }

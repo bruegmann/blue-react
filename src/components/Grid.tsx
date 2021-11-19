@@ -231,15 +231,15 @@ export default class Grid extends Component<GridProps, GridState> {
                 Utilities.hasClass(e.target, "blue-search-btn-icon") ||
                 Utilities.hasClass(
                     e.target,
-                    "blue-sidebar-dropdown-toggle"
+                    "blue-menu-item-dropdown-toggle"
                 ) ||
                 Utilities.hasClass(
                     e.target,
-                    "blue-sidebar-dropdown-caret"
+                    "blue-menu-item-dropdown-caret"
                 ) ||
                 Utilities.hasClass(
                     e.target,
-                    "blue-sidebar-dropdown-icon"
+                    "blue-menu-item-dropdown-icon"
                 ) ||
                 Utilities.hasClass(e.target, "blue-sidebar-exception")
             )
@@ -318,7 +318,7 @@ export default class Grid extends Component<GridProps, GridState> {
                         {!this.props.hideSidebarMenu ? (
                             <button
                                 type="button"
-                                className="blue-open-menu blue-sidebar-btn btn"
+                                className="blue-open-menu blue-menu-item btn"
                                 onClick={() => {
                                     this.setState({
                                         sidebarIn: !this.state.sidebarIn

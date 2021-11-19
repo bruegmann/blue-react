@@ -128,8 +128,8 @@ export default function MenuItem(props: MenuItemProps) {
     const onClickOutside = ({ target }: MouseEvent) => {
         // Don't trigger when clicking on MenuItem
         if (
-            !Utilities.hasClass(target, "blue-sidebar-dropdown-toggle") &&
-            !Utilities.hasClass(target, "blue-sidebar-label")
+            !Utilities.hasClass(target, "blue-menu-item-dropdown-toggle") &&
+            !Utilities.hasClass(target, "blue-menu-item-label")
         ) {
             setShowDropdown(false)
         }
@@ -148,10 +148,10 @@ export default function MenuItem(props: MenuItemProps) {
     }, [props.showDropdown])
 
     const className =
-        "blue-toggle-page blue-sidebar-btn btn" +
+        "blue-menu-item btn" +
         (props.isActive ? " active" : "") +
         (props.className ? " " + props.className : "") +
-        (props.children ? " blue-sidebar-dropdown-toggle" : "")
+        (props.children ? " blue-menu-item-dropdown-toggle" : "")
 
     let icon, iconForActive
 
@@ -161,7 +161,7 @@ export default function MenuItem(props: MenuItemProps) {
             <span
                 className={
                     props.icon +
-                    (props.children ? " blue-sidebar-dropdown-icon" : "")
+                    (props.children ? " blue-menu-item-dropdown-icon" : "")
                 }
             />
         )
@@ -176,7 +176,7 @@ export default function MenuItem(props: MenuItemProps) {
             <span
                 className={
                     props.iconForActive +
-                    (props.children ? " blue-sidebar-dropdown-icon" : "")
+                    (props.children ? " blue-menu-item-dropdown-icon" : "")
                 }
             />
         )
@@ -231,7 +231,7 @@ export default function MenuItem(props: MenuItemProps) {
                         </span>
                     )}
                     {props.label && (
-                        <span className="blue-sidebar-label text-truncate">
+                        <span className="blue-menu-item-label text-truncate">
                             {props.label}
                         </span>
                     )}
@@ -239,7 +239,7 @@ export default function MenuItem(props: MenuItemProps) {
                         <Caret
                             open={showDropdown}
                             mirrored
-                            className="blue-sidebar-dropdown-caret mt-2"
+                            className="blue-menu-item-dropdown-caret mt-2"
                         />
                     )}
                 </>
@@ -248,14 +248,14 @@ export default function MenuItem(props: MenuItemProps) {
             {showDropdown &&
                 (props.supportOutside ? (
                     <Outside
-                        className={`blue-sidebar-dropdown ${props.dropdownClassName}`}
+                        className={`blue-menu-item-dropdown ${props.dropdownClassName}`}
                         onClickOutside={onClickOutside}
                     >
                         {props.children}
                     </Outside>
                 ) : (
                     <div
-                        className={`blue-sidebar-dropdown ${props.dropdownClassName}`}
+                        className={`blue-menu-item-dropdown ${props.dropdownClassName}`}
                     >
                         {props.children}
                     </div>

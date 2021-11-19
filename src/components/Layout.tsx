@@ -42,7 +42,7 @@ export default function Layout({
                 {!hideSidebarMenu && (
                     <button
                         type="button"
-                        className="blue-open-menu blue-sidebar-btn btn"
+                        className="blue-open-menu blue-menu-item btn"
                         onClick={toggleOpen}
                     >
                         <div className="blue-sidebar-exception position-absolute w-100 h-100" />
