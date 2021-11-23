@@ -27,6 +27,6 @@ export interface SidebarMenuProps {
     children?: any;
 }
 /**
- * Sidebar for the `Grid` component.
+ * Sidebar for the `Layout` component.
  */
 export default function SidebarMenu(props: SidebarMenuProps): JSX.Element;

@@ -1,13 +1,13 @@
 declare global {
     interface Window {
-        blueGridRef: any
+        blueLayoutRef: any
         toggleSidebarEvent: any
     }
 }
 export default global
 
-export { default as Grid } from "./dist/types/components/Grid"
-export { GridProps } from "./dist/types/components/Grid"
+export { default as Layout } from "./dist/types/components/Layout"
+export { LayoutProps } from "./dist/types/components/Layout"
 
 export { default as ActionMenu } from "./dist/types/components/ActionMenu"
 export { ActionMenuProps } from "./dist/types/components/ActionMenu"

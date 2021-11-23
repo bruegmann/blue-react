@@ -35,7 +35,7 @@ export interface SidebarMenuProps {
 }
 
 /**
- * Sidebar for the `Grid` component.
+ * Sidebar for the `Layout` component.
  */
 export default function SidebarMenu(props: SidebarMenuProps) {
     const [hasShadow, setHasShadow] = useState<boolean>(false)

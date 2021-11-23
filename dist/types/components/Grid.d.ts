@@ -1,11 +1,11 @@
 import { Component, CSSProperties } from "react";
 declare global {
     interface Window {
-        blueGridRef: any;
+        blueLayoutRef: any;
         toggleSidebarEvent: any;
     }
 }
-export interface GridProps {
+export interface LayoutProps {
     id?: string;
     sidebarIn?: boolean;
     style?: CSSProperties;
@@ -56,11 +56,11 @@ export interface GridProps {
     disableHeaders?: boolean;
     /**
      * Define a function, that will be fired when switching routes. When your function returns `true`, the default route behaviour will be blocked.
-     * You can use something like `window.blueGridRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
+     * You can use something like `window.blueLayoutRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
      */
     blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean;
 }
-export interface GridState {
+export interface LayoutState {
     sidebarIn?: boolean;
     match: any;
     history: string[];
@@ -69,22 +69,22 @@ export interface GridState {
     blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean;
 }
 /**
- * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
- * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`.
+ * The main component. As soon this component is mounted, it is globally available under `window.blueLayoutRef`.
+ * Also you can append your own event listeners with `blueLayoutRef.addEventListener(eventName, (prevProps, prevState) => { })`.
  *
  * Allowed event listeners:
  *
  * * **componentDidUpdate** - Component was updated.
- *   Example: `blueGridRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
+ *   Example: `blueLayoutRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
  * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.
- *   Example: `blueGridRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
+ *   Example: `blueLayoutRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
  * * **pageDidHide** - This page disappeared and another page appears instead.
- *   Example: `blueGridRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
+ *   Example: `blueLayoutRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
  */
-export default class Grid extends Component<GridProps, GridState> {
+export default class Layout extends Component<LayoutProps, LayoutState> {
     defaultMatch: string[];
     eventListeners: any[];
-    constructor(props: GridProps);
+    constructor(props: LayoutProps);
     onHashChange(event: HashChangeEvent): void;
     static get defaultProps(): {
         expandSidebar: boolean;
@@ -101,7 +101,7 @@ export default class Grid extends Component<GridProps, GridState> {
     };
     componentDidMount(): void;
     componentWillUnmount(): void;
-    componentDidUpdate(prevProps: GridProps, prevState: GridState): void;
+    componentDidUpdate(prevProps: LayoutProps, prevState: LayoutState): void;
     toggleSidebar(event: any): void;
     hideSidebar(e: any): void;
     initMatch(): void;

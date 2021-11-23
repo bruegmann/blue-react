@@ -46,9 +46,9 @@ export default function HeaderTitle({
 
     const setDocumentTitle = () => {
         if (
-            window.blueGridRef &&
-            window.blueGridRef.props &&
-            window.blueGridRef.props.disableTitleSet === false
+            window.blueLayoutRef &&
+            window.blueLayoutRef.props &&
+            window.blueLayoutRef.props.disableTitleSet === false
         ) {
             const element = document.querySelector(
                 `#${uniqueId} .blue-header-logo-title-labels`
