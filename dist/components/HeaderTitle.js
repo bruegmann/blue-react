@@ -32,7 +32,7 @@ function HeaderTitle(_ref) {
   var uniqueId = "HeaderTitle-" + _Utilities.default.guid();
 
   var setDocumentTitle = function setDocumentTitle() {
-    if (window.blueGridRef && window.blueGridRef.props && window.blueGridRef.props.disableTitleSet === false) {
+    if (window.blueLayoutRef && window.blueLayoutRef.props && window.blueLayoutRef.props.disableTitleSet === false) {
       var element = document.querySelector("#".concat(uniqueId, " .blue-header-logo-title-labels"));
       var titleElement = document.querySelector("title");
 

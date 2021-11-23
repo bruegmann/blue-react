@@ -30,12 +30,17 @@ export function VersionToggle() {
                     ref={dropdownRef}
                     title="Switch to another version"
                 >
-                    /v7
+                    /v8
                 </button>
                 <ul
                     className="dropdown-menu dropdown-menu-end"
                     style={{ minWidth: "5rem" }}
                 >
+                    <li>
+                        <a className="dropdown-item" href="/blue-react/v7/">
+                            /v7
+                        </a>
+                    </li>
                     <li>
                         <a className="dropdown-item" href="/blue-react/v6/">
                             /v6

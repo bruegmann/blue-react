@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _Status = _interopRequireDefault(require("./Status"));
 
-var _excluded = ["children", "successIcon"];
+var _excluded = ["children", "successIcon", "infoIcon", "warningIcon", "dangerIcon"];
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38,36 +38,43 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 var StatusContext = /*#__PURE__*/(0, _react.createContext)({
-  showSuccess: undefined,
-  hideSuccess: undefined
+  setAlert: undefined,
+  setStatus: undefined
 });
 
 var StatusProvider = function StatusProvider(_ref) {
   var children = _ref.children,
       successIcon = _ref.successIcon,
+      infoIcon = _ref.infoIcon,
+      warningIcon = _ref.warningIcon,
+      dangerIcon = _ref.dangerIcon,
       rest = _objectWithoutProperties(_ref, _excluded);
 
-  var _useState = (0, _react.useState)(false),
+  var _useState = (0, _react.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
-      success = _useState2[0],
-      setSuccess = _useState2[1];
+      alert = _useState2[0],
+      setAlert = _useState2[1];
 
-  var showSuccess = function showSuccess() {
-    return setSuccess(true);
-  };
-
-  var hideSuccess = function hideSuccess() {
-    return setSuccess(false);
-  };
+  var _useState3 = (0, _react.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      status = _useState4[0],
+      setStatus = _useState4[1];
 
   return /*#__PURE__*/_react.default.createElement(StatusContext.Provider, _extends({
     value: {
-      showSuccess: showSuccess,
-      hideSuccess: hideSuccess
+      setAlert: setAlert,
+      setStatus: setStatus
     }
   }, rest), children, /*#__PURE__*/_react.default.createElement(_Status.default, {
-    success: success,
-    successIcon: successIcon
+    alert: alert || undefined,
+    onUnsetAlert: function onUnsetAlert() {
+      return setAlert(null);
+    },
+    successIcon: successIcon,
+    infoIcon: infoIcon,
+    warningIcon: warningIcon,
+    dangerIcon: dangerIcon,
+    status: status
   }));
 };
 

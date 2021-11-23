@@ -11,6 +11,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _Modal = _interopRequireDefault(require("./Modal"));
 
+var _excluded = ["children"];
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -31,13 +33,20 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 var ModalContext = /*#__PURE__*/(0, _react.createContext)({
   ask: undefined,
   tell: undefined,
   verify: undefined
 });
 
-var ModalProvider = function ModalProvider(props) {
+var ModalProvider = function ModalProvider(_ref) {
+  var children = _ref.children,
+      rest = _objectWithoutProperties(_ref, _excluded);
+
   var _useState = (0, _react.useState)("tell"),
       _useState2 = _slicedToArray(_useState, 2),
       type = _useState2[0],
@@ -109,7 +118,7 @@ var ModalProvider = function ModalProvider(props) {
       tell: tell,
       verify: verify
     }
-  }, props), props.children, /*#__PURE__*/_react.default.createElement(_Modal.default, {
+  }, rest), children, /*#__PURE__*/_react.default.createElement(_Modal.default, {
     modalContent: modalContent,
     unSetModalContent: unSetModalContent,
     onSubmit: onSubmit,

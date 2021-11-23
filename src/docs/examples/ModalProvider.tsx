@@ -73,7 +73,7 @@ function InsideComp() {
  * Your component where you use `useModal` has to be wrapped around `<ModalProvider></ModalProvider>`.
  * Best practice is to wrap it around your root component.
  */
-export default function ModalExample() {
+export default function ModalProviderExample() {
     return (
         <ModalProvider>
             <InsideComp />

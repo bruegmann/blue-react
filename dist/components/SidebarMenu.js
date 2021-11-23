@@ -26,7 +26,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /**
- * Sidebar for the `Grid` component.
+ * Sidebar for the `Layout` component.
  */
 function SidebarMenu(props) {
   var _useState = (0, _react.useState)(false),

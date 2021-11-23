@@ -6,7 +6,7 @@ class DocumentViewExample extends React.Component {
         return (
             <div>
                 <DocumentView
-                    src="/blue-react/v7/example-document.pdf"
+                    src="/blue-react/v8/example-document.pdf"
                     mimeType="application/pdf"
                 />
             </div>
