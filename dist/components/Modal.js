@@ -33,7 +33,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
  * Simple modal/dialog. Designed to work as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
  * It uses Bootstrap's Modal components.
  *
- * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example below.
+ * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example there.
  */
 function Modal(_ref) {
   var modalContent = _ref.modalContent,
@@ -75,6 +75,17 @@ function Modal(_ref) {
   var btnStyle = {
     maxWidth: "10rem"
   };
+
+  var focusFirstControl = function focusFirstControl() {
+    var myModal = modalRef.current;
+    myModal.removeEventListener("shown.bs.modal", focusFirstControl);
+    var firstControl = myModal.querySelector(".btn, .form-control");
+
+    if (firstControl) {
+      firstControl.focus();
+    }
+  };
+
   (0, _react.useEffect)(function () {
     setInput(defaultInput || "");
   }, [defaultInput]);
@@ -91,7 +102,10 @@ function Modal(_ref) {
         cancel();
       });
     } else {
-      modalContent !== undefined ? bsModal.show() : bsModal.hide();
+      modalContent !== undefined ? bsModal.show() : bsModal.hide(); // Will focus first button or text field inside of modal when it is shown.
+      // For accessibility: This way you can control the modal actions with a keyboard.
+
+      myModal.addEventListener("shown.bs.modal", focusFirstControl);
     }
   }, [modalContent]);
   return /*#__PURE__*/_react.default.createElement("div", {

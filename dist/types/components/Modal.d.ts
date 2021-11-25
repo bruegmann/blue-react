@@ -19,6 +19,6 @@ export interface ModalProps {
  * Simple modal/dialog. Designed to work as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
  * It uses Bootstrap's Modal components.
  *
- * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example below.
+ * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example there.
  */
 export default function Modal({ modalContent, unSetModalContent, onSubmit, defaultInput, type }: ModalProps): JSX.Element;
