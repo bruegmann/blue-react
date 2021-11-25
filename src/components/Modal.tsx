@@ -1,10 +1,4 @@
-import React, {
-    FormEvent,
-    useEffect,
-    useState,
-    MutableRefObject,
-    useRef
-} from "react"
+import React, { FormEvent, useEffect, useState, MutableRefObject, useRef } from "react"
 import { Modal as BootstrapModal } from "bootstrap"
 import { getPhrase, ModalType } from "./shared"
 
@@ -30,15 +24,9 @@ export interface ModalProps {
  * Simple modal/dialog. Designed to work as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
  * It uses Bootstrap's Modal components.
  *
- * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example below.
+ * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example there.
  */
-export default function Modal({
-    modalContent,
-    unSetModalContent,
-    onSubmit,
-    defaultInput,
-    type
-}: ModalProps) {
+export default function Modal({ modalContent, unSetModalContent, onSubmit, defaultInput, type }: ModalProps) {
     const modalRef = useRef() as MutableRefObject<HTMLDivElement>
     const [input, setInput] = useState<string>(defaultInput || "")
     const cancel = () => {
@@ -60,6 +48,16 @@ export default function Modal({
         }
     }
     const btnStyle = { maxWidth: "10rem" }
+
+    const focusFirstControl = () => {
+        const myModal = modalRef.current as unknown as Element
+        myModal.removeEventListener("shown.bs.modal", focusFirstControl)
+        const firstControl = myModal.querySelector(".btn, .form-control") as HTMLElement | null
+        if (firstControl) {
+            firstControl.focus()
+        }
+    }
+
     useEffect(() => {
         setInput(defaultInput || "")
     }, [defaultInput])
@@ -78,6 +76,10 @@ export default function Modal({
             })
         } else {
             modalContent !== undefined ? bsModal.show() : bsModal.hide()
+
+            // Will focus first button or text field inside of modal when it is shown.
+            // For accessibility: This way you can control the modal actions with a keyboard.
+            myModal.addEventListener("shown.bs.modal", focusFirstControl)
         }
     }, [modalContent])
 
@@ -87,14 +89,8 @@ export default function Modal({
                 <div className="modal-content">
                     <form onSubmit={submit}>
                         <div className="modal-header">
-                            <h5 className="modal-title">
-                                {getPhrase("Message")}
-                            </h5>
-                            <button
-                                type="button"
-                                className="btn-close"
-                                onClick={cancel}
-                            />
+                            <h5 className="modal-title">{getPhrase("Message")}</h5>
+                            <button type="button" className="btn-close" onClick={cancel} />
                         </div>
 
                         <div className="modal-body">
@@ -104,20 +100,14 @@ export default function Modal({
                                     type="text"
                                     className="form-control mt-1"
                                     value={input}
-                                    onChange={({ target }) =>
-                                        setInput(target.value)
-                                    }
+                                    onChange={({ target }) => setInput(target.value)}
                                     autoFocus
                                 />
                             )}
                         </div>
 
                         <div className="modal-footer">
-                            <button
-                                type="submit"
-                                className="btn btn-primary d-block w-100"
-                                style={btnStyle}
-                            >
+                            <button type="submit" className="btn btn-primary d-block w-100" style={btnStyle}>
                                 {type === "verify" ? getPhrase("Yes") : "OK"}
                             </button>
                             {(type === "ask" || type === "verify") &&

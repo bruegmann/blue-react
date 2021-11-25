@@ -65,6 +65,20 @@ function InsideComp() {
             >
                 Start a conversation
             </button>
+
+            <br />
+
+            <button
+                className="btn btn-outline-secondary"
+                onClick={() => {
+                    alert("Hello there!")
+                    if (window.confirm("Everything okay?")) {
+                        alert("Alright")
+                    }
+                }}
+            >
+                How a native <code>alert()</code> would look like
+            </button>
         </div>
     )
 }
