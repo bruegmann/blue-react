@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/blue-react/v8/static/css/main.22ff455f.chunk.css",
-    "main.js": "/blue-react/v8/static/js/main.59f47535.chunk.js",
-    "main.js.map": "/blue-react/v8/static/js/main.59f47535.chunk.js.map",
+    "main.css": "/blue-react/v8/static/css/main.512073db.chunk.css",
+    "main.js": "/blue-react/v8/static/js/main.c28100e1.chunk.js",
+    "main.js.map": "/blue-react/v8/static/js/main.c28100e1.chunk.js.map",
     "runtime-main.js": "/blue-react/v8/static/js/runtime-main.d9c529c8.js",
     "runtime-main.js.map": "/blue-react/v8/static/js/runtime-main.d9c529c8.js.map",
-    "static/js/2.5fc5eb8a.chunk.js": "/blue-react/v8/static/js/2.5fc5eb8a.chunk.js",
-    "static/js/2.5fc5eb8a.chunk.js.map": "/blue-react/v8/static/js/2.5fc5eb8a.chunk.js.map",
+    "static/js/2.7c56cfcd.chunk.js": "/blue-react/v8/static/js/2.7c56cfcd.chunk.js",
+    "static/js/2.7c56cfcd.chunk.js.map": "/blue-react/v8/static/js/2.7c56cfcd.chunk.js.map",
     "index.html": "/blue-react/v8/index.html",
-    "static/css/main.22ff455f.chunk.css.map": "/blue-react/v8/static/css/main.22ff455f.chunk.css.map",
-    "static/js/2.5fc5eb8a.chunk.js.LICENSE.txt": "/blue-react/v8/static/js/2.5fc5eb8a.chunk.js.LICENSE.txt",
+    "static/css/main.512073db.chunk.css.map": "/blue-react/v8/static/css/main.512073db.chunk.css.map",
+    "static/js/2.7c56cfcd.chunk.js.LICENSE.txt": "/blue-react/v8/static/js/2.7c56cfcd.chunk.js.LICENSE.txt",
     "static/media/blue.101f7419.svg": "/blue-react/v8/static/media/blue.101f7419.svg",
     "static/media/stackblitz.f72cfdf8.png": "/blue-react/v8/static/media/stackblitz.f72cfdf8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.d9c529c8.js",
-    "static/js/2.5fc5eb8a.chunk.js",
-    "static/css/main.22ff455f.chunk.css",
-    "static/js/main.59f47535.chunk.js"
+    "static/js/2.7c56cfcd.chunk.js",
+    "static/css/main.512073db.chunk.css",
+    "static/js/main.c28100e1.chunk.js"
   ]
 }
