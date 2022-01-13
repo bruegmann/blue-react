@@ -40,6 +40,9 @@ export default function DocumentView({
         mimeType === "image/jpeg" ||
         mimeType === "image/gif" ||
         mimeType === "image/tiff" ||
+        mimeType === "image/bmp" ||
+        mimeType === "image/x-bmp" ||
+        mimeType === "image/x-ms-bmp" ||
         mimeType === "text/plain" ||
         mimeType === "text/html"
 
