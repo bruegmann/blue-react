@@ -231,6 +231,7 @@ export default class Grid extends Component<GridProps, GridState> {
                 Utilities.hasClass(e.target, "blue-app-search-control") ||
                 Utilities.hasClass(e.target, "blue-app-search-btn") ||
                 Utilities.hasClass(e.target, "blue-app-search-btn-icon") ||
+                Utilities.hasClass(e.target, "blue-app-sidebar-label") ||
                 Utilities.hasClass(
                     e.target,
                     "blue-app-sidebar-dropdown-toggle"
