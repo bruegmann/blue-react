@@ -295,6 +295,10 @@ export default class Grid extends Component<GridProps, GridState> {
         this.eventListeners.push([param1, param2, param3])
     }
 
+    removeEventListener(type: string, listener: any) {
+        this.eventListeners = this.eventListeners.filter((param: any[]) => param[0] !== type && param[2].toString() !== listener.toString())
+    }
+
     render() {
         return (
             <div>
