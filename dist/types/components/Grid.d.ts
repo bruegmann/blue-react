@@ -70,7 +70,8 @@ export interface GridState {
 }
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
- * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`.
+ * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`
+ * and remove it with `blueGridRef.removeEventListener(eventName, listener)`.
  *
  * Allowed event listeners:
  *
@@ -106,5 +107,6 @@ export default class Grid extends Component<GridProps, GridState> {
     hideSidebar(e: any): void;
     initMatch(): void;
     addEventListener(param1: any, param2: any, param3: any): void;
+    removeEventListener(type: string, listener: any): void;
     render(): JSX.Element;
 }

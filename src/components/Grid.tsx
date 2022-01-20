@@ -89,7 +89,8 @@ export interface GridState {
 
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
- * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`.
+ * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`
+ * and remove it with `blueGridRef.removeEventListener(eventName, listener)`.
  *
  * Allowed event listeners:
  *

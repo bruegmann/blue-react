@@ -41,7 +41,8 @@ window.toggleSidebarEvent = new CustomEvent("toggleSidebar");
 
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
- * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`.
+ * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`
+ * and remove it with `blueGridRef.removeEventListener(eventName, listener)`.
  *
  * Allowed event listeners:
  *
@@ -161,7 +162,7 @@ var Grid = /*#__PURE__*/function (_Component) {
   }, {
     key: "hideSidebar",
     value: function hideSidebar(e) {
-      if (!(_Utilities.default.hasClass(e.target, "blue-app-open-menu") || _Utilities.default.hasClass(e.target, "bi-menu") || _Utilities.default.hasClass(e.target, "blue-app-search") || _Utilities.default.hasClass(e.target, "blue-app-search-control") || _Utilities.default.hasClass(e.target, "blue-app-search-btn") || _Utilities.default.hasClass(e.target, "blue-app-search-btn-icon") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-dropdown-toggle") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-dropdown-caret") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-dropdown-icon") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-exception"))) {
+      if (!(_Utilities.default.hasClass(e.target, "blue-app-open-menu") || _Utilities.default.hasClass(e.target, "bi-menu") || _Utilities.default.hasClass(e.target, "blue-app-search") || _Utilities.default.hasClass(e.target, "blue-app-search-control") || _Utilities.default.hasClass(e.target, "blue-app-search-btn") || _Utilities.default.hasClass(e.target, "blue-app-search-btn-icon") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-label") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-dropdown-toggle") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-dropdown-caret") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-dropdown-icon") || _Utilities.default.hasClass(e.target, "blue-app-sidebar-exception"))) {
         this.setState({
           sidebarIn: false
         });
@@ -203,6 +204,13 @@ var Grid = /*#__PURE__*/function (_Component) {
     key: "addEventListener",
     value: function addEventListener(param1, param2, param3) {
       this.eventListeners.push([param1, param2, param3]);
+    }
+  }, {
+    key: "removeEventListener",
+    value: function removeEventListener(type, listener) {
+      this.eventListeners = this.eventListeners.filter(function (param) {
+        return param[0] !== type && param[2].toString() !== listener.toString();
+      });
     }
   }, {
     key: "render",
