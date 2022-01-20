@@ -1,6 +1,6 @@
 {
   "name": "blue-react",
-  "version": "6.9.1",
+  "version": "6.9.2",
   "description": "Blue App als React Components",
   "main": "index.js",
   "types": "index.d.ts",
@@ -14,7 +14,7 @@
     "start": "npm run watch",
     "put-version": "put-version ./doc/index.html",
     "build-all": "npm run test-build && npm run build && npm run doc && npm run doc-doc && npm run put-version",
-    "deploy-only": "npm publish --tag v6.9",
+    "deploy-only": "npm publish --tag legacy",
     "deploy": "npm run build-all && npm run deploy-only"
   },
   "author": "LGK",

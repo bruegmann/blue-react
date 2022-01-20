@@ -4,7 +4,7 @@
 
 # Blue React
 
-[![npm version](https://img.shields.io/npm/v/blue-react/v6.9)](https://www.npmjs.com/package/blue-react)
+[![npm version](https://img.shields.io/npm/v/blue-react/legacy)](https://www.npmjs.com/package/blue-react)
 
 [Checkout the docs](https://bruegmann.github.io/blue-react) to find out how to use Blue React.
 

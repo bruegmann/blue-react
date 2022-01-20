@@ -113,7 +113,9 @@ class App extends React.Component {
                         />
                     }
                 >
-                    <MenuItem href="#/home" icon={<Home />} label="Start" isHome />
+                    <MenuItem href="#/home" icon={<Home />} label="Start" isHome>
+<MenuItem href="#/packages" icon={<BoxOpen />} label="NPM Packages" />
+                    </MenuItem>
                     <MenuItem href="#/packages" icon={<BoxOpen />} label="NPM Packages" />
                     <MenuItem href="#/blue-react" icon={<Code />} label="Blue React" />
                     <MenuItem href="#/component" icon={<PortfolioFolder />} label="React Komponenten" />
