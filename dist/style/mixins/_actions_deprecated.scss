@@ -1,0 +1,54 @@
+@mixin actions($breakpoint) {
+    @media screen and (max-width: $breakpoint + 1px) {
+        &.open {
+            --action-link-bg-color: #{darken($theme, 30%)};
+
+            display: block;
+            background-color: var(--action-link-bg-color);
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            box-shadow: .6rem 6rem 6rem rgba(0,0,0,.3);
+            animation: fadeInDown 0.5s;
+                
+            .navbar-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                flex-direction: row;
+
+                > li {
+                    text-align: center;
+                    height: $actions-height;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            
+            .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
+                display: flex;
+            }
+
+            .blue-app-header-form {
+                width: 100%;
+                margin-bottom: .4rem;
+            }
+        }
+
+        .blue-app-actions-menu-item:not(.blue-app-actions-menu-toggle) {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint) {
+        .blue-app-actions-menu .blue-app-actions-label {
+            display: inline;
+        }
+
+        .blue-app-actions-menu-toggle {
+            display: none;
+        }
+    }
+}

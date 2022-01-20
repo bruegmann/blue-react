@@ -1,34 +1,28 @@
-/*!
- * Blue React v6.31.0 (https://bruegmann.github.io/blue-react)
- * Licensed under GNU General Public License v3.0 (https://github.com/bruegmann/blue-react/blob/master/LICENSE).
-*/
-
-@import "./styles/bootstrap-variables.scss";
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
-@import "./styles/_variables.scss";
+@import "./style/_variables.scss";
 
-@import "./styles/_mixins.scss";
-@import "./styles/_keyframes.scss";
+@import "./style/_mixins.scss";
+@import "./style/_keyframes.scss";
 
 // @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
-@import "./styles/_bootstrap.scss";
+@import "./style/_bootstrap.scss";
 // @import "node_modules/bootstrap/scss/bootstrap.scss";
 
-@import "./styles/_general";
-@import "./styles/_router";
-@import "./styles/_status";
-@import "./styles/_grid";
-@import "./styles/_search";
-@import "./styles/action-menu";
-@import "./styles/_actions";
-@import "./styles/_fluent";
-@import "./styles/_switch";
-@import "./styles/_caret";
+@import "./style/_general";
+@import "./style/_router";
+@import "./style/_status";
+@import "./style/_grid";
+@import "./style/_search";
+@import "./style/_actions_deprecated";
+@import "./style/_actions";
+@import "./style/_fluent";
+@import "./style/_switch";
+@import "./style/_caret";
 
-@import "./styles/document-view";
-@import "./styles/_bootstrap-optimizations.scss";
+@import "./style/document-view";
+@import "./style/_bootstrap-optimizations.scss";
 
 
 /* fix scroll problem */

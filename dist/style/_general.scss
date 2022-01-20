@@ -1,0 +1,154 @@
+:root {
+    --sidebar-bg: #{$sidebar-bg};
+    --action-link-bg-color: var(--theme);
+}
+
+@include custom-scrollbar($scrollbar-thumb-color, $theme);
+
+/* Versteckt Clear-Button für input[type="search"], da Blue bereits selbst Clear-Buttons liefert */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
+@media screen and (min-width: 768px) {
+    ::-webkit-scrollbar {
+        height: 1rem;
+        overflow: visible;
+        width: 1rem
+    }
+    ::-webkit-scrollbar-thumb {
+        background-clip: padding-box;
+        border: solid transparent;
+        border-width: 1px;
+        min-height: 28px;
+        padding: 100px 0 0;
+        border-radius: .3rem;
+    }
+    ::-webkit-scrollbar-button {
+        height: 0;
+        width: 0
+    }
+    ::-webkit-scrollbar-track {
+        border: solid transparent;
+        border-width: 0 0 0 4px
+    }
+    ::-webkit-scrollbar-corner {
+        background: 0 0
+    }
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: $theme;
+
+    .blue-app-wrapper {
+        position: fixed;
+        width: 100%; width: 100%;
+        left: 0; right: 0; top: 0; bottom: 0;
+        z-index: 1;
+        display: none;
+    }    
+
+    &.open {
+        .blue-app-wrapper {
+            display: block;
+        }
+    }
+}
+
+h1, h2 {
+    font-weight: 300;
+}
+
+label {
+    font-weight: 600;
+}
+
+// Idee für Effekt von http://www.w3schools.com/howto/howto_css_animate_buttons.asp
+.btn,
+.nav-pills>li>a,
+.pager li>a,
+.pagination>li>a,
+.list-group a.list-group-item {
+    &:not(.disabled):not(.readonly):not(.dropdown-toggle) {
+        -webkit-transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;
+        transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;  
+        position: relative; 
+
+        &:hover,
+        &:active,
+        &:focus {
+            z-index: 1;
+        }
+    }
+}
+
+.page-link {
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid $table-border-color;
+}
+
+.dark-area {
+    background-color: $gray-900;
+    color: #fff;
+
+    a:not(.btn) {
+        color: lighten($link-color, 15%);
+
+        &:hover,
+        &:focus {
+            color: lighten($link-color, 30%);
+        }
+    }
+}
+
+.alert-dismissible .close {
+    top: -6px;
+}
+
+.blue-app-wrapper {
+    z-index: 3 !important;
+
+    &.active {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blue-app-header-extension .blue-app-header-logo-title-labels:not(.keep) {
+        display: none;
+    }
+}
+
+.sign-in-screen {
+    padding-top: $normal-size;
+
+    .sign-in-container {
+        animation: enabledBlueAppPage .5s;
+    }
+
+    .jumbotron {
+        background-color: $body-bg;
+    }
+
+    @media screen and (min-width: 768px) {
+        .sign-in-container {
+            padding: 0 calc(50% - 18rem);
+            width: auto;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.blue-app-actions-menu {
+    .nav-link {
+        position: relative;
+        margin-left: 2px;
+
+        background-color: var(--action-link-bg-color);
+
+        &:hover {
+            background-color: $bla-button-bg-hover;
+        }
+    }
+}
+
+.blue-app-actions {
+    display: inline;
+    transition: background-color 0.5s linear;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0;
+
+    &.open {
+        left: -48px;
+        width: calc(100% + 48px);
+    }
+    
+    .navbar-nav > li > a {
+        animation: fadeInDown 0.5s;
+    }
+
+    .form-switch {
+        font-weight: normal;
+        height: $normal-size;
+    }
+
+    &.sm {
+        @include actions(768px);
+    }
+
+    &.md {
+        @include actions(992px);
+    }
+
+    &.lg {
+        @include actions(1200px);
+    }
+}
+
+.blue-app-actions-menu-toggle > span:first-child {
+    transform: rotate(90deg);
+}
+
+.blue-app-actions-menu-item {
+    display: flex;
+    align-items: center;
+    color: inherit;
+}

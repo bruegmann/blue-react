@@ -1,83 +1,56 @@
 {
   "name": "blue-react",
-  "version": "6.31.0",
-  "description": "Blue React Components",
-  "license": "LGPL-3.0-or-later",
+  "version": "6.9.1",
+  "description": "Blue App als React Components",
   "main": "index.js",
   "types": "index.d.ts",
-  "homepage": "https://bruegmann.github.io/blue-react/v6",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bruegmann/blue-react.git"
-  },
-  "bugs": {
-    "url": "https://github.com/bruegmann/blue-react/issues"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build-docs": "react-scripts build && npm run docgen",
-    "build-types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --noEmit false",
-    "build": "babel ./src/components --out-dir ./dist/components --extensions \".tsx,.js\"",
-    "build-css": "node ./setVersionToStyleScss.js && node-sass ./dist/style.scss ./dist/style.css",
-    "build-release": "npm run build-types && npm run build && npm run build-css && npm run docgen",
-    "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js --extension tsx && node followUpDocs",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build-docs",
-    "deploy": "gh-pages --dist build --dest v6",
-    "prepublishOnly": "npm i && npm run build-release",
-    "postpublish": "npm run deploy",
-    "release": "npm publish && npm run deploy"
+    "watch": "webpack -d --watch",
+    "test": "webpack -d --watch",
+    "test-build": "webpack -p",
+    "build": "babel ./src --out-dir ./dist & node-sass ./dist/style.scss ./dist/style.css",
+    "doc": "react-docgen ./src -o ./doc/src/doc.json && node ./followUpDoc.js",
+    "doc-doc": "react-docgen ./doc/src -o ./doc/src/doc-doc.json",
+    "start": "npm run watch",
+    "put-version": "put-version ./doc/index.html",
+    "build-all": "npm run test-build && npm run build && npm run doc && npm run doc-doc && npm run put-version",
+    "deploy-only": "npm publish --tag v6.9",
+    "deploy": "npm run build-all && npm run deploy-only"
+  },
+  "author": "LGK",
+  "license": "UNLICENSED",
+  "files": [
+    "dist",
+    "index.js",
+    "index.d.ts"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "blueicon": "file:///C:\\_VS.NET\\Web\\Blue\\blueicon\\blueicon-2.0.0.tgz",
+    "blueicon-colored": "file:///C:\\_VS.NET\\Web\\Blue\\blueicon-colored\\blueicon-colored-2.0.0.tgz",
+    "css-loader": "^0.28.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "json-loader": "^0.5.7",
+    "node-sass": "^4.5.3",
+    "prop-types": "^15.5.10",
+    "put-version": "^1.0.9",
+    "react-docgen": "^2.17.0",
+    "react-dom": "^16.1.1",
+    "react-highlight": "github:briancappello/react-highlight#react-v16-compiled",
+    "readline-sync": "^1.4.10",
+    "sass-loader": "^6.0.4",
+    "superagent": "^3.5.2",
+    "webpack": "^3.12.0",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
-    "bootstrap": "^4.6.0",
-    "classnames": "^2.3.1"
-  },
-  "peerDependencies": {
-    "react": "^16.0.0 || ^17.0.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/preset-react": "^7.10.4",
-    "@babel/preset-typescript": "^7.9.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.47",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "@types/react-highlight": "^0.12.2",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/react-syntax-highlighter": "^13.5.0",
-    "gh-pages": "^3.1.0",
-    "node-sass": "^4.14.1",
-    "react": "^17.0.2",
-    "react-bootstrap-icons": "^1.0.0",
-    "react-docgen": "^5.4.0",
-    "react-dom": "^17.0.2",
-    "react-highlight": "^0.14.0",
-    "react-markdown-github": "^3.3.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "react-syntax-highlighter": "^15.4.3",
-    "reactstrap": "^8.9.0",
-    "typescript": "^3.7.5"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "bootstrap": "^4.3.1",
+    "react": "^16.1.1",
+    "reactstrap": "^5.0.0-alpha.4"
   }
 }

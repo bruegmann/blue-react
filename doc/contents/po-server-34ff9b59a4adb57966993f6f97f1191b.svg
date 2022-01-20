@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 403.1 403.1" style="enable-background:new 0 0 403.1 403.1;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#072034;}
+	.st1{opacity:0.2;clip-path:url(#SVGID_2_);}
+	.st2{clip-path:url(#SVGID_4_);}
+	.st3{clip-path:url(#SVGID_6_);}
+	.st4{fill:url(#SVGID_7_);}
+	.st5{opacity:0.8;clip-path:url(#SVGID_9_);}
+	.st6{clip-path:url(#SVGID_11_);fill:#FFFFFF;}
+	.st7{opacity:0.8;}
+	.st8{fill:#FFFFFF;}
+</style>
+<g id="Ebene_1">
+	<g>
+		<rect y="0" class="st0" width="403.2" height="403.1"/>
+		<g>
+			<defs>
+				<rect id="SVGID_1_" y="0" width="403.2" height="403.1"/>
+			</defs>
+			<clipPath id="SVGID_2_">
+				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+			</clipPath>
+			<g class="st1">
+				<g>
+					<defs>
+						<rect id="SVGID_3_" y="0" width="403.2" height="403.1"/>
+					</defs>
+					<clipPath id="SVGID_4_">
+						<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+					</clipPath>
+					<g class="st2">
+						<defs>
+							<rect id="SVGID_5_" y="0" width="403.2" height="403.1"/>
+						</defs>
+						<clipPath id="SVGID_6_">
+							<use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
+						</clipPath>
+						<g class="st3">
+							
+								<radialGradient id="SVGID_7_" cx="0" cy="403.1504" r="1" gradientTransform="matrix(201.5748 0 0 -201.5748 201.4932 81466.6719)" gradientUnits="userSpaceOnUse">
+								<stop  offset="0" style="stop-color:#C2C2C1"/>
+								<stop  offset="1" style="stop-color:#1D1D1B"/>
+							</radialGradient>
+							<rect x="-0.1" y="0.1" class="st4" width="403.1" height="403.1"/>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g>
+			<defs>
+				<rect id="SVGID_8_" y="0" width="403.2" height="403.1"/>
+			</defs>
+			<clipPath id="SVGID_9_">
+				<use xlink:href="#SVGID_8_"  style="overflow:visible;"/>
+			</clipPath>
+			<g class="st5">
+				<g>
+					<defs>
+						<rect id="SVGID_10_" y="0" width="403.2" height="403.1"/>
+					</defs>
+					<clipPath id="SVGID_11_">
+						<use xlink:href="#SVGID_10_"  style="overflow:visible;"/>
+					</clipPath>
+					<path class="st6" d="M0,403.2h403.2V0H0V403.2z M377.6,377.4h-352v-352h352V377.4z"/>
+				</g>
+			</g>
+			<g class="st5">
+				<g>
+					<defs>
+						<rect id="SVGID_12_" x="119.7" y="87.4" width="163.9" height="229.5"/>
+					</defs>
+					<clipPath id="SVGID_13_">
+						<use xlink:href="#SVGID_12_"  style="overflow:visible;"/>
+					</clipPath>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+<g id="Ebene_3">
+	<g class="st7">
+		<title>server_cloud icon</title>
+		<desc>server_cloud icon from the IconExperience.com O-Collection. Copyright by INCORS GmbH (www.incors.com).</desc>
+		<path id="curve4_2_" class="st8" d="M102,284.3h68.8v17.2H102V284.3z"/>
+		<path id="curve3_2_" class="st8" d="M102,241.2h68.8v17.2H102V241.2z"/>
+		<path id="curve2_2_" class="st8" d="M102,198.2h68.8v17.2H102V198.2z"/>
+		<path id="curve1_2_" class="st8" d="M84.8,155.2h103.3c4.7,0,8.6,3.9,8.6,8.6v163.5H76.2V163.8C76.2,159,80.1,155.2,84.8,155.2z
+			 M170.9,163.8c-4.8,0-8.6,3.8-8.6,8.6c0,4.8,3.8,8.6,8.6,8.6c4.8,0,8.6-3.8,8.6-8.6C179.5,167.6,175.6,163.8,170.9,163.8z
+			 M93.4,189.6V224h86.1v-34.4H93.4z M93.4,275.7v34.4h86.1v-34.4H93.4z M93.4,232.6V267h86.1v-34.4H93.4z"/>
+		<path id="curve0_2_" class="st8" d="M307.8,145.8c11,7.9,17.9,20.7,17.9,35c0,23.7-19.3,43-43,43l-77.5,0.1v-17.2l77.5-0.1
+			c14.3,0,25.8-11.6,25.8-25.8c0-12.6-9-23-20.8-25.3c2-4,3-8.4,3-13.2c0-16.6-13.5-30.1-30.1-30.1c-9.3,0-17.5,4.2-23,10.7
+			c-4.7-16.1-19.6-27.9-37.2-27.9c-21.4,0-38.7,17.3-38.7,38.7c0,1.8,0.1,3.6,0.4,5.3c-5.7,1.4-10.8,4-15,7.6h-21.9
+			c4.5-8.1,11.3-14.7,19.6-19.3c3.2-27.9,26.9-49.6,55.6-49.6c17.1,0,32.8,7.8,43.2,20.4c5.4-2.1,11.1-3.2,17.1-3.2
+			c26.1,0,47.3,21.2,47.3,47.3C308,143.4,307.9,144.6,307.8,145.8z"/>
+	</g>
+</g>
+</svg>

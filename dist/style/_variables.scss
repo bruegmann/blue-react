@@ -1,0 +1,91 @@
+$primary-color: #007bff !default;
+
+/* Bootstrap */
+$primary:       $primary-color !default;
+$success:       #4BD763 !default;
+$info:          rgb(62, 158, 187) !default;
+$warning:       #F0AD4E !default;
+$danger:        #D9534F !default;
+/* Bootstrap ENDE */
+
+// Main color theme. E.g. used for background for body and sidebar.
+$theme: $primary !default;
+
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "theme":    $theme
+  ),
+  $theme-colors
+);
+
+// Opacity of the light from a Fluent button when hovering.
+$fluent-halo-opacity: .15 !default;
+
+// Color of lightning on a Fluent button element.
+$fluent-halo-color: white !default;
+
+// Alpha value (RGBA) e.g. for header background.
+$shimmering: .7 !default;
+
+// Thumb color of scrollbar
+$scrollbar-thumb-color: white !default;
+
+// Default size for many components, like sidebar menu items.
+$normal-size: 48px !default;
+
+// Height of actions menu when it is expanded, like on mobile devices.
+$actions-height: 120px !default;
+
+// Background color of menu toggle button.
+$bla-button-bg-normal: rgba(0,0,0,.1) !default;
+
+// Background color of menu toggle button on hover state.
+$bla-button-bg-hover: rgba(white,.07) !default;
+
+// Font size for sidebar menu items.
+$bla-btn-font-size: 1.3em !default;
+
+// Font size for app title on the header.
+$bla-header-logo-font-size: 24px !default;
+
+// Padding for action menu items.
+$bla-header-nav-padding: 12px !default;
+
+// Width of the sidebar.
+$bla-sidebar-width: 265px !default;
+
+// Background of sidebar.
+$sidebar-bg: $theme !default;
+
+// Background of sidebar when it's opened (on mobile devices).
+$sidebar-open-bg: darken($sidebar-bg, 30%) !default;
+
+// Background of sidebar menu dropdown menus
+$sidebar-deep-bg: darken($sidebar-bg, 4%) !default;
+
+// Text color of sidebar.
+$sidebar-color: white !default;
+
+// Color of indicator for active sidebar item.
+$sidebar-indicator-color: $sidebar-color !default;
+
+// Background color, when hovering sidebar menu item.
+$sidebar-control-bg-hover: $bla-button-bg-hover !default;
+
+// Background of search control in sidebar.
+$sidebar-search-bg: $input-bg !default;
+
+// Text color of header elements
+$header-color: #fff !default;
+
+// Background color of Header
+$header-bg: $theme !default;
+
+// Background color, when hovering action menu item.
+$actions-control-bg-hover: $bla-button-bg-hover !default;
+
+:root {
+    --theme: #{$theme};
+}

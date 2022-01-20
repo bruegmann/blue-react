@@ -1,0 +1,48 @@
+.blue-app-search {
+    height: $normal-size;
+    display: flex;
+    align-items: center;
+
+    &.blue-app-search-body {
+        border: 1px solid $input-border-color;
+        border-radius: 4px;
+
+        .blue-app-search-input-group {
+            display: flex;
+        }
+
+        &.focus {
+            box-shadow: $input-btn-focus-box-shadow;
+        }
+    }
+
+    &.focus {
+        box-shadow: inset $input-btn-focus-box-shadow;
+    }
+}
+
+.blue-app-search-input-group {
+    display: none;
+
+    .input-group-text {
+        border-color: transparent;
+        background-color: transparent;
+    }
+}
+
+.blue-app-search-control {
+    border: none;
+    background-color: transparent !important;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.blue-app-search-reset-btn {
+    color: rgba($input-color, .7);
+
+    &:hover {
+        color: $input-color;
+    }
+}

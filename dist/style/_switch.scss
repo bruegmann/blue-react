@@ -1,0 +1,22 @@
+$width: 35px;
+$height: 20px;
+$padding: 3px;
+
+$switch-active-color: $success;
+
+
+.switch {
+    @include switch();
+
+    &.lg {
+        @include switch(100px, 30px);
+    }
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: $height;
+}
+.slider.round:before {
+    border-radius: 50%;
+}

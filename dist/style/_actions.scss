@@ -1,0 +1,109 @@
+$blue-actions-indicator-height: 2rem !default;
+
+.blue-actions {
+    --sidebar-bg: transparent;
+
+    color: $header-color;
+    position: fixed;
+    right: .5rem;
+    z-index: 41;
+    transition: height .4s;
+
+    .blue-app-sidebar-btn {
+        color: $header-color;
+
+        &:hover,
+        &:active {
+            background-color: $actions-control-bg-hover;
+        }
+    }
+
+    &.closed {
+        .blue-actions-featured {
+            display: flex;
+        }
+    }
+
+    &.break-sm {
+        @include actions-break(map-get($grid-breakpoints, "sm"));
+    }
+
+    &.break-md {
+        @include actions-break(map-get($grid-breakpoints, "md"));
+    }
+
+    &.break-lg {
+        @include actions-break(map-get($grid-breakpoints, "lg"));
+    }
+
+    &.break-xl {
+        @include actions-break(map-get($grid-breakpoints, "xl"));
+    }
+}
+
+.blue-actions-indicator {
+    height: $blue-actions-indicator-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+        content: "";
+        width: 2.5rem;
+        height: 4px;
+        border-radius: 2px;
+        background-color: currentColor;
+    }
+}
+
+.blue-actions-controls {
+    .blue-app-sidebar-btn {
+        width: 100%;
+    }
+
+    .blue-app-sidebar-label {
+        display: inline-block;
+    }
+}
+
+.blue-actions-featured {
+    display: none;
+    justify-content: center;
+
+    > .fluent-btn {
+        display: inline-flex;
+        justify-content: center;
+    }
+
+    .blue-app-sidebar-btn {
+        margin: 2px;
+
+        &.has-label {
+            width: auto;
+
+            .blue-app-sidebar-label {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.has-actions {
+    &.break-sm {
+        @include has-actions(map-get($grid-breakpoints, "sm"));
+    }
+
+    &.break-md {
+        @include has-actions(map-get($grid-breakpoints, "md"));
+    }
+
+    &.break-lg {
+        @include has-actions(map-get($grid-breakpoints, "lg"));
+    }
+
+    &.break-xl {
+        @include has-actions(map-get($grid-breakpoints, "xl"));
+    }
+}

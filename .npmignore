@@ -1,9 +1,1 @@
-*
-!dist/**
-!index.js
-!index.d.ts
-
-dist/types/*
-!dist/types/components
-
-dist/types_old/*
+*.tgz

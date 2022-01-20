@@ -4,7 +4,7 @@
 
 # Blue React
 
-[![npm version](https://img.shields.io/npm/v/blue-react)](https://www.npmjs.com/package/blue-react)
+[![npm version](https://img.shields.io/npm/v/blue-react/v6.9)](https://www.npmjs.com/package/blue-react)
 
 [Checkout the docs](https://bruegmann.github.io/blue-react) to find out how to use Blue React.
 
@@ -21,7 +21,7 @@ npm start
 This is how to manually create a release:\
 By running
 ```
-npm publish
+npm publish --tag v6.9
 ```
 the missing files in `./dist` will be created, the docs will be generated and the NPM package will be released.
 

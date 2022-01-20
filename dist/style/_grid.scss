@@ -1,0 +1,316 @@
+.blue-app-grid {
+    position: relative;
+    // padding-top: $normal-size;
+    min-height: 100vh;
+
+    &.hasNoSidebarMenu {
+        .blue-app-page,
+        .blue-app-header {
+            padding-left: 0;
+        }
+
+        .blue-app-sidebar-toggler {
+            display: none;
+        }
+
+        .blue-app-page {
+            margin-left: 0;
+        }
+
+        .blue-app-header-extension {
+            left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &.open {
+        @media screen and (max-width: 1400px) {
+            // --sidebar-bg: #{$sidebar-open-bg};
+
+            .router-page.active {
+                .blue-app-page {
+                    filter: blur(3px) brightness(.8);
+                }
+        
+                // &::after {
+                //     content: "";
+                //     position: absolute;
+                //     top: 0; right: 0; bottom: 0; left: 0;
+                //     background: linear-gradient(rgba($theme, 0.1), transparent);
+                // }
+            }
+        }
+
+        @include openSidebarMenu();
+    }
+
+    &:not(.open){
+        .blue-app-sidebar-visible-on-open {
+            display: none;
+        }
+
+        .blue-app-sidebar-hidden-on-open {
+            animation: fade-in 1s;
+        }
+    }
+}
+
+.ui-header-wrapper {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.blue-app-sidebar-toggler {
+    position: fixed;
+    width: 48px;
+    height: 48px;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.blue-app-sidebar-toggler,
+.blue-app-header {
+    @include header-bg();
+}
+
+.blue-app-grid:not(.wrapper-in) .blue-app-header {
+    overflow: hidden;
+}
+
+.blue-app-header {
+    height: $normal-size;
+    color: $header-color;
+    position: fixed;
+    top: 0;
+    left: $normal-size;
+    right: 0;
+    z-index: 4;
+
+    @media screen and (min-width: 768px) {
+        right: 1rem;
+    }
+    
+    .navbar-nav {
+        margin: 0;
+        
+        > li {
+            float: left;
+            
+            > a {
+                background-color: transparent;
+                color: $header-color;
+                padding: $bla-header-nav-padding;
+                
+                &:hover, &:focus {
+                    background-color: $bla-button-bg-hover;
+                }
+            }            
+        }
+    }
+    
+    .navbar-left {
+        float: left !important;
+    }
+    
+    .navbar-right {
+        float: right !important;
+    }
+    
+    .blue-app-header-form {
+        padding: .4rem;
+        float: right;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        position: relative;
+
+        &.form-horizontal {
+            .form-group {
+                display: flex;
+                align-items: center;
+            }
+
+            .control-label {
+                padding-top: 0;
+            }
+        }
+    }
+
+    .blue-app-search {
+        width: 256px;
+    }
+}
+
+.blue-app-page {
+    @include custom-scrollbar(#333, white, .3rem);
+
+    margin-left: $normal-size;
+    animation: enabledBlueAppPage .5s;
+
+    // &.active {
+    //     animation: enabledBlueAppPage .5s;
+    // }
+}
+
+@include blue-app-sidebar($normal-size);
+
+@media (max-width: 600px) {
+    @include blue-app-sidebar(0);
+    .blue-app-grid:not(.open) .blue-app-sidebar {
+        left: -$normal-size;
+    }
+    
+    .blue-app-page {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1400px) {
+    .blue-app-grid.expand-sidebar {
+        @include openSidebarMenu();
+
+        .blue-app-sidebar {
+            box-shadow: none !important;
+            // background: transparent;
+        }
+
+        .blue-app-page {
+            margin-left: $bla-sidebar-width;
+        }
+
+        .blue-app-sidebar-toggler {
+            display: none;
+        }
+
+        .blue-app-header {
+            left: 0;
+        }
+    }
+}
+
+.blue-app-open-menu {
+   position: absolute !important;
+   margin-top: 0 !important;
+   left: 0;
+   background-color: $bla-button-bg-normal !important;
+   border-color: transparent !important;
+
+   &:hover,
+   &:focus {
+       color: $sidebar-color;
+       background-color: $bla-button-bg-hover;
+       border-color: transparent;
+   }
+}
+
+.blue-app-sidebar {
+    overflow-y: auto;
+}
+
+.blue-app-sidebar-bottom {
+    width: auto;
+    background-color: var(--sidebar-bg);
+    transition: box-shadow .2s;
+
+    &.has-shadow {
+        box-shadow: 0 -2rem 2rem rgba(black,.1);
+        
+    }
+}
+
+.blue-app-page {
+   padding-bottom: 10px;
+   background-color: $body-bg;
+   min-height: calc(100vh - #{$normal-size});
+   margin-top: $normal-size;
+}
+
+.blue-app-header-logo {
+   padding: 10px 15px;
+   margin: 0;
+   cursor: default;
+   display: inline-block;
+   font-weight: 300;
+   font-size: $bla-header-logo-font-size;
+   position: absolute;
+   z-index: 1;
+
+   a {
+       color: inherit;
+
+       &:focus {
+           text-decoration: none;
+       }
+   }
+}
+
+.blue-app-header-logo-image {
+   width: 32px;
+   height: 32px;
+   margin-top: -4px;
+}
+
+.blue-app-sidebar-btn {
+    border-radius: 0;
+    transition: width .5s !important;
+    padding: 8px 12px;
+    border: none;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+    &:hover {
+        box-shadow: none !important;
+    }
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.blue-app-sidebar-label {
+   display: none;
+   max-height: 100%;
+}
+
+.blue-app-sidebar-dropdown {
+    margin-left: 1rem;
+    animation: blue-app-sidebar-dropdown .2s;
+
+    --sidebar-bg: #{$sidebar-deep-bg};
+    background: var(--sidebar-bg);
+
+    .blue-app-sidebar-dropdown {
+        --sidebar-bg: #{darken($sidebar-deep-bg, 4%)};
+
+        .blue-app-sidebar-dropdown {
+            --sidebar-bg: #{darken($sidebar-deep-bg, 8%)};
+
+            .blue-app-sidebar-dropdown {
+                --sidebar-bg: #{darken($sidebar-deep-bg, 12%)};
+
+                .blue-app-sidebar-dropdown {
+                    --sidebar-bg: #{darken($sidebar-deep-bg, 16%)};
+
+                    .blue-app-sidebar-dropdown {
+                        --sidebar-bg: #{darken($sidebar-deep-bg, 20%)};
+                    }
+                }
+            }
+        }
+    }
+}
+
+.blue-app-sidebar-dropdown-caret.caret {
+    display: none;
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: center;
+}
+
+.blue-app-page-nav-btn {
+    position: relative;
+    z-index: 1;
+}
