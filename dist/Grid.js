@@ -165,7 +165,7 @@ var Grid = function (_React$Component) {
     }, {
         key: "hideSidebar",
         value: function hideSidebar(e) {
-            if (!(_Utilities2.default.hasClass(e.target, "blue-app-open-menu") || _Utilities2.default.hasClass(e.target, "bi-menu") || _Utilities2.default.hasClass(e.target, "blue-app-search") || _Utilities2.default.hasClass(e.target, "blue-app-search-control") || _Utilities2.default.hasClass(e.target, "blue-app-search-btn") || _Utilities2.default.hasClass(e.target, "blue-app-search-btn-icon") || _Utilities2.default.hasClass(e.target, "blue-app-sidebar-dropdown-toggle") || _Utilities2.default.hasClass(e.target, "blue-app-sidebar-dropdown-caret") || _Utilities2.default.hasClass(e.target, "blue-app-sidebar-dropdown-icon") || _Utilities2.default.hasClass(e.target, "blue-app-sidebar-exception"))) {
+            if (!(_Utilities2.default.hasClass(e.target, "blue-app-open-menu") || _Utilities2.default.hasClass(e.target, "bi-menu") || _Utilities2.default.hasClass(e.target, "blue-app-search") || _Utilities2.default.hasClass(e.target, "blue-app-search-control") || _Utilities2.default.hasClass(e.target, "blue-app-search-btn") || _Utilities2.default.hasClass(e.target, "blue-app-search-btn-icon") || _Utilities2.default.hasClass(e.target, "blue-app-sidebar-label") || _Utilities2.default.hasClass(e.target, "blue-app-sidebar-dropdown-toggle") || _Utilities2.default.hasClass(e.target, "blue-app-sidebar-dropdown-caret") || _Utilities2.default.hasClass(e.target, "blue-app-sidebar-dropdown-icon") || _Utilities2.default.hasClass(e.target, "blue-app-sidebar-exception"))) {
                 this.setState({ sidebarIn: false });
             }
         }
