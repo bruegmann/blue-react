@@ -298,7 +298,15 @@ export default class Grid extends Component<GridProps, GridState> {
     }
 
     removeEventListener(type: string, listener: any) {
-        this.eventListeners = this.eventListeners.filter((param: any[]) => param[0] !== type && param[2].toString() !== listener.toString())
+        this.eventListeners = this.eventListeners.filter((param: any[]) => {
+            if (param[0] !== type) {
+                return param
+            } else if (param[0] === type) {
+                if (param[2].toString().replace("\\n/g", "").replace(" ", "") !== listener.toString().replace("\\n/g", "").replace(" ", "")) {
+                    return param
+                }
+            }
+        })
     }
 
     render() {
