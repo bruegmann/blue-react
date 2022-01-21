@@ -114,7 +114,7 @@ export default function Search(props: SearchProps) {
                         if (onChange) onChange(event)
                     }}
                     id={SearchControlId}
-                    className="blue-app-search-control form-control default input-lg"
+                    className="blue-app-search-control form-control default"
                     placeholder={placeholder}
                     autoFocus={autoFocus}
                     style={{
@@ -128,7 +128,7 @@ export default function Search(props: SearchProps) {
                     <div className="input-group-btn">
                         <button
                             type="button"
-                            className="blue-app-search-reset-btn btn btn-link btn-lg"
+                            className="blue-app-search-reset-btn btn btn-link"
                             onClick={() => {
                                 setValue("")
                                 document
@@ -168,7 +168,7 @@ export default function Search(props: SearchProps) {
                         event.preventDefault()
                         toggleSidebar()
                         setTimeout(() => {
-                            ;(
+                            ; (
                                 document.querySelector(
                                     ".blue-app-search-control"
                                 ) as HTMLInputElement | null
