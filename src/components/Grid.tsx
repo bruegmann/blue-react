@@ -301,8 +301,12 @@ export default class Grid extends Component<GridProps, GridState> {
         this.eventListeners = this.eventListeners.filter((param: any[]) => {
             if (param[0] !== type) {
                 return param
-            } else if (param[0] === type) {
+            } else if (param[0] === type && type !== "componentDidUpdate") {
                 if (param[2].toString().replace("\\n/g", "").replace(" ", "") !== listener.toString().replace("\\n/g", "").replace(" ", "")) {
+                    return param
+                }
+            } else if (param[0] === "componentDidUpdate") {
+                if (param[1].toString().replace("\\n/g", "").replace(" ", "") !== listener.toString().replace("\\n/g", "").replace(" ", "")) {
                     return param
                 }
             }
