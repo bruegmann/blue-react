@@ -54,7 +54,7 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                margin-left: ($slider-size / 2);
+                margin-left: ($slider-size * 0.5);
                 transition: margin-left 0.4s;
                 color: $color;
             }
@@ -74,7 +74,7 @@
 
                 &::after {
                     color: white;
-                    margin-left: ($slider-size / 2) * -1;
+                    margin-left: ($slider-size * 0.5) * -1;
                 }
             }
         }
