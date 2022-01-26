@@ -184,11 +184,9 @@ export default class Grid extends Component<GridProps, GridState> {
         ) {
             this.setState({ blockRouting: this.props.blockRouting })
         }
-
-        this.removeDuplicatedEventListeners(this.eventListeners)
         this.eventListeners.forEach((eventListener) => {
             if (eventListener[0] === "componentDidUpdate") {
-                eventListener[2](prevProps, prevState)
+                eventListener[1](prevProps, prevState)
             }
 
             if (eventListener[0] === "pageDidShowAgain") {
@@ -294,18 +292,23 @@ export default class Grid extends Component<GridProps, GridState> {
         }
     }
 
-    addEventListener(param1: any, param2: any, param3: any) {
-        this.eventListeners.push([param1, param2, param3])
+    addEventListener(param1: any, param2: any, param3: any, listenerId: string) {
+        this.eventListeners.push([param1, param2, param3, listenerId])
+
+        // This removes all duplicates
+        let hashMap: any = {}
+        this.eventListeners.forEach((arr: any) => hashMap[arr.join("|")] = arr)
+        this.eventListeners = Object.keys(hashMap).map((k) => hashMap[k])
     }
 
-    removeEventListener(type: string, listener: any) {
+    removeEventListener(type: string, listenerId: string) {
         this.eventListeners = this.eventListeners.filter((param: any[]) => {
             if (param[0] !== type) {
                 return param
-            } else if (param[0] === type) {
-                if (param[2].toString().replace("\\n/g", "").replace(" ", "") !== listener.toString().replace("\\n/g", "").replace(" ", "")) {
-                    return param
-                }
+            } else if (param[0] === type && type !== "componentDidUpdate" && param[3] !== listenerId) {
+                return param
+            } else if (param[0] === type && param[0] === "componentDidUpdate" && param[2] !== listenerId) {
+                return param
             }
         })
     }
@@ -314,7 +317,6 @@ export default class Grid extends Component<GridProps, GridState> {
         let hashMap: any = {}
 
         eventListeners.forEach((arr: any) => hashMap[arr.join("|")] = arr)
-
         this.eventListeners = Object.keys(hashMap).map((k) => hashMap[k])
     }
 
