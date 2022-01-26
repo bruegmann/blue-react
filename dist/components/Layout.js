@@ -202,6 +202,13 @@ var Layout = /*#__PURE__*/function (_Component) {
       this.eventListeners.push([param1, param2, param3]);
     }
   }, {
+    key: "removeEventListener",
+    value: function removeEventListener(type, listener) {
+      this.eventListeners = this.eventListeners.filter(function (param) {
+        return param[0] !== type && param[2].toString() !== listener.toString();
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this4 = this,

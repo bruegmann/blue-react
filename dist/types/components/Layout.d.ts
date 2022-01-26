@@ -106,5 +106,6 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
     hideSidebar(e: any): void;
     initMatch(): void;
     addEventListener(param1: any, param2: any, param3: any): void;
+    removeEventListener(type: string, listener: any): void;
     render(): JSX.Element;
 }

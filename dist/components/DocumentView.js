@@ -31,7 +31,7 @@ function DocumentView(_ref) {
   var uniqueId = "document-view-" + _Utilities.default.guid();
 
   var supportsIframe = function supportsIframe() {
-    return mimeType === "application/pdf" || mimeType === "image/png" || mimeType === "image/jpeg" || mimeType === "image/gif" || mimeType === "image/tiff" || mimeType === "text/plain" || mimeType === "text/html";
+    return mimeType === "application/pdf" || mimeType === "image/png" || mimeType === "image/jpeg" || mimeType === "image/gif" || mimeType === "image/tiff" || mimeType === "image/bmp" || mimeType === "image/x-bmp" || mimeType === "image/x-ms-bmp" || mimeType === "text/plain" || mimeType === "text/html";
   };
 
   (0, _react.useEffect)(function () {
