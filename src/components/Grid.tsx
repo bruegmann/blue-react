@@ -185,9 +185,10 @@ export default class Grid extends Component<GridProps, GridState> {
             this.setState({ blockRouting: this.props.blockRouting })
         }
 
+        this.removeDuplicatedEventListeners(this.eventListeners)
         this.eventListeners.forEach((eventListener) => {
             if (eventListener[0] === "componentDidUpdate") {
-                eventListener[1](prevProps, prevState)
+                eventListener[2](prevProps, prevState)
             }
 
             if (eventListener[0] === "pageDidShowAgain") {
@@ -301,16 +302,20 @@ export default class Grid extends Component<GridProps, GridState> {
         this.eventListeners = this.eventListeners.filter((param: any[]) => {
             if (param[0] !== type) {
                 return param
-            } else if (param[0] === type && type !== "componentDidUpdate") {
+            } else if (param[0] === type) {
                 if (param[2].toString().replace("\\n/g", "").replace(" ", "") !== listener.toString().replace("\\n/g", "").replace(" ", "")) {
-                    return param
-                }
-            } else if (param[0] === "componentDidUpdate") {
-                if (param[1].toString().replace("\\n/g", "").replace(" ", "") !== listener.toString().replace("\\n/g", "").replace(" ", "")) {
                     return param
                 }
             }
         })
+    }
+
+    removeDuplicatedEventListeners(eventListeners: any) {
+        let hashMap: any = {}
+
+        eventListeners.forEach((arr: any) => hashMap[arr.join("|")] = arr)
+
+        this.eventListeners = Object.keys(hashMap).map((k) => hashMap[k])
     }
 
     render() {
