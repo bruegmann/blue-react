@@ -294,11 +294,7 @@ export default class Grid extends Component<GridProps, GridState> {
 
     addEventListener(param1: any, param2: any, param3: any, listenerId: string) {
         this.eventListeners.push([param1, param2, param3, listenerId])
-
-        // This removes all duplicates
-        let hashMap: any = {}
-        this.eventListeners.forEach((arr: any) => hashMap[arr.join("|")] = arr)
-        this.eventListeners = Object.keys(hashMap).map((k) => hashMap[k])
+        this.removeDuplicatedEventListeners(this.eventListeners)
     }
 
     removeEventListener(type: string, listenerId: string) {
@@ -316,7 +312,13 @@ export default class Grid extends Component<GridProps, GridState> {
     removeDuplicatedEventListeners(eventListeners: any) {
         let hashMap: any = {}
 
-        eventListeners.forEach((arr: any) => hashMap[arr.join("|")] = arr)
+        eventListeners.forEach((arr: any) => {
+            if (arr[0] !== "componentDidUpdate") {
+                hashMap[`${arr[0]}|${arr[3]}`] = arr
+            } else {
+                hashMap[`${arr[0]}|${arr[2]}`] = arr
+            }
+        })
         this.eventListeners = Object.keys(hashMap).map((k) => hashMap[k])
     }
 
