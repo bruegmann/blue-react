@@ -26,7 +26,7 @@ $blue-actions-indicator-height: 2rem !default;
         }
 
         .blue-actions-indicator {
-            padding-bottom: $spacer / 2;
+            padding-bottom: $spacer * 0.5;
             &::before {
                 transform: rotate(45deg);
                 -webkit-transform: rotate(45deg);
@@ -127,7 +127,7 @@ $blue-actions-indicator-height: 2rem !default;
         background-color: $theme;
         @extend .mt-1 !optional;
         @extend .me-1 !optional;
-        border-radius: $blue-actions-indicator-height / 2;
+        border-radius: $blue-actions-indicator-height * 0.5;
         box-shadow: $box-shadow;
 
         &.closed {
