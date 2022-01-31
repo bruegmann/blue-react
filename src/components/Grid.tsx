@@ -294,32 +294,25 @@ export default class Grid extends Component<GridProps, GridState> {
 
     addEventListener(param1: any, param2: any, param3: any, listenerId: string) {
         this.eventListeners.push([param1, param2, param3, listenerId])
-        this.removeDuplicatedEventListeners(this.eventListeners)
+        this.removeDuplicatedEventListeners()
     }
 
     removeEventListener(type: string, listenerId: string) {
         this.eventListeners = this.eventListeners.filter((param: any[]) => {
             if (param[0] !== type) {
                 return param
-            } else if (param[0] === type && type !== "componentDidUpdate" && param[3] !== listenerId) {
-                return param
-            } else if (param[0] === type && param[0] === "componentDidUpdate" && param[2] !== listenerId) {
+            } else if (param[0] === type && param[3] !== listenerId) {
                 return param
             }
         })
     }
 
-    removeDuplicatedEventListeners(eventListeners: any) {
-        let hashMap: any = {}
-
-        eventListeners.forEach((arr: any) => {
-            if (arr[0] !== "componentDidUpdate") {
-                hashMap[`${arr[0]}|${arr[3]}`] = arr
-            } else {
-                hashMap[`${arr[0]}|${arr[2]}`] = arr
-            }
-        })
-        this.eventListeners = Object.keys(hashMap).map((k) => hashMap[k])
+    removeDuplicatedEventListeners() {
+        this.eventListeners = this.eventListeners.filter((value, index, self) =>
+            index === self.findIndex((t) => (
+                t[3] === value[3] && t[0] === value[0]
+            ))
+        )
     }
 
     render() {
