@@ -41,16 +41,23 @@ window.toggleSidebarEvent = new CustomEvent("toggleSidebar");
 
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueLayoutRef`.
- * Also you can append your own event listeners with `blueLayoutRef.addEventListener(eventName, (prevProps, prevState) => { })`.
+ * You can also append your own event listeners.
  *
- * Allowed event listeners:
+ * Allowed events:
  *
  * * **componentDidUpdate** - Component was updated.
- *   Example: `blueLayoutRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
+ *   Example: `window.blueLayoutRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
  * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.
- *   Example: `blueLayoutRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
+ *   Example: `window.blueLayoutRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
  * * **pageDidHide** - This page disappeared and another page appears instead.
- *   Example: `blueLayoutRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
+ *   Example: `window.blueLayoutRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
+ *
+ * Method to add event listeners:
+ * * `window.blueLayoutRef.`**addEventListener**`(eventName: string, param2: any, param3: any, listenerId?: string)`
+ *
+ * Methods to remove event listeners:
+ * * `window.blueLayoutRef.`**removeEventListener**`(eventName: string, listenerId: string)`
+ * * `window.blueLayoutRef.`**removeDuplicatedEventListeners**`()` - Will automatically be called when running `addEventListener`
  */
 var Layout = /*#__PURE__*/function (_Component) {
   _inherits(Layout, _Component);
@@ -198,14 +205,28 @@ var Layout = /*#__PURE__*/function (_Component) {
     }
   }, {
     key: "addEventListener",
-    value: function addEventListener(param1, param2, param3) {
-      this.eventListeners.push([param1, param2, param3]);
+    value: function addEventListener(param1, param2, param3, listenerId) {
+      this.eventListeners.push([param1, param2, param3, listenerId]);
+      this.removeDuplicatedEventListeners();
     }
   }, {
     key: "removeEventListener",
-    value: function removeEventListener(type, listener) {
+    value: function removeEventListener(type, listenerId) {
       this.eventListeners = this.eventListeners.filter(function (param) {
-        return param[0] !== type && param[2].toString() !== listener.toString();
+        if (param[0] !== type) {
+          return param;
+        } else if (param[0] === type && param[3] !== listenerId) {
+          return param;
+        }
+      });
+    }
+  }, {
+    key: "removeDuplicatedEventListeners",
+    value: function removeDuplicatedEventListeners() {
+      this.eventListeners = this.eventListeners.filter(function (value, index, self) {
+        return index === self.findIndex(function (t) {
+          return t[3] === value[3] && t[0] === value[0];
+        });
       });
     }
   }, {

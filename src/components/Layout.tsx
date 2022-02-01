@@ -69,10 +69,7 @@ export interface LayoutProps {
      * Define a function, that will be fired when switching routes. When your function returns `true`, the default route behaviour will be blocked.
      * You can use something like `window.blueLayoutRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
      */
-    blockRouting?: (
-        newMatch: string[],
-        currentMatch: string[]
-    ) => void | boolean
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean
 }
 
 export interface LayoutState {
@@ -81,24 +78,28 @@ export interface LayoutState {
     history: string[]
     hash: string
     hashHistory: string[]
-    blockRouting?: (
-        newMatch: string[],
-        currentMatch: string[]
-    ) => void | boolean
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean
 }
 
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueLayoutRef`.
- * Also you can append your own event listeners with `blueLayoutRef.addEventListener(eventName, (prevProps, prevState) => { })`.
+ * You can also append your own event listeners.
  *
- * Allowed event listeners:
+ * Allowed events:
  *
  * * **componentDidUpdate** - Component was updated.
- *   Example: `blueLayoutRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
+ *   Example: `window.blueLayoutRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
  * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.
- *   Example: `blueLayoutRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
+ *   Example: `window.blueLayoutRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
  * * **pageDidHide** - This page disappeared and another page appears instead.
- *   Example: `blueLayoutRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
+ *   Example: `window.blueLayoutRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
+ *
+ * Method to add event listeners:
+ * * `window.blueLayoutRef.`**addEventListener**`(eventName: string, param2: any, param3: any, listenerId?: string)`
+ *
+ * Methods to remove event listeners:
+ * * `window.blueLayoutRef.`**removeEventListener**`(eventName: string, listenerId: string)`
+ * * `window.blueLayoutRef.`**removeDuplicatedEventListeners**`()` - Will automatically be called when running `addEventListener`
  */
 export default class Layout extends Component<LayoutProps, LayoutState> {
     defaultMatch: string[]
@@ -175,10 +176,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
     }
 
     componentDidUpdate(prevProps: LayoutProps, prevState: LayoutState) {
-        if (
-            prevProps.blockRouting !== this.props.blockRouting &&
-            this.props.blockRouting !== this.state.blockRouting
-        ) {
+        if (prevProps.blockRouting !== this.props.blockRouting && this.props.blockRouting !== this.state.blockRouting) {
             this.setState({ blockRouting: this.props.blockRouting })
         }
 
@@ -191,10 +189,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                 let pageId = eventListener[1]
                 let callback = eventListener[2]
 
-                if (
-                    prevState.hash !== this.state.hash &&
-                    this.state.match[0] === pageId
-                ) {
+                if (prevState.hash !== this.state.hash && this.state.match[0] === pageId) {
                     callback(prevProps, prevState)
                 }
             }
@@ -203,10 +198,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                 let pageId = eventListener[1]
                 let callback = eventListener[2]
 
-                if (
-                    prevState.hash !== this.state.hash &&
-                    prevState.match[0] === pageId
-                ) {
+                if (prevState.hash !== this.state.hash && prevState.match[0] === pageId) {
                     callback(prevProps, prevState)
                 }
             }
@@ -229,18 +221,9 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                 Utilities.hasClass(e.target, "blue-search-control") ||
                 Utilities.hasClass(e.target, "blue-search-btn") ||
                 Utilities.hasClass(e.target, "blue-search-btn-icon") ||
-                Utilities.hasClass(
-                    e.target,
-                    "blue-menu-item-dropdown-toggle"
-                ) ||
-                Utilities.hasClass(
-                    e.target,
-                    "blue-menu-item-dropdown-caret"
-                ) ||
-                Utilities.hasClass(
-                    e.target,
-                    "blue-menu-item-dropdown-icon"
-                ) ||
+                Utilities.hasClass(e.target, "blue-menu-item-dropdown-toggle") ||
+                Utilities.hasClass(e.target, "blue-menu-item-dropdown-caret") ||
+                Utilities.hasClass(e.target, "blue-menu-item-dropdown-icon") ||
                 Utilities.hasClass(e.target, "blue-sidebar-exception")
             )
         ) {
@@ -251,11 +234,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
     initMatch() {
         let newMatch
 
-        if (
-            window.location.hash &&
-            window.location.hash !== "" &&
-            window.location.hash !== "#/"
-        ) {
+        if (window.location.hash && window.location.hash !== "" && window.location.hash !== "#/") {
             newMatch = window.location.hash
                 .replace("#", "")
                 .split("/")
@@ -268,10 +247,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
             newMatch = this.defaultMatch
         }
 
-        if (
-            this.state.blockRouting &&
-            this.state.blockRouting(newMatch, this.state.match) === true
-        ) {
+        if (this.state.blockRouting && this.state.blockRouting(newMatch, this.state.match) === true) {
             window.location.hash = this.state.hash
         } else {
             if (!(this.state.history.indexOf(newMatch[0]) > -1)) {
@@ -282,19 +258,30 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                 match: newMatch,
                 history: this.state.history,
                 hash: window.location.hash,
-                hashHistory: this.state.hashHistory.concat([
-                    window.location.hash
-                ])
+                hashHistory: this.state.hashHistory.concat([window.location.hash])
             })
         }
     }
 
-    addEventListener(param1: any, param2: any, param3: any) {
-        this.eventListeners.push([param1, param2, param3])
+    addEventListener(param1: any, param2: any, param3: any, listenerId?: string) {
+        this.eventListeners.push([param1, param2, param3, listenerId])
+        this.removeDuplicatedEventListeners()
     }
 
-    removeEventListener(type: string, listener: any) {
-        this.eventListeners = this.eventListeners.filter((param: any[]) => param[0] !== type && param[2].toString() !== listener.toString())
+    removeEventListener(type: string, listenerId: string) {
+        this.eventListeners = this.eventListeners.filter((param: any[]) => {
+            if (param[0] !== type) {
+                return param
+            } else if (param[0] === type && param[3] !== listenerId) {
+                return param
+            }
+        })
+    }
+
+    removeDuplicatedEventListeners() {
+        this.eventListeners = this.eventListeners.filter(
+            (value, index, self) => index === self.findIndex((t) => t[3] === value[3] && t[0] === value[0])
+        )
     }
 
     render() {
@@ -306,13 +293,9 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                     style={this.props.style ? this.props.style : {}}
                     className={
                         "blue-layout" +
-                        (this.props.className
-                            ? " " + this.props.className
-                            : "") +
+                        (this.props.className ? " " + this.props.className : "") +
                         (this.state.sidebarIn ? " open" : "") +
-                        (this.props.hideSidebarMenu
-                            ? " hasNoSidebarMenu"
-                            : " hasSidebarMenu") +
+                        (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") +
                         (this.props.expandSidebar ? " expandSidebar" : "") +
                         (this.props.disableHeaders ? " disableHeaders" : "")
                     }
@@ -344,12 +327,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                             this.state.history.indexOf(page.name) > -1 && (
                                 <div
                                     key={page.name}
-                                    className={
-                                        "router-page " +
-                                        (this.state.match[0] === page.name
-                                            ? "active"
-                                            : "")
-                                    }
+                                    className={"router-page " + (this.state.match[0] === page.name ? "active" : "")}
                                 >
                                     {page.component}
                                 </div>
@@ -363,28 +341,16 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                         </div>
                     </div>
 
-                    <div className="blue-status-circle blue-status-success">
-                        {this.props.statusIcons!.success}
-                    </div>
+                    <div className="blue-status-circle blue-status-success">{this.props.statusIcons!.success}</div>
 
-                    <div className="blue-status-circle blue-status-info">
-                        {this.props.statusIcons!.info}
-                    </div>
+                    <div className="blue-status-circle blue-status-info">{this.props.statusIcons!.info}</div>
 
-                    <div className="blue-status-circle blue-status-warning">
-                        {this.props.statusIcons!.warning}
-                    </div>
+                    <div className="blue-status-circle blue-status-warning">{this.props.statusIcons!.warning}</div>
 
-                    <div className="blue-status-circle blue-status-danger">
-                        {this.props.statusIcons!.danger}
-                    </div>
+                    <div className="blue-status-circle blue-status-danger">{this.props.statusIcons!.danger}</div>
 
                     <div className="blue-status-alert alert">
-                        <button
-                            type="button"
-                            className="btn-close float-end mb-1"
-                            aria-label="Close"
-                        />
+                        <button type="button" className="btn-close float-end mb-1" aria-label="Close" />
                         <div className="alert-body" />
                     </div>
                 </div>
