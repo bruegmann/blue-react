@@ -37,6 +37,9 @@ export function VersionToggle() {
                     style={{ minWidth: "5rem" }}
                 >
                     <li>
+                        <a className="dropdown-item" href="/blue-react/v8/">
+                            /v8
+                        </a>
                         <a className="dropdown-item" href="/blue-react/v6/">
                             /v6
                         </a>
