@@ -70,17 +70,23 @@ export interface GridState {
 }
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueGridRef`.
- * Also you can append your own event listeners with `blueGridRef.addEventListener(eventName, (prevProps, prevState) => { })`
- * and remove it with `blueGridRef.removeEventListener(eventName, listener)`.
+ * You can also append your own event listeners.
  *
- * Allowed event listeners:
+ * Allowed events:
  *
  * * **componentDidUpdate** - Component was updated.
- *   Example: `blueGridRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
+ *   Example: `window.blueGridRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
  * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.
- *   Example: `blueGridRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
+ *   Example: `window.blueGridRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
  * * **pageDidHide** - This page disappeared and another page appears instead.
- *   Example: `blueGridRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
+ *   Example: `window.blueGridRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
+ *
+ * Method to add event listeners:
+ * * `window.blueGridRef.`**addEventListener**`(eventName: string, param2: any, param3: any, listenerId?: string)`
+ *
+ * Methods to remove event listeners:
+ * * `window.blueGridRef.`**removeEventListener**`(eventName: string, listenerId: string)`
+ * * `window.blueGridRef.`**removeDuplicatedEventListeners**`()` - Will automatically be called when running `addEventListener`
  */
 export default class Grid extends Component<GridProps, GridState> {
     defaultMatch: string[];
@@ -106,7 +112,8 @@ export default class Grid extends Component<GridProps, GridState> {
     toggleSidebar(event: any): void;
     hideSidebar(e: any): void;
     initMatch(): void;
-    addEventListener(param1: any, param2: any, param3: any): void;
-    removeEventListener(type: string, listener: any): void;
+    addEventListener(param1: any, param2: any, param3: any, listenerId?: string): void;
+    removeEventListener(type: string, listenerId: string): void;
+    removeDuplicatedEventListeners(): void;
     render(): JSX.Element;
 }
