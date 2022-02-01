@@ -9,6 +9,7 @@ export function VersionToggle({ className }: { className?: string }) {
         <Dropdown isOpen={show} toggle={toggle} className={className}>
             <DropdownToggle caret color="light">/v6</DropdownToggle>
             <DropdownMenu style={{ minWidth: "5rem" }} right>
+                <DropdownItem href="/blue-react/v8/">/v8</DropdownItem>
                 <DropdownItem href="/blue-react/v7/">/v7</DropdownItem>
             </DropdownMenu>
         </Dropdown>
