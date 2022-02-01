@@ -11,19 +11,19 @@ use Blue React.
 
 ## Breaking changes between v7 and v8
 
-- Removed deprecated components:
-  - Actions (Alternative: ActionMenu)
-  - ActionMenuItem (Alternative: MenuItem)
-  - FluentBtn (Alternative: button, bzw. a)
-  - HeaderActions
-  - DropdownMenuItem (Alternative: MenuItem)
-  - Stylesheets
-- Renamed all `.blue-app-*` to `.blue-*`
-- Renamed `Grid` to `Layout`
-  - `.blue-grid` ➡ `.blue-layout`
-  - `Grid.tsx` ➡ `Layout.tsx`
-  - Global `window.blueGridRef` ➡ `window.blueLayoutRef`
-- Renamed all `.blue-sidebar-*` to `.blue-menu-item-*`
+-   Removed deprecated components:
+    -   Actions (Alternative: ActionMenu)
+    -   ActionMenuItem (Alternative: MenuItem)
+    -   FluentBtn (Alternative: button, bzw. a)
+    -   HeaderActions
+    -   DropdownMenuItem (Alternative: MenuItem)
+-   Stylesheets
+    -   Renamed all `.blue-app-*` to `.blue-*`
+    -   Renamed all `.blue-sidebar-*` to `.blue-menu-item-*`
+-   Renamed `Grid` to `Layout`
+    -   `.blue-grid` ➡ `.blue-layout`
+    -   `Grid.tsx` ➡ `Layout.tsx`
+    -   Global `window.blueGridRef` ➡ `window.blueLayoutRef`
 
 ## Developing
 
