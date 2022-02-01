@@ -70,16 +70,23 @@ export interface LayoutState {
 }
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueLayoutRef`.
- * Also you can append your own event listeners with `blueLayoutRef.addEventListener(eventName, (prevProps, prevState) => { })`.
+ * You can also append your own event listeners.
  *
- * Allowed event listeners:
+ * Allowed events:
  *
  * * **componentDidUpdate** - Component was updated.
- *   Example: `blueLayoutRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
+ *   Example: `window.blueLayoutRef.addEventListener("componentDidUpdate", (prevProps, prevState) => { })`
  * * **pageDidShowAgain** - Page appeared again with the same old state. In the callback function you can reinitialize things.
- *   Example: `blueLayoutRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
+ *   Example: `window.blueLayoutRef.addEventListener("pageDidShowAgain", "home", (prevProps, prevState) => { })`
  * * **pageDidHide** - This page disappeared and another page appears instead.
- *   Example: `blueLayoutRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
+ *   Example: `window.blueLayoutRef.addEventListener("pageDidHide", "home", (prevProps, prevState) => { })`
+ *
+ * Method to add event listeners:
+ * * `window.blueLayoutRef.`**addEventListener**`(eventName: string, param2: any, param3: any, listenerId?: string)`
+ *
+ * Methods to remove event listeners:
+ * * `window.blueLayoutRef.`**removeEventListener**`(eventName: string, listenerId: string)`
+ * * `window.blueLayoutRef.`**removeDuplicatedEventListeners**`()` - Will automatically be called when running `addEventListener`
  */
 export default class Layout extends Component<LayoutProps, LayoutState> {
     defaultMatch: string[];
@@ -105,7 +112,8 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
     toggleSidebar(event: any): void;
     hideSidebar(e: any): void;
     initMatch(): void;
-    addEventListener(param1: any, param2: any, param3: any): void;
-    removeEventListener(type: string, listener: any): void;
+    addEventListener(param1: any, param2: any, param3: any, listenerId?: string): void;
+    removeEventListener(type: string, listenerId: string): void;
+    removeDuplicatedEventListeners(): void;
     render(): JSX.Element;
 }
