@@ -9,7 +9,7 @@ export default function IntroductionSections() {
     const [scssCode, setScssCode] = useState<string>("")
 
     const fetchFromGitHub = async (path: string) => {
-        const url = `https://api.github.com/repos/bruegmann/cra-template-ts-blue/contents/template/${path}`
+        const url = `https://api.github.com/repos/bruegmann/cra-template-blue/contents/template/${path}`
         const r = await fetch(`${url}`)
 
         const ghContent: GitHubContent = await r.json()
@@ -39,22 +39,13 @@ export default function IntroductionSections() {
                     An adapted Bootstrap is mainly used for the stylesheet.
                     <br />
                     Bootstrap documentation is available here:{" "}
-                    <a
-                        href="https://getbootstrap.com/docs/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href="https://getbootstrap.com/docs/" target="_blank" rel="noopener noreferrer">
                         https://getbootstrap.com/docs/
                     </a>
                     <br />
                     <br />
-                    To use Bootstrap components with JavaScript functions in
-                    React, you should use a library like{" "}
-                    <a
-                        href="https://reactstrap.github.io/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    To use Bootstrap components with JavaScript functions in React, you should use a library like{" "}
+                    <a href="https://reactstrap.github.io/" target="_blank" rel="noopener noreferrer">
                         React Bootstrap
                     </a>
                     .
@@ -68,35 +59,26 @@ export default function IntroductionSections() {
                     <p>
                         See the whole project:{" "}
                         <a
-                            href="https://github.com/bruegmann/cra-template-ts-blue/tree/master/template"
+                            href="https://github.com/bruegmann/cra-template-blue/tree/master/template"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            https://github.com/bruegmann/cra-template-ts-blue/tree/master/template
+                            https://github.com/bruegmann/cra-template-blue/tree/master/template
                         </a>
                     </p>
 
                     <h2>App (app.tsx)</h2>
-                    <SyntaxHighlighter
-                        style={syntaxHighlighterStyle}
-                        language="javascript"
-                    >
+                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="javascript">
                         {appCode}
                     </SyntaxHighlighter>
 
                     <h2 className="mt-3">Page (pages/HomePage.tsx)</h2>
-                    <SyntaxHighlighter
-                        style={syntaxHighlighterStyle}
-                        language="javascript"
-                    >
+                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="javascript">
                         {pageCode}
                     </SyntaxHighlighter>
 
                     <h2 className="mt-3">CSS (main.scss)</h2>
-                    <SyntaxHighlighter
-                        style={syntaxHighlighterStyle}
-                        language="scss"
-                    >
+                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="scss">
                         {scssCode}
                     </SyntaxHighlighter>
                 </div>
@@ -108,10 +90,7 @@ export default function IntroductionSections() {
         <div className="row">
             <div className="col-md-12">
                 {sections.map((s, i) => (
-                    <article
-                        key={i}
-                        id={"section-" + encodeURIComponent(s.title)}
-                    >
+                    <article key={i} id={"section-" + encodeURIComponent(s.title)}>
                         <h1 className="page-header">{s.title}</h1>
                         {s.body}
                     </article>
