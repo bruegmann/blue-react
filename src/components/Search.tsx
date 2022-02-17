@@ -128,12 +128,10 @@ export default function Search(props: SearchProps) {
                     <div className="input-group-btn">
                         <button
                             type="button"
-                            className="blue-app-search-reset-btn btn btn-link btn-lg"
+                            className="blue-search-reset-btn btn btn-link"
                             onClick={() => {
                                 setValue("")
-                                document
-                                    .getElementById(SearchControlId)
-                                    ?.focus()
+                                document.getElementById(SearchControlId)?.focus()
                                 if (onChange)
                                     onChange({
                                         target: {
