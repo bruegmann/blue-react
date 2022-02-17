@@ -4,10 +4,7 @@ $primary: rgb(140, 130, 172);
 @import "../../dist/style.scss";
 
 .welcome-jumbotron {
-    background-image: linear-gradient(
-        transparent 60%,
-        rgba(0, 0, 0, 0.05) 100%
-    );
+    background-image: linear-gradient(transparent 60%, rgba(0, 0, 0, 0.05) 100%);
 
     .display-1 {
         font-family: "Work Sans", sans-serif;
@@ -45,4 +42,10 @@ $primary: rgb(140, 130, 172);
 
 pre {
     @extend .rounded;
+}
+
+// For Bootstrap Icons
+.bi {
+    display: inline-block;
+    vertical-align: -0.125em;
 }

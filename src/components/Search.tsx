@@ -38,18 +38,7 @@ export interface SearchProps {
  * A search bar that can be placed to the sidebar or on a page.
  */
 export default function Search(props: SearchProps) {
-    const {
-        autoFocus,
-        body,
-        className,
-        icon,
-        onChange,
-        onSubmit,
-        placeholder,
-        reset,
-        resetIcon,
-        sidebar
-    } = props
+    const { autoFocus, body, className, icon, onChange, onSubmit, placeholder, reset, resetIcon, sidebar } = props
     const SearchControlId = "blue-search-control-" + Utilities.guid()
 
     const [value, setValue] = useState<string>(props.value || "")
@@ -77,12 +66,7 @@ export default function Search(props: SearchProps) {
             }}
         >
             <div className="blue-search-input-group input-group">
-                <span
-                    className="input-group-text"
-                    onClick={() =>
-                        document.getElementById(SearchControlId)?.focus()
-                    }
-                >
+                <span className="input-group-text" onClick={() => document.getElementById(SearchControlId)?.focus()}>
                     {icon || (
                         <span>
                             <svg
@@ -128,12 +112,10 @@ export default function Search(props: SearchProps) {
                     <div className="input-group-btn">
                         <button
                             type="button"
-                            className="blue-search-reset-btn btn btn-link btn-lg"
+                            className="blue-search-reset-btn btn btn-link"
                             onClick={() => {
                                 setValue("")
-                                document
-                                    .getElementById(SearchControlId)
-                                    ?.focus()
+                                document.getElementById(SearchControlId)?.focus()
                                 if (onChange)
                                     onChange({
                                         target: {
@@ -168,11 +150,7 @@ export default function Search(props: SearchProps) {
                         event.preventDefault()
                         toggleSidebar()
                         setTimeout(() => {
-                            ; (
-                                document.querySelector(
-                                    ".blue-search-control"
-                                ) as HTMLInputElement | null
-                            )?.select()
+                            ;(document.querySelector(".blue-search-control") as HTMLInputElement | null)?.select()
                         }, 200)
                     }}
                 />
