@@ -117,7 +117,7 @@ function Search(props) {
     className: "input-group-btn"
   }, /*#__PURE__*/_react.default.createElement("button", {
     type: "button",
-    className: "blue-search-reset-btn btn btn-link btn-lg",
+    className: "blue-search-reset-btn btn btn-link",
     onClick: function onClick() {
       var _document$getElementB2;
 
