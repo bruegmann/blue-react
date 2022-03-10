@@ -74,14 +74,30 @@
         border-color: transparent;
         @include slide-transition();
 
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0.25rem; right: 0.25rem; bottom: 0.25rem; left: 0.25rem;
+            background-color: $sidebar-control-bg-hover;
+            border-radius: $border-radius;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.2s;
+        }
+
         &:hover,
         &:active {
             color: $sidebar-color;
-            background-color: $sidebar-control-bg-hover !important;
+            // background-color: $sidebar-control-bg-hover !important;
             border-color: transparent;
+
+            &::before {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
-        &.active::before {
+        &.active::after {
             content: "";
             position: absolute;
             top: 0.625rem;

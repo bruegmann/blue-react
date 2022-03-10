@@ -258,7 +258,7 @@
 
 .blue-menu-item {
     transition: width 0.5s, background-color 0.3s, color 0.15s, box-shadow 0.3s,
- opacity 0.3s !important;
+    opacity 0.3s !important;
     padding: 0.5rem 0.75rem;
     border: none;
     margin-top: 0.125rem;
@@ -303,9 +303,18 @@
 .blue-menu-item-dropdown {
     margin-left: 1rem;
     animation: blue-menu-item-dropdown 0.15s;
+    position: relative;
 
     --sidebar-bg: #{$sidebar-deep-bg};
-    background: var(--sidebar-bg);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0.125rem; right: 0.125rem; bottom: 0.125rem; left: 0.125rem;
+        background-color: var(--sidebar-bg);
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+    }
 
     .blue-menu-item-dropdown {
         --sidebar-bg: #{darken($sidebar-deep-bg, 4%)};
