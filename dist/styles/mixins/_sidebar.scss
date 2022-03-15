@@ -102,11 +102,10 @@
             position: absolute;
             top: 0.625rem;
             bottom: 0.625rem;
-            left: 0;
+            left: 0.125rem;
             width: 0.25rem;
             background-color: $sidebar-indicator-color;
-            border-top-right-radius: 1rem;
-            border-bottom-right-radius: 1rem;
+            border-radius: 1rem;
             animation: sidebar-menu-item-indicator-in 0.2s ease-in-out;
         }
 
