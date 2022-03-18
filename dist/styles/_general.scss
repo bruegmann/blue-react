@@ -1,5 +1,7 @@
 :root {
+    --app-bg: #{$app-bg};
     --sidebar-bg: #{$sidebar-bg};
+    --header-bg: #{$header-bg};
     --action-link-bg-color: var(--theme);
 }
 
@@ -50,7 +52,7 @@ body {
 }
 
 body {
-    background: var(--sidebar-bg, $theme);
+    background: var(--app-bg, #{$app-bg});
 
     .blue-wrapper {
         position: fixed;
@@ -171,4 +173,5 @@ label {
     transform: translateX(-100%);
     transition: transform 0.4s;
     background: var(--sidebar-bg);
+    color: $sidebar-color;
 }

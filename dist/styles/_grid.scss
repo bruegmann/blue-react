@@ -62,9 +62,9 @@
     z-index: 3;
 }
 
-.blue-sidebar-toggler,
 .blue-header {
     @include header-bg();
+    color: $header-color;
 }
 
 // .blue-layout:not(.wrapper-in) .blue-header {
@@ -73,7 +73,6 @@
 
 .blue-header {
     height: $normal-size;
-    color: $header-color;
     position: fixed;
     top: 0;
     left: $normal-size;
@@ -192,14 +191,13 @@
     position: absolute !important;
     margin-top: 0 !important;
     left: 0;
-    background-color: $bla-button-bg-normal !important;
-    border-color: transparent !important;
     justify-content: center;
 
+    &,
     &:hover,
     &:focus {
         color: $sidebar-color;
-        background-color: $bla-button-bg-hover;
+        background-color: $sidebar-bg;
         border-color: transparent;
     }
 }
@@ -242,7 +240,7 @@
     z-index: 1;
 
     a {
-        color: $header-color;
+        color: inherit;
 
         &:focus {
             text-decoration: none;
@@ -257,8 +255,7 @@
 }
 
 .blue-menu-item {
-    transition: width 0.5s, background-color 0.3s, color 0.15s, box-shadow 0.3s,
-    opacity 0.3s !important;
+    transition: width 0.5s, background-color 0.3s, color 0.15s, box-shadow 0.3s, opacity 0.3s !important;
     padding: 0.5rem 0.75rem;
     border: none;
     margin-top: 0.125rem;
@@ -305,15 +302,23 @@
     animation: blue-menu-item-dropdown 0.15s;
     position: relative;
 
-    --sidebar-bg: #{$sidebar-deep-bg};
-
     &::before {
         content: "";
         position: absolute;
-        top: 0.125rem; right: 0.125rem; bottom: 0.125rem; left: 0.125rem;
-        background-color: var(--sidebar-bg);
+        top: 0.125rem;
+        right: 0.125rem;
+        bottom: 0.125rem;
+        left: 0.125rem;
         border-radius: $border-radius;
         box-shadow: $box-shadow;
+    }
+}
+
+.blue-sidebar .blue-menu-item-dropdown {
+    --sidebar-bg: #{$sidebar-deep-bg};
+
+    &::before {
+        background-color: var(--sidebar-bg);
     }
 
     .blue-menu-item-dropdown {
@@ -330,6 +335,34 @@
 
                     .blue-menu-item-dropdown {
                         --sidebar-bg: #{darken($sidebar-deep-bg, 20%)};
+                    }
+                }
+            }
+        }
+    }
+}
+
+.blue-header .blue-menu-item-dropdown {
+    --sidebar-bg: #{$header-deep-bg};
+
+    &::before {
+        background-color: var(--header-bg);
+    }
+
+    .blue-menu-item-dropdown {
+        --sidebar-bg: #{darken($header-deep-bg, 4%)};
+
+        .blue-menu-item-dropdown {
+            --sidebar-bg: #{darken($header-deep-bg, 8%)};
+
+            .blue-menu-item-dropdown {
+                --sidebar-bg: #{darken($header-deep-bg, 12%)};
+
+                .blue-menu-item-dropdown {
+                    --sidebar-bg: #{darken($header-deep-bg, 16%)};
+
+                    .blue-menu-item-dropdown {
+                        --sidebar-bg: #{darken($header-deep-bg, 20%)};
                     }
                 }
             }

@@ -1,7 +1,5 @@
-$primary-color: #007bff !default;
-
 /* Bootstrap */
-$primary: $primary-color !default;
+$primary: #007bff !default;
 $success: #4bd763 !default;
 $info: rgb(62, 158, 187) !default;
 $warning: #f0ad4e !default;
@@ -73,17 +71,20 @@ $sidebar-color: white !default;
 // Color of indicator for active sidebar item.
 $sidebar-indicator-color: $sidebar-color !default;
 
-// Background color, when hovering sidebar menu item.
-$sidebar-control-bg-hover: $bla-button-bg-hover !default;
-
 // Background of search control in sidebar.
 $sidebar-search-bg: $input-bg !default;
+
+// Background of the body element
+$app-bg: $sidebar-bg !default;
 
 // Text color of header elements
 $header-color: #fff !default;
 
 // Background color of Header
 $header-bg: $theme !default;
+
+// Background of header action menu dropdown menus
+$header-deep-bg: darken($header-bg, 4%) !default;
 
 // Background color, when hovering action menu item.
 $actions-control-bg-hover: $bla-button-bg-hover !default;
