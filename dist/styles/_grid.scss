@@ -203,6 +203,7 @@
 }
 
 .blue-sidebar {
+    @include custom-scrollbar($sidebar-color, $sidebar-bg, 0.3rem);
     overflow-y: auto;
 }
 

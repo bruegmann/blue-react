@@ -1,6 +1,7 @@
 .blue-search {
     display: flex;
     align-items: center;
+    border: $input-border-width solid $input-border-color;
     border-radius: $input-border-radius;
 
     &.blue-search-body {
