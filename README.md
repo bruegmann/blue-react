@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/bruegmann/blue-react/master/public/logo192.png" alt="Blue Icon" width="64px" height="64px">
+<img src="https://raw.githubusercontent.com/bruegmann/blue-react/master/public/blue-readme-cover.png" alt="React component library based on Bootstrap">
 </p>
 
 # Blue React
