@@ -59,6 +59,7 @@ export interface LayoutProps {
      * You can use something like `window.blueLayoutRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
      */
     blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean;
+    children?: any;
 }
 export interface LayoutState {
     sidebarIn?: boolean;
