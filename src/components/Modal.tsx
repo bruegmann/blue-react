@@ -4,6 +4,7 @@ import { getPhrase, ModalType } from "./shared"
 
 export interface ModalProps {
     modalContent?: string
+    modalTitle?: string
     unSetModalContent: (modalContent?: string) => void
 
     /**
@@ -26,7 +27,14 @@ export interface ModalProps {
  *
  * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example there.
  */
-export default function Modal({ modalContent, unSetModalContent, onSubmit, defaultInput, type }: ModalProps) {
+export default function Modal({
+    modalContent,
+    modalTitle,
+    unSetModalContent,
+    onSubmit,
+    defaultInput,
+    type
+}: ModalProps) {
     const modalRef = useRef() as MutableRefObject<HTMLDivElement>
     const [input, setInput] = useState<string>(defaultInput || "")
     const cancel = () => {
@@ -89,11 +97,11 @@ export default function Modal({ modalContent, unSetModalContent, onSubmit, defau
                 <div className="modal-content">
                     <form onSubmit={submit}>
                         <div className="modal-header">
-                            <h5 className="modal-title">{getPhrase("Message")}</h5>
+                            <h5 className="modal-title">{modalTitle || getPhrase("Message")}</h5>
                             <button type="button" className="btn-close" onClick={cancel} />
                         </div>
 
-                        <div className="modal-body">
+                        <div className="modal-body" style={{ whiteSpace: "pre-wrap" }}>
                             {modalContent}
                             {type === "ask" && (
                                 <input

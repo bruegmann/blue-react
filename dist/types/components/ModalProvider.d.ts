@@ -4,8 +4,8 @@ export interface ModalProviderProps {
 }
 declare const ModalProvider: ({ children, ...rest }: ModalProviderProps) => JSX.Element;
 declare const useModal: () => {
-    ask: (text: string) => Promise<string | boolean>;
-    tell: (text: string) => Promise<boolean>;
-    verify: (text: string) => Promise<boolean>;
+    ask: (text: string, title?: string | undefined) => Promise<string | boolean>;
+    tell: (text: string, title?: string | undefined) => Promise<boolean>;
+    verify: (text: string, title?: string | undefined) => Promise<boolean>;
 };
 export { ModalProvider, useModal };

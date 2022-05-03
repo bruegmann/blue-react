@@ -2,6 +2,7 @@
 import { ModalType } from "./shared";
 export interface ModalProps {
     modalContent?: string;
+    modalTitle?: string;
     unSetModalContent: (modalContent?: string) => void;
     /**
      * Type of `input` depends on `type` prop and which action occured.
@@ -21,4 +22,4 @@ export interface ModalProps {
  *
  * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example there.
  */
-export default function Modal({ modalContent, unSetModalContent, onSubmit, defaultInput, type }: ModalProps): JSX.Element;
+export default function Modal({ modalContent, modalTitle, unSetModalContent, onSubmit, defaultInput, type }: ModalProps): JSX.Element;

@@ -59,22 +59,28 @@ var ModalProvider = function ModalProvider(_ref) {
 
   var _useState5 = (0, _react.useState)(),
       _useState6 = _slicedToArray(_useState5, 2),
-      defaultInput = _useState6[0],
-      setDefaultInput = _useState6[1];
+      modalTitle = _useState6[0],
+      setModalTitle = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      defaultInput = _useState8[0],
+      setDefaultInput = _useState8[1];
 
   var unSetModalContent = (0, _react.useCallback)(function () {
     setModalContent(undefined);
   }, [setModalContent]);
 
-  var _useState7 = (0, _react.useState)(),
-      _useState8 = _slicedToArray(_useState7, 2),
-      onSubmit = _useState8[0],
-      setOnSubmit = _useState8[1];
+  var _useState9 = (0, _react.useState)(),
+      _useState10 = _slicedToArray(_useState9, 2),
+      onSubmit = _useState10[0],
+      setOnSubmit = _useState10[1];
 
-  var ask = function ask(text) {
+  var ask = function ask(text, title) {
     return new Promise(function (resolve) {
       setType("ask");
       setModalContent(text);
+      setModalTitle(title);
       setDefaultInput("");
       setOnSubmit(function () {
         return function (input) {
@@ -86,10 +92,11 @@ var ModalProvider = function ModalProvider(_ref) {
     });
   };
 
-  var tell = function tell(text) {
+  var tell = function tell(text, title) {
     return new Promise(function (resolve) {
       setType("tell");
       setModalContent(text);
+      setModalTitle(title);
       setOnSubmit(function () {
         return function (input) {
           resolve(input ? true : false);
@@ -99,10 +106,11 @@ var ModalProvider = function ModalProvider(_ref) {
     });
   };
 
-  var verify = function verify(text) {
+  var verify = function verify(text, title) {
     return new Promise(function (resolve) {
       setType("verify");
       setModalContent(text);
+      setModalTitle(title);
       setOnSubmit(function () {
         return function (input) {
           resolve(input ? true : false);
@@ -120,6 +128,7 @@ var ModalProvider = function ModalProvider(_ref) {
     }
   }, rest), children, /*#__PURE__*/_react.default.createElement(_Modal.default, {
     modalContent: modalContent,
+    modalTitle: modalTitle,
     unSetModalContent: unSetModalContent,
     onSubmit: onSubmit,
     defaultInput: defaultInput,
