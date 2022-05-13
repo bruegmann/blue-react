@@ -94,9 +94,7 @@ export default function MenuItem(props: MenuItemProps) {
     const checkActive = () => {
         setActive(
             (props.href && window.location.hash.indexOf(props.href) > -1) ||
-                (props.isHome &&
-                    (window.location.hash === "" ||
-                        window.location.hash === "#/"))
+                (props.isHome && (window.location.hash === "" || window.location.hash === "#/"))
                 ? true
                 : false
         )
@@ -143,8 +141,7 @@ export default function MenuItem(props: MenuItemProps) {
     }, [])
 
     useEffect(() => {
-        if (props.showDropdown !== undefined)
-            setShowDropdown(props.showDropdown)
+        if (props.showDropdown !== undefined) setShowDropdown(props.showDropdown)
     }, [props.showDropdown])
 
     const className =
@@ -157,14 +154,7 @@ export default function MenuItem(props: MenuItemProps) {
 
     if (typeof props.icon === "string") {
         // is className
-        icon = (
-            <span
-                className={
-                    props.icon +
-                    (props.children ? " blue-menu-item-dropdown-icon" : "")
-                }
-            />
-        )
+        icon = <span className={props.icon + (props.children ? " blue-menu-item-dropdown-icon" : "")} />
     } else {
         // is element / component
         icon = props.icon
@@ -173,49 +163,26 @@ export default function MenuItem(props: MenuItemProps) {
     if (typeof props.iconForActive === "string") {
         // is className
         iconForActive = (
-            <span
-                className={
-                    props.iconForActive +
-                    (props.children ? " blue-menu-item-dropdown-icon" : "")
-                }
-            />
+            <span className={props.iconForActive + (props.children ? " blue-menu-item-dropdown-icon" : "")} />
         )
     } else {
         // is element / component
         iconForActive = props.iconForActive
     }
 
-    let passingProps = {
-        id: "blue-action-menu-item-" + Utilities.guid()
-    } as { [key: string]: any }
-
-    const removeFromAttrs = [
-        "isActive",
-        "isHome",
-        "children",
-        "dropdownClassName",
-        "showDropdown",
-        "supportOutside",
-        "elementType"
-    ]
-
-    Object.keys(props).forEach((key) => {
-        if (!removeFromAttrs.includes(key)) {
-            passingProps[key] = (props as { [key: string]: any })[key]
-        }
-    })
-
     return (
         <>
             {createElement(
                 props.elementType || (props.href ? "a" : "button"),
                 {
-                    ...passingProps,
+                    to: props.to,
+                    exact: props.exact,
                     className:
-                        className +
-                        (props.isActive || active ? " active" : "") +
-                        (props.label ? " has-label" : ""),
-                    onClick
+                        className + (props.isActive || active ? " active" : "") + (props.label ? " has-label" : ""),
+                    onClick,
+                    target: props.target,
+                    rel: props.rel,
+                    title: props.title
                 },
                 <>
                     <span
@@ -225,22 +192,10 @@ export default function MenuItem(props: MenuItemProps) {
                     >
                         {icon}
                     </span>
-                    {iconForActive && (
-                        <span className="blue-menu-item-icon iconForActive">
-                            {iconForActive}
-                        </span>
-                    )}
-                    {props.label && (
-                        <span className="blue-menu-item-label text-truncate">
-                            {props.label}
-                        </span>
-                    )}
+                    {iconForActive && <span className="blue-menu-item-icon iconForActive">{iconForActive}</span>}
+                    {props.label && <span className="blue-menu-item-label text-truncate">{props.label}</span>}
                     {props.children && (
-                        <Caret
-                            open={showDropdown}
-                            mirrored
-                            className="blue-menu-item-dropdown-caret mt-2"
-                        />
+                        <Caret open={showDropdown} mirrored className="blue-menu-item-dropdown-caret mt-2" />
                     )}
                 </>
             )}
@@ -254,11 +209,7 @@ export default function MenuItem(props: MenuItemProps) {
                         {props.children}
                     </Outside>
                 ) : (
-                    <div
-                        className={`blue-menu-item-dropdown ${props.dropdownClassName}`}
-                    >
-                        {props.children}
-                    </div>
+                    <div className={`blue-menu-item-dropdown ${props.dropdownClassName}`}>{props.children}</div>
                 ))}
         </>
     )
