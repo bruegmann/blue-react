@@ -119,6 +119,7 @@ function MenuItem(props) {
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/(0, _react.createElement)(props.elementType || (props.href ? "a" : "button"), {
     to: props.to,
+    href: props.href,
     exact: props.exact,
     className: className + (props.isActive || active ? " active" : "") + (props.label ? " has-label" : ""),
     onClick: onClick,
