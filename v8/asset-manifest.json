@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/blue-react/v8/static/css/main.62019ca9.chunk.css",
-    "main.js": "/blue-react/v8/static/js/main.5b72fac5.chunk.js",
-    "main.js.map": "/blue-react/v8/static/js/main.5b72fac5.chunk.js.map",
+    "main.css": "/blue-react/v8/static/css/main.d543c52d.chunk.css",
+    "main.js": "/blue-react/v8/static/js/main.62e4e0ce.chunk.js",
+    "main.js.map": "/blue-react/v8/static/js/main.62e4e0ce.chunk.js.map",
     "runtime-main.js": "/blue-react/v8/static/js/runtime-main.d9c529c8.js",
     "runtime-main.js.map": "/blue-react/v8/static/js/runtime-main.d9c529c8.js.map",
-    "static/js/2.7c56cfcd.chunk.js": "/blue-react/v8/static/js/2.7c56cfcd.chunk.js",
-    "static/js/2.7c56cfcd.chunk.js.map": "/blue-react/v8/static/js/2.7c56cfcd.chunk.js.map",
+    "static/js/2.54447657.chunk.js": "/blue-react/v8/static/js/2.54447657.chunk.js",
+    "static/js/2.54447657.chunk.js.map": "/blue-react/v8/static/js/2.54447657.chunk.js.map",
     "index.html": "/blue-react/v8/index.html",
-    "static/css/main.62019ca9.chunk.css.map": "/blue-react/v8/static/css/main.62019ca9.chunk.css.map",
-    "static/js/2.7c56cfcd.chunk.js.LICENSE.txt": "/blue-react/v8/static/js/2.7c56cfcd.chunk.js.LICENSE.txt",
+    "static/css/main.d543c52d.chunk.css.map": "/blue-react/v8/static/css/main.d543c52d.chunk.css.map",
+    "static/js/2.54447657.chunk.js.LICENSE.txt": "/blue-react/v8/static/js/2.54447657.chunk.js.LICENSE.txt",
     "static/media/blue.101f7419.svg": "/blue-react/v8/static/media/blue.101f7419.svg",
     "static/media/stackblitz.f72cfdf8.png": "/blue-react/v8/static/media/stackblitz.f72cfdf8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.d9c529c8.js",
-    "static/js/2.7c56cfcd.chunk.js",
-    "static/css/main.62019ca9.chunk.css",
-    "static/js/main.5b72fac5.chunk.js"
+    "static/js/2.54447657.chunk.js",
+    "static/css/main.d543c52d.chunk.css",
+    "static/js/main.62e4e0ce.chunk.js"
   ]
 }
