@@ -44,9 +44,10 @@ function Search(props) {
       placeholder = props.placeholder,
       reset = props.reset,
       resetIcon = props.resetIcon,
-      sidebar = props.sidebar;
+      sidebar = props.sidebar,
+      id = props.id;
 
-  var SearchControlId = "blue-search-control-" + _Utilities.default.guid();
+  var SearchControlId = id || "blue-search-control-" + _Utilities.default.guid();
 
   var _useState = (0, _react.useState)(props.value || ""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -64,6 +65,9 @@ function Search(props) {
     }
   };
 
+  (0, _react.useEffect)(function () {
+    if (props.value) setValue(props.value);
+  }, [props.value]);
   return /*#__PURE__*/_react.default.createElement("form", {
     className: "blue-search " + (body ? "blue-search-body " : "") + (focus ? "focus " : "") + (sidebar ? "blue-search-sidebar " : "") + className,
     onSubmit: function onSubmit(event) {
@@ -93,7 +97,7 @@ function Search(props) {
   }), /*#__PURE__*/_react.default.createElement("path", {
     fillRule: "evenodd",
     d: "M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
-  })))), /*#__PURE__*/_react.default.createElement("input", {
+  })))), props.children || /*#__PURE__*/_react.default.createElement("input", {
     type: "search",
     value: value,
     onChange: function onChange(event) {

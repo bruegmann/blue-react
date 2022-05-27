@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 export interface SearchProps {
     autoFocus?: boolean;
     /**
@@ -23,6 +23,8 @@ export interface SearchProps {
      */
     sidebar?: boolean;
     value?: string;
+    children?: ReactNode;
+    id?: string;
 }
 /**
  * A search bar that can be placed to the sidebar or on a page.

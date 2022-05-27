@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { ReactNode, useEffect, useState } from "react"
 import MenuItem from "./MenuItem"
 import Utilities from "./Utilities"
 
@@ -32,14 +32,17 @@ export interface SearchProps {
     sidebar?: boolean
 
     value?: string
+
+    children?: ReactNode
+    id?: string
 }
 
 /**
  * A search bar that can be placed to the sidebar or on a page.
  */
 export default function Search(props: SearchProps) {
-    const { autoFocus, body, className, icon, onChange, onSubmit, placeholder, reset, resetIcon, sidebar } = props
-    const SearchControlId = "blue-search-control-" + Utilities.guid()
+    const { autoFocus, body, className, icon, onChange, onSubmit, placeholder, reset, resetIcon, sidebar, id } = props
+    const SearchControlId = id || "blue-search-control-" + Utilities.guid()
 
     const [value, setValue] = useState<string>(props.value || "")
     const [focus, setFocus] = useState<boolean>(false)
@@ -49,6 +52,10 @@ export default function Search(props: SearchProps) {
             document.dispatchEvent(window.toggleSidebarEvent)
         }
     }
+
+    useEffect(() => {
+        if (props.value) setValue(props.value)
+    }, [props.value])
 
     return (
         <form
@@ -90,23 +97,25 @@ export default function Search(props: SearchProps) {
                     )}
                 </span>
 
-                <input
-                    type="search"
-                    value={value}
-                    onChange={(event) => {
-                        setValue(event.target.value)
-                        if (onChange) onChange(event)
-                    }}
-                    id={SearchControlId}
-                    className="blue-search-control form-control default input-lg"
-                    placeholder={placeholder}
-                    autoFocus={autoFocus}
-                    style={{
-                        zIndex: body ? 0 : undefined
-                    }}
-                    onFocus={() => setFocus(true)}
-                    onBlur={() => setFocus(false)}
-                />
+                {props.children || (
+                    <input
+                        type="search"
+                        value={value}
+                        onChange={(event) => {
+                            setValue(event.target.value)
+                            if (onChange) onChange(event)
+                        }}
+                        id={SearchControlId}
+                        className="blue-search-control form-control default input-lg"
+                        placeholder={placeholder}
+                        autoFocus={autoFocus}
+                        style={{
+                            zIndex: body ? 0 : undefined
+                        }}
+                        onFocus={() => setFocus(true)}
+                        onBlur={() => setFocus(false)}
+                    />
+                )}
 
                 {reset && value.length > 0 && (
                     <div className="input-group-btn">
