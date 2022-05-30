@@ -2,10 +2,7 @@ let Utilities = {}
 
 Utilities.hasClass = function (el, className) {
     if (el.classList) return el.classList.contains(className)
-    else
-        return !!el.className.match(
-            new RegExp("(\\s|^)" + className + "(\\s|$)")
-        )
+    else return !!el.className.match(new RegExp("(\\s|^)" + className + "(\\s|$)"))
 }
 
 Utilities.addClass = function (el, className) {
@@ -16,10 +13,7 @@ Utilities.addClass = function (el, className) {
 Utilities.removeClass = function (el, className) {
     if (el.classList) el.classList.remove(className)
     else if (Utilities.hasClass(el, className))
-        el.className = el.className.replace(
-            new RegExp("(\\s|^)" + className + "(\\s|$)"),
-            " "
-        )
+        el.className = el.className.replace(new RegExp("(\\s|^)" + className + "(\\s|$)"), " ")
 }
 
 Utilities.toggleClass = function (element, className) {
@@ -32,9 +26,7 @@ Utilities.toggleClass = function (element, className) {
     if (nameIndex === -1) {
         classString += " " + className
     } else {
-        classString =
-            classString.substr(0, nameIndex) +
-            classString.substr(nameIndex + className.length)
+        classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length)
     }
     element.className = classString
 }
@@ -48,8 +40,7 @@ Utilities.finishLoading = function () {
 }
 
 Utilities.showSuccess = function () {
-    document.querySelectorAll(".blue-status-success")[0].style.display =
-        "flex"
+    document.querySelectorAll(".blue-status-success")[0].style.display = "flex"
 }
 
 Utilities.hideSuccess = function () {
@@ -68,42 +59,25 @@ Utilities.toggleActions = function () {
 
 Utilities.resetAlertMessage = function (alertClassName = "info") {
     const alertElement = document.querySelectorAll(".blue-status-alert")[0]
-    document.querySelectorAll(
-        ".blue-status-" + alertClassName
-    )[0].style.display = ""
+    document.querySelectorAll(".blue-status-" + alertClassName)[0].style.display = ""
     alertElement.style.display = ""
-    this.removeClass(
-        alertElement,
-        "alert-" + (alertClassName === "loading" ? "info" : alertClassName)
-    )
+    this.removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName))
 }
 
-Utilities.setAlertMessage = function (
-    message,
-    alertClassName = "info",
-    close = undefined,
-    detailText = undefined
-) {
+Utilities.setAlertMessage = function (message, alertClassName = "info", close, detailText) {
     const alertElement = document.querySelectorAll(".blue-status-alert")[0]
 
     if (alertClassName.indexOf("alert-") > -1) {
         alertClassName = alertClassName.replace("alert-", "")
     }
 
-    document.querySelectorAll(
-        ".blue-status-" + alertClassName
-    )[0].style.display = "flex"
+    document.querySelectorAll(".blue-status-" + alertClassName)[0].style.display = "flex"
     alertElement.style.display = "block"
-    this.addClass(
-        alertElement,
-        "alert-" + (alertClassName === "loading" ? "info" : alertClassName)
-    )
+    this.addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName))
 
-    alertElement.querySelector(".alert-body").innerHTML =
-        `<h2>` + message + `</h2>`
+    alertElement.querySelector(".alert-body").innerHTML = `<h2>` + message + `</h2>`
     if (detailText) {
-        alertElement.querySelector(".alert-body").innerHTML +=
-            `<span>` + detailText + `</span>`
+        alertElement.querySelector(".alert-body").innerHTML += `<span>` + detailText + `</span>`
     }
 
     if (close) {
@@ -122,20 +96,7 @@ Utilities.guid = function () {
             .toString(16)
             .substring(1)
     }
-    return (
-        s4() +
-        s4() +
-        "-" +
-        s4() +
-        "-" +
-        s4() +
-        "-" +
-        s4() +
-        "-" +
-        s4() +
-        s4() +
-        s4()
-    )
+    return s4() + s4() + "-" + s4() + "-" + s4() + "-" + s4() + "-" + s4() + s4() + s4()
 }
 
 Utilities.scrollToTop = () => {
@@ -148,12 +109,7 @@ Utilities.scrollToTop = () => {
     })
 }
 
-Utilities.fetchData = function (
-    input,
-    init = undefined,
-    showErrorDetail = true,
-    onError = undefined
-) {
+Utilities.fetchData = function (input, init = undefined, showErrorDetail = true, onError = undefined) {
     return fetch(input, init)
         .then((response) => {
             if (!response.ok) throw response
