@@ -14,10 +14,7 @@ export interface IComponentDocsProps {
     }
 }
 
-export class ComponentDocs extends Component<
-    IComponentDocsProps,
-    { ExampleComponent: ComponentClass<any> }
-> {
+export class ComponentDocs extends Component<IComponentDocsProps, { ExampleComponent: ComponentClass<any> }> {
     state = {
         ExampleComponent: null as unknown as ComponentClass<any>
     }
@@ -54,17 +51,12 @@ export class ComponentDocs extends Component<
             <article className="pt-5">
                 <h1 className="page-header mt-0 blue-opacity-hover">
                     {comp.displayName}{" "}
-                    <Link
-                        to={`/component/${comp.displayName}`}
-                        className="blue-opacity-hover-content-active"
-                    >
+                    <Link to={`/component/${comp.displayName}`} className="blue-opacity-hover-content-active">
                         #
                     </Link>
                 </h1>
 
-                <MarkdownGitHub>
-                    {this.prepareForMarkdown(comp.description)}
-                </MarkdownGitHub>
+                <MarkdownGitHub>{this.prepareForMarkdown(comp.description)}</MarkdownGitHub>
 
                 {comp.displayName == "Intro" && (
                     <p>
@@ -92,25 +84,14 @@ export class ComponentDocs extends Component<
                                             <th>{j}</th>
                                             <td>
                                                 <MarkdownGitHub>
-                                                    {this.prepareForMarkdown(
-                                                        comp.props[j]
-                                                            .description
-                                                    )}
+                                                    {this.prepareForMarkdown(comp.props[j].description)}
                                                 </MarkdownGitHub>
 
                                                 {comp.props[j].defaultValue ? (
                                                     <div>
-                                                        <strong>
-                                                            Default:
-                                                        </strong>
+                                                        <strong>Default:</strong>
                                                         &nbsp;
-                                                        <code>
-                                                            {
-                                                                comp.props[j]
-                                                                    .defaultValue
-                                                                    .value
-                                                            }
-                                                        </code>
+                                                        <code>{comp.props[j].defaultValue.value}</code>
                                                     </div>
                                                 ) : (
                                                     ""
@@ -118,9 +99,13 @@ export class ComponentDocs extends Component<
                                             </td>
                                             <td>
                                                 {comp.props[j].tsType &&
-                                                    (comp.props[j].tsType.raw ||
-                                                        comp.props[j].tsType
-                                                            .name)}
+                                                    (comp.props[j].tsType.raw || comp.props[j].tsType.name)}
+                                                <code
+                                                    className="blue-tooltip-start"
+                                                    data-tooltip={comp.props[j].required ? "Required" : "Optional"}
+                                                >
+                                                    {comp.props[j].required ? "!" : "?"}
+                                                </code>
                                             </td>
                                         </tr>
                                     ))}
@@ -139,19 +124,13 @@ export class ComponentDocs extends Component<
                                     )}
 
                                     {comp.exampleCode && (
-                                        <SyntaxHighlighter
-                                            style={syntaxHighlighterStyle}
-                                            language="jsx"
-                                        >
+                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
                                             {comp.exampleCode}
                                         </SyntaxHighlighter>
                                     )}
                                 </div>
                             ) : (
-                                <Link
-                                    to={"/component/" + comp.displayName}
-                                    onClick={() => window.scrollTo(0, 0)}
-                                >
+                                <Link to={"/component/" + comp.displayName} onClick={() => window.scrollTo(0, 0)}>
                                     Show example
                                 </Link>
                             ))}
