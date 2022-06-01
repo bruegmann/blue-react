@@ -10,7 +10,7 @@ declare namespace Utilities {
     function hideSuccess(): void;
     function toggleActions(): void;
     function resetAlertMessage(alertClassName?: string): void;
-    function setAlertMessage(message: any, alertClassName?: string, close?: any, detailText?: any): void;
+    function setAlertMessage(message: any, alertClassName: string | undefined, close: any, detailText: any): void;
     function guid(): string;
     function scrollToTop(): void;
     function fetchData(input: any, init?: any, showErrorDetail?: boolean, onError?: any): Promise<Response>;

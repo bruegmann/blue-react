@@ -125,7 +125,15 @@ function MenuItem(props) {
     onClick: onClick,
     target: props.target,
     rel: props.rel,
-    title: props.title
+    title: props.title,
+    onDragStart: props.onDragStart,
+    onDrag: props.onDrag,
+    onDragEnd: props.onDragEnd,
+    onDragEnter: props.onDragEnter,
+    onDragOver: props.onDragOver,
+    onDragLeave: props.onDragLeave,
+    onDrop: props.onDrop,
+    draggable: props.draggable
   }, /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {
     className: (0, _clsx.default)("blue-menu-item-icon", {
       hasIconForActive: iconForActive

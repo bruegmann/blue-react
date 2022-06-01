@@ -73,8 +73,8 @@ Utilities.setAlertMessage = function (message) {
   var _this = this;
 
   var alertClassName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "info";
-  var close = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
-  var detailText = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
+  var close = arguments.length > 2 ? arguments[2] : undefined;
+  var detailText = arguments.length > 3 ? arguments[3] : undefined;
   var alertElement = document.querySelectorAll(".blue-status-alert")[0];
 
   if (alertClassName.indexOf("alert-") > -1) {

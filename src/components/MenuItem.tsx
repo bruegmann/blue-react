@@ -84,40 +84,40 @@ export interface MenuItemProps {
     title?: string
 
     /**
-      * onDragStart-Event fired on the draggable target (the source element): occurs when the user starts to drag an element
-      */
-    onDragStart?: (event: React.DragEvent)  => void | React.DragEventHandler
+     * Fired on the draggable target (the source element): occurs when the user starts to drag an element
+     */
+    onDragStart?: (event: React.DragEvent) => void | React.DragEventHandler
 
     /**
-     * onDrag-Event fired on the draggable target (the source element): occurs when an element is being dragged
+     * Fired on the draggable target (the source element): occurs when an element is being dragged
      */
-    onDrag?: (event:  React.DragEvent) => void | React.DragEventHandler
+    onDrag?: (event: React.DragEvent) => void | React.DragEventHandler
 
     /**
-     * onDragEnd-Event fired on the draggable target (the source element): occurs when the user has finished dragging the element
+     * Fired on the draggable target (the source element): occurs when the user has finished dragging the element
      */
-    onDragEnd?: (event:  React.DragEvent) => void | React.DragEventHandler
+    onDragEnd?: (event: React.DragEvent) => void | React.DragEventHandler
 
     /**
-     * onDragEnter-Event fired on the drop target: occurs when the dragged element enters the drop target
+     * Fired on the drop target: occurs when the dragged element enters the drop target
      */
-    onDragEnter?: (event:  React.DragEvent) => void | React.DragEventHandler
+    onDragEnter?: (event: React.DragEvent) => void | React.DragEventHandler
 
     /**
-     * onDragOver-Event fired on the drop target: occurs when the dragged element is over the drop target
+     * Fired on the drop target: occurs when the dragged element is over the drop target
      */
-    onDragOver?: (event:  React.DragEvent) => void | React.DragEventHandler
+    onDragOver?: (event: React.DragEvent) => void | React.DragEventHandler
 
     /**
-     * onDragLeave-Event fired on the drop target: occurs when the dragged element leaves the drop target
+     * Fired on the drop target: occurs when the dragged element leaves the drop target
      */
-    onDragLeave?: (event:  React.DragEvent) => void | React.DragEventHandler
+    onDragLeave?: (event: React.DragEvent) => void | React.DragEventHandler
 
     /**
-     * onDrop-Event fired on the drop target: occurs when the dragged element is dropped on the drop target
+     * Fired on the drop target: occurs when the dragged element is dropped on the drop target
      */
-    onDrop?: (event:  React.DragEvent) => void | React.DragEventHandler
-    
+    onDrop?: (event: React.DragEvent) => void | React.DragEventHandler
+
     /**
      * Specifies whether an element is draggable or not.
      */
@@ -227,7 +227,7 @@ export default function MenuItem(props: MenuItemProps) {
                     onDragStart: props.onDragStart,
                     onDrag: props.onDrag,
                     onDragEnd: props.onDragEnd,
-                    onDragEnter: props.onDragEnter, 
+                    onDragEnter: props.onDragEnter,
                     onDragOver: props.onDragOver,
                     onDragLeave: props.onDragLeave,
                     onDrop: props.onDrop,
