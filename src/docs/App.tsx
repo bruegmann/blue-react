@@ -58,7 +58,7 @@ function App() {
                     bottomContent={
                         <>
                             <MenuItem
-                                href="https://bruegmann.github.io/themify/customize"
+                                href="https://bruegmann.github.io/themify"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 label="Customize with Themify"
