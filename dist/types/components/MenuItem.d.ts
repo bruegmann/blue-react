@@ -55,7 +55,7 @@ export interface MenuItemProps {
      */
     supportOutside?: boolean;
     /**
-     * By default, MenuItem is a `"button"</button>. If you set a `href`, it's a `"a"`.
+     * By default, MenuItem is a `"button"`. If you set a `href`, it's a `"a"`.
      * If you want to have it another type, you can pass a component reference with this prop (e.g. `Link`).
      */
     elementType?: any;

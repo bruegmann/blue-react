@@ -21,10 +21,10 @@ $theme-colors: map-merge(
 );
 
 // Since Bootstrap 5.1 this needs to be set. Otherwise we couldn't use .bg-* and .text-* utils with our custom $theme
-$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
-$utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
-$utilities-text-colors: map-merge($utilities-text-colors, map-loop($utilities-colors, rgba-css-var, "$key", "text"));
-$utilities-bg-colors: map-merge($utilities-bg-colors, map-loop($utilities-colors, rgba-css-var, "$key", "bg"));
+// $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+// $utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
+// $utilities-text-colors: map-merge($utilities-text-colors, map-loop($utilities-colors, rgba-css-var, "$key", "text"));
+// $utilities-bg-colors: map-merge($utilities-bg-colors, map-loop($utilities-colors, rgba-css-var, "$key", "bg"));
 
 // Alpha value (RGBA) e.g. for header background.
 $shimmering: 0.7 !default;
