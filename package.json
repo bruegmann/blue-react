@@ -1,6 +1,6 @@
 {
     "name": "blue-react",
-    "version": "8.3.4",
+    "version": "8.4.0",
     "description": "Blue React Components",
     "license": "LGPL-3.0-or-later",
     "main": "index.js",
@@ -60,7 +60,7 @@
         "postcss-minify": "^1.1.0",
         "prettier": "2.4.1",
         "react": "^18.1.0",
-        "react-bootstrap-icons": "^1.5.0",
+        "react-bootstrap-icons": "^1.8.4",
         "react-docgen": "^5.4.0",
         "react-dom": "^18.1.0",
         "react-markdown-github": "^3.3.1",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 export interface SwitchProps {
     className?: string;
     checked?: boolean;
@@ -12,10 +12,22 @@ export interface SwitchProps {
      */
     elementType?: string;
     disabled?: boolean;
+    /**
+     * Set prop to use the older look and feel. Will disappear in future releases.
+     */
+    legacy?: boolean;
+    label?: ReactNode | string;
 }
 /**
- * Switch.
+ * @deprecated
+ * Use Bootstrap's `.form-check.form-switch` instead:
+ * https://getbootstrap.com/docs/5.2/forms/checks-radios/#switches
+ *
+ * For now, this component acts as proxy for Bootstrap's Switch.
+ * To place a label next to the switch, use the new `label` prop.
+ *
+ * Migrate to Blue React 8.4.0 and use legacy support: Set the `label` with a string. Or set the `legacy` prop to use the previous look and behaviour.
  */
-export default function Switch({ className, checked, onChange, sliderLabel, disabled, elementType }: SwitchProps): React.ReactElement<{
+export default function Switch({ className, checked, onChange, sliderLabel, disabled, elementType, legacy, label }: SwitchProps): React.ReactElement<{
     className: string;
 }, string | React.JSXElementConstructor<any>>;
