@@ -1,17 +1,17 @@
 import React from "react"
-import Switch from "./Switch"
+import Switch, { SwitchProps } from "./Switch"
 
-export interface ActionMenuSwitchProps {
-    className?: string
-    checked?: boolean
+export interface ActionMenuSwitchProps extends SwitchProps {
     onChange?: () => void
     label?: any
 }
 
 /**
+ * @deprecated
+ * Use a solution with Bootstrap's `.form-check.form-switch` or `MenuItem` with a switch icon.
  * Switch for the Action Menu.
  */
-export default function ActionMenuSwitch(props: ActionMenuSwitchProps) {
+export default function ActionMenuSwitch({ label, ...props }: ActionMenuSwitchProps) {
     return (
         <li className="nav-item">
             <a
@@ -23,11 +23,7 @@ export default function ActionMenuSwitch(props: ActionMenuSwitchProps) {
             >
                 <Switch {...props} elementType="span" />
 
-                {props.label && (
-                    <span className="blue-actions-label">
-                        &nbsp;{props.label}
-                    </span>
-                )}
+                {label && <span className="blue-actions-label">&nbsp;{label}</span>}
             </a>
         </li>
     )

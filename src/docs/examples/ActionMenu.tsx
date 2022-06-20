@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import Switch from "../../components/Switch"
 
-function ActionMenuExample() {
+export default function ActionMenuExample() {
     const [isChecked, setIsChecked] = useState(false)
     const toggleIsChecked = () => setIsChecked(!isChecked)
 
@@ -16,25 +16,18 @@ function ActionMenuExample() {
                 className="lg me-3"
                 checked={isChecked}
                 onChange={toggleIsChecked}
+                legacy
                 sliderLabel={isChecked ? "Mobile" : "PC"}
             />
 
             <p>
-                <Link
-                    to="/action-menu-example"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <Link to="/action-menu-example" target="_blank" rel="noopener noreferrer">
                     Open in new tab
                 </Link>
             </p>
 
             <div className="ratio ratio-16x9">
-                <iframe
-                    src={`${process.env.PUBLIC_URL}/action-menu-example`}
-                    style={style}
-                    title="Actions Demo page"
-                />
+                <iframe src={`${process.env.PUBLIC_URL}/action-menu-example`} style={style} title="Actions Demo page" />
                 {/**
                      * This is how the Code looks like: 
                     import React from "react"
@@ -88,5 +81,3 @@ function ActionMenuExample() {
         </div>
     )
 }
-
-export default ActionMenuExample

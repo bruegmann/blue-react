@@ -7,38 +7,32 @@ import HeaderTitle from "../../components/HeaderTitle"
 import ActionMenu from "../../components/ActionMenu"
 import { CloudSleet, ThreeDotsVertical } from "react-bootstrap-icons"
 import { breakOption } from "../../components/shared"
+import ActionMenuSwitch from "../../components/ActionMenuSwitch"
 
 export const ActionMenuExamplePage = () => {
     const [breakProp, setBreakProp] = useState<breakOption | "none">("md")
+    const [checked, setChecked] = useState(false)
 
     return (
         <Page>
             <Header>
                 <HeaderTitle appTitle="My app with an action menu" />
 
-                <ActionMenu
-                    toggleIcon={<ThreeDotsVertical />}
-                    break={breakProp}
-                >
+                <ActionMenu toggleIcon={<ThreeDotsVertical />} break={breakProp}>
                     <MenuItem label="I'm a MenuItem" />
 
                     <div>
-                        <MenuItem
-                            label="I'm a MenuItem with children"
-                            supportOutside
-                            icon={<CloudSleet />}
-                        >
+                        <MenuItem label="I'm a MenuItem with children" supportOutside icon={<CloudSleet />}>
                             <MenuItem label="I'm a MenuItem" />
                             <MenuItem label="Another one" />
                         </MenuItem>
                     </div>
+
+                    <ActionMenuSwitch label="Click me" checked={checked} onChange={() => setChecked(!checked)} />
                 </ActionMenu>
             </Header>
             <Body className="mt-5">
-                <label
-                    className="my-1 me-2"
-                    htmlFor="ActionMenuExamplePage-breakProp"
-                >
+                <label className="my-1 me-2" htmlFor="ActionMenuExamplePage-breakProp">
                     <code>break</code> prop
                 </label>
                 <select
