@@ -1,12 +1,13 @@
-import React, { Component, ComponentClass } from "react"
-import MarkdownGitHub from "react-markdown-github"
+import { Component, ComponentClass } from "react"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
 import { Link } from "react-router-dom"
+import Markdown from "./Markdown"
 
 export interface IComponentDocsProps {
     standalone: boolean
     comp: {
+        composes?: string[]
         displayName: string
         description: string
         props: any
@@ -56,12 +57,24 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                     </Link>
                 </h1>
 
-                <MarkdownGitHub>{this.prepareForMarkdown(comp.description)}</MarkdownGitHub>
+                <Markdown>{this.prepareForMarkdown(comp.description)}</Markdown>
 
                 {comp.displayName == "Intro" && (
                     <p>
                         <Link to="/intro-demo">Take a look at this demo</Link>
                     </p>
+                )}
+
+                {comp.composes && comp.composes.length > 0 && (
+                    <>
+                        <h2 className="mt-4 mb-3">Extending props</h2>
+
+                        {comp.composes.map((comp: string, key: number) => (
+                            <div key={key}>
+                                <code>{comp}</code>
+                            </div>
+                        ))}
+                    </>
                 )}
 
                 {comp.props && (
@@ -83,9 +96,9 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                         <tr key={j}>
                                             <th>{j}</th>
                                             <td>
-                                                <MarkdownGitHub>
+                                                <Markdown>
                                                     {this.prepareForMarkdown(comp.props[j].description)}
-                                                </MarkdownGitHub>
+                                                </Markdown>
 
                                                 {comp.props[j].defaultValue ? (
                                                     <div>
