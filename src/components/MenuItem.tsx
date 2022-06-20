@@ -166,8 +166,8 @@ export default function MenuItem(props: MenuItemProps) {
     const onClickOutside = ({ target }: MouseEvent) => {
         // Don't trigger when clicking on MenuItem
         if (
-            !Utilities.hasClass(target, "blue-menu-item-dropdown-toggle") &&
-            !Utilities.hasClass(target, "blue-menu-item-label")
+            !Utilities.hasClass(target as HTMLElement | null, "blue-menu-item-dropdown-toggle") &&
+            !Utilities.hasClass(target as HTMLElement | null, "blue-menu-item-label")
         ) {
             setShowDropdown(false)
         }

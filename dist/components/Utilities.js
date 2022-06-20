@@ -3,22 +3,35 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.addClass = addClass;
 exports.default = void 0;
-var Utilities = {};
+exports.fetchData = fetchData;
+exports.finishLoading = finishLoading;
+exports.guid = void 0;
+exports.hasClass = hasClass;
+exports.hideSuccess = hideSuccess;
+exports.removeClass = removeClass;
+exports.resetAlertMessage = resetAlertMessage;
+exports.scrollToTop = scrollToTop;
+exports.setAlertMessage = setAlertMessage;
+exports.showSuccess = showSuccess;
+exports.startLoading = startLoading;
+exports.toggleActions = toggleActions;
+exports.toggleClass = toggleClass;
 
-Utilities.hasClass = function (el, className) {
+function hasClass(el, className) {
   if (el.classList) return el.classList.contains(className);else return !!el.className.match(new RegExp("(\\s|^)" + className + "(\\s|$)"));
-};
+}
 
-Utilities.addClass = function (el, className) {
-  if (el.classList) el.classList.add(className);else if (!Utilities.hasClass(el, className)) el.className += " " + className;
-};
+function addClass(el, className) {
+  if (el.classList) el.classList.add(className);else if (!hasClass(el, className)) el.className += " " + className;
+}
 
-Utilities.removeClass = function (el, className) {
-  if (el.classList) el.classList.remove(className);else if (Utilities.hasClass(el, className)) el.className = el.className.replace(new RegExp("(\\s|^)" + className + "(\\s|$)"), " ");
-};
+function removeClass(el, className) {
+  if (el.classList) el.classList.remove(className);else if (hasClass(el, className)) el.className = el.className.replace(new RegExp("(\\s|^)" + className + "(\\s|$)"), " ");
+}
 
-Utilities.toggleClass = function (element, className) {
+function toggleClass(element, className) {
   if (!element || !className) {
     return;
   }
@@ -33,102 +46,108 @@ Utilities.toggleClass = function (element, className) {
   }
 
   element.className = classString;
-};
+}
 
-Utilities.startLoading = function () {
-  document.querySelectorAll(".blue-loading")[0].style.display = "block";
-};
+function startLoading() {
+  ;
+  document.querySelector(".blue-loading").style.display = "block";
+}
 
-Utilities.finishLoading = function () {
-  document.querySelectorAll(".blue-loading")[0].style.display = "";
-};
+function finishLoading() {
+  ;
+  document.querySelector(".blue-loading").style.display = "";
+}
 
-Utilities.showSuccess = function () {
-  document.querySelectorAll(".blue-status-success")[0].style.display = "flex";
-};
+function showSuccess() {
+  ;
+  document.querySelector(".blue-status-success").style.display = "flex";
+}
 
-Utilities.hideSuccess = function () {
-  document.querySelectorAll(".blue-status-success")[0].style.display = "";
-};
+function hideSuccess() {
+  ;
+  document.querySelector(".blue-status-success").style.display = "";
+}
 
-Utilities.toggleActions = function () {
-  this.toggleClass(document.querySelector(".blue-wrapper"), "active");
-  this.toggleClass(document.querySelector(".blue-layout"), "wrapper-in");
+function toggleActions() {
+  toggleClass(document.querySelector(".blue-wrapper"), "active");
+  toggleClass(document.querySelector(".blue-layout"), "wrapper-in");
   var els = document.querySelectorAll(".blue-actions");
 
   for (var i = 0; i < els.length; i++) {
-    this.toggleClass(els[i], "open");
+    toggleClass(els[i], "open");
   }
-};
+}
 
-Utilities.resetAlertMessage = function () {
+function resetAlertMessage() {
   var alertClassName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "info";
-  var alertElement = document.querySelectorAll(".blue-status-alert")[0];
-  document.querySelectorAll(".blue-status-" + alertClassName)[0].style.display = "";
+  var alertElement = document.querySelector(".blue-status-alert");
+  document.querySelector(".blue-status-" + alertClassName).style.display = "";
   alertElement.style.display = "";
-  this.removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
-};
+  removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
+}
 
-Utilities.setAlertMessage = function (message) {
-  var _this = this;
-
+function setAlertMessage(message) {
   var alertClassName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "info";
-  var close = arguments.length > 2 ? arguments[2] : undefined;
+  var close = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   var detailText = arguments.length > 3 ? arguments[3] : undefined;
-  var alertElement = document.querySelectorAll(".blue-status-alert")[0];
+  var alertElement = document.querySelector(".blue-status-alert");
 
   if (alertClassName.indexOf("alert-") > -1) {
     alertClassName = alertClassName.replace("alert-", "");
   }
 
-  document.querySelectorAll(".blue-status-" + alertClassName)[0].style.display = "flex";
+  ;
+  document.querySelector(".blue-status-" + alertClassName).style.display = "flex";
   alertElement.style.display = "block";
-  this.addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
+  addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
   alertElement.querySelector(".alert-body").innerHTML = "<h2>" + message + "</h2>";
 
   if (detailText) {
     alertElement.querySelector(".alert-body").innerHTML += "<span>" + detailText + "</span>";
   }
 
-  if (close) {
-    alertElement.querySelector(".btn-close").style.display = "inline-block";
+  var btnCloseElement = alertElement.querySelector(".btn-close");
 
-    alertElement.querySelector(".btn-close").onclick = function () {
-      _this.resetAlertMessage(alertClassName);
+  if (close) {
+    btnCloseElement.style.display = "inline-block";
+
+    btnCloseElement.onclick = function () {
+      resetAlertMessage(alertClassName);
     };
   } else {
-    alertElement.querySelector(".btn-close").style.display = "none";
+    btnCloseElement.style.display = "none";
   }
-};
+}
 
-Utilities.guid = function () {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-  }
+function s4() {
+  return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+}
 
+var guid = function guid() {
   return s4() + s4() + "-" + s4() + "-" + s4() + "-" + s4() + "-" + s4() + s4() + s4();
 };
 
-Utilities.scrollToTop = function () {
+exports.guid = guid;
+
+function scrollToTop() {
   var routerPage = document.querySelector(".router-page.active");
   routerPage.scroll({
     behavior: "smooth",
     left: 0,
     top: 0
   });
-};
+}
 
-Utilities.fetchData = function (input) {
-  var init = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+function fetchData(input, init) {
   var showErrorDetail = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-  var onError = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
+  var onError = arguments.length > 3 ? arguments[3] : undefined;
   return fetch(input, init).then(function (response) {
     if (!response.ok) throw response;
     return response;
   }).catch(function (reason) {
     if (reason.text) {
       reason.text().then(function (errorMessage) {
-        Utilities.setAlertMessage("".concat(reason.status, " - ").concat(reason.statusText), "danger", true, showErrorDetail ? errorMessage : undefined);
+        setAlertMessage("".concat(reason.status, " - ").concat(reason.statusText), "danger", true, showErrorDetail ? errorMessage : undefined);
 
         if (onError) {
           onError(errorMessage, reason);
@@ -138,7 +157,22 @@ Utilities.fetchData = function (input) {
 
     throw reason;
   });
-};
+}
 
-var _default = Utilities;
+var _default = {
+  hasClass: hasClass,
+  addClass: addClass,
+  removeClass: removeClass,
+  toggleClass: toggleClass,
+  startLoading: startLoading,
+  finishLoading: finishLoading,
+  showSuccess: showSuccess,
+  hideSuccess: hideSuccess,
+  toggleActions: toggleActions,
+  resetAlertMessage: resetAlertMessage,
+  setAlertMessage: setAlertMessage,
+  guid: guid,
+  scrollToTop: scrollToTop,
+  fetchData: fetchData
+};
 exports.default = _default;
