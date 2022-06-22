@@ -1,22 +1,15 @@
 {
   "files": {
-    "main.css": "/blue-react/v8/static/css/main.ce2b340c.chunk.css",
-    "main.js": "/blue-react/v8/static/js/main.20e2c9bf.chunk.js",
-    "main.js.map": "/blue-react/v8/static/js/main.20e2c9bf.chunk.js.map",
-    "runtime-main.js": "/blue-react/v8/static/js/runtime-main.3e790943.js",
-    "runtime-main.js.map": "/blue-react/v8/static/js/runtime-main.3e790943.js.map",
-    "static/js/2.27d55247.chunk.js": "/blue-react/v8/static/js/2.27d55247.chunk.js",
-    "static/js/2.27d55247.chunk.js.map": "/blue-react/v8/static/js/2.27d55247.chunk.js.map",
+    "main.css": "/blue-react/v8/static/css/main.f13ad23f.css",
+    "main.js": "/blue-react/v8/static/js/main.6c1e43c1.js",
+    "static/media/stackblitz.png": "/blue-react/v8/static/media/stackblitz.f72cfdf89a1ff8df2098.png",
+    "static/media/blue.svg": "/blue-react/v8/static/media/blue.0fc1a48f3668285482482e4a1c581a9b.svg",
     "index.html": "/blue-react/v8/index.html",
-    "static/css/main.ce2b340c.chunk.css.map": "/blue-react/v8/static/css/main.ce2b340c.chunk.css.map",
-    "static/js/2.27d55247.chunk.js.LICENSE.txt": "/blue-react/v8/static/js/2.27d55247.chunk.js.LICENSE.txt",
-    "static/media/blue.0fc1a48f.svg": "/blue-react/v8/static/media/blue.0fc1a48f.svg",
-    "static/media/stackblitz.f72cfdf8.png": "/blue-react/v8/static/media/stackblitz.f72cfdf8.png"
+    "main.f13ad23f.css.map": "/blue-react/v8/static/css/main.f13ad23f.css.map",
+    "main.6c1e43c1.js.map": "/blue-react/v8/static/js/main.6c1e43c1.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.3e790943.js",
-    "static/js/2.27d55247.chunk.js",
-    "static/css/main.ce2b340c.chunk.css",
-    "static/js/main.20e2c9bf.chunk.js"
+    "static/css/main.f13ad23f.css",
+    "static/js/main.6c1e43c1.js"
   ]
 }
