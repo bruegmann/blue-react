@@ -11,12 +11,13 @@
     .blue-menu-item-label {
         display: inline-block;
     }
-
     .blue-sidebar {
         z-index: 42;
         box-shadow: 0.6rem 6rem 6rem rgba(0, 0, 0, 0.4);
         // background-color: darken($theme, 30%);
     }
+
+    --blue-sidebar-width: #{$bla-sidebar-width};
 
     .blue-sidebar,
     .blue-sidebar .blue-menu-item {
@@ -77,7 +78,10 @@
         &::before {
             content: "";
             position: absolute;
-            top: 0.25rem; right: 0.25rem; bottom: 0.25rem; left: 0.25rem;
+            top: 0.25rem;
+            right: 0.25rem;
+            bottom: 0.25rem;
+            left: 0.25rem;
             background-color: currentColor;
             border-radius: $border-radius;
             transform: scale(0.9);
@@ -111,6 +115,10 @@
         & > * + .blue-menu-item-label {
             margin-left: 0.5rem;
         }
+    }
+
+    :root {
+        --blue-sidebar-width: #{$width};
     }
 
     .blue-sidebar {

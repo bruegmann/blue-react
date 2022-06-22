@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode, useEffect, useState } from "react"
 import Utilities from "../../components/Utilities"
 import { CheckCircle, CheckCircleFill, PlayFill } from "react-bootstrap-icons"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
@@ -9,7 +9,7 @@ import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo"
 import { Footer } from "../components/Footer"
 import HashLink from "../components/HashLink"
 
-export interface UtilitiesPageProps { }
+export interface UtilitiesPageProps {}
 
 export interface UtilitiesPageState {
     content: any
@@ -31,17 +31,13 @@ const utilitiesFunctions = [
     },
     {
         definition: "toggleClass(el, className)",
-        description:
-            "Adds class name to element, if it doesn't it yet. Otherwise it removes it."
+        description: "Adds class name to element, if it doesn't it yet. Otherwise it removes it."
     },
     {
         definition: "startLoading()",
         description: "Shows loading animation.",
         demo: (
-            <button
-                className="btn btn-light"
-                onClick={() => Utilities.startLoading()}
-            >
+            <button className="btn btn-light" onClick={() => Utilities.startLoading()}>
                 <PlayFill />
             </button>
         )
@@ -50,10 +46,7 @@ const utilitiesFunctions = [
         definition: "finishLoading()",
         description: "Hides loading animation.",
         demo: (
-            <button
-                className="btn btn-light"
-                onClick={() => Utilities.finishLoading()}
-            >
+            <button className="btn btn-light" onClick={() => Utilities.finishLoading()}>
                 <PlayFill />
             </button>
         )
@@ -62,10 +55,7 @@ const utilitiesFunctions = [
         definition: "showSuccess()",
         description: "Shows success symbol.",
         demo: (
-            <button
-                className="btn btn-light"
-                onClick={() => Utilities.showSuccess()}
-            >
+            <button className="btn btn-light" onClick={() => Utilities.showSuccess()}>
                 <PlayFill />
             </button>
         )
@@ -74,10 +64,7 @@ const utilitiesFunctions = [
         definition: "hideSuccess()",
         description: "Hides success symbol.",
         demo: (
-            <button
-                className="btn btn-light"
-                onClick={() => Utilities.hideSuccess()}
-            >
+            <button className="btn btn-light" onClick={() => Utilities.hideSuccess()}>
                 <PlayFill />
             </button>
         )
@@ -87,15 +74,13 @@ const utilitiesFunctions = [
         description: "Shows action menu or hides it."
     },
     {
-        definition:
-            "setAlertMessage(message, alertClassName, close, detailText)",
+        definition: "setAlertMessage(message, alertClassName, close, detailText)",
         description: (
             <span>
                 Shows an alert message.
                 <br />
-                Possible values for alertClassName: <code>loading</code>,{" "}
-                <code>success</code>, <code>info</code>, <code>warning</code>,{" "}
-                <code>danger</code>
+                Possible values for alertClassName: <code>loading</code>, <code>success</code>, <code>info</code>,{" "}
+                <code>warning</code>, <code>danger</code>
             </span>
         ),
         demo: (
@@ -121,10 +106,7 @@ const utilitiesFunctions = [
         definition: "resetAlertMessage(alertClassName)",
         description: "Resets alert message and removes it.",
         demo: (
-            <button
-                className="btn btn-light"
-                onClick={() => Utilities.resetAlertMessage("danger")}
-            >
+            <button className="btn btn-light" onClick={() => Utilities.resetAlertMessage("danger")}>
                 <PlayFill />
             </button>
         )
@@ -133,10 +115,7 @@ const utilitiesFunctions = [
         definition: "guid()",
         description: "Returns string of random characters.",
         demo: (
-            <button
-                className="btn btn-light"
-                onClick={() => alert("Generated GUID: " + Utilities.guid())}
-            >
+            <button className="btn btn-light" onClick={() => alert("Generated GUID: " + Utilities.guid())}>
                 <PlayFill />
             </button>
         )
@@ -145,10 +124,7 @@ const utilitiesFunctions = [
         definition: "scrollToTop()",
         description: "Scrolls to the top of the page.",
         demo: (
-            <button
-                className="btn btn-light"
-                onClick={() => Utilities.scrollToTop()}
-            >
+            <button className="btn btn-light" onClick={() => Utilities.scrollToTop()}>
                 <PlayFill />
             </button>
         )
@@ -157,8 +133,8 @@ const utilitiesFunctions = [
         definition: "fetchData(input, init?, showErrorDetail? = true)",
         description: (
             <span>
-                Uses native <code>fetch</code> function, but adds error handling
-                and shows error messages if there are any.
+                Uses native <code>fetch</code> function, but adds error handling and shows error messages if there are
+                any.
             </span>
         )
         // demo: (<Fragment>
@@ -182,10 +158,37 @@ const utilitiesFunctions = [
     }
 ]
 
-export class UtilitiesPage extends React.Component<
-    UtilitiesPageProps,
-    UtilitiesPageState
-> {
+function CssVarDemo({ variable, render }: { variable: string; render: (value: string) => ReactNode }) {
+    const [value, setValue] = useState<string>()
+
+    const init = () => {
+        const el = document.getElementById(variable)
+        if (el) {
+            setValue(window.getComputedStyle(el).getPropertyValue(variable))
+        }
+    }
+
+    useEffect(() => {
+        init()
+        window.addEventListener("resize", init)
+
+        return () => {
+            window.removeEventListener("resize", init)
+        }
+    }, [])
+
+    return (
+        <>
+            <p>
+                Current value: <code>{value}</code>
+                <br />
+                {value && render(value)}
+            </p>
+        </>
+    )
+}
+
+export class UtilitiesPage extends React.Component<UtilitiesPageProps, UtilitiesPageState> {
     constructor(props: UtilitiesPageProps) {
         super(props)
 
@@ -195,36 +198,67 @@ export class UtilitiesPage extends React.Component<
         }
     }
     componentDidMount() {
-        document
-            .querySelector(".router-page.active")!
-            .addEventListener("scroll", () => {
-                if (!this.state.didScroll) {
-                    this.setState({ didScroll: true })
-                }
-            })
+        document.querySelector(".router-page.active")!.addEventListener("scroll", () => {
+            if (!this.state.didScroll) {
+                this.setState({ didScroll: true })
+            }
+        })
     }
     render() {
         const sections = [
             {
-                title: "Utilities",
+                title: "CSS Variables",
                 body: (
-                    <div>
-                        <p>A static class with a few useful helper functions</p>
+                    <>
+                        <article className="mb-5">
+                            <HashLink id="--blue-sidebar-width">
+                                <code>--blue-sidebar-width</code>
+                            </HashLink>
+                            <p>Contains current width of the sidebar.</p>
+                            <CssVarDemo
+                                variable="--blue-sidebar-width"
+                                render={(value: string) => (
+                                    <div
+                                        className="border border-primary border-5 rounded p-1 d-inline-block"
+                                        style={{ width: value }}
+                                    />
+                                )}
+                            />
+                        </article>
 
-                        <h2 className="page-header">Useful CSS classes</h2>
-
+                        <article className="mb-5">
+                            <HashLink id="--blue-theme">
+                                <code>--blue-theme</code>
+                            </HashLink>
+                            <p>
+                                Theme color, defined using SCSS variable <code>$theme</code>.
+                            </p>
+                            <CssVarDemo
+                                variable="--blue-theme"
+                                render={(value: string) => (
+                                    <div
+                                        className="border-5 rounded p-3 d-inline-block"
+                                        style={{ backgroundColor: value }}
+                                    >
+                                        <input type="color" value={value.trim()} />
+                                    </div>
+                                )}
+                            />
+                        </article>
+                    </>
+                )
+            },
+            {
+                title: "Useful CSS classes",
+                body: (
+                    <>
                         <article className="mb-5">
                             <HashLink id="blue-sidebar-bottom">
                                 <code>.blue-sidebar-bottom</code>
                             </HashLink>
                             <p>
-                                With Sidebar Bottom, for example, a registered
-                                user can be displayed at the bottom left. Usable
-                                within{" "}
-                                <code>
-                                    &lt;SidebarMenu {"bottomContent={}"} /&gt;
-                                </code>
-                                .
+                                With Sidebar Bottom, for example, a registered user can be displayed at the bottom left.
+                                Usable within <code>&lt;SidebarMenu {"bottomContent={}"} /&gt;</code>.
                             </p>
                         </article>
 
@@ -232,20 +266,14 @@ export class UtilitiesPage extends React.Component<
                             <HashLink id="blue-sidebar-hidden-on-open">
                                 <code>.blue-sidebar-hidden-on-open</code>
                             </HashLink>
-                            <p>
-                                The element is hidden as long as the sidebar is
-                                open.
-                            </p>
+                            <p>The element is hidden as long as the sidebar is open.</p>
                         </article>
 
                         <article className="mb-5">
                             <HashLink id="blue-sidebar-visible-on-open">
                                 <code>.blue-sidebar-visible-on-open</code>
                             </HashLink>
-                            <p>
-                                The element is visible as long as the sidebar is
-                                open.
-                            </p>
+                            <p>The element is visible as long as the sidebar is open.</p>
                         </article>
 
                         <article className="mb-5">
@@ -262,24 +290,16 @@ export class UtilitiesPage extends React.Component<
 
                         <article className="mb-5">
                             <HashLink id="btn-black">
-                                <code>.btn-black</code>,{" "}
-                                <code>.btn-outline-black</code>
+                                <code>.btn-black</code>, <code>.btn-outline-black</code>
                             </HashLink>
-                            <p>
-                                Additionally Bootstrap theme variable "black"
-                                for always black buttons.
-                            </p>
+                            <p>Additionally Bootstrap theme variable "black" for always black buttons.</p>
                         </article>
 
                         <article className="mb-5">
                             <HashLink id="btn-white">
-                                <code>.btn-white</code>,{" "}
-                                <code>.btn-outline-white</code>
+                                <code>.btn-white</code>, <code>.btn-outline-white</code>
                             </HashLink>
-                            <p>
-                                Additionally Bootstrap theme variable "white"
-                                for always white buttons.
-                            </p>
+                            <p>Additionally Bootstrap theme variable "white" for always white buttons.</p>
                         </article>
 
                         <article className="mb-5">
@@ -291,8 +311,7 @@ export class UtilitiesPage extends React.Component<
                                 <a href="https://getbootstrap.com/docs/5.1/forms/layout/#horizontal-form">
                                     Bootstraps solutions
                                 </a>
-                                . <code>.form-horizontal</code> arranges the
-                                labels on the right on larger screens.
+                                . <code>.form-horizontal</code> arranges the labels on the right on larger screens.
                             </p>
                         </article>
 
@@ -301,28 +320,21 @@ export class UtilitiesPage extends React.Component<
                                 <code>.w-bla-sidebar-width</code>
                             </HashLink>
                             <p>
-                                Gives element the width of the sidebar, defined
-                                with <code>$bla-sidebar-width</code>.
+                                Gives element the width of the sidebar, defined with <code>$bla-sidebar-width</code>.
                             </p>
                         </article>
 
                         <article className="mb-5">
                             <HashLink id="blue-tooltip-up">
-                                <code>.blue-tooltip-up</code>,{" "}
-                                <code>.blue-tooltip-down</code>,{" "}
-                                <code>.blue-tooltip-start</code>,{" "}
-                                <code>.blue-tooltip-end</code>
+                                <code>.blue-tooltip-up</code>, <code>.blue-tooltip-down</code>,{" "}
+                                <code>.blue-tooltip-start</code>, <code>.blue-tooltip-end</code>
                             </HashLink>
                             <p>
-                                Data Attribute of element is used as an tooltip.
-                                To be used together with{" "}
+                                Data Attribute of element is used as an tooltip. To be used together with{" "}
                                 <code>data-tooltip</code>.<br />
                                 Usage:
                             </p>
-                            <strong
-                                data-tooltip="Put your tooltip text here"
-                                className="blue-tooltip-up"
-                            >
+                            <strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
                                 Hover me!
                             </strong>
                             <SyntaxHighlighter
@@ -338,14 +350,11 @@ export class UtilitiesPage extends React.Component<
                                 <code>.blue-btn-silent</code>
                             </HashLink>
                             <p>
-                                Removes border when the button is in normal
-                                state (no hover). Should be used together with{" "}
-                                <code>.btn-outline-*</code>.<br />
+                                Removes border when the button is in normal state (no hover). Should be used together
+                                with <code>.btn-outline-*</code>.<br />
                                 Usage:
                             </p>
-                            <button className="btn btn-outline-secondary blue-btn-silent">
-                                Button
-                            </button>
+                            <button className="btn btn-outline-secondary blue-btn-silent">Button</button>
                             <SyntaxHighlighter
                                 style={syntaxHighlighterStyle}
                                 language="html"
@@ -356,27 +365,21 @@ export class UtilitiesPage extends React.Component<
 
                         <article className="mb-5">
                             <HashLink id="blue-opacity-hover">
-                                <code>.blue-opacity-hover</code>,{" "}
-                                <code>.blue-opacity-hover-content-active</code>,{" "}
+                                <code>.blue-opacity-hover</code>, <code>.blue-opacity-hover-content-active</code>,{" "}
                                 <code>.blue-opacity-hover-content-default</code>
                             </HashLink>
                             <p>
-                                With <code>.blue-opacity-hover</code> you can
-                                hide things by default and let them appear when
-                                the user hovers the area around it.
+                                With <code>.blue-opacity-hover</code> you can hide things by default and let them appear
+                                when the user hovers the area around it.
                                 <br />
-                                This way you can simplify the UI a bit and make
-                                controls disappear when they are not needed. On
-                                touch screens the elements will always be
-                                visible.
+                                This way you can simplify the UI a bit and make controls disappear when they are not
+                                needed. On touch screens the elements will always be visible.
                                 <br />
                                 Usage:
                             </p>
 
                             <div className="card blue-opacity-hover p-3 flex-row justify-content-between">
-                                <h5 className="blue-opacity-hover-content-default">
-                                    Hover here to see a button
-                                </h5>
+                                <h5 className="blue-opacity-hover-content-default">Hover here to see a button</h5>
                                 <button className="btn btn-secondary blue-opacity-hover-content-active">
                                     Hey there
                                 </button>
@@ -392,28 +395,23 @@ export class UtilitiesPage extends React.Component<
 
                         <article className="mb-5">
                             <HashLink id="blue-d-hover">
-                                <code>.blue-d-hover</code>,{" "}
-                                <code>.blue-d-hover-content-active</code>,{" "}
+                                <code>.blue-d-hover</code>, <code>.blue-d-hover-content-active</code>,{" "}
                                 <code>.blue-d-hover-content-default</code>
                             </HashLink>
                             <p>
-                                <code>.blue-d-hover</code> is similar to{" "}
-                                <code>.blue-opacity-hover</code>, but the
-                                elements will disappear and appear with the{" "}
-                                <code>display</code> property.
+                                <code>.blue-d-hover</code> is similar to <code>.blue-opacity-hover</code>, but the
+                                elements will disappear and appear with the <code>display</code> property.
                                 <br />
-                                It is ideal if you want to replace something
-                                with something else when the user hovers. On the
-                                example I used it to change the edit and delete
-                                icons from lineout to filled when hovering.
+                                It is ideal if you want to replace something with something else when the user hovers.
+                                On the example I used it to change the edit and delete icons from lineout to filled when
+                                hovering.
                                 <br />
                                 Usage:
                             </p>
 
                             <button className="btn blue-d-hover d-inline-flex align-items-center gap-1">
                                 <CheckCircle className="blue-d-hover-content-default" />
-                                <CheckCircleFill className="blue-d-hover-content-active" />{" "}
-                                Hover to fill the icon
+                                <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
                             </button>
                             <SyntaxHighlighter
                                 style={syntaxHighlighterStyle}
@@ -423,8 +421,13 @@ export class UtilitiesPage extends React.Component<
     <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
 </button>`}</SyntaxHighlighter>
                         </article>
-
-                        <h2 className="page-header">JavaScript Functions</h2>
+                    </>
+                )
+            },
+            {
+                title: "JavaScript Functions",
+                body: (
+                    <>
                         <table className="table">
                             <thead>
                                 <tr>
@@ -437,25 +440,15 @@ export class UtilitiesPage extends React.Component<
                             <tbody>
                                 {utilitiesFunctions
                                     .sort((a, b) =>
-                                        a.definition > b.definition
-                                            ? 1
-                                            : b.definition > a.definition
-                                                ? -1
-                                                : 0
+                                        a.definition > b.definition ? 1 : b.definition > a.definition ? -1 : 0
                                     )
                                     .map((fun, index) => (
                                         <tr key={index}>
                                             <td>
-                                                <code>
-                                                    Utilities.{fun.definition}
-                                                </code>
+                                                <code>Utilities.{fun.definition}</code>
                                             </td>
                                             <td>{fun.description}</td>
-                                            {fun.demo ? (
-                                                <td>{fun.demo}</td>
-                                            ) : (
-                                                <td />
-                                            )}
+                                            {fun.demo ? <td>{fun.demo}</td> : <td />}
                                         </tr>
                                     ))}
                             </tbody>
@@ -468,7 +461,7 @@ export class UtilitiesPage extends React.Component<
                         >{`import { Utilities } from "blue-react"
                             
 Utilities.startLoading()`}</SyntaxHighlighter>
-                    </div>
+                    </>
                 )
             }
         ]
@@ -479,16 +472,8 @@ Utilities.startLoading()`}</SyntaxHighlighter>
                         <div className="row">
                             <div className="col-md-12">
                                 {sections.map((s, i) => (
-                                    <article
-                                        key={i}
-                                        id={
-                                            "section-" +
-                                            encodeURIComponent(s.title)
-                                        }
-                                    >
-                                        <h1 className="page-header">
-                                            {s.title}
-                                        </h1>
+                                    <article key={i} id={"section-" + encodeURIComponent(s.title)}>
+                                        <h1 className="page-header">{s.title}</h1>
                                         {s.body}
                                     </article>
                                 ))}
