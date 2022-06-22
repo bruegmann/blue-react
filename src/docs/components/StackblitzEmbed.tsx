@@ -10,6 +10,7 @@ export default function StackblitzEmbed() {
             {loadIframe ? (
                 <div className="ratio ratio-16x9 bg-light rounded">
                     <iframe
+                        title="Stackblitz"
                         className="rounded"
                         src="https://stackblitz.com/edit/blue-react-app-stackblitz-rr6xeh?embed=1&file=index.tsx&hideExplorer=1"
                     />
@@ -20,14 +21,8 @@ export default function StackblitzEmbed() {
                     style={{ backgroundImage: `url(${image})` }}
                 >
                     <div>
-                        <h5>
-                            Do you want to load external content from
-                            Stackblitz?
-                        </h5>
-                        <p>
-                            It will contain a live editor, which lets you edit a
-                            demo app with Blue React.
-                        </p>
+                        <h5>Do you want to load external content from Stackblitz?</h5>
+                        <p>It will contain a live editor, which lets you edit a demo app with Blue React.</p>
 
                         <button
                             className="btn btn-white d-inline-flex align-items-center"

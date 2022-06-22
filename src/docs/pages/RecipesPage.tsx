@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
-import { Link, NavLink, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { NavLink, useParams } from "react-router-dom"
 import Body from "../components/BodyRounded"
 import Page from "../../components/Page"
 import { Footer } from "../components/Footer"
@@ -30,17 +30,14 @@ export function RecipesPage() {
     }, [active, recipes])
 
     const fetchRecipes = async () => {
-        const url =
-            "https://api.github.com/repos/bruegmann/blue-react/contents/recipes"
+        const url = "https://api.github.com/repos/bruegmann/blue-react/contents/recipes"
         const r = await fetch(`${url}`)
 
         const contents = (await r.json()) as GitHubContent[]
 
         if (contents && Array.isArray(contents)) {
             const recipes = contents.filter(
-                (c: GitHubContent) =>
-                    c.name.endsWith(".md") &&
-                    c.name.toLowerCase() !== "readme.md"
+                (c: GitHubContent) => c.name.endsWith(".md") && c.name.toLowerCase() !== "readme.md"
             )
             setRecipes(recipes)
         }
@@ -56,24 +53,13 @@ export function RecipesPage() {
                                 <div>
                                     <nav className="nav nav-pills flex-column mt-3">
                                         {recipes !== null ? (
-                                            recipes.map(
-                                                (recipe: GitHubContent) => (
-                                                    <div
-                                                        key={recipe.sha}
-                                                        className="nav-item"
-                                                    >
-                                                        <NavLink
-                                                            to={`/recipes/${recipe.name}`}
-                                                            className="nav-link"
-                                                        >
-                                                            {recipe.name.replace(
-                                                                ".md",
-                                                                ""
-                                                            )}
-                                                        </NavLink>
-                                                    </div>
-                                                )
-                                            )
+                                            recipes.map((recipe: GitHubContent) => (
+                                                <div key={recipe.sha} className="nav-item">
+                                                    <NavLink to={`/recipes/${recipe.name}`} className="nav-link">
+                                                        {recipe.name.replace(".md", "")}
+                                                    </NavLink>
+                                                </div>
+                                            ))
                                         ) : (
                                             <div>Loading...</div>
                                         )}
@@ -90,10 +76,8 @@ export function RecipesPage() {
                                     <h1 className="page-header">Recipes</h1>
 
                                     <p>
-                                        Recipes are short tutorials or
-                                        instructions for specific scenarious. On
-                                        the side you see a list of all available
-                                        recipes.
+                                        Recipes are short tutorials or instructions for specific scenarious. On the side
+                                        you see a list of all available recipes.
                                     </p>
                                 </>
                             )}
