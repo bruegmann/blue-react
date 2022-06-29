@@ -1,7 +1,21 @@
-import React from "react"
+import React, { DOMAttributes } from "react"
 import { createRoot } from "react-dom/client"
 import App from "./docs/App"
 import * as serviceWorker from "./serviceWorker"
+
+// @ts-ignore
+import { Sidebar } from "blue-web-components"
+import "blue-web-components"
+
+type CustomElement<T> = Partial<T & DOMAttributes<T> & { children: any }>
+
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            ["blue-sidebar"]: CustomElement<Sidebar>
+        }
+    }
+}
 
 const root = createRoot(document.getElementById("root")!)
 

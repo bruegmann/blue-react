@@ -1,4 +1,3 @@
-import React from "react"
 import Page from "../../components/Page"
 import Body from "../../components/Body"
 import { logo, appTitle } from "../Global"
