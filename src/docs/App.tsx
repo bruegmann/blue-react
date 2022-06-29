@@ -66,54 +66,62 @@ function App() {
                             {appTitle}
                         </Link>
 
-                        <MenuItem
-                            icon={<House />}
-                            iconForActive={<HouseFill />}
-                            label="Start"
-                            elementType={NavLink}
-                            exact
-                            to="/"
-                        />
-                        <MenuItem
-                            icon={<Rss />}
-                            iconForActive={<RssFill />}
-                            label="Blog"
-                            elementType={NavLink}
-                            to="/blog"
-                        />
+                        <div
+                            className="d-flex flex-column justify-content-between"
+                            style={{ height: "calc(100vh - var(--blue-control-size))" }}
+                        >
+                            <div>
+                                <MenuItem
+                                    icon={<House />}
+                                    iconForActive={<HouseFill />}
+                                    label="Start"
+                                    elementType={NavLink}
+                                    exact
+                                    to="/"
+                                />
+                                <MenuItem
+                                    icon={<Rss />}
+                                    iconForActive={<RssFill />}
+                                    label="Blog"
+                                    elementType={NavLink}
+                                    to="/blog"
+                                />
 
-                        <MenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
-                        <MenuItem
-                            icon={<Puzzle />}
-                            iconForActive={<PuzzleFill />}
-                            label="React Components"
-                            elementType={NavLink}
-                            to="/component"
-                        />
-                        <MenuItem
-                            icon={<Stickies />}
-                            iconForActive={<StickiesFill />}
-                            label="Recipes"
-                            elementType={NavLink}
-                            to="/recipes"
-                        />
+                                <MenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
+                                <MenuItem
+                                    icon={<Puzzle />}
+                                    iconForActive={<PuzzleFill />}
+                                    label="React Components"
+                                    elementType={NavLink}
+                                    to="/component"
+                                />
+                                <MenuItem
+                                    icon={<Stickies />}
+                                    iconForActive={<StickiesFill />}
+                                    label="Recipes"
+                                    elementType={NavLink}
+                                    to="/recipes"
+                                />
+                            </div>
 
-                        <MenuItem
-                            href="https://bruegmann.github.io/themify"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            label="Customize with Themify"
-                            icon={<Palette2 />}
-                            className="mt-auto"
-                        />
+                            <div>
+                                <MenuItem
+                                    href="https://bruegmann.github.io/themify"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    label="Customize with Themify"
+                                    icon={<Palette2 />}
+                                />
 
-                        <MenuItem
-                            href="https://github.com/bruegmann/blue-react"
-                            icon={<CodeSquare />}
-                            label="Code on GitHub"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        />
+                                <MenuItem
+                                    href="https://github.com/bruegmann/blue-react"
+                                    icon={<CodeSquare />}
+                                    label="Code on GitHub"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                />
+                            </div>
+                        </div>
                     </blue-sidebar>
 
                     <div className="router-page active">

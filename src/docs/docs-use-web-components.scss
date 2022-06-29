@@ -3,7 +3,7 @@
     // Web Component's default value
     --blue-sidebar-width: 16.563rem;
 
-    --blue-sidebar-bg: rgba(35, 31, 49, 0.9);
+    --blue-sidebar-bg: rgba(35, 31, 49, 1);
     --blue-sidebar-button-bg: transparent;
     --blue-sidebar-button-bg-hover: rgba(255, 255, 255, 0.5);
     --blue-sidebar-button-border-radius: 0.5rem;
@@ -16,7 +16,6 @@
 
 .docs-layout {
     display: flex;
-    height: 100vh;
 }
 
 .docs-web-components .router-page {
