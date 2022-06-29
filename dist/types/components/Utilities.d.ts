@@ -1,14 +1,22 @@
+import { StatusType } from "./shared";
 export declare function hasClass(el: HTMLElement | null, className: string): boolean;
 export declare function addClass(el: HTMLElement | null, className: string): void;
 export declare function removeClass(el: HTMLElement | null, className: string): void;
+/**
+ * @deprecated Use (el as HTMLElement).classList.toggle("my-class") instead.
+ */
 export declare function toggleClass(element: HTMLElement | null, className: string): void;
 export declare function startLoading(): void;
 export declare function finishLoading(): void;
 export declare function showSuccess(): void;
 export declare function hideSuccess(): void;
 export declare function toggleActions(): void;
-export declare function resetAlertMessage(alertClassName?: string): void;
-export declare function setAlertMessage(message: string, alertClassName?: string, close?: boolean, detailText?: string): void;
+/**
+ * Resets alert messages that was set with `setAlertMessage`.
+ * @param alertClassName Leave empty to reset messages of any status type
+ */
+export declare function resetAlertMessage(alertClassName?: StatusType): void;
+export declare function setAlertMessage(message: string, alertClassName?: StatusType, close?: boolean, detailText?: string): void;
 export declare const guid: () => string;
 export declare function scrollToTop(): void;
 export declare function fetchData(input: RequestInfo | URL, init?: RequestInit | undefined, showErrorDetail?: boolean | undefined, onError?: (errorMessage: string, reason: Response) => void): Promise<Response>;

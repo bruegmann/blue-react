@@ -30,6 +30,10 @@ function addClass(el, className) {
 function removeClass(el, className) {
   if (el.classList) el.classList.remove(className);else if (hasClass(el, className)) el.className = el.className.replace(new RegExp("(\\s|^)" + className + "(\\s|$)"), " ");
 }
+/**
+ * @deprecated Use (el as HTMLElement).classList.toggle("my-class") instead.
+ */
+
 
 function toggleClass(element, className) {
   if (!element || !className) {
@@ -77,13 +81,24 @@ function toggleActions() {
     toggleClass(els[i], "open");
   }
 }
+/**
+ * Resets alert messages that was set with `setAlertMessage`.
+ * @param alertClassName Leave empty to reset messages of any status type
+ */
 
-function resetAlertMessage() {
-  var alertClassName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "info";
-  var alertElement = document.querySelector(".blue-status-alert");
-  document.querySelector(".blue-status-" + alertClassName).style.display = "";
-  alertElement.style.display = "";
-  removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
+
+function resetAlertMessage(alertClassName) {
+  if (!alertClassName) {
+    ;
+    ["loading", "success", "info", "warning", "danger"].forEach(function (status) {
+      resetAlertMessage(status);
+    });
+  } else {
+    var alertElement = document.querySelector(".blue-status-alert");
+    document.querySelector(".blue-status-" + alertClassName).style.display = "";
+    alertElement.style.display = "";
+    removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
+  }
 }
 
 function setAlertMessage(message) {
@@ -91,12 +106,6 @@ function setAlertMessage(message) {
   var close = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   var detailText = arguments.length > 3 ? arguments[3] : undefined;
   var alertElement = document.querySelector(".blue-status-alert");
-
-  if (alertClassName.indexOf("alert-") > -1) {
-    alertClassName = alertClassName.replace("alert-", "");
-  }
-
-  ;
   document.querySelector(".blue-status-" + alertClassName).style.display = "flex";
   alertElement.style.display = "block";
   addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));

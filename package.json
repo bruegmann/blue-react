@@ -1,6 +1,6 @@
 {
     "name": "blue-react",
-    "version": "8.4.1",
+    "version": "8.4.2",
     "description": "Blue React Components",
     "license": "LGPL-3.0-or-later",
     "main": "index.js",
@@ -65,7 +65,7 @@
         "react-dom": "^18.1.0",
         "react-markdown": "^8.0.3",
         "react-router-dom": "^5.3.3",
-        "react-scripts": "^4.0.3",
+        "react-scripts": "^5.0.1",
         "react-syntax-highlighter": "^15.4.3",
         "reactstrap": "^9.0.0-0",
         "typescript": "^4.3.5"
