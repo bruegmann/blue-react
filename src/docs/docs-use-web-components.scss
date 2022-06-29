@@ -1,4 +1,4 @@
-.web-components {
+.docs-web-components {
     // Collides with Blue React's --blue-sidebar-width, that's why we need to reset it here to
     // Web Component's default value
     --blue-sidebar-width: 16.563rem;
@@ -19,51 +19,47 @@
     height: 100vh;
 }
 
-.web-components .router-page {
+.docs-web-components .router-page {
     position: initial;
     width: initial;
     height: initial;
     flex-grow: 1;
 }
 
-.web-components .blue-page {
+.docs-web-components .blue-page {
     margin-left: 0 !important;
 }
 
-.web-components blue-sidebar .blue-menu-item {
+.docs-web-components blue-sidebar .blue-menu-item {
     color: white;
 }
 
-.web-components blue-sidebar[closed] .docs-sidebar-logo-link {
-    display: none !important;
-}
-
-.web-components blue-sidebar:not([closed]) .blue-menu-item {
+.docs-web-components blue-sidebar:not([closed]) .blue-menu-item {
     width: 100%;
 }
 
-.web-components blue-sidebar:not([closed]) .blue-menu-item-label {
+.docs-web-components blue-sidebar:not([closed]) .blue-menu-item-label {
     display: flex;
 }
 
 /* Make sidebar overlay over content on smaller screens */
 @media (max-width: 992px) {
-    .web-components blue-sidebar {
+    .docs-web-components blue-sidebar {
         position: absolute !important;
         top: 0;
         bottom: 0;
     }
 
-    .web-components blue-sidebar:not([closed]) {
+    .docs-web-components blue-sidebar:not([closed]) {
         box-shadow: 1rem 0.5rem 1rem rgba(0, 0, 0, 0.267);
     }
 
-    .web-components blue-sidebar + * {
+    .docs-web-components blue-sidebar + * {
         margin-left: var(--blue-sidebar-width-closed);
     }
 }
 
-.web-components blue-sidebar {
+.docs-web-components blue-sidebar {
     flex-shrink: 0;
     position: relative;
     z-index: 1;

@@ -51,11 +51,11 @@ function App() {
                 disableHeaders
                 hideSidebarMenu
             >
-                <div className="web-components docs-layout">
+                <div className="docs-web-components docs-layout">
                     <blue-sidebar>
                         <Link
                             to="/"
-                            className="docs-sidebar-logo-link h4 fw-light text-white m-0 d-inline-block align-middle"
+                            className="docs-sidebar-logo-link h4 fw-light text-white m-0 p-2 align-middle position-absolute overflow-hidden text-nowrap"
                         >
                             <img
                                 src={logo}
