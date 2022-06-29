@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 
 import "./docs.scss"
 import { HomePage } from "./pages/HomePage"
-import SidebarMenu from "../components/SidebarMenu"
+// import SidebarMenu from "../components/SidebarMenu"
 import MenuItem from "../components/MenuItem"
 
 import {
@@ -21,9 +21,6 @@ import {
     PuzzleFill,
     Stickies,
     StickiesFill,
-    LayoutTextSidebar,
-    CaretRightSquareFill,
-    CaretRightFill,
     Rss,
     RssFill
 } from "react-bootstrap-icons"
@@ -31,7 +28,7 @@ import {
 import { ComponentPage } from "./pages/ComponentPage"
 import { IntroDemoPage } from "./pages/IntroDemoPage"
 import UtilitiesPage from "./pages/UtilitiesPage"
-import HeaderTitle from "../components/HeaderTitle"
+// import HeaderTitle from "../components/HeaderTitle"
 import { appTitle, logo } from "./Global"
 import { RecipesPage } from "./pages/RecipesPage"
 import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
