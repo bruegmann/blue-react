@@ -4,8 +4,8 @@ import App from "./docs/App"
 import * as serviceWorker from "./serviceWorker"
 
 // @ts-ignore
-import { Sidebar } from "blue-web-components"
-import "blue-web-components"
+import { Sidebar } from "blue-web-components/Sidebar.js"
+import "blue-web-components/Sidebar.js"
 
 type CustomElement<T> = Partial<T & DOMAttributes<T> & { children: any }>
 
