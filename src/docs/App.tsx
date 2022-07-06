@@ -51,7 +51,7 @@ function App() {
                 disableHeaders
                 hideSidebarMenu
             >
-                <div className="docs-web-components docs-layout">
+                <div className="blue-wc-web-components">
                     <blue-sidebar>
                         <Link
                             to="/"
