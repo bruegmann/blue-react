@@ -28,7 +28,23 @@ export interface ActionMenuProps {
  * The Action Menu on the top right of a page. You can place Actions here which are in context of the current page.
  */
 export default function ActionMenu(props: ActionMenuProps) {
-    const { hideToggleAction, children, className, toggleIcon = "bi-iconmonstr-menu-7" } = props
+    const {
+        hideToggleAction,
+        children,
+        className,
+        toggleIcon = (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-three-dots-vertical"
+                viewBox="0 0 16 16"
+            >
+                <path d="M9.5 13a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm0-5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm0-5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path>
+            </svg>
+        )
+    } = props
     const _break = props.break || "lg"
 
     const [actionsToggledIn, setActionsToggledIn] = useState<boolean>(false)

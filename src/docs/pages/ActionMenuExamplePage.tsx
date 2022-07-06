@@ -1,11 +1,11 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import Page from "../../components/Page"
 import Body from "../../components/Body"
 import Header from "../../components/Header"
 import MenuItem from "../../components/MenuItem"
 import HeaderTitle from "../../components/HeaderTitle"
 import ActionMenu from "../../components/ActionMenu"
-import { CloudSleet, ThreeDotsVertical } from "react-bootstrap-icons"
+import { CloudSleet } from "react-bootstrap-icons"
 import { breakOption } from "../../components/shared"
 import ActionMenuSwitch from "../../components/ActionMenuSwitch"
 
@@ -18,7 +18,7 @@ export const ActionMenuExamplePage = () => {
             <Header>
                 <HeaderTitle appTitle="My app with an action menu" />
 
-                <ActionMenu toggleIcon={<ThreeDotsVertical />} break={breakProp}>
+                <ActionMenu break={breakProp}>
                     <MenuItem label="I'm a MenuItem" />
 
                     <div>
