@@ -38,8 +38,6 @@ function App() {
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <Layout
-                pages={[]}
-                unrouteable
                 expandSidebar
                 sidebarToggleIconComponent={<List />}
                 statusIcons={{
