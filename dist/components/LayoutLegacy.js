@@ -71,8 +71,14 @@ var Layout = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     window.blueLayoutRef = _assertThisInitialized(_this);
+    _this.defaultMatch = ["home"];
     _this.state = {
-      sidebarIn: props.sidebarIn
+      sidebarIn: props.sidebarIn,
+      match: null,
+      history: [],
+      hash: window.location.hash,
+      hashHistory: [],
+      blockRouting: props.blockRouting || undefined
     };
     _this.hideSidebar = _this.hideSidebar.bind(_assertThisInitialized(_this));
     _this.eventListeners = [];
@@ -93,6 +99,7 @@ var Layout = /*#__PURE__*/function (_Component) {
       document.addEventListener("toggleSidebar", function () {
         _this2.toggleSidebar(undefined);
       }, false);
+      this.initMatch();
       document.addEventListener("touchstart", function (event) {
         var xPos = event.touches[0].pageX;
 
@@ -100,6 +107,47 @@ var Layout = /*#__PURE__*/function (_Component) {
           me.toggleSidebar(event);
         } else if (me.state.sidebarIn && xPos > 20) {
           me.toggleSidebar(event);
+        }
+      });
+      window.addEventListener("hashchange", this.onHashChange);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener("hashchange", this.onHashChange);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      var _this3 = this;
+
+      if (prevProps.blockRouting !== this.props.blockRouting && this.props.blockRouting !== this.state.blockRouting) {
+        this.setState({
+          blockRouting: this.props.blockRouting
+        });
+      }
+
+      this.eventListeners.forEach(function (eventListener) {
+        if (eventListener[0] === "componentDidUpdate") {
+          eventListener[1](prevProps, prevState);
+        }
+
+        if (eventListener[0] === "pageDidShowAgain") {
+          var pageId = eventListener[1];
+          var callback = eventListener[2];
+
+          if (prevState.hash !== _this3.state.hash && _this3.state.match[0] === pageId) {
+            callback(prevProps, prevState);
+          }
+        }
+
+        if (eventListener[0] === "pageDidHide") {
+          var _pageId = eventListener[1];
+          var _callback = eventListener[2];
+
+          if (prevState.hash !== _this3.state.hash && prevState.match[0] === _pageId) {
+            _callback(prevProps, prevState);
+          }
         }
       });
     }
@@ -124,9 +172,68 @@ var Layout = /*#__PURE__*/function (_Component) {
       }
     }
   }, {
+    key: "initMatch",
+    value: function initMatch() {
+      var newMatch;
+
+      if (window.location.hash && window.location.hash !== "" && window.location.hash !== "#/") {
+        newMatch = window.location.hash.replace("#", "").split("/").filter(function (n) {
+          return n !== "";
+        });
+      } else {
+        newMatch = this.defaultMatch;
+      }
+
+      if (this.props.unrouteable) {
+        newMatch = this.defaultMatch;
+      }
+
+      if (this.state.blockRouting && this.state.blockRouting(newMatch, this.state.match) === true) {
+        window.location.hash = this.state.hash;
+      } else {
+        if (!(this.state.history.indexOf(newMatch[0]) > -1)) {
+          this.state.history.push(newMatch[0]);
+        }
+
+        this.setState({
+          match: newMatch,
+          history: this.state.history,
+          hash: window.location.hash,
+          hashHistory: this.state.hashHistory.concat([window.location.hash])
+        });
+      }
+    }
+  }, {
+    key: "addEventListener",
+    value: function addEventListener(param1, param2, param3, listenerId) {
+      this.eventListeners.push([param1, param2, param3, listenerId]);
+      this.removeDuplicatedEventListeners();
+    }
+  }, {
+    key: "removeEventListener",
+    value: function removeEventListener(type, listenerId) {
+      this.eventListeners = this.eventListeners.filter(function (param) {
+        if (param[0] !== type) {
+          return param;
+        } else if (param[0] === type && param[3] !== listenerId) {
+          return param;
+        }
+      });
+    }
+  }, {
+    key: "removeDuplicatedEventListeners",
+    value: function removeDuplicatedEventListeners() {
+      this.eventListeners = this.eventListeners.filter(function (value, index, self) {
+        return index === self.findIndex(function (t) {
+          return t[3] === value[3] && t[0] === value[0];
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this,
+          _this$props$routes;
 
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
         className: "blue-wrapper"
@@ -141,13 +248,18 @@ var Layout = /*#__PURE__*/function (_Component) {
         type: "button",
         className: "blue-open-menu blue-menu-item btn",
         onClick: function onClick() {
-          _this3.setState({
-            sidebarIn: !_this3.state.sidebarIn
+          _this4.setState({
+            sidebarIn: !_this4.state.sidebarIn
           });
         }
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "blue-sidebar-exception position-absolute w-100 h-100"
-      }), this.props.sidebarToggleIconComponent) : ""), this.props.children, /*#__PURE__*/_react.default.createElement("div", {
+      }), this.props.sidebarToggleIconComponent) : ""), this.props.children, (_this$props$routes = this.props.routes) === null || _this$props$routes === void 0 ? void 0 : _this$props$routes.map(function (page) {
+        return _this4.state.history.indexOf(page.name) > -1 && /*#__PURE__*/_react.default.createElement("div", {
+          key: page.name,
+          className: "router-page " + (_this4.state.match[0] === page.name ? "active" : "")
+        }, page.component);
+      }), /*#__PURE__*/_react.default.createElement("div", {
         className: "blue-status-circle blue-loading blue-status-loading"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "spinner-bounce-circle"
@@ -175,6 +287,7 @@ var Layout = /*#__PURE__*/function (_Component) {
       return {
         expandSidebar: false,
         hideSidebarMenu: false,
+        unrouteable: false,
         disableTitleSet: false,
         sidebarToggleIconComponent: /*#__PURE__*/_react.default.createElement("span", {
           className: "bi-menu"

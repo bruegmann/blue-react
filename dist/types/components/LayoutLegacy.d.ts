@@ -5,7 +5,7 @@ declare global {
         toggleSidebarEvent: any;
     }
 }
-export interface LayoutProps {
+export interface LayoutLegacyProps {
     id?: string;
     sidebarIn?: boolean;
     style?: CSSProperties;
@@ -17,6 +17,17 @@ export interface LayoutProps {
      * Disables sidebar.
      */
     hideSidebarMenu?: boolean;
+    /**
+     * Registers pages for the built-in routing system. Example: `[{name: "home", component: <HomePage />}]`
+     */
+    routes?: {
+        name: string;
+        component: JSX.Element;
+    }[];
+    /**
+     * When `true`, always the "home" route will be rendered.
+     */
+    unrouteable?: boolean;
     /**
      * Extends `className`.
      */
@@ -43,10 +54,20 @@ export interface LayoutProps {
      * Disables the header bars on pages.
      */
     disableHeaders?: boolean;
+    /**
+     * Define a function, that will be fired when switching routes. When your function returns `true`, the default route behaviour will be blocked.
+     * You can use something like `window.blueLayoutRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
+     */
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean;
     children?: any;
 }
 export interface LayoutState {
     sidebarIn?: boolean;
+    match: any;
+    history: string[];
+    hash: string;
+    hashHistory: string[];
+    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean;
 }
 /**
  * The main component. As soon this component is mounted, it is globally available under `window.blueLayoutRef`.
@@ -68,13 +89,15 @@ export interface LayoutState {
  * * `window.blueLayoutRef.`**removeEventListener**`(eventName: string, listenerId: string)`
  * * `window.blueLayoutRef.`**removeDuplicatedEventListeners**`()` - Will automatically be called when running `addEventListener`
  */
-export default class Layout extends Component<LayoutProps, LayoutState> {
+export default class Layout extends Component<LayoutLegacyProps, LayoutState> {
+    defaultMatch: string[];
     eventListeners: any[];
-    constructor(props: LayoutProps);
+    constructor(props: LayoutLegacyProps);
     onHashChange(): void;
     static get defaultProps(): {
         expandSidebar: boolean;
         hideSidebarMenu: boolean;
+        unrouteable: boolean;
         disableTitleSet: boolean;
         sidebarToggleIconComponent: JSX.Element;
         statusIcons: {
@@ -85,7 +108,13 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
         };
     };
     componentDidMount(): void;
+    componentWillUnmount(): void;
+    componentDidUpdate(prevProps: LayoutLegacyProps, prevState: LayoutState): void;
     toggleSidebar(event: any): void;
     hideSidebar(e: any): void;
+    initMatch(): void;
+    addEventListener(param1: any, param2: any, param3: any, listenerId?: string): void;
+    removeEventListener(type: string, listenerId: string): void;
+    removeDuplicatedEventListeners(): void;
     render(): JSX.Element;
 }

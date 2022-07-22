@@ -8,6 +8,8 @@ export default global
 
 export { default as Layout } from "./dist/types/components/Layout"
 export { LayoutProps } from "./dist/types/components/Layout"
+export { default as LayoutLegacy } from "./dist/types/components/LayoutLegacy"
+export { LayoutLegacyProps } from "./dist/types/components/LayoutLegacy"
 
 export { default as ActionMenu } from "./dist/types/components/ActionMenu"
 export { ActionMenuProps } from "./dist/types/components/ActionMenu"
@@ -49,6 +51,9 @@ export { OutsideProps, useOutside } from "./dist/types/components/Outside"
 
 export { default as Page } from "./dist/types/components/Page"
 export { PageProps } from "./dist/types/components/Page"
+
+export { default as Router } from "./dist/types/components/Router"
+export { RouterProps, RouteType } from "./dist/types/components/Router"
 
 export { default as Search } from "./dist/types/components/Search"
 export { SearchProps } from "./dist/types/components/Search"
