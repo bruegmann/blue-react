@@ -262,12 +262,12 @@
     margin-top: 0.125rem;
     margin-bottom: 0.125rem;
 
-    &:hover {
-        box-shadow: none !important;
-    }
-
     &:focus {
         box-shadow: none;
+    }
+
+    &:focus-visible {
+        box-shadow: inset 0 0 0.25rem;
     }
 }
 
