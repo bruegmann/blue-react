@@ -9,6 +9,47 @@ export default function BlogPage() {
                 <div className="container-fluid pt-5 pt-md-0 flex-grow-1">
                     <article className="docs-blog-content">
                         <h1 className="page-header blue-opacity-hover">
+                            Theming using CSS Custom Properties (aka CSS Variables){" "}
+                            <a href="#theming-with-css-custom-properties" className="blue-opacity-hover-content-active">
+                                #
+                            </a>
+                        </h1>
+
+                        <p className="lead">Easier theming without build tools thanks to Bootstrap 5.2.0!</p>
+
+                        <p>
+                            Blue React 8.5 now uses Bootstrap 5.2, which brings a big new improvement. All variables can
+                            now be overridden with CSS variables instead of SCSS variables. This means that an SCSS
+                            compiler is no longer required if you want to override the default theme values.
+                        </p>
+
+                        <p>
+                            You can still use{" "}
+                            <a href="https://bruegmann.github.io/themify" target="_blank">
+                                Themify
+                            </a>{" "}
+                            to create themes: Check the "Export CSS Variables Only" option. Download the CSS file and
+                            embed it in your HTML after importing the Blue React style.css.
+                        </p>
+
+                        <p>
+                            With CSS variables, it's much easier to create separate themes for light/dark mode or even
+                            high contrast mode. Just use{" "}
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                prefers-color-scheme
+                            </a>{" "}
+                            and place the variables in it.
+                        </p>
+
+                        <small>Posted 2022-08-216</small>
+                    </article>
+
+                    <article className="docs-blog-content">
+                        <h1 className="page-header blue-opacity-hover">
                             Using Blue Web Components with Blue React{" "}
                             <a href="#use-web-components" className="blue-opacity-hover-content-active">
                                 #

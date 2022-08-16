@@ -23,16 +23,8 @@ export interface BodyProps {
 /**
  * Contains the content of the page.
  */
-export default function Body({
-    id,
-    className,
-    containerClass,
-    hasActions,
-    onClick,
-    children,
-    ...rest
-}: BodyProps) {
-    const pageBodyClassName = "blue-page"
+export default function Body({ id, className, containerClass, hasActions, onClick, children, ...rest }: BodyProps) {
+    const pageBodyClassName = "blue-page bg-body"
 
     return (
         <div
@@ -40,15 +32,11 @@ export default function Body({
             className={
                 className
                     ? pageBodyClassName + " " + className
-                    : pageBodyClassName +
-                    (hasActions ? " has-actions" : "") +
-                    ` break-${rest.break || "md"}`
+                    : pageBodyClassName + (hasActions ? " has-actions" : "") + ` break-${rest.break || "md"}`
             }
             onClick={onClick}
         >
-            <div className={containerClass || "container-fluid"}>
-                {children}
-            </div>
+            <div className={containerClass || "container-fluid"}>{children}</div>
         </div>
     )
 }
