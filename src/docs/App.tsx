@@ -68,7 +68,7 @@ function App() {
 
                         <div
                             className="d-flex flex-column justify-content-between"
-                            style={{ height: "calc(100vh - var(--blue-control-size))" }}
+                            style={{ height: "calc(100vh - var(--blue-control-size) - 0.5rem)" }}
                         >
                             <div>
                                 <MenuItem
