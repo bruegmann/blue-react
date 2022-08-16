@@ -1,10 +1,10 @@
-/* Bootstrap */
+// Bootstrap
 $primary: #007bff !default;
 $success: #4bd763 !default;
 $info: rgb(62, 158, 187) !default;
 $warning: #f0ad4e !default;
 $danger: #d9534f !default;
-/* Bootstrap ENDE */
+// Bootstrap ENDE
 
 // Main color theme. E.g. used for background for body and sidebar.
 $theme: $primary !default;
@@ -20,7 +20,9 @@ $theme-colors: map-merge(
     $theme-colors
 );
 
-// Since Bootstrap 5.1 this needs to be set. Otherwise we couldn't use .bg-* and .text-* utils with our custom $theme
+// For Bootstrap 5.1 this needs to be set. Otherwise we couldn't use .bg-* and .text-* utils with our custom $theme
+// Since Bootstrap 5.2 it's no longer required, so it's commented out. If everything works fine, this can be removed for
+// future releases.
 // $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 // $utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
 // $utilities-text-colors: map-merge($utilities-text-colors, map-loop($utilities-colors, rgba-css-var, "$key", "text"));
