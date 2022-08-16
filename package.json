@@ -1,6 +1,6 @@
 {
     "name": "blue-react",
-    "version": "8.4.6",
+    "version": "8.5.0-beta.3",
     "description": "Blue React Components",
     "license": "LGPL-3.0-or-later",
     "main": "index.js",
@@ -26,12 +26,12 @@
         "predeploy": "npm run build-docs",
         "deploy": "gh-pages --dist build --dest v8",
         "prepublishOnly": "npm i && npm run build-release",
-        "release": "npm publish && npm run deploy",
+        "release": "npm publish --tag next && npm run deploy",
         "prettier": "npx prettier --write ."
     },
     "dependencies": {
-        "@popperjs/core": "^2.10.2",
-        "bootstrap": "5.1.2",
+        "@popperjs/core": "^2.11.5",
+        "bootstrap": "~5.2.0",
         "clsx": "^1.1.1"
     },
     "peerDependencies": {

@@ -5,7 +5,7 @@
     --action-link-bg-color: var(--theme);
 }
 
-@include custom-scrollbar($scrollbar-thumb-color, $theme, false);
+@include custom-scrollbar($scrollbar-thumb-color, transparent, false);
 
 * {
     scrollbar-width: thin;
@@ -89,10 +89,8 @@ label {
 .pagination > li > a,
 .list-group a.list-group-item {
     &:not(.disabled):not(.readonly):not(.dropdown-toggle) {
-        -webkit-transition: background-color 0.3s, color 0.15s, box-shadow 0.3s,
-            opacity 0.3s;
-        transition: background-color 0.3s, color 0.15s, box-shadow 0.3s,
-            opacity 0.3s;
+        -webkit-transition: background-color 0.3s, color 0.15s, box-shadow 0.3s, opacity 0.3s;
+        transition: background-color 0.3s, color 0.15s, box-shadow 0.3s, opacity 0.3s;
         position: relative;
 
         &:hover,
