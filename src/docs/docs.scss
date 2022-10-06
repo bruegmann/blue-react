@@ -1,5 +1,9 @@
 @import "../../dist/style.scss";
 
+:root {
+    --blue-sidebar-button-color: var(--blue-sidebar-color);
+}
+
 .welcome-jumbotron {
     .display-1 {
         font-family: "Work Sans", sans-serif;
