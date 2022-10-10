@@ -30,7 +30,10 @@ export const HomePage = () => (
                             </div>
 
                             <div>
-                                <h1 className="display-1 d-inline-flex align-items-center">
+                                <h1
+                                    className="display-1 d-inline-flex align-items-center"
+                                    style={{ fontWeight: "900" }}
+                                >
                                     <img src={logo} alt={appTitle} style={{ height: "1em" }} className="me-3" /> Blue
                                 </h1>
                             </div>

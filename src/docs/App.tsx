@@ -55,7 +55,7 @@ function App() {
                     <blue-sidebar>
                         <Link
                             to="/"
-                            className="docs-sidebar-logo-link h4 fw-light m-0 p-2 align-middle position-absolute overflow-hidden text-nowrap"
+                            className="docs-sidebar-logo-link h4 fw-normal m-0 p-2 align-middle position-absolute overflow-hidden text-nowrap"
                             style={{ color: "var(--blue-sidebar-color)" }}
                         >
                             <img
