@@ -20,14 +20,15 @@
         "build": "babel ./src/components --out-dir ./dist/components --extensions \".tsx,.js,.ts\"",
         "build-css": "node ./setVersionToStyleScss.js && node-sass ./dist/style.scss ./dist/style.css && npx postcss ./dist/style.css --use autoprefixer -r && npx postcss ./dist/style.css --use postcss-minify -o ./dist/style.min.css",
         "build-release": "npm run build-types && npm run build && npm run build-css && npm run docgen",
-        "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js --extension tsx && node followUpDocs",
+        "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js --extension tsx && node followUpDocs && npm run license-report",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "npm run build-docs",
         "deploy": "gh-pages --dist build --dest v8",
         "prepublishOnly": "npm i && npm run build-release",
         "release": "npm publish && npm run deploy",
-        "prettier": "npx prettier --write ."
+        "prettier": "npx prettier --write .",
+        "license-report": "npx license-report --prod --output=json > ./src/docs/data/license-report.json"
     },
     "dependencies": {
         "@popperjs/core": "^2.11.5",
@@ -55,6 +56,7 @@
         "autoprefixer": "^10.3.6",
         "blue-web-components": "github:bruegmann/blue-web-components",
         "gh-pages": "^3.1.0",
+        "license-report": "^6.2.0",
         "lint-staged": "^11.1.2",
         "node-sass": "^6.0.1",
         "postcss-cli": "^9.0.1",

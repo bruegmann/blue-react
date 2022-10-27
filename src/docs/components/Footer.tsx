@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 interface FooterProps {
     containerClass?: string
@@ -19,15 +20,17 @@ export function Footer({ containerClass = "container" }: FooterProps) {
                         >
                             GNU General Public License v3.0
                         </a>
-                        {". "}
+                        {" - "}
+                        <Link to="/license-report">License Report</Link>
+                        {" - "}
                         <a href="https://bruegmann.github.io/" target="_blank" rel="noopener noreferrer">
                             More projects
                         </a>
-                        {". "}
+                        {" - "}
                         <a href="https://patorg.de/imprint/" target="_blank" rel="noopener noreferrer">
                             Imprint
                         </a>
-                        {". "}
+                        {" - "}
                         <a href="https://patorg.de/privacy-policy/" target="_blank" rel="noopener noreferrer">
                             Privacy Policy
                         </a>

@@ -33,6 +33,7 @@ import { appTitle, logo } from "./Global"
 import { RecipesPage } from "./pages/RecipesPage"
 import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
 import BlogPage from "./pages/BlogPage"
+import LicenseReportPage from "./pages/LicenseReportPage"
 
 function App() {
     return (
@@ -149,6 +150,10 @@ function App() {
 
                             <Route path="/recipes/:active?">
                                 <RecipesPage />
+                            </Route>
+
+                            <Route path="/license-report">
+                                <LicenseReportPage />
                             </Route>
 
                             <Route path="/">
