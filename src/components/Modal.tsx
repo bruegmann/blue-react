@@ -5,6 +5,7 @@ import { getPhrase, ModalType } from "./shared"
 export interface ModalProps {
     modalContent?: string
     modalTitle?: string
+    modalIcon?: HTMLElement | any
     unSetModalContent: (modalContent?: string) => void
 
     /**
@@ -14,7 +15,6 @@ export interface ModalProps {
      */
     onSubmit?: (input: string | boolean | null) => void
     defaultInput?: string
-
     /**
      * `"ask"` | `"tell"` | `"verify"`
      */
@@ -30,6 +30,7 @@ export interface ModalProps {
 export default function Modal({
     modalContent,
     modalTitle,
+    modalIcon,
     unSetModalContent,
     onSubmit,
     defaultInput,
@@ -96,7 +97,8 @@ export default function Modal({
             <div className="modal-dialog">
                 <div className="modal-content">
                     <form onSubmit={submit}>
-                        <div className="modal-header">
+                        <div className="modal-header align-items-center">
+                            {modalIcon !== undefined && <div className="me-2">{modalIcon}</div>}
                             <h5 className="modal-title">{modalTitle || getPhrase("Message")}</h5>
                             <button type="button" className="btn-close" onClick={cancel} />
                         </div>
