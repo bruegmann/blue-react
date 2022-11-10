@@ -1,11 +1,11 @@
-import React, { FormEvent, useEffect, useState, MutableRefObject, useRef } from "react"
+import React, { FormEvent, useEffect, useState, MutableRefObject, useRef, ReactNode } from "react"
 import { Modal as BootstrapModal } from "bootstrap"
 import { getPhrase, ModalType } from "./shared"
 
 export interface ModalProps {
     modalContent?: string
     modalTitle?: string
-    modalIcon?: HTMLElement | any
+    modalIcon?: ReactNode
     unSetModalContent: (modalContent?: string) => void
 
     /**

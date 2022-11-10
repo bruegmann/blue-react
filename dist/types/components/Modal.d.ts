@@ -1,9 +1,9 @@
-/// <reference types="react" />
+import { ReactNode } from "react";
 import { ModalType } from "./shared";
 export interface ModalProps {
     modalContent?: string;
     modalTitle?: string;
-    modalIcon?: HTMLElement | any;
+    modalIcon?: ReactNode;
     unSetModalContent: (modalContent?: string) => void;
     /**
      * Type of `input` depends on `type` prop and which action occured.

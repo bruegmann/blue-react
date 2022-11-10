@@ -3,9 +3,9 @@ import { ModalType } from "./shared"
 import Modal from "./Modal"
 
 const ModalContext = createContext({
-    ask: undefined as unknown as (text: string, title?: string, icon?: HTMLElement | any) => Promise<string | boolean>,
-    tell: undefined as unknown as (text: string, title?: string, icon?: HTMLElement | any) => Promise<boolean>,
-    verify: undefined as unknown as (text: string, title?: string, icon?: HTMLElement | any) => Promise<boolean>
+    ask: undefined as unknown as (text: string, title?: string, icon?: ReactNode) => Promise<string | boolean>,
+    tell: undefined as unknown as (text: string, title?: string, icon?: ReactNode) => Promise<boolean>,
+    verify: undefined as unknown as (text: string, title?: string, icon?: ReactNode) => Promise<boolean>
 })
 
 export interface ModalProviderProps {
@@ -16,7 +16,7 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
     const [type, setType] = useState<ModalType>("tell")
     const [modalContent, setModalContent] = useState<string | undefined>()
     const [modalTitle, setModalTitle] = useState<string | undefined>()
-    const [modalIcon, setModalIcon] = useState<HTMLElement | any | undefined>()
+    const [modalIcon, setModalIcon] = useState<ReactNode | undefined>()
     const [defaultInput, setDefaultInput] = useState<string | undefined>()
 
     const unSetModalContent = useCallback(() => {
