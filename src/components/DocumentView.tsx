@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { Fragment, useEffect } from "react"
 import Utilities from "./Utilities"
 
 export interface DocumentViewProps {
@@ -24,6 +24,7 @@ export interface DocumentViewProps {
 }
 
 /**
+ * @deprecated Only used by one project (Florence). Component will be moved to that project instead.
  * Tries to display content in an iframe. When the content can't displayed in an iframe, it will show a download button instead.
  */
 export default function DocumentView({
@@ -51,9 +52,7 @@ export default function DocumentView({
             Utilities.startLoading()
 
             if (content) {
-                let iframe = document.getElementById(
-                    uniqueId
-                ) as HTMLIFrameElement
+                let iframe = document.getElementById(uniqueId) as HTMLIFrameElement
 
                 if (iframe && iframe.contentWindow) {
                     iframe.contentWindow.document.open()
@@ -65,18 +64,19 @@ export default function DocumentView({
     }, [])
 
     return (
-        <div>
+        <Fragment>
             {supportsIframe() ? (
                 <iframe
                     id={uniqueId}
-                    className="document-view-iframe"
+                    className="document-view-iframe border-0 w-100 d-block"
+                    style={{
+                        height: "calc(100vh - 6.875rem)"
+                    }}
                     src={src}
                     onLoad={({ target }: any) => {
                         Utilities.finishLoading()
 
-                        const iframeContent =
-                            target.contentDocument ||
-                            target.contentWindow.document
+                        const iframeContent = target.contentDocument || target.contentWindow.document
 
                         if (mimeType.indexOf("image/") > -1) {
                             let image = iframeContent.querySelector("img")
@@ -96,6 +96,6 @@ export default function DocumentView({
                     {showDocumentLabel}
                 </a>
             )}
-        </div>
+        </Fragment>
     )
 }
