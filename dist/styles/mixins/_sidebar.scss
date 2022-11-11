@@ -124,7 +124,7 @@
     .blue-sidebar {
         width: $width;
         color: $sidebar-color;
-        background: var(--sidebar-bg);
+        background: var(--blue-sidebar-bg);
         position: fixed;
         left: 0;
         top: $normal-size;
@@ -137,12 +137,12 @@
         .blue-menu {
             overflow-y: auto;
             flex: 1;
-            @include scroll-shadow(var(--sidebar-bg), $sidebar-bg);
+            @include scroll-shadow(var(--blue-sidebar-bg), $sidebar-bg);
         }
 
         &:hover {
             .blue-menu-item {
-                background-color: var(--sidebar-bg);
+                background-color: var(--blue-sidebar-bg);
             }
         }
 

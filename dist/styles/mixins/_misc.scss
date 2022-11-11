@@ -22,11 +22,6 @@
 }
 
 @mixin header-bg() {
-    background-color: rgba(var(--bs-theme-rgb, $header-bg), $shimmering);
-    background-image: linear-gradient(
-        0deg,
-        rgba(var(--bs-theme-rgb, $header-bg), 0.8),
-        rgba(var(--bs-theme-rgb, $header-bg), 0.7)
-    );
+    background-color: rgba(var(--bs-theme-rgb, $header-bg), var(--blue-shimmering, $shimmering));
     backdrop-filter: blur(3px) saturate(125%);
 }

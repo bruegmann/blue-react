@@ -13,17 +13,13 @@ export const IntroDemoPage = () => (
                 __html: /* css */ `
             @media (prefers-color-scheme: dark) {
                 :root {
-                    --sidebar-bg: var(--black, #212529);
+                    --blue-sidebar-bg: var(--black, #212529);
                 }
             }
         `
             }}
         />
-        <Intro
-            logo={logo}
-            logoMaxWidth="100px"
-            title="Here could be your introduction"
-        >
+        <Intro logo={logo} logoMaxWidth="100px" title="Here could be your introduction">
             <form
                 className="form-horizontal"
                 onSubmit={(event) => {
@@ -31,15 +27,9 @@ export const IntroDemoPage = () => (
                 }}
             >
                 <div className="row mb-3">
-                    <label className="col-sm-4 col-form-label">
-                        Please sign in
-                    </label>
+                    <label className="col-sm-4 col-form-label">Please sign in</label>
                     <div className="col-sm-8">
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Enter something"
-                        />
+                        <input type="text" className="form-control" placeholder="Enter something" />
                     </div>
                 </div>
 

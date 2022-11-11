@@ -18,6 +18,7 @@ export interface DocumentViewProps {
     showDocumentLabel: string;
 }
 /**
+ * @deprecated Only used by one project (Florence). Component will be moved to that project instead.
  * Tries to display content in an iframe. When the content can't displayed in an iframe, it will show a download button instead.
  */
 export default function DocumentView({ content, mimeType, src, showDocumentLabel }: DocumentViewProps): JSX.Element;

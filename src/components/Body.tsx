@@ -24,7 +24,7 @@ export interface BodyProps {
  * Contains the content of the page.
  */
 export default function Body({ id, className, containerClass, hasActions, onClick, children, ...rest }: BodyProps) {
-    const pageBodyClassName = "blue-page bg-body"
+    const pageBodyClassName = "blue-page"
 
     return (
         <div

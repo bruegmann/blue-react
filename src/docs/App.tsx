@@ -34,8 +34,22 @@ import { RecipesPage } from "./pages/RecipesPage"
 import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
 import BlogPage from "./pages/BlogPage"
 import LicenseReportPage from "./pages/LicenseReportPage"
+import { useEffect } from "react"
 
 function App() {
+    useEffect(() => {
+        if (window.location.hash !== "") {
+            const { css } = JSON.parse(decodeURIComponent(window.location.hash.substring(1)))
+
+            // @ts-ignore
+            for (const linkEl of document.querySelectorAll(".docs-css")) {
+                linkEl.remove()
+            }
+
+            document.getElementById("docs-inline-style")!.innerHTML = css
+        }
+    }, [window.location.hash])
+
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <Layout

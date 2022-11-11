@@ -1,10 +1,3 @@
-:root {
-    --app-bg: #{$app-bg};
-    --sidebar-bg: #{$sidebar-bg};
-    --header-bg: #{$header-bg};
-    --action-link-bg-color: var(--theme);
-}
-
 @include custom-scrollbar($scrollbar-thumb-color, transparent, false);
 
 * {
@@ -52,7 +45,7 @@ body {
 }
 
 body {
-    background: var(--app-bg, #{$app-bg});
+    background: var(--blue-app-bg, #{$app-bg});
 
     .blue-wrapper {
         position: fixed;
@@ -170,6 +163,6 @@ body {
     padding-left: calc(#{$normal-size} + #{$spacer});
     transform: translateX(-100%);
     transition: transform 0.4s;
-    background: var(--sidebar-bg);
+    background: var(--blue-sidebar-bg);
     color: $sidebar-color;
 }
