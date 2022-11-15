@@ -107,9 +107,9 @@
             bottom: 0.625rem;
             left: 0.125rem;
             width: 0.25rem;
-            background-color: $sidebar-indicator-color;
+            background-color: var(--blue-menu-item-indicator-bg);
             border-radius: 1rem;
-            animation: sidebar-menu-item-indicator-in 0.2s ease-in-out;
+            animation: sidebar-menu-item-indicator-in-from-side 0.2s ease-in-out;
         }
 
         & > * + .blue-menu-item-label {
@@ -154,11 +154,20 @@
     }
 }
 
-@keyframes sidebar-menu-item-indicator-in {
+@keyframes sidebar-menu-item-indicator-in-from-side {
     from {
         transform: translateX(-100%);
     }
     to {
         transform: translateX(1);
+    }
+}
+
+@keyframes sidebar-menu-item-indicator-in-from-below {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(1);
     }
 }

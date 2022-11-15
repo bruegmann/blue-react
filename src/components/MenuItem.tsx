@@ -122,6 +122,8 @@ export interface MenuItemProps {
      * Specifies whether an element is draggable or not.
      */
     draggable?: boolean
+
+    "data-tooltip"?: string
 }
 
 /**
@@ -231,7 +233,8 @@ export default function MenuItem(props: MenuItemProps) {
                     onDragOver: props.onDragOver,
                     onDragLeave: props.onDragLeave,
                     onDrop: props.onDrop,
-                    draggable: props.draggable
+                    draggable: props.draggable,
+                    "data-tooltip": props["data-tooltip"]
                 },
                 <>
                     <span
