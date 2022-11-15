@@ -217,12 +217,6 @@ export default function DemoApp() {
                                 </HeaderTitle>
 
                                 <ActionMenu>
-                                    <div>
-                                        <MenuItem label="Actions" supportOutside>
-                                            <MenuItem label="Do stuff" />
-                                        </MenuItem>
-                                    </div>
-
                                     <MenuItem
                                         icon={<Pencil className="bi" />}
                                         iconForActive={<PencilFill className="bi" />}
@@ -230,6 +224,17 @@ export default function DemoApp() {
                                         onClick={toggleEdit}
                                         isActive={edit}
                                     />
+
+                                    <div>
+                                        <MenuItem
+                                            label="Actions"
+                                            supportOutside
+                                            dropdownClassName="position-absolute end-0"
+                                        >
+                                            <MenuItem label="Do a lot, a loooot of stuff" />
+                                            <MenuItem label="Yeah, really a lot of stuff" />
+                                        </MenuItem>
+                                    </div>
                                 </ActionMenu>
                             </Header>
                             <Body containerClass="container">
