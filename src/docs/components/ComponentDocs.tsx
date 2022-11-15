@@ -61,7 +61,9 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
 
                 {comp.displayName == "Intro" && (
                     <p>
-                        <Link to="/intro-demo">Take a look at this demo</Link>
+                        <Link to="/demo#intro" target="_blank">
+                            Take a look at this demo
+                        </Link>
                     </p>
                 )}
 

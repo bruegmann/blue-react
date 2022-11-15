@@ -1,0 +1,314 @@
+import { useState } from "react"
+import {
+    BoxArrowLeft,
+    Calendar,
+    ChevronDoubleLeft,
+    ChevronDoubleRight,
+    ClockHistory,
+    FileEarmark,
+    House,
+    Pencil,
+    PencilFill,
+    Person,
+    Star
+} from "react-bootstrap-icons"
+import ActionMenu from "../../components/ActionMenu"
+import Body from "../../components/Body"
+import Header from "../../components/Header"
+import HeaderTitle from "../../components/HeaderTitle"
+import Intro from "../../components/Intro"
+import Layout from "../../components/Layout"
+import MenuItem from "../../components/MenuItem"
+import Page from "../../components/Page"
+import Search from "../../components/Search"
+import SidebarMenu from "../../components/SidebarMenu"
+import { logo } from "../Global"
+
+const exampleHistoryItems = ["Nice person", "Important message", "Document XYZ", "Boring appointment"]
+const exampleFavoriteItems = ["Max Mustermann person", "A Word Document", "Boring appointment"]
+
+function RecordField({
+    edit,
+    label,
+    value = "Lorem ipsum",
+    className = "col-md-3",
+    type = "text"
+}: {
+    edit: boolean
+    label: string
+    value?: string
+    className?: string
+    type?: string
+}) {
+    return (
+        <div className={className}>
+            {edit ? (
+                <div className="form-floating">
+                    <input
+                        type={type}
+                        className="form-control"
+                        id={`DemoApp-record-${label}`}
+                        placeholder="ID"
+                        value={value}
+                    />
+                    <label htmlFor={`DemoApp-record-${label}`}>{label}</label>
+                </div>
+            ) : (
+                <>
+                    <h3 className="h6 mb-0">{label}</h3>
+                    <p>{value}</p>
+                </>
+            )}
+        </div>
+    )
+}
+
+export default function DemoApp() {
+    const [expandSidebar, setExpandSidebar] = useState(localStorage.getItem("DemoApp-expandSidebar") !== null)
+    const toggleSidebar = () => {
+        if (expandSidebar) {
+            localStorage.removeItem("DemoApp-expandSidebar")
+        } else {
+            localStorage.setItem("DemoApp-expandSidebar", "true")
+        }
+        setExpandSidebar(!expandSidebar)
+    }
+
+    const [edit, setEdit] = useState(false)
+    const toggleEdit = () => setEdit(!edit)
+
+    return (
+        <Layout
+            expandSidebar={expandSidebar}
+            pages={[
+                {
+                    name: "home",
+                    component: (
+                        <Page>
+                            <Header>
+                                <HeaderTitle logo={logo} appTitle="Demo App">
+                                    Home page
+                                </HeaderTitle>
+                            </Header>
+                            <Body containerClass="no-container">
+                                <div
+                                    style={{
+                                        backgroundColor: "#4158D0",
+                                        backgroundImage: "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)"
+                                    }}
+                                    className="text-white p-5 rounded-top"
+                                >
+                                    <h1 className="display-5">Welcome, how are you doing?</h1>
+                                </div>
+
+                                <div className="container pt-3">
+                                    <div className="row mb-3">
+                                        <div className="offset-xl-4 col-xl-4 offset-md-3 col-md-5">
+                                            <Search body placeholder="Search for content..." />
+                                        </div>
+                                    </div>
+
+                                    <div className="row">
+                                        <div className="col">
+                                            <h2 className="mt-4 mb-3">
+                                                <ClockHistory className="bi" /> Browser history
+                                            </h2>
+
+                                            <div className="list-group">
+                                                {exampleHistoryItems.map((entry: string, i: number) => (
+                                                    <a
+                                                        key={i}
+                                                        href="#record"
+                                                        className="list-group-item list-group-item-action"
+                                                    >
+                                                        {entry}
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div className="col">
+                                            <h2 className="mt-4 mb-3">
+                                                <Star className="bi" /> Favorites
+                                            </h2>
+
+                                            <div className="list-group">
+                                                {exampleFavoriteItems.map((entry: string, i: number) => (
+                                                    <a
+                                                        key={i}
+                                                        href="#record"
+                                                        className="list-group-item list-group-item-action"
+                                                    >
+                                                        {entry}
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Body>
+                        </Page>
+                    )
+                },
+
+                {
+                    name: "intro",
+                    component: (
+                        <Intro logo={logo} logoMaxWidth="100px" title="Here could be your introduction">
+                            <form
+                                onSubmit={(event) => {
+                                    event.preventDefault()
+                                    window.location.href = "#home"
+                                }}
+                            >
+                                <div className="form-floating mb-3">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="DempApp-intro-user"
+                                        placeholder="User"
+                                    />
+                                    <label htmlFor="DempApp-intro-user">User</label>
+                                </div>
+                                <div className="form-floating mb-3">
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="DempApp-intro-password"
+                                        placeholder="Password"
+                                    />
+                                    <label htmlFor="DempApp-intro-password">Password</label>
+                                </div>
+
+                                <div className="text-center">
+                                    <button type="submit" className="btn btn-primary btn-lg w-100">
+                                        Sign in
+                                    </button>
+                                </div>
+                            </form>
+                        </Intro>
+                    )
+                },
+
+                {
+                    name: "record",
+                    component: (
+                        <Page>
+                            <Header>
+                                <HeaderTitle logo={logo} appTitle="Demo App">
+                                    Record
+                                </HeaderTitle>
+
+                                <ActionMenu>
+                                    <div>
+                                        <MenuItem label="Actions" supportOutside>
+                                            <MenuItem label="Do stuff" />
+                                        </MenuItem>
+                                    </div>
+
+                                    <MenuItem
+                                        icon={<Pencil className="bi" />}
+                                        iconForActive={<PencilFill className="bi" />}
+                                        label="Edit"
+                                        onClick={toggleEdit}
+                                        isActive={edit}
+                                    />
+                                </ActionMenu>
+                            </Header>
+                            <Body containerClass="container">
+                                <section className="mb-3">
+                                    <h2 className="page-header h3">First field group</h2>
+
+                                    <div className="row mb-3">
+                                        <RecordField edit={edit} label="ID" value="XYZ" />
+                                        <RecordField edit={edit} label="Country" value="DE" className="col-md-2" />
+                                        <RecordField edit={edit} label="Created" value="2022-11-15" type="date" />
+                                    </div>
+
+                                    <div className="row">
+                                        <RecordField edit={edit} label="Author" value="Max Mustermann" />
+                                    </div>
+                                </section>
+
+                                <section className="mb-3">
+                                    <h2 className="page-header h3">Personal information</h2>
+
+                                    <div className="row mb-3">
+                                        <RecordField edit={edit} label="Editor ID" value="ABC" />
+                                        <RecordField edit={edit} label="Name" value="Alice Bacon" />
+                                        <RecordField edit={edit} label="Email" value="alice_bacon@fakemail.fake" />
+                                    </div>
+                                    <div className="row mb-3">
+                                        <RecordField edit={edit} label="Editor ID" value="MMS" />
+                                        <RecordField edit={edit} label="Name" value="Max Mustermann" />
+                                        <RecordField edit={edit} label="Email" value="max_mustermann@fakemail.fake" />
+                                    </div>
+                                </section>
+
+                                <section className="mb-3">
+                                    <h2 className="page-header h3">Some table</h2>
+
+                                    <table className="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Lorem</th>
+                                                <th>Ipsum</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Bla</td>
+                                                <td>Blub</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Another</td>
+                                                <td>row</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+                            </Body>
+                        </Page>
+                    )
+                }
+            ]}
+        >
+            <SidebarMenu
+                sidebarClass="overflow-visible"
+                bottomContent={
+                    <>
+                        <MenuItem href="#intro" label="Sign out" icon={<BoxArrowLeft className="bi" />} />
+
+                        <div
+                            className="blue-tooltip-end d-none d-xxl-block"
+                            data-tooltip={!expandSidebar ? "Expand" : ""}
+                        >
+                            <MenuItem
+                                icon={
+                                    expandSidebar ? (
+                                        <ChevronDoubleLeft className="bi" />
+                                    ) : (
+                                        <ChevronDoubleRight className="bi" />
+                                    )
+                                }
+                                onClick={toggleSidebar}
+                                label={expandSidebar ? "Shrink" : "Expand"}
+                            />
+                        </div>
+                    </>
+                }
+            >
+                <MenuItem href="#home" label="Home" icon={<House className="bi" />} isHome />
+                <MenuItem icon={<FileEarmark className="bi" />} label="Documents">
+                    <MenuItem href="#record" icon={<FileEarmark className="bi" />} label="Example record" />
+                </MenuItem>
+                <MenuItem icon={<Calendar className="bi" />} label="Appointments" />
+                <MenuItem icon={<Person className="bi" />} label="Users" />
+            </SidebarMenu>
+        </Layout>
+    )
+}

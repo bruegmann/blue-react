@@ -18,6 +18,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /**
+ * @deprecated Only used by one project (Florence). Component will be moved to that project instead.
  * Tries to display content in an iframe. When the content can't displayed in an iframe, it will show a download button instead.
  */
 function DocumentView(_ref) {
@@ -49,9 +50,12 @@ function DocumentView(_ref) {
       }
     }
   }, []);
-  return /*#__PURE__*/_react.default.createElement("div", null, supportsIframe() ? /*#__PURE__*/_react.default.createElement("iframe", {
+  return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, supportsIframe() ? /*#__PURE__*/_react.default.createElement("iframe", {
     id: uniqueId,
-    className: "document-view-iframe",
+    className: "document-view-iframe border-0 w-100 d-block",
+    style: {
+      height: "calc(100vh - 6.875rem)"
+    },
     src: src,
     onLoad: function onLoad(_ref2) {
       var target = _ref2.target;

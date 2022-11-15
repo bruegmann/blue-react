@@ -8,6 +8,7 @@ import Body from "../components/BodyRounded"
 import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo"
 import { Footer } from "../components/Footer"
 import HashLink from "../components/HashLink"
+import TestCssVars from "../components/TestCssVars"
 
 export interface UtilitiesPageProps {}
 
@@ -210,7 +211,8 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                 title: "CSS Variables",
                 body: (
                     <>
-                        <article className="mb-5">
+                        <TestCssVars />
+                        <article className="mb-5 mt-5">
                             <HashLink id="--blue-sidebar-width">
                                 <code>--blue-sidebar-width</code>
                             </HashLink>

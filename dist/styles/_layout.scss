@@ -124,6 +124,10 @@
 .blue-page {
     margin-left: $normal-size;
     animation: enabledBlueAppPage 0.5s;
+    border-top-left-radius: var(--bs-border-radius, 0.5rem);
+    border-top-right-radius: var(--bs-border-radius, 0.5rem);
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-body-bg-rgb, 255, 255, 255), var(--bs-bg-opacity));
 
     &::before,
     &::after {
@@ -197,19 +201,19 @@
     &:hover,
     &:focus {
         color: $sidebar-color;
-        background-color: $sidebar-bg;
+        background-color: var(--blue-sidebar-bg);
         border-color: transparent;
     }
 }
 
 .blue-sidebar {
-    @include custom-scrollbar($sidebar-color, $sidebar-bg, 0.3rem);
+    @include custom-scrollbar($sidebar-color, var(--blue-sidebar-bg), 0.3rem);
     overflow-y: auto;
 }
 
 .blue-sidebar-bottom {
     width: auto;
-    background-color: var(--sidebar-bg);
+    background-color: var(--blue-sidebar-bg);
     transition: box-shadow 0.2s;
 
     &.has-shadow {
@@ -315,26 +319,26 @@
 }
 
 .blue-sidebar .blue-menu-item-dropdown {
-    --sidebar-bg: #{$sidebar-deep-bg};
+    --blue-sidebar-bg: #{$sidebar-deep-bg};
 
     &::before {
-        background-color: var(--sidebar-bg);
+        background-color: var(--blue-sidebar-bg);
     }
 
     .blue-menu-item-dropdown {
-        --sidebar-bg: #{darken($sidebar-deep-bg, 4%)};
+        --blue-sidebar-bg: #{darken($sidebar-deep-bg, 4%)};
 
         .blue-menu-item-dropdown {
-            --sidebar-bg: #{darken($sidebar-deep-bg, 8%)};
+            --blue-sidebar-bg: #{darken($sidebar-deep-bg, 8%)};
 
             .blue-menu-item-dropdown {
-                --sidebar-bg: #{darken($sidebar-deep-bg, 12%)};
+                --blue-sidebar-bg: #{darken($sidebar-deep-bg, 12%)};
 
                 .blue-menu-item-dropdown {
-                    --sidebar-bg: #{darken($sidebar-deep-bg, 16%)};
+                    --blue-sidebar-bg: #{darken($sidebar-deep-bg, 16%)};
 
                     .blue-menu-item-dropdown {
-                        --sidebar-bg: #{darken($sidebar-deep-bg, 20%)};
+                        --blue-sidebar-bg: #{darken($sidebar-deep-bg, 20%)};
                     }
                 }
             }
@@ -343,26 +347,26 @@
 }
 
 .blue-header .blue-menu-item-dropdown {
-    --sidebar-bg: #{$header-deep-bg};
+    --blue-sidebar-bg: #{$header-deep-bg};
 
     &::before {
-        background-color: var(--header-bg);
+        background-color: var(--blue-header-bg);
     }
 
     .blue-menu-item-dropdown {
-        --sidebar-bg: #{darken($header-deep-bg, 4%)};
+        --blue-sidebar-bg: #{darken($header-deep-bg, 4%)};
 
         .blue-menu-item-dropdown {
-            --sidebar-bg: #{darken($header-deep-bg, 8%)};
+            --blue-sidebar-bg: #{darken($header-deep-bg, 8%)};
 
             .blue-menu-item-dropdown {
-                --sidebar-bg: #{darken($header-deep-bg, 12%)};
+                --blue-sidebar-bg: #{darken($header-deep-bg, 12%)};
 
                 .blue-menu-item-dropdown {
-                    --sidebar-bg: #{darken($header-deep-bg, 16%)};
+                    --blue-sidebar-bg: #{darken($header-deep-bg, 16%)};
 
                     .blue-menu-item-dropdown {
-                        --sidebar-bg: #{darken($header-deep-bg, 20%)};
+                        --blue-sidebar-bg: #{darken($header-deep-bg, 20%)};
                     }
                 }
             }
