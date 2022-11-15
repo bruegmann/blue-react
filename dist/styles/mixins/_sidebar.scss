@@ -45,7 +45,7 @@
     }
 
     /* search */
-    .blue-search {
+    .blue-search:not(.blue-search-body) {
         background-color: $sidebar-search-bg;
     }
 

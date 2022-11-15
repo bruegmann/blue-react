@@ -3,6 +3,7 @@
     align-items: center;
     border: $input-border-width solid $input-border-color;
     border-radius: $input-border-radius;
+    background-color: $input-bg;
 
     &.blue-search-body {
         border: 1px solid $input-border-color;
