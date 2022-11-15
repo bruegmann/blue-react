@@ -94,6 +94,7 @@ export interface MenuItemProps {
      * Specifies whether an element is draggable or not.
      */
     draggable?: boolean;
+    "data-tooltip"?: string;
 }
 /**
  * Link, button or custom component for Sidebar, Actions or ActionMenu
