@@ -1,5 +1,9 @@
 @mixin openSidebarMenu() {
-    .blue-sidebar-hidden-on-open {
+    .blue-sidebar-hidden-on-open,
+    .blue-sidebar-before-hidden-on-open::before,
+    .blue-sidebar-after-hidden-on-open::after,
+    .blue-sidebar-pseudo-hidden-on-open::before,
+    .blue-sidebar-pseudo-hidden-on-open::after {
         display: none;
     }
 

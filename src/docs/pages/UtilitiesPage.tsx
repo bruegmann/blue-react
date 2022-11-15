@@ -159,36 +159,6 @@ const utilitiesFunctions = [
     }
 ]
 
-function CssVarDemo({ variable, render }: { variable: string; render: (value: string) => ReactNode }) {
-    const [value, setValue] = useState<string>()
-
-    const init = () => {
-        const el = document.getElementById(variable)
-        if (el) {
-            setValue(window.getComputedStyle(el).getPropertyValue(variable))
-        }
-    }
-
-    useEffect(() => {
-        init()
-        window.addEventListener("resize", init)
-
-        return () => {
-            window.removeEventListener("resize", init)
-        }
-    }, [])
-
-    return (
-        <>
-            <p>
-                Current value: <code>{value}</code>
-                <br />
-                {value && render(value)}
-            </p>
-        </>
-    )
-}
-
 export class UtilitiesPage extends React.Component<UtilitiesPageProps, UtilitiesPageState> {
     constructor(props: UtilitiesPageProps) {
         super(props)
@@ -212,41 +182,16 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                 body: (
                     <>
                         <TestCssVars />
-                        <article className="mb-5 mt-5">
-                            <HashLink id="--blue-sidebar-width">
-                                <code>--blue-sidebar-width</code>
-                            </HashLink>
-                            <p>Contains current width of the sidebar.</p>
-                            <CssVarDemo
-                                variable="--blue-sidebar-width"
-                                render={(value: string) => (
-                                    <div
-                                        className="border border-primary border-5 rounded p-1 d-inline-block"
-                                        style={{ width: value }}
-                                    />
-                                )}
-                            />
-                        </article>
 
-                        <article className="mb-5">
-                            <HashLink id="--blue-theme">
-                                <code>--blue-theme</code>
-                            </HashLink>
-                            <p>
-                                Theme color, defined using SCSS variable <code>$theme</code>.
-                            </p>
-                            <CssVarDemo
-                                variable="--blue-theme"
-                                render={(value: string) => (
-                                    <div
-                                        className="border-5 rounded p-3 d-inline-block"
-                                        style={{ backgroundColor: value }}
-                                    >
-                                        <input type="color" value={value.trim()} />
-                                    </div>
-                                )}
-                            />
-                        </article>
+                        <p className="mt-3">
+                            <a
+                                href="https://github.com/bruegmann/blue-react/blob/b92f6ed83d8dfa616101eca0c79efad5ce961899/dist/styles/_variables.scss#L101"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                See all available CSS variables.
+                            </a>
+                        </p>
                     </>
                 )
             },
@@ -269,6 +214,20 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                 <code>.blue-sidebar-hidden-on-open</code>
                             </HashLink>
                             <p>The element is hidden as long as the sidebar is open.</p>
+                        </article>
+
+                        <article className="mb-5">
+                            <HashLink id="blue-sidebar-pseudo-hidden-on-open">
+                                <code>.blue-sidebar-pseudo-hidden-on-open</code>,{" "}
+                                <code>.blue-sidebar-before-hidden-on-open</code>,{" "}
+                                <code>.blue-sidebar-afters-hidden-on-open</code>
+                            </HashLink>
+                            <p>
+                                Pseudo elements of element are hidden as long as the sidebar is open.{" "}
+                                <code>.blue-sidebar-before-hidden-on-open</code> hides <code>::before</code>,
+                                <code>.blue-sidebar-after-hidden-on-open</code> hides <code>::after</code> and{" "}
+                                <code>.blue-sidebar-pseudo-hidden-on-open</code> will hide both.
+                            </p>
                         </article>
 
                         <article className="mb-5">

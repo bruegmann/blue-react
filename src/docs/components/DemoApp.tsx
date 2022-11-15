@@ -12,6 +12,7 @@ import {
     Person,
     Star
 } from "react-bootstrap-icons"
+import { Link } from "react-router-dom"
 import ActionMenu from "../../components/ActionMenu"
 import Body from "../../components/Body"
 import Header from "../../components/Header"
@@ -108,7 +109,7 @@ export default function DemoApp() {
                                         </div>
                                     </div>
 
-                                    <div className="row">
+                                    <div className="row mb-3">
                                         <div className="col">
                                             <h2 className="mt-4 mb-3">
                                                 <ClockHistory className="bi" /> Browser history
@@ -145,6 +146,22 @@ export default function DemoApp() {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <ul>
+                                        <li>
+                                            <Link to="">Back to the docs</Link>
+                                        </li>
+
+                                        <li>
+                                            <a
+                                                href="https://github.com/bruegmann/blue-react/blob/master/src/docs/components/DemoApp.tsx"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Source code to this demo
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </Body>
                         </Page>
@@ -279,13 +296,23 @@ export default function DemoApp() {
         >
             <SidebarMenu
                 sidebarClass="overflow-visible"
+                menuClass="overflow-visible"
+                topContent={
+                    <>
+                        <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Search">
+                            <Search sidebar placeholder="Search in menu" />
+                        </div>
+                    </>
+                }
                 bottomContent={
                     <>
-                        <MenuItem href="#intro" label="Sign out" icon={<BoxArrowLeft className="bi" />} />
+                        <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Sign out">
+                            <MenuItem href="#intro" label="Sign out" icon={<BoxArrowLeft className="bi" />} />
+                        </div>
 
                         <div
-                            className="blue-tooltip-end d-none d-xxl-block"
-                            data-tooltip={!expandSidebar ? "Expand" : ""}
+                            className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open d-none d-xxl-block"
+                            data-tooltip="Expand"
                         >
                             <MenuItem
                                 icon={
@@ -302,12 +329,25 @@ export default function DemoApp() {
                     </>
                 }
             >
-                <MenuItem href="#home" label="Home" icon={<House className="bi" />} isHome />
-                <MenuItem icon={<FileEarmark className="bi" />} label="Documents">
-                    <MenuItem href="#record" icon={<FileEarmark className="bi" />} label="Example record" />
-                </MenuItem>
-                <MenuItem icon={<Calendar className="bi" />} label="Appointments" />
-                <MenuItem icon={<Person className="bi" />} label="Users" />
+                <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Home">
+                    <MenuItem href="#home" label="Home" icon={<House className="bi" />} isHome />
+                </div>
+                <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Documents">
+                    <MenuItem icon={<FileEarmark className="bi" />} label="Documents">
+                        <MenuItem
+                            className="blue-sidebar-visible-on-open"
+                            href="#record"
+                            icon={<FileEarmark className="bi" />}
+                            label="Example record"
+                        />
+                    </MenuItem>
+                </div>
+                <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Appointments">
+                    <MenuItem icon={<Calendar className="bi" />} label="Appointments" />
+                </div>
+                <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Users">
+                    <MenuItem icon={<Person className="bi" />} label="Users" />
+                </div>
             </SidebarMenu>
         </Layout>
     )

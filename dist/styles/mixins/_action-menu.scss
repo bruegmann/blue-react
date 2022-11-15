@@ -10,10 +10,10 @@
 @mixin actions($breakpoint) {
     @media screen and (max-width: $breakpoint + 1px) {
         &.open {
-            --action-link-bg-color: #{darken($theme, 30%)};
+            --blue-action-link-bg-color: #{darken($theme, 30%)};
 
             display: block;
-            background-color: var(--action-link-bg-color);
+            background-color: var(--blue-action-link-bg-color);
             width: 100%;
             position: absolute;
             z-index: 1;

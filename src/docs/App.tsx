@@ -22,7 +22,8 @@ import {
     Stickies,
     StickiesFill,
     Rss,
-    RssFill
+    RssFill,
+    Eye
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
@@ -157,6 +158,8 @@ function App() {
                                     </div>
 
                                     <div>
+                                        <MenuItem to="/demo#intro" elementType={Link} icon={<Eye />} label="Demo App" />
+
                                         <MenuItem
                                             href="https://bruegmann.github.io/themify"
                                             target="_blank"
