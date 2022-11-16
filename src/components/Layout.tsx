@@ -12,7 +12,18 @@ window.toggleSidebarEvent = new CustomEvent("toggleSidebar")
 
 export interface LayoutProps {
     id?: string
+
+    /**
+     * By default, the side bar is "in".
+     * You can control the state from outside, by also using `onChangeSidebarIn`.
+     */
     sidebarIn?: boolean
+
+    /**
+     * React to changes of the `sidebarIn` state.
+     */
+    onChangeSidebarIn?: (sidebarIn: boolean) => void
+
     style?: CSSProperties
     /**
      * Sidebar is automatically expanded on wider views.
@@ -75,7 +86,7 @@ export interface LayoutProps {
 }
 
 export interface LayoutState {
-    sidebarIn?: boolean
+    sidebarIn: boolean
     match: any
     history: string[]
     hash: string
@@ -114,7 +125,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
         this.defaultMatch = ["home"]
 
         this.state = {
-            sidebarIn: props.sidebarIn,
+            sidebarIn: props.sidebarIn || false,
             match: null,
             history: [],
             hash: window.location.hash,
@@ -191,6 +202,14 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
     }
 
     componentDidUpdate(prevProps: LayoutProps, prevState: LayoutState) {
+        if (prevProps.sidebarIn !== this.props.sidebarIn) {
+            this.setState({ sidebarIn: this.props.sidebarIn || false })
+        }
+
+        if (this.props.onChangeSidebarIn && prevState.sidebarIn !== this.state.sidebarIn) {
+            this.props.onChangeSidebarIn(this.state.sidebarIn)
+        }
+
         if (prevProps.blockRouting !== this.props.blockRouting && this.props.blockRouting !== this.state.blockRouting) {
             this.setState({ blockRouting: this.props.blockRouting })
         }

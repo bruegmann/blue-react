@@ -65,6 +65,7 @@ function RecordField({
 }
 
 export default function DemoApp() {
+    const [sidebarIn, setSidebarIn] = useState(false)
     const [expandSidebar, setExpandSidebar] = useState(localStorage.getItem("DemoApp-expandSidebar") !== null)
     const toggleSidebar = () => {
         if (expandSidebar) {
@@ -81,6 +82,8 @@ export default function DemoApp() {
     return (
         <Layout
             expandSidebar={expandSidebar}
+            sidebarIn={sidebarIn}
+            onChangeSidebarIn={setSidebarIn}
             pages={[
                 {
                     name: "home",
@@ -217,14 +220,6 @@ export default function DemoApp() {
                                 </HeaderTitle>
 
                                 <ActionMenu>
-                                    <MenuItem
-                                        icon={<Pencil className="bi" />}
-                                        iconForActive={<PencilFill className="bi" />}
-                                        label="Edit"
-                                        onClick={toggleEdit}
-                                        isActive={edit}
-                                    />
-
                                     <div>
                                         <MenuItem
                                             label="Actions"
@@ -232,9 +227,16 @@ export default function DemoApp() {
                                             dropdownClassName="position-absolute end-0"
                                         >
                                             <MenuItem label="Do a lot, a loooot of stuff" />
-                                            <MenuItem label="Yeah, really a lot of stuff" />
+                                            <MenuItem label="Oh boy, really a lot of stuff" />
                                         </MenuItem>
                                     </div>
+                                    <MenuItem
+                                        icon={<Pencil className="bi" />}
+                                        iconForActive={<PencilFill className="bi" />}
+                                        label="Edit"
+                                        onClick={toggleEdit}
+                                        isActive={edit}
+                                    />
                                 </ActionMenu>
                             </Header>
                             <Body containerClass="container">
@@ -338,7 +340,13 @@ export default function DemoApp() {
                     <MenuItem href="#home" label="Home" icon={<House className="bi" />} isHome />
                 </div>
                 <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Documents">
-                    <MenuItem icon={<FileEarmark className="bi" />} label="Documents">
+                    <MenuItem
+                        icon={<FileEarmark className="bi" />}
+                        label="Documents"
+                        onClick={() => {
+                            setSidebarIn(true)
+                        }}
+                    >
                         <MenuItem
                             className="blue-sidebar-visible-on-open"
                             href="#record"
