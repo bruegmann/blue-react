@@ -25,7 +25,7 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
 
     const [onSubmit, setOnSubmit] = useState<((input: string | boolean | null) => void) | undefined>()
 
-    const ask = (text: string, title?: string, icon?: any) => {
+    const ask = (text: string, title?: string, icon?: ReactNode) => {
         return new Promise((resolve: (input: string | boolean) => void) => {
             setType("ask")
             setModalContent(text)
@@ -40,7 +40,7 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
         })
     }
 
-    const tell = (text: string, title?: string, icon?: any) => {
+    const tell = (text: string, title?: string, icon?: ReactNode) => {
         return new Promise((resolve: (input: boolean) => void) => {
             setType("tell")
             setModalContent(text)
@@ -53,7 +53,7 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
         })
     }
 
-    const verify = (text: string, title?: string, icon?: any) => {
+    const verify = (text: string, title?: string, icon?: ReactNode) => {
         return new Promise((resolve: (input: boolean) => void) => {
             setType("verify")
             setModalContent(text)
