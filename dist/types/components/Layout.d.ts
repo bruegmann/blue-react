@@ -7,7 +7,15 @@ declare global {
 }
 export interface LayoutProps {
     id?: string;
+    /**
+     * By default, the side bar is "in".
+     * You can control the state from outside, by also using `onChangeSidebarIn`.
+     */
     sidebarIn?: boolean;
+    /**
+     * React to changes of the `sidebarIn` state.
+     */
+    onChangeSidebarIn?: (sidebarIn: boolean) => void;
     style?: CSSProperties;
     /**
      * Sidebar is automatically expanded on wider views.
@@ -62,7 +70,7 @@ export interface LayoutProps {
     children?: any;
 }
 export interface LayoutState {
-    sidebarIn?: boolean;
+    sidebarIn: boolean;
     match: any;
     history: string[];
     hash: string;

@@ -38,6 +38,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Modal(_ref) {
   var modalContent = _ref.modalContent,
       modalTitle = _ref.modalTitle,
+      modalIcon = _ref.modalIcon,
       unSetModalContent = _ref.unSetModalContent,
       onSubmit = _ref.onSubmit,
       defaultInput = _ref.defaultInput,
@@ -120,8 +121,10 @@ function Modal(_ref) {
   }, /*#__PURE__*/_react.default.createElement("form", {
     onSubmit: submit
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal-header"
-  }, /*#__PURE__*/_react.default.createElement("h5", {
+    className: "modal-header align-items-center"
+  }, modalIcon !== undefined && /*#__PURE__*/_react.default.createElement("div", {
+    className: "me-2"
+  }, modalIcon), /*#__PURE__*/_react.default.createElement("h5", {
     className: "modal-title"
   }, modalTitle || (0, _shared.getPhrase)("Message")), /*#__PURE__*/_react.default.createElement("button", {
     type: "button",

@@ -73,7 +73,7 @@ var Layout = /*#__PURE__*/function (_Component) {
     window.blueLayoutRef = _assertThisInitialized(_this);
     _this.defaultMatch = ["home"];
     _this.state = {
-      sidebarIn: props.sidebarIn,
+      sidebarIn: props.sidebarIn || false,
       match: null,
       history: [],
       hash: window.location.hash,
@@ -120,6 +120,16 @@ var Layout = /*#__PURE__*/function (_Component) {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
       var _this3 = this;
+
+      if (prevProps.sidebarIn !== this.props.sidebarIn) {
+        this.setState({
+          sidebarIn: this.props.sidebarIn || false
+        });
+      }
+
+      if (this.props.onChangeSidebarIn && prevState.sidebarIn !== this.state.sidebarIn) {
+        this.props.onChangeSidebarIn(this.state.sidebarIn);
+      }
 
       if (prevProps.blockRouting !== this.props.blockRouting && this.props.blockRouting !== this.state.blockRouting) {
         this.setState({

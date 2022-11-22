@@ -64,23 +64,29 @@ var ModalProvider = function ModalProvider(_ref) {
 
   var _useState7 = (0, _react.useState)(),
       _useState8 = _slicedToArray(_useState7, 2),
-      defaultInput = _useState8[0],
-      setDefaultInput = _useState8[1];
+      modalIcon = _useState8[0],
+      setModalIcon = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(),
+      _useState10 = _slicedToArray(_useState9, 2),
+      defaultInput = _useState10[0],
+      setDefaultInput = _useState10[1];
 
   var unSetModalContent = (0, _react.useCallback)(function () {
     setModalContent(undefined);
   }, [setModalContent]);
 
-  var _useState9 = (0, _react.useState)(),
-      _useState10 = _slicedToArray(_useState9, 2),
-      onSubmit = _useState10[0],
-      setOnSubmit = _useState10[1];
+  var _useState11 = (0, _react.useState)(),
+      _useState12 = _slicedToArray(_useState11, 2),
+      onSubmit = _useState12[0],
+      setOnSubmit = _useState12[1];
 
-  var ask = function ask(text, title) {
+  var ask = function ask(text, title, icon) {
     return new Promise(function (resolve) {
       setType("ask");
       setModalContent(text);
       setModalTitle(title);
+      setModalIcon(icon);
       setDefaultInput("");
       setOnSubmit(function () {
         return function (input) {
@@ -92,11 +98,12 @@ var ModalProvider = function ModalProvider(_ref) {
     });
   };
 
-  var tell = function tell(text, title) {
+  var tell = function tell(text, title, icon) {
     return new Promise(function (resolve) {
       setType("tell");
       setModalContent(text);
       setModalTitle(title);
+      setModalIcon(icon);
       setOnSubmit(function () {
         return function (input) {
           resolve(input ? true : false);
@@ -106,11 +113,12 @@ var ModalProvider = function ModalProvider(_ref) {
     });
   };
 
-  var verify = function verify(text, title) {
+  var verify = function verify(text, title, icon) {
     return new Promise(function (resolve) {
       setType("verify");
       setModalContent(text);
       setModalTitle(title);
+      setModalIcon(icon);
       setOnSubmit(function () {
         return function (input) {
           resolve(input ? true : false);
@@ -129,6 +137,7 @@ var ModalProvider = function ModalProvider(_ref) {
   }, rest), children, /*#__PURE__*/_react.default.createElement(_Modal.default, {
     modalContent: modalContent,
     modalTitle: modalTitle,
+    modalIcon: modalIcon,
     unSetModalContent: unSetModalContent,
     onSubmit: onSubmit,
     defaultInput: defaultInput,
