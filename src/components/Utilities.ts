@@ -124,6 +124,18 @@ export function scrollToTop() {
     })
 }
 
+const httpStatusCodes: { [statusCode: number]: string } = {
+    400: "Bad Request",
+    401: "Unauthorized",
+    403: "Forbidden",
+    404: "Not Found",
+    405: "Method Not Allowed",
+    408: "Request Timeout",
+    409: "Conflict",
+    500: "Internal Server Error",
+    502: "Bad Gateway"
+}
+
 export function fetchData(
     input: RequestInfo | URL,
     init?: RequestInit | undefined,
@@ -139,10 +151,15 @@ export function fetchData(
             if (reason.text) {
                 reason.text().then((errorMessage) => {
                     setAlertMessage(
-                        `${reason.status} - ${reason.statusText}`,
+                        `${reason.status} - ${reason.statusText || httpStatusCodes[reason.status] || "Error"}`,
                         "danger",
                         true,
-                        showErrorDetail ? errorMessage : undefined
+                        showErrorDetail
+                            ? errorMessage
+                                  .toString()
+                                  .replace(/(<style[\w\W]+style>)/g, "")
+                                  .replace(/<[^>]+>/g, "")
+                            : undefined
                     )
 
                     if (onError) {

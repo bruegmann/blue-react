@@ -147,6 +147,18 @@ function scrollToTop() {
   });
 }
 
+var httpStatusCodes = {
+  400: "Bad Request",
+  401: "Unauthorized",
+  403: "Forbidden",
+  404: "Not Found",
+  405: "Method Not Allowed",
+  408: "Request Timeout",
+  409: "Conflict",
+  500: "Internal Server Error",
+  502: "Bad Gateway"
+};
+
 function fetchData(input, init) {
   var showErrorDetail = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
   var onError = arguments.length > 3 ? arguments[3] : undefined;
@@ -156,7 +168,7 @@ function fetchData(input, init) {
   }).catch(function (reason) {
     if (reason.text) {
       reason.text().then(function (errorMessage) {
-        setAlertMessage("".concat(reason.status, " - ").concat(reason.statusText), "danger", true, showErrorDetail ? errorMessage : undefined);
+        setAlertMessage("".concat(reason.status, " - ").concat(reason.statusText || httpStatusCodes[reason.status] || "Error"), "danger", true, showErrorDetail ? errorMessage.toString().replace(/(<style[\w\W]+style>)/g, "").replace(/<[^>]+>/g, "") : undefined);
 
         if (onError) {
           onError(errorMessage, reason);
