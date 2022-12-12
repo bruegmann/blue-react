@@ -124,6 +124,14 @@ export interface MenuItemProps {
     draggable?: boolean
 
     "data-tooltip"?: string
+    /**
+     * Specifies whether an element is disabled or not.
+     */
+    disabled?: boolean
+    /**
+     * Specifies style of an element.
+     */
+    style?: React.CSSProperties
 }
 
 /**
@@ -234,7 +242,9 @@ export default function MenuItem(props: MenuItemProps) {
                     onDragLeave: props.onDragLeave,
                     onDrop: props.onDrop,
                     draggable: props.draggable,
-                    "data-tooltip": props["data-tooltip"]
+                    "data-tooltip": props["data-tooltip"],
+                    disabled: props.disabled,
+                    style: props.style
                 },
                 <>
                     <span
