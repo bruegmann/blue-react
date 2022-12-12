@@ -95,6 +95,14 @@ export interface MenuItemProps {
      */
     draggable?: boolean;
     "data-tooltip"?: string;
+    /**
+     * Specifies whether an element is disabled or not.
+     */
+    disabled?: boolean;
+    /**
+     * Specifies style of an element.
+     */
+    style?: React.CSSProperties;
 }
 /**
  * Link, button or custom component for Sidebar, Actions or ActionMenu
