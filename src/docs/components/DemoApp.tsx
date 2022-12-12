@@ -237,6 +237,14 @@ export default function DemoApp() {
                                         onClick={toggleEdit}
                                         isActive={edit}
                                     />
+                                    <MenuItem
+                                        icon={<Pencil className="bi" />}
+                                        iconForActive={<PencilFill className="bi" />}
+                                        label="Disabled Button with Tooltip"
+                                        title="This is a Tooltip!"
+                                        disabled
+                                        style={{ pointerEvents: "auto" }}
+                                    />
                                 </ActionMenu>
                             </Header>
                             <Body containerClass="container">
