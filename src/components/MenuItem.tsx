@@ -82,6 +82,7 @@ export interface MenuItemProps {
     target?: string
     rel?: string
     title?: string
+    type?: string
 
     /**
      * Fired on the draggable target (the source element): occurs when the user starts to drag an element
@@ -244,7 +245,8 @@ export default function MenuItem(props: MenuItemProps) {
                     draggable: props.draggable,
                     "data-tooltip": props["data-tooltip"],
                     disabled: props.disabled,
-                    style: props.style
+                    style: props.style,
+                    type: props.type
                 },
                 <>
                     <span

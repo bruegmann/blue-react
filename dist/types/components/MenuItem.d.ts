@@ -62,6 +62,7 @@ export interface MenuItemProps {
     target?: string;
     rel?: string;
     title?: string;
+    type?: string;
     /**
      * Fired on the draggable target (the source element): occurs when the user starts to drag an element
      */

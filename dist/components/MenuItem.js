@@ -136,7 +136,8 @@ function MenuItem(props) {
     draggable: props.draggable,
     "data-tooltip": props["data-tooltip"],
     disabled: props.disabled,
-    style: props.style
+    style: props.style,
+    type: props.type
   }, /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {
     className: (0, _clsx.default)("blue-menu-item-icon", {
       hasIconForActive: iconForActive
