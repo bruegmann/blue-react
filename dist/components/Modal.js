@@ -42,7 +42,9 @@ function Modal(_ref) {
       unSetModalContent = _ref.unSetModalContent,
       onSubmit = _ref.onSubmit,
       defaultInput = _ref.defaultInput,
-      type = _ref.type;
+      type = _ref.type,
+      _ref$inputType = _ref.inputType,
+      inputType = _ref$inputType === void 0 ? "text" : _ref$inputType;
   var modalRef = (0, _react.useRef)();
 
   var _useState = (0, _react.useState)(defaultInput || ""),
@@ -136,7 +138,7 @@ function Modal(_ref) {
       whiteSpace: "pre-wrap"
     }
   }, modalContent, type === "ask" && /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
+    type: inputType,
     className: "form-control mt-1",
     value: input,
     onChange: function onChange(_ref2) {

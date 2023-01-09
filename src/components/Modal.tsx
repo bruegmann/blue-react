@@ -19,6 +19,8 @@ export interface ModalProps {
      * `"ask"` | `"tell"` | `"verify"`
      */
     type: ModalType
+
+    inputType?: string
 }
 
 /**
@@ -34,7 +36,8 @@ export default function Modal({
     unSetModalContent,
     onSubmit,
     defaultInput,
-    type
+    type,
+    inputType = "text"
 }: ModalProps) {
     const modalRef = useRef() as MutableRefObject<HTMLDivElement>
     const [input, setInput] = useState<string>(defaultInput || "")
@@ -107,7 +110,7 @@ export default function Modal({
                             {modalContent}
                             {type === "ask" && (
                                 <input
-                                    type="text"
+                                    type={inputType}
                                     className="form-control mt-1"
                                     value={input}
                                     onChange={({ target }) => setInput(target.value)}

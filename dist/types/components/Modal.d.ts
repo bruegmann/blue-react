@@ -16,6 +16,7 @@ export interface ModalProps {
      * `"ask"` | `"tell"` | `"verify"`
      */
     type: ModalType;
+    inputType?: string;
 }
 /**
  * Simple modal/dialog. Designed to work as an alternative to JavaScript's native `alert()`, `prompt()` and `confirm()` functions.
@@ -23,4 +24,4 @@ export interface ModalProps {
  *
  * For easy use, you should use the hook `useModal` together with `ModalProvider`. See the example there.
  */
-export default function Modal({ modalContent, modalTitle, modalIcon, unSetModalContent, onSubmit, defaultInput, type }: ModalProps): JSX.Element;
+export default function Modal({ modalContent, modalTitle, modalIcon, unSetModalContent, onSubmit, defaultInput, type, inputType }: ModalProps): JSX.Element;

@@ -72,21 +72,34 @@ var ModalProvider = function ModalProvider(_ref) {
       defaultInput = _useState10[0],
       setDefaultInput = _useState10[1];
 
+  var _useState11 = (0, _react.useState)(),
+      _useState12 = _slicedToArray(_useState11, 2),
+      inputType = _useState12[0],
+      setInputType = _useState12[1];
+
   var unSetModalContent = (0, _react.useCallback)(function () {
     setModalContent(undefined);
   }, [setModalContent]);
 
-  var _useState11 = (0, _react.useState)(),
-      _useState12 = _slicedToArray(_useState11, 2),
-      onSubmit = _useState12[0],
-      setOnSubmit = _useState12[1];
+  var _useState13 = (0, _react.useState)(),
+      _useState14 = _slicedToArray(_useState13, 2),
+      onSubmit = _useState14[0],
+      setOnSubmit = _useState14[1];
 
-  var ask = function ask(text, title, icon) {
+  var ask = function ask(text, options) {
     return new Promise(function (resolve) {
       setType("ask");
       setModalContent(text);
-      setModalTitle(title);
-      setModalIcon(icon);
+
+      if (options) {
+        var title = options.title,
+            icon = options.icon,
+            _inputType = options.inputType;
+        setModalTitle(title);
+        setModalIcon(icon);
+        setInputType(_inputType);
+      }
+
       setDefaultInput("");
       setOnSubmit(function () {
         return function (input) {
@@ -98,12 +111,18 @@ var ModalProvider = function ModalProvider(_ref) {
     });
   };
 
-  var tell = function tell(text, title, icon) {
+  var tell = function tell(text, options) {
     return new Promise(function (resolve) {
       setType("tell");
       setModalContent(text);
-      setModalTitle(title);
-      setModalIcon(icon);
+
+      if (options) {
+        var title = options.title,
+            icon = options.icon;
+        setModalTitle(title);
+        setModalIcon(icon);
+      }
+
       setOnSubmit(function () {
         return function (input) {
           resolve(input ? true : false);
@@ -113,12 +132,18 @@ var ModalProvider = function ModalProvider(_ref) {
     });
   };
 
-  var verify = function verify(text, title, icon) {
+  var verify = function verify(text, options) {
     return new Promise(function (resolve) {
       setType("verify");
       setModalContent(text);
-      setModalTitle(title);
-      setModalIcon(icon);
+
+      if (options) {
+        var title = options.title,
+            icon = options.icon;
+        setModalTitle(title);
+        setModalIcon(icon);
+      }
+
       setOnSubmit(function () {
         return function (input) {
           resolve(input ? true : false);
@@ -141,7 +166,8 @@ var ModalProvider = function ModalProvider(_ref) {
     unSetModalContent: unSetModalContent,
     onSubmit: onSubmit,
     defaultInput: defaultInput,
-    type: type
+    type: type,
+    inputType: inputType
   }));
 };
 

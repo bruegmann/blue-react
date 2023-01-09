@@ -2,10 +2,19 @@ import React, { createContext, ReactNode, useCallback, useContext, useState } fr
 import { ModalType } from "./shared"
 import Modal from "./Modal"
 
+interface ModelAlertOptions {
+    title?: string
+    icon?: ReactNode
+}
+
+interface ModelAskOptions extends ModelAlertOptions {
+    inputType?: string
+}
+
 const ModalContext = createContext({
-    ask: undefined as unknown as (text: string, title?: string, icon?: ReactNode) => Promise<string | boolean>,
-    tell: undefined as unknown as (text: string, title?: string, icon?: ReactNode) => Promise<boolean>,
-    verify: undefined as unknown as (text: string, title?: string, icon?: ReactNode) => Promise<boolean>
+    ask: undefined as unknown as (text: string, options?: ModelAskOptions) => Promise<string | boolean>,
+    tell: undefined as unknown as (text: string, options?: ModelAlertOptions) => Promise<boolean>,
+    verify: undefined as unknown as (text: string, options?: ModelAlertOptions) => Promise<boolean>
 })
 
 export interface ModalProviderProps {
@@ -18,6 +27,7 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
     const [modalTitle, setModalTitle] = useState<string | undefined>()
     const [modalIcon, setModalIcon] = useState<ReactNode | undefined>()
     const [defaultInput, setDefaultInput] = useState<string | undefined>()
+    const [inputType, setInputType] = useState<string>()
 
     const unSetModalContent = useCallback(() => {
         setModalContent(undefined)
@@ -25,12 +35,16 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
 
     const [onSubmit, setOnSubmit] = useState<((input: string | boolean | null) => void) | undefined>()
 
-    const ask = (text: string, title?: string, icon?: ReactNode) => {
+    const ask = (text: string, options?: ModelAskOptions) => {
         return new Promise((resolve: (input: string | boolean) => void) => {
             setType("ask")
             setModalContent(text)
-            setModalTitle(title)
-            setModalIcon(icon)
+            if (options) {
+                const { title, icon, inputType } = options
+                setModalTitle(title)
+                setModalIcon(icon)
+                setInputType(inputType)
+            }
             setDefaultInput("")
             setOnSubmit(() => (input: string | boolean) => {
                 resolve(input)
@@ -40,12 +54,15 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
         })
     }
 
-    const tell = (text: string, title?: string, icon?: ReactNode) => {
+    const tell = (text: string, options?: ModelAlertOptions) => {
         return new Promise((resolve: (input: boolean) => void) => {
             setType("tell")
             setModalContent(text)
-            setModalTitle(title)
-            setModalIcon(icon)
+            if (options) {
+                const { title, icon } = options
+                setModalTitle(title)
+                setModalIcon(icon)
+            }
             setOnSubmit(() => (input: string | boolean) => {
                 resolve(input ? true : false)
                 setModalContent(undefined)
@@ -53,12 +70,15 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
         })
     }
 
-    const verify = (text: string, title?: string, icon?: ReactNode) => {
+    const verify = (text: string, options?: ModelAlertOptions) => {
         return new Promise((resolve: (input: boolean) => void) => {
             setType("verify")
             setModalContent(text)
-            setModalTitle(title)
-            setModalIcon(icon)
+            if (options) {
+                const { title, icon } = options
+                setModalTitle(title)
+                setModalIcon(icon)
+            }
             setOnSubmit(() => (input: string | boolean) => {
                 resolve(input ? true : false)
                 setModalContent(undefined)
@@ -84,6 +104,7 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
                 onSubmit={onSubmit}
                 defaultInput={defaultInput}
                 type={type}
+                inputType={inputType}
             />
         </ModalContext.Provider>
     )
