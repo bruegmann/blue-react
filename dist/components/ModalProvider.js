@@ -53,19 +53,30 @@ var ModalProvider = function ModalProvider(props) {
       defaultInput = _useState6[0],
       setDefaultInput = _useState6[1];
 
+  var _useState7 = (0, _react.useState)(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      inputType = _useState8[0],
+      setInputType = _useState8[1];
+
   var unSetModalContent = (0, _react.useCallback)(function () {
     setModalContent(undefined);
   }, [setModalContent]);
 
-  var _useState7 = (0, _react.useState)(),
-      _useState8 = _slicedToArray(_useState7, 2),
-      onSubmit = _useState8[0],
-      setOnSubmit = _useState8[1];
+  var _useState9 = (0, _react.useState)(),
+      _useState10 = _slicedToArray(_useState9, 2),
+      onSubmit = _useState10[0],
+      setOnSubmit = _useState10[1];
 
-  var ask = function ask(text) {
+  var ask = function ask(text, options) {
     return new Promise(function (resolve) {
       setType("ask");
       setModalContent(text);
+
+      if (options) {
+        var _inputType = options.inputType;
+        setInputType(_inputType);
+      }
+
       setDefaultInput("");
       setOnSubmit(function () {
         return function (input) {
@@ -114,7 +125,8 @@ var ModalProvider = function ModalProvider(props) {
     unSetModalContent: unSetModalContent,
     onSubmit: onSubmit,
     defaultInput: defaultInput,
-    type: type
+    type: type,
+    inputType: inputType
   }));
 };
 
