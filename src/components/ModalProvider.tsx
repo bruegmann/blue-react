@@ -2,8 +2,15 @@ import React, { createContext, useCallback, useContext, useState } from "react"
 import { ModalType } from "./shared"
 import Modal from "./Modal"
 
+interface ModelAskOptions {
+    inputType?: string
+}
+
 const ModalContext = createContext({
-    ask: undefined as unknown as (text: string) => Promise<string | boolean>,
+    ask: undefined as unknown as (
+        text: string,
+        options?: ModelAskOptions
+    ) => Promise<string | boolean>,
     tell: undefined as unknown as (text: string) => Promise<boolean>,
     verify: undefined as unknown as (text: string) => Promise<boolean>
 })
@@ -12,6 +19,8 @@ const ModalProvider = (props: any) => {
     const [type, setType] = useState<ModalType>("tell")
     const [modalContent, setModalContent] = useState<string | undefined>()
     const [defaultInput, setDefaultInput] = useState<string | undefined>()
+    const [inputType, setInputType] = useState<string>()
+
     const unSetModalContent = useCallback(() => {
         setModalContent(undefined)
     }, [setModalContent])
@@ -20,10 +29,14 @@ const ModalProvider = (props: any) => {
         ((input: string | boolean | null) => void) | undefined
     >()
 
-    const ask = (text: string) => {
+    const ask = (text: string, options?: ModelAskOptions) => {
         return new Promise((resolve: (input: string | boolean) => void) => {
             setType("ask")
             setModalContent(text)
+            if (options) {
+                const { inputType } = options
+                setInputType(inputType)
+            }
             setDefaultInput("")
             setOnSubmit(() => (input: string | boolean) => {
                 resolve(input)
@@ -71,6 +84,7 @@ const ModalProvider = (props: any) => {
                 onSubmit={onSubmit}
                 defaultInput={defaultInput}
                 type={type}
+                inputType={inputType}
             />
         </ModalContext.Provider>
     )

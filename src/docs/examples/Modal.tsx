@@ -21,8 +21,10 @@ function InsideComp() {
                     // Make sure to make your function "async" when using "await"
                     async () => {
                         // Use "await" to wait until the user enters something
-                        const answer = await ask("What is 1 + 1?")
-                        if (answer && parseInt(answer.toString()) === 2) {
+                        const answer = await ask("Please enter password", {
+                            inputType: "password"
+                        })
+                        if (answer && answer.toString() === "password") {
                             tell("That's correct!")
                         } else {
                             tell("Wrong!")
