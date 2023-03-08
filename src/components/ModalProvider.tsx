@@ -5,6 +5,7 @@ import Modal from "./Modal"
 interface ModelAlertOptions {
     title?: string
     icon?: ReactNode
+    mirrored?: boolean
 }
 
 interface ModelAskOptions extends ModelAlertOptions {
@@ -28,6 +29,7 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
     const [modalIcon, setModalIcon] = useState<ReactNode | undefined>()
     const [defaultInput, setDefaultInput] = useState<string | undefined>()
     const [inputType, setInputType] = useState<string>()
+    const [mirrored, setMirrored] = useState<boolean | undefined>(false)
 
     const unSetModalContent = useCallback(() => {
         setModalContent(undefined)
@@ -40,10 +42,11 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
             setType("ask")
             setModalContent(text)
             if (options) {
-                const { title, icon, inputType } = options
+                const { title, icon, inputType, mirrored } = options
                 setModalTitle(title)
                 setModalIcon(icon)
                 setInputType(inputType)
+                setMirrored(mirrored)
             }
             setDefaultInput("")
             setOnSubmit(() => (input: string | boolean) => {
@@ -59,9 +62,10 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
             setType("tell")
             setModalContent(text)
             if (options) {
-                const { title, icon } = options
+                const { title, icon, mirrored } = options
                 setModalTitle(title)
                 setModalIcon(icon)
+                setMirrored(mirrored)
             }
             setOnSubmit(() => (input: string | boolean) => {
                 resolve(input ? true : false)
@@ -75,9 +79,10 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
             setType("verify")
             setModalContent(text)
             if (options) {
-                const { title, icon } = options
+                const { title, icon, mirrored } = options
                 setModalTitle(title)
                 setModalIcon(icon)
+                setMirrored(mirrored)
             }
             setOnSubmit(() => (input: string | boolean) => {
                 resolve(input ? true : false)
@@ -105,6 +110,7 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
                 defaultInput={defaultInput}
                 type={type}
                 inputType={inputType}
+                mirrored={mirrored}
             />
         </ModalContext.Provider>
     )

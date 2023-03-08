@@ -21,6 +21,7 @@ export interface ModalProps {
     type: ModalType
 
     inputType?: string
+    mirrored?: boolean
 }
 
 /**
@@ -37,7 +38,8 @@ export default function Modal({
     onSubmit,
     defaultInput,
     type,
-    inputType = "text"
+    inputType = "text",
+    mirrored = false
 }: ModalProps) {
     const modalRef = useRef() as MutableRefObject<HTMLDivElement>
     const [input, setInput] = useState<string>(defaultInput || "")
@@ -120,13 +122,19 @@ export default function Modal({
                         </div>
 
                         <div className="modal-footer">
-                            <button type="submit" className="btn btn-primary d-block w-100" style={btnStyle}>
+                            <button
+                                type="submit"
+                                className={`btn ${mirrored ? "btn-outline-primary" : "btn-primary"} d-block w-100`}
+                                style={btnStyle}
+                            >
                                 {type === "verify" ? getPhrase("Yes") : "OK"}
                             </button>
                             {(type === "ask" || type === "verify") &&
                                 (type === "verify" ? (
                                     <button
-                                        className="btn btn-outline-primary d-block w-100"
+                                        className={`btn ${
+                                            mirrored ? "btn-primary" : "btn-outline-primary"
+                                        } d-block w-100`}
                                         style={btnStyle}
                                         onClick={sayNo}
                                     >
