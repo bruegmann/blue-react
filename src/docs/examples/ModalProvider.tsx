@@ -69,7 +69,7 @@ function InsideComp() {
                                     </svg>
                                 </span>
                             ),
-                            mirrored: true
+                            switchPrimaryBtn: true
                         })
                         console.log({ answer })
                         if (answer === true) {

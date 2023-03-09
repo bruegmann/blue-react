@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 interface ModelAlertOptions {
     title?: string;
     icon?: ReactNode;
-    mirrored?: boolean;
+    switchPrimaryBtn?: boolean;
 }
 interface ModelAskOptions extends ModelAlertOptions {
     inputType?: string;
