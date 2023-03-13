@@ -70,10 +70,13 @@ export function resetAlertMessage(alertClassName?: StatusType) {
             resetAlertMessage(status)
         })
     } else {
-        const alertElement = document.querySelector(".blue-status-alert") as HTMLElement
-        ;(document.querySelector(".blue-status-" + alertClassName) as HTMLElement).style.display = ""
-        alertElement.style.display = ""
-        removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName))
+        const alertElement = document.querySelector(".blue-status-alert") as HTMLElement | null
+        const statusElement = document.querySelector(".blue-status-" + alertClassName) as HTMLElement | null
+        if (statusElement) statusElement.style.display = ""
+        if (alertElement) {
+            alertElement.style.display = ""
+            removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName))
+        }
     }
 }
 
@@ -83,26 +86,29 @@ export function setAlertMessage(
     close: boolean = false,
     detailText?: string
 ) {
-    const alertElement = document.querySelector(".blue-status-alert") as HTMLElement
+    const alertElement = document.querySelector(".blue-status-alert") as HTMLElement | null
+    const statusElement = document.querySelector(".blue-status-" + alertClassName) as HTMLElement | null
 
-    ;(document.querySelector(".blue-status-" + alertClassName) as HTMLElement).style.display = "flex"
-    alertElement.style.display = "block"
-    addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName))
+    if (statusElement) statusElement.style.display = "flex"
+    if (alertElement) {
+        alertElement.style.display = "block"
+        addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName))
 
-    alertElement.querySelector(".alert-body")!.innerHTML = `<h2>` + message + `</h2>`
-    if (detailText) {
-        alertElement.querySelector(".alert-body")!.innerHTML += `<span>` + detailText + `</span>`
-    }
-
-    const btnCloseElement = alertElement.querySelector(".btn-close") as HTMLElement
-
-    if (close) {
-        btnCloseElement.style.display = "inline-block"
-        btnCloseElement.onclick = () => {
-            resetAlertMessage(alertClassName)
+        alertElement.querySelector(".alert-body")!.innerHTML = `<h2>` + message + `</h2>`
+        if (detailText) {
+            alertElement.querySelector(".alert-body")!.innerHTML += `<span>` + detailText + `</span>`
         }
-    } else {
-        btnCloseElement.style.display = "none"
+
+        const btnCloseElement = alertElement.querySelector(".btn-close") as HTMLElement
+
+        if (close) {
+            btnCloseElement.style.display = "inline-block"
+            btnCloseElement.onclick = () => {
+                resetAlertMessage(alertClassName)
+            }
+        } else {
+            btnCloseElement.style.display = "none"
+        }
     }
 }
 
