@@ -8,13 +8,15 @@ function InsideComp() {
         <>
             <p>
                 Allowed params for the functions <code>tell</code> and <code>verify</code>:<br />
-                <code>(text: string, options: {`{ title?: string, icon?: ReactNode, mirrored?: boolean }`}?)</code>
+                <code>
+                    (text: string, options: {`{ title?: string, icon?: ReactNode, switchPrimaryBtn?: boolean }`}?)
+                </code>
             </p>
             <p>
                 Allowed params for the function <code>ask</code>:<br />
                 <code>
                     (text: string, options:{" "}
-                    {`{ title?: string, icon?: ReactNode, mirrored?: boolean, inputType?: string }`}?)
+                    {`{ title?: string, icon?: ReactNode, switchPrimaryBtn?: boolean, inputType?: string }`}?)
                 </code>
             </p>
 
