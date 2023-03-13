@@ -3,21 +3,20 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.addClass = addClass;
-exports.default = void 0;
-exports.fetchData = fetchData;
-exports.finishLoading = finishLoading;
-exports.guid = void 0;
 exports.hasClass = hasClass;
-exports.hideSuccess = hideSuccess;
+exports.addClass = addClass;
 exports.removeClass = removeClass;
-exports.resetAlertMessage = resetAlertMessage;
-exports.scrollToTop = scrollToTop;
-exports.setAlertMessage = setAlertMessage;
-exports.showSuccess = showSuccess;
-exports.startLoading = startLoading;
-exports.toggleActions = toggleActions;
 exports.toggleClass = toggleClass;
+exports.startLoading = startLoading;
+exports.finishLoading = finishLoading;
+exports.showSuccess = showSuccess;
+exports.hideSuccess = hideSuccess;
+exports.toggleActions = toggleActions;
+exports.resetAlertMessage = resetAlertMessage;
+exports.setAlertMessage = setAlertMessage;
+exports.scrollToTop = scrollToTop;
+exports.fetchData = fetchData;
+exports.default = exports.guid = void 0;
 
 function hasClass(el, className) {
   if (el.classList) return el.classList.contains(className);else return !!el.className.match(new RegExp("(\\s|^)" + className + "(\\s|$)"));
@@ -95,9 +94,13 @@ function resetAlertMessage(alertClassName) {
     });
   } else {
     var alertElement = document.querySelector(".blue-status-alert");
-    document.querySelector(".blue-status-" + alertClassName).style.display = "";
-    alertElement.style.display = "";
-    removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
+    var statusElement = document.querySelector(".blue-status-" + alertClassName);
+    if (statusElement) statusElement.style.display = "";
+
+    if (alertElement) {
+      alertElement.style.display = "";
+      removeClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
+    }
   }
 }
 
@@ -106,25 +109,29 @@ function setAlertMessage(message) {
   var close = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   var detailText = arguments.length > 3 ? arguments[3] : undefined;
   var alertElement = document.querySelector(".blue-status-alert");
-  document.querySelector(".blue-status-" + alertClassName).style.display = "flex";
-  alertElement.style.display = "block";
-  addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
-  alertElement.querySelector(".alert-body").innerHTML = "<h2>" + message + "</h2>";
+  var statusElement = document.querySelector(".blue-status-" + alertClassName);
+  if (statusElement) statusElement.style.display = "flex";
 
-  if (detailText) {
-    alertElement.querySelector(".alert-body").innerHTML += "<span>" + detailText + "</span>";
-  }
+  if (alertElement) {
+    alertElement.style.display = "block";
+    addClass(alertElement, "alert-" + (alertClassName === "loading" ? "info" : alertClassName));
+    alertElement.querySelector(".alert-body").innerHTML = "<h2>" + message + "</h2>";
 
-  var btnCloseElement = alertElement.querySelector(".btn-close");
+    if (detailText) {
+      alertElement.querySelector(".alert-body").innerHTML += "<span>" + detailText + "</span>";
+    }
 
-  if (close) {
-    btnCloseElement.style.display = "inline-block";
+    var btnCloseElement = alertElement.querySelector(".btn-close");
 
-    btnCloseElement.onclick = function () {
-      resetAlertMessage(alertClassName);
-    };
-  } else {
-    btnCloseElement.style.display = "none";
+    if (close) {
+      btnCloseElement.style.display = "inline-block";
+
+      btnCloseElement.onclick = function () {
+        resetAlertMessage(alertClassName);
+      };
+    } else {
+      btnCloseElement.style.display = "none";
+    }
   }
 }
 
