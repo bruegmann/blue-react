@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 interface ModelAlertOptions {
     title?: string;
     icon?: ReactNode;
+    switchPrimaryBtn?: boolean;
 }
 interface ModelAskOptions extends ModelAlertOptions {
     inputType?: string;

@@ -21,6 +21,7 @@ export interface ModalProps {
     type: ModalType
 
     inputType?: string
+    switchPrimaryBtn?: boolean
 }
 
 /**
@@ -37,7 +38,8 @@ export default function Modal({
     onSubmit,
     defaultInput,
     type,
-    inputType = "text"
+    inputType = "text",
+    switchPrimaryBtn = false
 }: ModalProps) {
     const modalRef = useRef() as MutableRefObject<HTMLDivElement>
     const [input, setInput] = useState<string>(defaultInput || "")
@@ -64,7 +66,7 @@ export default function Modal({
     const focusFirstControl = () => {
         const myModal = modalRef.current as unknown as Element
         myModal.removeEventListener("shown.bs.modal", focusFirstControl)
-        const firstControl = myModal.querySelector(".btn, .form-control") as HTMLElement | null
+        const firstControl = myModal.querySelector(".btn-primary, .form-control") as HTMLElement | null
         if (firstControl) {
             firstControl.focus()
         }
@@ -120,13 +122,21 @@ export default function Modal({
                         </div>
 
                         <div className="modal-footer">
-                            <button type="submit" className="btn btn-primary d-block w-100" style={btnStyle}>
+                            <button
+                                type="submit"
+                                className={`btn ${
+                                    switchPrimaryBtn ? "btn-outline-primary" : "btn-primary"
+                                } d-block w-100`}
+                                style={btnStyle}
+                            >
                                 {type === "verify" ? getPhrase("Yes") : "OK"}
                             </button>
                             {(type === "ask" || type === "verify") &&
                                 (type === "verify" ? (
                                     <button
-                                        className="btn btn-outline-primary d-block w-100"
+                                        className={`btn ${
+                                            switchPrimaryBtn ? "btn-primary" : "btn-outline-primary"
+                                        } d-block w-100`}
                                         style={btnStyle}
                                         onClick={sayNo}
                                     >
