@@ -1,4 +1,4 @@
-.caret {
+.blue-caret {
     /* treat like a font icon */
     font-family: "blueicon" !important;
     speak: none;
@@ -36,13 +36,13 @@
         transition: all 0.2s;
     }
 
-    &.caret-mirrored {
+    &.blue-caret-mirrored {
         &::before {
             transform: rotate(135deg) translate(-50%, -50%);
         }
     }
 
-    &.caret-open {
+    &.blue-caret-open {
         &::before {
             transform: rotate(45deg) translate(-50%, -50%);
         }

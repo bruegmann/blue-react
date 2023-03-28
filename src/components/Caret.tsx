@@ -21,9 +21,9 @@ export default function Caret({ open, mirrored, className }: CaretProps) {
     return (
         <span
             className={
-                "caret " +
-                (open ? " caret-open " : "") +
-                (mirrored ? " caret-mirrored " : "") +
+                "blue-caret " +
+                (open ? " blue-caret-open " : "") +
+                (mirrored ? " blue-caret-mirrored " : "") +
                 className
             }
         />

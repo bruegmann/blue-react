@@ -1,6 +1,6 @@
 {
     "name": "blue-react",
-    "version": "8.8.0",
+    "version": "9.0.0-alpha1",
     "description": "Blue React Components",
     "license": "LGPL-3.0-or-later",
     "main": "index.js",
@@ -24,9 +24,9 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "npm run build-docs",
-        "deploy": "gh-pages --dist build --dest v8",
+        "deploy": "gh-pages --dist build --dest v9",
         "prepublishOnly": "npm i && npm run build-release",
-        "release": "npm publish && npm run deploy",
+        "release": "npm publish --tag next && npm run deploy",
         "prettier": "npx prettier --write .",
         "license-report": "npx license-report --prod --output=json > ./src/docs/data/license-report.json"
     },

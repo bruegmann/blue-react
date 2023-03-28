@@ -1,68 +1,80 @@
-"use strict";
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+(function (global, factory) {
+  if (typeof define === "function" && define.amd) {
+    define(["exports", "react", "./Utilities"], factory);
+  } else if (typeof exports !== "undefined") {
+    factory(exports, require("react"), require("./Utilities"));
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod.exports, global.react, global.Utilities);
+    global.HeaderTitle = mod.exports;
+  }
+})(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : this, function (_exports, _react, _Utilities) {
+  "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = HeaderTitle;
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = HeaderTitle;
+  _react = _interopRequireWildcard(_react);
+  _Utilities = _interopRequireDefault(_Utilities);
 
-var _react = _interopRequireWildcard(require("react"));
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _Utilities = _interopRequireDefault(require("./Utilities"));
+  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+  /**
+   * The title area at the header bar.
+   * Depending on its content, the document's title will be set aswell (what will be shown in the browser title bar).
+   */
+  function HeaderTitle(_ref) {
+    var logo = _ref.logo,
+        appTitle = _ref.appTitle,
+        keepAppTitle = _ref.keepAppTitle,
+        children = _ref.children,
+        className = _ref.className,
+        sidebar = _ref.sidebar;
 
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+    var uniqueId = "HeaderTitle-" + _Utilities.default.guid();
 
-/**
- * The title area at the header bar.
- * Depending on its content, the document's title will be set aswell (what will be shown in the browser title bar).
- */
-function HeaderTitle(_ref) {
-  var logo = _ref.logo,
-      appTitle = _ref.appTitle,
-      keepAppTitle = _ref.keepAppTitle,
-      children = _ref.children,
-      className = _ref.className,
-      sidebar = _ref.sidebar;
+    var setDocumentTitle = function setDocumentTitle() {
+      if (window.blueLayoutRef && window.blueLayoutRef.props && window.blueLayoutRef.props.disableTitleSet === false) {
+        var element = document.querySelector("#".concat(uniqueId, " .blue-header-logo-title-labels"));
+        var titleElement = document.querySelector("title");
 
-  var uniqueId = "HeaderTitle-" + _Utilities.default.guid();
+        if (element && element.innerText && titleElement) {
+          var titlePaths = element.innerText.split("/");
 
-  var setDocumentTitle = function setDocumentTitle() {
-    if (window.blueLayoutRef && window.blueLayoutRef.props && window.blueLayoutRef.props.disableTitleSet === false) {
-      var element = document.querySelector("#".concat(uniqueId, " .blue-header-logo-title-labels"));
-      var titleElement = document.querySelector("title");
-
-      if (element && element.innerText && titleElement) {
-        var titlePaths = element.innerText.split("/");
-
-        if (titlePaths.length > 1) {
-          titleElement.innerText = "".concat(titlePaths[titlePaths.length - 1].trim(), " - ").concat(titlePaths[0].trim());
-        } else {
-          titleElement.innerText = element.innerText;
+          if (titlePaths.length > 1) {
+            titleElement.innerText = "".concat(titlePaths[titlePaths.length - 1].trim(), " - ").concat(titlePaths[0].trim());
+          } else {
+            titleElement.innerText = element.innerText;
+          }
         }
       }
-    }
-  };
+    };
 
-  (0, _react.useEffect)(setDocumentTitle, []);
-  (0, _react.useEffect)(setDocumentTitle, [children]);
-  return /*#__PURE__*/_react.default.createElement("h3", {
-    id: uniqueId,
-    className: "blue-header-logo" + (className ? " ".concat(className) : "") + (sidebar ? " sidebar" : "")
-  }, /*#__PURE__*/_react.default.createElement("span", {
-    className: "blue-header-logo-title"
-  }, logo ? /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("a", {
-    href: "#"
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    src: logo,
-    className: "blue-header-logo-image"
-  })), "\xA0") : "", /*#__PURE__*/_react.default.createElement("span", {
-    className: "blue-header-logo-title-labels " + (keepAppTitle ? "keep" : "")
-  }, appTitle ? /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("a", {
-    href: "#"
-  }, appTitle), " ", children ? "/" : "", "\xA0") : "", children)));
-}
+    (0, _react.useEffect)(setDocumentTitle, []);
+    (0, _react.useEffect)(setDocumentTitle, [children]);
+    return /*#__PURE__*/_react.default.createElement("h3", {
+      id: uniqueId,
+      className: "blue-header-logo" + (className ? " ".concat(className) : "") + (sidebar ? " sidebar" : "")
+    }, /*#__PURE__*/_react.default.createElement("span", {
+      className: "blue-header-logo-title"
+    }, logo ? /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("a", {
+      href: "#"
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: logo,
+      className: "blue-header-logo-image"
+    })), "\xA0") : "", /*#__PURE__*/_react.default.createElement("span", {
+      className: "blue-header-logo-title-labels " + (keepAppTitle ? "keep" : "")
+    }, appTitle ? /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("a", {
+      href: "#"
+    }, appTitle), " ", children ? "/" : "", "\xA0") : "", children)));
+  }
+});
