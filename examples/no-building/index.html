@@ -1,6 +1,6 @@
 <title>Use Blue React without Building</title>
 
-<link rel="stylesheet" href="./node_modules/blue-react/dist/style.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/blue-react@9.0.0-alpha1/dist/style.min.css" />
 
 <div id="app"></div>
 
@@ -14,15 +14,15 @@
         global.react = global.React
     })(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : this)
 </script>
-<script src="./node_modules/blue-react/dist/components/Utilities.js"></script>
-<script src="./node_modules/blue-react/dist/components/Layout.js"></script>
-<script src="./node_modules/blue-react/dist/components/Page.js"></script>
-<script src="./node_modules/blue-react/dist/components/Header.js"></script>
-<script src="./node_modules/blue-react/dist/components/HeaderTitle.js"></script>
-<script src="./node_modules/blue-react/dist/components/Body.js"></script>
-<script src="./node_modules/blue-react/dist/components/SidebarMenu.js"></script>
-<script src="./node_modules/blue-react/dist/components/MenuItem.js"></script>
-<script src="./node_modules/blue-react/dist/components/Search.js"></script>
+<script src="https://unpkg.com/blue-react@9.0.0-alpha1/dist/components/Utilities.js"></script>
+<script src="https://unpkg.com/blue-react@9.0.0-alpha1/dist/components/Layout.js"></script>
+<script src="https://unpkg.com/blue-react@9.0.0-alpha1/dist/components/Page.js"></script>
+<script src="https://unpkg.com/blue-react@9.0.0-alpha1/dist/components/Header.js"></script>
+<script src="https://unpkg.com/blue-react@9.0.0-alpha1/dist/components/HeaderTitle.js"></script>
+<script src="https://unpkg.com/blue-react@9.0.0-alpha1/dist/components/Body.js"></script>
+<script src="https://unpkg.com/blue-react@9.0.0-alpha1/dist/components/SidebarMenu.js"></script>
+<script src="https://unpkg.com/blue-react@9.0.0-alpha1/dist/components/MenuItem.js"></script>
+<script src="https://unpkg.com/blue-react@9.0.0-alpha1/dist/components/Search.js"></script>
 
 <script type="text/babel">
     const { useState } = React
@@ -80,14 +80,14 @@
                     sidebarClass="overflow-visible"
                     menuClass="overflow-visible"
                     topContent={
-                        <React.Fragment>
+                        <>
                             <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Search">
                                 <Search sidebar placeholder="Search in menu" />
                             </div>
-                        </React.Fragment>
+                        </>
                     }
                     bottomContent={
-                        <React.Fragment>
+                        <>
                             <div
                                 className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open"
                                 data-tooltip="Sign out"
@@ -101,7 +101,7 @@
                             >
                                 <MenuItem onClick={toggleSidebar} label={expandSidebar ? "Shrink" : "Expand"} />
                             </div>
-                        </React.Fragment>
+                        </>
                     }
                 >
                     <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Home">
@@ -112,6 +112,5 @@
         )
     }
 
-    const root = ReactDOM.createRoot(app)
-    root.render(<MyApp />)
+    ReactDOM.createRoot(app).render(<MyApp />)
 </script>
