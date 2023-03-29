@@ -1,7 +1,6 @@
 exports.ActionMenu = require("./dist/components/ActionMenu.js")["default"]
 exports.ActionMenuSwitch = require("./dist/components/ActionMenuSwitch.js")["default"]
 exports.Body = require("./dist/components/Body.js")["default"]
-exports.BodyRounded = require("./dist/components/BodyRounded.js")["default"]
 exports.Caret = require("./dist/components/Caret.js")["default"]
 exports.DocumentView = require("./dist/components/DocumentView.js")["default"]
 exports.Layout = require("./dist/components/Layout.js")["default"]
