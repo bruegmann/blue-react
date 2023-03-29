@@ -27,5 +27,9 @@ yarn-error.log*
 # dist/style.css
 *.tgz
 
-dist/types/*
-!dist/types/components
+# dist/types/*
+# !dist/types/components
+
+dist/**/*.js
+dist/**/*.ts
+dist/**/*.css
