@@ -62,6 +62,8 @@ export { SlimContainerProps } from "./dist/types/components/SlimContainer"
 export { default as Status } from "./dist/types/components/Status"
 export { StatusProps } from "./dist/types/components/Status"
 
+export { StatusProvider, useStatus } from "./dist/types/components/StatusProvider"
+
 export { default as Switch } from "./dist/types/components/Switch"
 export { SwitchProps } from "./dist/types/components/Switch"
 
