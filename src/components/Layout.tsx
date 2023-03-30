@@ -61,6 +61,12 @@ export interface LayoutProps {
     sidebarToggleIconComponent?: any
 
     /**
+     * Set `true` if you want to use the Utilities functions for status and alert.
+     * Set `false` if you want to use `StatusProvider` instead.
+     */
+    enableStatus?: boolean
+
+    /**
      * Will replace status icons with custom ones. This will also overwrite the `useBlueicons` option.
      * This can be a SVG component or a normal element component.
      */
@@ -162,6 +168,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                     ></path>
                 </svg>
             ),
+            enableStatus: true,
             statusIcons: {
                 danger: <span className="bi-error" />,
                 info: <span className="bi-information" />,
@@ -368,25 +375,35 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                             )
                     )}
 
-                    <div className="blue-status-circle blue-loading blue-status-loading">
-                        <div className="spinner-bounce-circle">
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
+                    {this.props.enableStatus && (
+                        <>
+                            <div className="blue-status-circle blue-loading blue-status-loading">
+                                <div className="spinner-bounce-circle">
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
 
-                    <div className="blue-status-circle blue-status-success">{this.props.statusIcons!.success}</div>
+                            <div className="blue-status-circle blue-status-success">
+                                {this.props.statusIcons!.success}
+                            </div>
 
-                    <div className="blue-status-circle blue-status-info">{this.props.statusIcons!.info}</div>
+                            <div className="blue-status-circle blue-status-info">{this.props.statusIcons!.info}</div>
 
-                    <div className="blue-status-circle blue-status-warning">{this.props.statusIcons!.warning}</div>
+                            <div className="blue-status-circle blue-status-warning">
+                                {this.props.statusIcons!.warning}
+                            </div>
 
-                    <div className="blue-status-circle blue-status-danger">{this.props.statusIcons!.danger}</div>
+                            <div className="blue-status-circle blue-status-danger">
+                                {this.props.statusIcons!.danger}
+                            </div>
 
-                    <div className="blue-status-alert alert">
-                        <button type="button" className="btn-close float-end mb-1" aria-label="Close" />
-                        <div className="alert-body" />
-                    </div>
+                            <div className="blue-status-alert alert">
+                                <button type="button" className="btn-close float-end mb-1" aria-label="Close" />
+                                <div className="alert-body" />
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
         )
