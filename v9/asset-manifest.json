@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/blue-react/v8/static/css/main.32f545e3.css",
-    "main.js": "/blue-react/v8/static/js/main.1880f2d7.js",
-    "static/media/stackblitz.png": "/blue-react/v8/static/media/stackblitz.f72cfdf89a1ff8df2098.png",
-    "static/media/blue.svg": "/blue-react/v8/static/media/blue.fb422456b614ac039838a6847b7f8a97.svg",
-    "index.html": "/blue-react/v8/index.html",
-    "main.32f545e3.css.map": "/blue-react/v8/static/css/main.32f545e3.css.map",
-    "main.1880f2d7.js.map": "/blue-react/v8/static/js/main.1880f2d7.js.map"
+    "main.css": "/blue-react/v9/static/css/main.32f545e3.css",
+    "main.js": "/blue-react/v9/static/js/main.af7dd83e.js",
+    "static/media/stackblitz.png": "/blue-react/v9/static/media/stackblitz.f72cfdf89a1ff8df2098.png",
+    "static/media/blue.svg": "/blue-react/v9/static/media/blue.fb422456b614ac039838a6847b7f8a97.svg",
+    "index.html": "/blue-react/v9/index.html",
+    "main.32f545e3.css.map": "/blue-react/v9/static/css/main.32f545e3.css.map",
+    "main.af7dd83e.js.map": "/blue-react/v9/static/js/main.af7dd83e.js.map"
   },
   "entrypoints": [
     "static/css/main.32f545e3.css",
-    "static/js/main.1880f2d7.js"
+    "static/js/main.af7dd83e.js"
   ]
 }
