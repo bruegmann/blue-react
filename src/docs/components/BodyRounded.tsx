@@ -9,12 +9,7 @@ export interface BodyRoundedProps extends BodyProps {
 /**
  * Extended variation of `Body` with rounded elements on top and bottom of the page.
  */
-export default function BodyRounded({
-    classNameTop,
-    classNameBottom,
-    children,
-    ...bodyProps
-}: BodyRoundedProps) {
+export default function BodyRounded({ classNameTop, classNameBottom, children, ...bodyProps }: BodyRoundedProps) {
     return (
         <Body {...bodyProps}>
             <div

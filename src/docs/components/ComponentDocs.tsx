@@ -57,6 +57,16 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                     </Link>
                 </h1>
 
+                <p>
+                    <a
+                        href={`https://github.com/bruegmann/blue-react/blob/master/src/components/${comp.displayName}.tsx`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Show code on GitHub
+                    </a>
+                </p>
+
                 <Markdown>{this.prepareForMarkdown(comp.description)}</Markdown>
 
                 {comp.displayName == "Intro" && (
@@ -115,12 +125,14 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                             <td>
                                                 {comp.props[j].tsType &&
                                                     (comp.props[j].tsType.raw || comp.props[j].tsType.name)}
-                                                <code
-                                                    className="blue-tooltip-start"
-                                                    data-tooltip={comp.props[j].required ? "Required" : "Optional"}
+
+                                                <span
+                                                    className={`badge ${
+                                                        comp.props[j].required ? "bg-secondary" : "bg-light text-body"
+                                                    } ms-1`}
                                                 >
-                                                    {comp.props[j].required ? "!" : "?"}
-                                                </code>
+                                                    {comp.props[j].required ? "required" : "optional"}
+                                                </span>
                                             </td>
                                         </tr>
                                     ))}

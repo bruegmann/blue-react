@@ -18,9 +18,6 @@ export { ActionMenuSwitchProps } from "./dist/types/components/ActionMenuSwitch"
 export { default as Body } from "./dist/types/components/Body"
 export { BodyProps } from "./dist/types/components/Body"
 
-export { default as BodyRounded } from "./dist/types/components/BodyRounded"
-export { BodyRoundedProps } from "./dist/types/components/BodyRounded"
-
 export { default as Caret } from "./dist/types/components/Caret"
 export { CaretProps } from "./dist/types/components/Caret"
 
@@ -61,6 +58,8 @@ export { SlimContainerProps } from "./dist/types/components/SlimContainer"
 
 export { default as Status } from "./dist/types/components/Status"
 export { StatusProps } from "./dist/types/components/Status"
+
+export { StatusProvider, useStatus } from "./dist/types/components/StatusProvider"
 
 export { default as Switch } from "./dist/types/components/Switch"
 export { SwitchProps } from "./dist/types/components/Switch"

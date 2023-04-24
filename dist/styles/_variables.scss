@@ -107,9 +107,9 @@ $scrollbar-size: 10px;
     --blue-theme: var(--theme, #{$theme});
     --blue-shimmering: 0.8;
 
-    --blue-app-bg: var(--blue-theme, #{$app-bg});
-    --blue-sidebar-bg: var(--blue-theme, #{$sidebar-bg});
-    --blue-header-bg: var(--blue-theme, #{$header-bg});
+    --blue-app-bg: #{$app-bg};
+    --blue-sidebar-bg: #{$sidebar-bg};
+    --blue-header-bg: #{$header-bg};
     --blue-action-link-bg-color: var(--blue-theme);
     --blue-menu-item-indicator-bg: #{$sidebar-indicator-color};
 }
