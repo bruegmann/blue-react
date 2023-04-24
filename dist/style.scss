@@ -11,7 +11,8 @@
 @import "./styles/_mixins";
 @import "./styles/_keyframes";
 
-@import "./styles/_bootstrap";
+// @import "./styles/_bootstrap";
+@import "~bootstrap/scss/bootstrap";
 
 @import "./styles/_general";
 @import "./styles/_router";

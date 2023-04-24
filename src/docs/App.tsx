@@ -36,6 +36,7 @@ import LicenseReportPage from "./pages/LicenseReportPage"
 import { useEffect } from "react"
 import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
+import ColorModeSwitch from "./components/ColorModeSwitch"
 
 function App() {
     const onHashChange = () => {
@@ -180,6 +181,8 @@ function App() {
                             </blue-sidebar>
 
                             <div className="router-page active">
+                                <ColorModeSwitch />
+
                                 <Route path="/utilities">
                                     <UtilitiesPage />
                                 </Route>

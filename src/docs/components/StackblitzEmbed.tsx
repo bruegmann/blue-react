@@ -25,7 +25,7 @@ export default function StackblitzEmbed() {
                         <p>It will contain a live editor, which lets you edit a demo app with Blue React.</p>
 
                         <button
-                            className="btn btn-white d-inline-flex align-items-center"
+                            className="btn btn-light d-inline-flex align-items-center"
                             onClick={() => setLoadIframe(true)}
                         >
                             <PlayFill className="me-1" /> Load content
