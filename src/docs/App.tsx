@@ -3,7 +3,6 @@ import Layout from "../components/Layout"
 
 import "./docs.scss"
 import { HomePage } from "./pages/HomePage"
-// import SidebarMenu from "../components/SidebarMenu"
 import MenuItem from "../components/MenuItem"
 
 import {
@@ -45,7 +44,6 @@ function App() {
 
             const { css } = JSON.parse(hash)
 
-            // @ts-ignore
             for (const linkEl of document.querySelectorAll(".docs-css")) {
                 linkEl.remove()
             }
@@ -100,7 +98,7 @@ function App() {
                         hideSidebarMenu
                     >
                         <div className="blue-wc-web-components">
-                            <blue-sidebar>
+                            <blue-sidebar dynamic-size="">
                                 <Link
                                     to="/"
                                     className="docs-sidebar-logo-link h4 fw-normal m-0 p-2 align-middle position-absolute overflow-hidden text-nowrap"

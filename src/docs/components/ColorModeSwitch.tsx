@@ -55,6 +55,19 @@ export default function ColorModeSwitch() {
         setOpen(false)
     }, [theme])
 
+    const onMatchMediaChange = () => {
+        localStorage.removeItem("theme")
+        setTheme(getPreferredTheme())
+    }
+
+    useEffect(() => {
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", onMatchMediaChange)
+
+        return () => {
+            window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", onMatchMediaChange)
+        }
+    }, [])
+
     const itemProps = { theme, setTheme }
 
     return (

@@ -1,18 +1,18 @@
 /*!
- * Blue React v9.0.0-alpha1 (https://bruegmann.github.io/blue-react)
+ * Blue React v9.0.0-alpha2 (https://bruegmann.github.io/blue-react)
  * Licensed under GNU General Public License v3.0 (https://github.com/bruegmann/blue-react/blob/master/LICENSE).
 */
 
 @import "./styles/bootstrap-variables";
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
 @import "./styles/_variables";
 
 @import "./styles/_mixins";
 @import "./styles/_keyframes";
 
 // @import "./styles/_bootstrap";
-@import "~bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 @import "./styles/_general";
 @import "./styles/_router";
