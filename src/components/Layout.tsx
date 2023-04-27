@@ -25,10 +25,21 @@ export interface LayoutProps {
     onChangeSidebarIn?: (sidebarIn: boolean) => void
 
     style?: CSSProperties
+
+    /**
+     * Set `true` to hide button to toggle `expandSidebar` state.
+     */
+    hideToggleExpandSidebar?: boolean
+
     /**
      * Sidebar is automatically expanded on wider views.
      */
     expandSidebar?: boolean
+
+    /**
+     * React to changes of the `expandSidebar` state.
+     */
+    onChangeExpandSidebar?: (expandSidebar: boolean) => void
 
     /**
      * Disables sidebar.
@@ -93,6 +104,7 @@ export interface LayoutProps {
 
 export interface LayoutState {
     sidebarIn: boolean
+    expandSidebar: boolean
     match: any
     history: string[]
     hash: string
@@ -132,6 +144,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
 
         this.state = {
             sidebarIn: props.sidebarIn || false,
+            expandSidebar: props.expandSidebar || localStorage.getItem("blueLayoutExpandSidebar") !== null,
             match: null,
             history: [],
             hash: window.location.hash,
@@ -140,6 +153,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
         }
 
         this.hideSidebar = this.hideSidebar.bind(this)
+        this.toggleExpandSidebar = this.toggleExpandSidebar.bind(this)
 
         this.eventListeners = []
     }
@@ -150,7 +164,6 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
 
     static get defaultProps() {
         return {
-            expandSidebar: false,
             hideSidebarMenu: false,
             unrouteable: false,
             disableTitleSet: false,
@@ -161,6 +174,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                     height="1em"
                     fill="currentColor"
                     viewBox="0 0 16 16"
+                    style={{ display: "inline-block", verticalAlign: "-0.125em" }}
                 >
                     <path
                         fillRule="evenodd"
@@ -174,7 +188,8 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                 info: <span className="bi-information" />,
                 success: <span className="bi-check" />,
                 warning: <span className="bi-sign_warning" />
-            }
+            },
+            hideToggleExpandSidebar: false
         }
     }
 
@@ -215,6 +230,14 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
 
         if (this.props.onChangeSidebarIn && prevState.sidebarIn !== this.state.sidebarIn) {
             this.props.onChangeSidebarIn(this.state.sidebarIn)
+        }
+
+        if (prevProps.expandSidebar !== this.props.expandSidebar) {
+            this.setState({ expandSidebar: this.props.expandSidebar || false })
+        }
+
+        if (this.props.onChangeExpandSidebar && prevState.expandSidebar !== this.state.expandSidebar) {
+            this.props.onChangeExpandSidebar(this.state.expandSidebar)
         }
 
         if (prevProps.blockRouting !== this.props.blockRouting && this.props.blockRouting !== this.state.blockRouting) {
@@ -325,6 +348,16 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
         )
     }
 
+    toggleExpandSidebar() {
+        const { expandSidebar } = this.state
+        if (expandSidebar) {
+            localStorage.removeItem("blueLayoutExpandSidebar")
+        } else {
+            localStorage.setItem("blueLayoutExpandSidebar", "true")
+        }
+        this.setState({ expandSidebar: !expandSidebar })
+    }
+
     render() {
         return (
             <div>
@@ -337,13 +370,14 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                         (this.props.className ? " " + this.props.className : "") +
                         (this.state.sidebarIn ? " open" : "") +
                         (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") +
-                        (this.props.expandSidebar ? " expandSidebar" : "") +
-                        (this.props.disableHeaders ? " disableHeaders" : "")
+                        (this.state.expandSidebar ? " expandSidebar" : "") +
+                        (this.props.disableHeaders ? " disableHeaders" : "") +
+                        (this.props.hideToggleExpandSidebar ? " hideToggleExpandSidebar" : "")
                     }
                     onClick={this.hideSidebar}
                 >
                     <div className="blue-sidebar-toggler">
-                        {!this.props.hideSidebarMenu ? (
+                        {!this.props.hideSidebarMenu && (
                             <button
                                 type="button"
                                 className="blue-open-menu blue-menu-item btn"
@@ -356,10 +390,23 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                                 <div className="blue-sidebar-exception position-absolute w-100 h-100" />
                                 {this.props.sidebarToggleIconComponent}
                             </button>
-                        ) : (
-                            ""
                         )}
                     </div>
+
+                    {!this.props.hideToggleExpandSidebar && (
+                        <div className="blue-sidebar-toggler d-block d-none d-xxl-block">
+                            {!this.props.hideSidebarMenu && (
+                                <button
+                                    type="button"
+                                    className="blue-open-menu blue-menu-item btn"
+                                    onClick={this.toggleExpandSidebar}
+                                >
+                                    <div className="blue-sidebar-exception position-absolute w-100 h-100" />
+                                    {this.props.sidebarToggleIconComponent}
+                                </button>
+                            )}
+                        </div>
+                    )}
 
                     {this.props.children}
 
