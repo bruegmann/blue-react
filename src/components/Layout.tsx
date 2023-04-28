@@ -1,5 +1,6 @@
 import React, { Component, CSSProperties } from "react"
 import Utilities from "./Utilities"
+import SidebarToggler from "./SidebarToggler"
 
 declare global {
     interface Window {
@@ -376,36 +377,23 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                     }
                     onClick={this.hideSidebar}
                 >
-                    <div className="blue-sidebar-toggler">
-                        {!this.props.hideSidebarMenu && (
-                            <button
-                                type="button"
-                                className="blue-open-menu blue-menu-item btn"
-                                onClick={() => {
-                                    this.setState({
-                                        sidebarIn: !this.state.sidebarIn
-                                    })
-                                }}
-                            >
-                                <div className="blue-sidebar-exception position-absolute w-100 h-100" />
-                                {this.props.sidebarToggleIconComponent}
-                            </button>
-                        )}
-                    </div>
+                    <SidebarToggler
+                        hideSidebarMenu={this.props.hideSidebarMenu}
+                        sidebarToggleIconComponent={this.props.sidebarToggleIconComponent}
+                        onClick={() => {
+                            this.setState({
+                                sidebarIn: !this.state.sidebarIn
+                            })
+                        }}
+                    />
 
                     {!this.props.hideToggleExpandSidebar && (
-                        <div className="blue-sidebar-toggler d-block d-none d-xxl-block">
-                            {!this.props.hideSidebarMenu && (
-                                <button
-                                    type="button"
-                                    className="blue-open-menu blue-menu-item btn"
-                                    onClick={this.toggleExpandSidebar}
-                                >
-                                    <div className="blue-sidebar-exception position-absolute w-100 h-100" />
-                                    {this.props.sidebarToggleIconComponent}
-                                </button>
-                            )}
-                        </div>
+                        <SidebarToggler
+                            hideSidebarMenu={this.props.hideSidebarMenu}
+                            sidebarToggleIconComponent={this.props.sidebarToggleIconComponent}
+                            onClick={this.toggleExpandSidebar}
+                            className="d-none d-xxl-block"
+                        />
                     )}
 
                     {this.props.children}
