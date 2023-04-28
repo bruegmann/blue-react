@@ -377,19 +377,19 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                     }
                     onClick={this.hideSidebar}
                 >
-                    <SidebarToggler
-                        hideSidebarMenu={this.props.hideSidebarMenu}
-                        sidebarToggleIconComponent={this.props.sidebarToggleIconComponent}
-                        onClick={() => {
-                            this.setState({
-                                sidebarIn: !this.state.sidebarIn
-                            })
-                        }}
-                    />
-
-                    {!this.props.hideToggleExpandSidebar && (
+                    {!this.props.hideSidebarMenu && (
                         <SidebarToggler
-                            hideSidebarMenu={this.props.hideSidebarMenu}
+                            sidebarToggleIconComponent={this.props.sidebarToggleIconComponent}
+                            onClick={() => {
+                                this.setState({
+                                    sidebarIn: !this.state.sidebarIn
+                                })
+                            }}
+                        />
+                    )}
+
+                    {!this.props.hideSidebarMenu && !this.props.hideToggleExpandSidebar && (
+                        <SidebarToggler
                             sidebarToggleIconComponent={this.props.sidebarToggleIconComponent}
                             onClick={this.toggleExpandSidebar}
                             className="d-none d-xxl-block"

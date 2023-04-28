@@ -53,6 +53,9 @@ export { SearchProps } from "./dist/types/components/Search"
 export { default as SidebarMenu } from "./dist/types/components/SidebarMenu"
 export { SidebarMenuProps } from "./dist/types/components/SidebarMenu"
 
+export { default as SidebarMenuItem } from "./dist/types/components/SidebarMenuItem"
+export { SidebarMenuItemProps } from "./dist/types/components/SidebarMenuItem"
+
 export { default as SlimContainer } from "./dist/types/components/SlimContainer"
 export { SlimContainerProps } from "./dist/types/components/SlimContainer"
 

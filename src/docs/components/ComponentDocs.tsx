@@ -83,7 +83,10 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
 
                         {comp.composes.map((comp: string, key: number) => (
                             <div key={key}>
-                                <code>{comp}</code>
+                                <Link to={`/component/${comp.replace("Props", "")}`}>
+                                    {" "}
+                                    <code>{comp}</code>
+                                </Link>
                             </div>
                         ))}
                     </>
