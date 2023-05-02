@@ -382,13 +382,6 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
     <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
 </button>`}</SyntaxHighlighter>
                         </article>
-
-                        <article className="mb-5">
-                            <HashLink id="blue-sidebar-state">
-                                <code>.blue-sidebar-state</code>(<code>.open</code>)
-                            </HashLink>
-                            <p>Use this to control the state of the sidebar and sidebar menu items inside.</p>
-                        </article>
                     </>
                 )
             },
