@@ -1,0 +1,42 @@
+.blue-sidebar-state {
+    &.open {
+        @media screen and (max-width: 1400px) {
+            .router-page.active {
+                .blue-page {
+                    filter: blur(3px) brightness(0.8);
+                }
+            }
+        }
+
+        @include openSidebarMenu();
+
+        .blue-menu-item:not(.blue-open-menu) {
+            width: $bla-sidebar-width;
+
+            & > * {
+                width: auto;
+            }
+        }
+    }
+
+    &:not(.open) {
+        .blue-sidebar-visible-on-open {
+            display: none;
+        }
+
+        .blue-sidebar-hidden-on-open {
+            animation: fade-in 1s;
+        }
+    }
+}
+
+@keyframes blue-menu-item-dropdown-from-start {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+}
+
+.blue-menu-item-dropdown-from-start {
+    animation: blue-menu-item-dropdown-from-start 0.15s;
+}

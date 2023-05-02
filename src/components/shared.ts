@@ -18,7 +18,8 @@ const phrases: Phrases = {
     Cancel: ["Cancel", "Abbrechen"],
     Yes: ["Yes", "Ja"],
     No: ["No", "Nein"],
-    Message: ["Message", "Nachricht"]
+    Message: ["Message", "Nachricht"],
+    "Toggle menu": ["Toggle menu", "Menü umschalten"]
 }
 
 export function getPhrase(
@@ -26,10 +27,7 @@ export function getPhrase(
     countryCode: string | undefined = undefined,
     _phrases: Phrases | undefined = undefined
 ) {
-    countryCode =
-        countryCode || navigator.language.toLowerCase().indexOf("de") > -1
-            ? "de-DE"
-            : "en-US"
+    countryCode = countryCode || navigator.language.toLowerCase().indexOf("de") > -1 ? "de-DE" : "en-US"
     _phrases = _phrases || phrases
 
     if (_phrases[keyword]) {

@@ -21,28 +21,6 @@
             padding-right: 0;
         }
     }
-
-    &.open {
-        @media screen and (max-width: 1400px) {
-            .router-page.active {
-                .blue-page {
-                    filter: blur(3px) brightness(0.8);
-                }
-            }
-        }
-
-        @include openSidebarMenu();
-    }
-
-    &:not(.open) {
-        .blue-sidebar-visible-on-open {
-            display: none;
-        }
-
-        .blue-sidebar-hidden-on-open {
-            animation: fade-in 1s;
-        }
-    }
 }
 
 .blue-header-wrapper {
@@ -59,17 +37,13 @@
     height: $normal-size;
     left: 0;
     top: 0;
-    z-index: 3;
+    z-index: 5;
 }
 
 .blue-header {
     @include header-bg();
     color: $header-color;
 }
-
-// .blue-layout:not(.wrapper-in) .blue-header {
-//     overflow: hidden;
-// }
 
 .blue-header {
     height: $normal-size;
@@ -181,7 +155,7 @@
             display: none;
         }
 
-        .blue-header {
+        &.hideToggleExpandSidebar .blue-header {
             left: 0;
         }
     }

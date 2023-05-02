@@ -2,8 +2,6 @@ import { useState } from "react"
 import {
     BoxArrowLeft,
     Calendar,
-    ChevronDoubleLeft,
-    ChevronDoubleRight,
     ClockHistory,
     FileEarmark,
     House,
@@ -24,6 +22,7 @@ import Page from "../../components/Page"
 import Search from "../../components/Search"
 import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
+import SidebarMenuItem from "../../components/SidebarMenuItem"
 
 const exampleHistoryItems = ["Nice person", "Important message", "Document XYZ", "Boring appointment"]
 const exampleFavoriteItems = ["Max Mustermann person", "A Word Document", "Boring appointment"]
@@ -66,22 +65,12 @@ function RecordField({
 
 export default function DemoApp() {
     const [sidebarIn, setSidebarIn] = useState(false)
-    const [expandSidebar, setExpandSidebar] = useState(localStorage.getItem("DemoApp-expandSidebar") !== null)
-    const toggleSidebar = () => {
-        if (expandSidebar) {
-            localStorage.removeItem("DemoApp-expandSidebar")
-        } else {
-            localStorage.setItem("DemoApp-expandSidebar", "true")
-        }
-        setExpandSidebar(!expandSidebar)
-    }
 
     const [edit, setEdit] = useState(false)
     const toggleEdit = () => setEdit(!edit)
 
     return (
         <Layout
-            expandSidebar={expandSidebar}
             sidebarIn={sidebarIn}
             onChangeSidebarIn={setSidebarIn}
             pages={[
@@ -320,28 +309,9 @@ export default function DemoApp() {
                     </>
                 }
                 bottomContent={
-                    <>
-                        <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Sign out">
-                            <MenuItem href="#intro" label="Sign out" icon={<BoxArrowLeft className="bi" />} />
-                        </div>
-
-                        <div
-                            className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open d-none d-xxl-block"
-                            data-tooltip="Expand"
-                        >
-                            <MenuItem
-                                icon={
-                                    expandSidebar ? (
-                                        <ChevronDoubleLeft className="bi" />
-                                    ) : (
-                                        <ChevronDoubleRight className="bi" />
-                                    )
-                                }
-                                onClick={toggleSidebar}
-                                label={expandSidebar ? "Shrink" : "Expand"}
-                            />
-                        </div>
-                    </>
+                    <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Sign out">
+                        <MenuItem href="#intro" label="Sign out" icon={<BoxArrowLeft className="bi" />} />
+                    </div>
                 }
             >
                 <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Home">
@@ -369,6 +339,8 @@ export default function DemoApp() {
                 <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Users">
                     <MenuItem icon={<Person className="bi" />} label="Users" />
                 </div>
+
+                <SidebarMenuItem icon={<span>😅</span>} label="Hello World" />
             </SidebarMenu>
         </Layout>
     )
