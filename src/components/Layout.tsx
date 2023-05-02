@@ -367,7 +367,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                     id={this.props.id ? this.props.id : ""}
                     style={this.props.style ? this.props.style : {}}
                     className={
-                        "blue-layout" +
+                        "blue-layout blue-sidebar-state" +
                         (this.props.className ? " " + this.props.className : "") +
                         (this.state.sidebarIn ? " open" : "") +
                         (this.props.hideSidebarMenu ? " hasNoSidebarMenu" : " hasSidebarMenu") +

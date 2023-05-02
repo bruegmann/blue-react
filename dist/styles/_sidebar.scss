@@ -1,12 +1,18 @@
-.blue-sidebar-control {
+.blue-sidebar-state {
     &.open {
-        @include openSidebarMenu();
-
-        .blue-menu-item {
-            width: $bla-sidebar-width;
+        @media screen and (max-width: 1400px) {
+            .router-page.active {
+                .blue-page {
+                    filter: blur(3px) brightness(0.8);
+                }
+            }
         }
 
-        .blue-menu-item {
+        @include openSidebarMenu();
+
+        .blue-menu-item:not(.blue-open-menu) {
+            width: $bla-sidebar-width;
+
             & > * {
                 width: auto;
             }

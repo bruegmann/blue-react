@@ -80,7 +80,7 @@ export default function SidebarMenuItem({ outerClass = "", children, onClick, ..
                                 backgroundColor: "var(--blue-sidebar-bg)"
                             }}
                         >
-                            <div className="blue-sidebar-control open">{children}</div>
+                            <div className="blue-sidebar-state open">{children}</div>
                         </div>
                     )}
                 </Outside>
