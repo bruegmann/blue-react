@@ -21,6 +21,28 @@
             padding-right: 0;
         }
     }
+
+    &.open {
+        @media screen and (max-width: 1400px) {
+            .router-page.active {
+                .blue-page {
+                    filter: blur(3px) brightness(0.8);
+                }
+            }
+        }
+
+        @include openSidebarMenu();
+    }
+
+    &:not(.open) {
+        .blue-sidebar-visible-on-open {
+            display: none;
+        }
+
+        .blue-sidebar-hidden-on-open {
+            animation: fade-in 1s;
+        }
+    }
 }
 
 .blue-header-wrapper {
