@@ -44,6 +44,11 @@ export interface MenuItemProps {
     isActive?: boolean
 
     /**
+     * Set true to highlight the current menu item.
+     */
+    highlighted?: boolean
+
+    /**
      * When using Blue React's routing system: define this link as home page link.
      */
     isHome?: boolean
@@ -199,7 +204,8 @@ export default function MenuItem(props: MenuItemProps) {
         "blue-menu-item btn" +
         (props.isActive ? " active" : "") +
         (props.className ? " " + props.className : "") +
-        (props.children ? " blue-menu-item-dropdown-toggle" : "")
+        (props.children ? " blue-menu-item-dropdown-toggle" : "") +
+        (props.highlighted ? " highlighted" : "")
 
     let icon, iconForActive
 

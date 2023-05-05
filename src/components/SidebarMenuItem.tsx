@@ -57,7 +57,7 @@ export default function SidebarMenuItem({ outerClass = "", children, onClick, ..
                         setOpen(false)
                     }}
                 >
-                    <SidebarMenuItem {...props} isActive={open} onClick={toggle} />
+                    <SidebarMenuItem {...props} highlighted={open} onClick={toggle} />
 
                     {open && (
                         <div
