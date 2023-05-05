@@ -145,7 +145,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
 
         this.state = {
             sidebarIn: props.sidebarIn || false,
-            expandSidebar: props.expandSidebar || localStorage.getItem("blueLayoutExpandSidebar") !== null,
+            expandSidebar: props.expandSidebar || localStorage.getItem("blueLayoutShrinkSidebar") === null,
             match: null,
             history: [],
             hash: window.location.hash,
@@ -352,9 +352,9 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
     toggleExpandSidebar() {
         const { expandSidebar } = this.state
         if (expandSidebar) {
-            localStorage.removeItem("blueLayoutExpandSidebar")
+            localStorage.setItem("blueLayoutShrinkSidebar", "true")
         } else {
-            localStorage.setItem("blueLayoutExpandSidebar", "true")
+            localStorage.removeItem("blueLayoutShrinkSidebar")
         }
         this.setState({ expandSidebar: !expandSidebar })
     }
