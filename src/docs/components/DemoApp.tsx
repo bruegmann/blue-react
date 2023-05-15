@@ -209,7 +209,7 @@ export default function DemoApp() {
                                 </HeaderTitle>
 
                                 <ActionMenu>
-                                    <div className="position-relative">
+                                    <div>
                                         <MenuItem
                                             label="Actions"
                                             supportOutside

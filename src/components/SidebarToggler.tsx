@@ -19,7 +19,7 @@ export default function SidebarToggler({ className = "", sidebarToggleIconCompon
         >
             <button
                 type="button"
-                className="blue-open-menu blue-menu-item bg-theme"
+                className="blue-open-menu blue-menu-item btn"
                 onClick={onClick}
                 aria-label={getPhrase("Toggle menu")}
             >
