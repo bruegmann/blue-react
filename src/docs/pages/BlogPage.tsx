@@ -79,7 +79,13 @@ export default function BlogPage() {
                             </a>
                         </p>
 
-                        <small>Posted 2022-06-29</small>
+                        <p>
+                            <strong>Update:</strong> Because of some conflicts, I removed{" "}
+                            <code>&lt;blue-sidebar&gt;</code> again. We are now using <code>SidebarMenu</code> again
+                            together with the new <code>SidebarMenuItem</code> component for the menu items.
+                        </p>
+
+                        <small>Posted 2022-06-29, Updated 2023-05-26</small>
                     </article>
                 </div>
 
