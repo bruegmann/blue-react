@@ -3,7 +3,6 @@ import Layout from "../components/Layout"
 
 import "./docs.scss"
 import { HomePage } from "./pages/HomePage"
-// import SidebarMenu from "../components/SidebarMenu"
 import MenuItem from "../components/MenuItem"
 
 import {
@@ -36,6 +35,7 @@ import LicenseReportPage from "./pages/LicenseReportPage"
 import { useEffect } from "react"
 import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
+import SidebarMenuItem from "../components/SidebarMenuItem"
 
 function App() {
     const onHashChange = () => {
@@ -87,7 +87,6 @@ function App() {
                     <Layout
                         pages={[]}
                         unrouteable
-                        expandSidebar
                         sidebarToggleIconComponent={<List />}
                         statusIcons={{
                             danger: <XCircleFill />,
@@ -96,114 +95,103 @@ function App() {
                             warning: <ExclamationCircleFill />
                         }}
                         disableHeaders
-                        hideSidebarMenu
                     >
-                        <div className="blue-wc-web-components">
-                            <blue-sidebar>
-                                <Link
-                                    to="/"
-                                    className="docs-sidebar-logo-link h4 fw-normal m-0 p-2 align-middle position-absolute overflow-hidden text-nowrap"
-                                    style={{ color: "var(--blue-sidebar-color)" }}
-                                >
-                                    <img
-                                        src={logo}
-                                        alt="B"
-                                        style={{ width: "2rem", verticalAlign: "-.45rem" }}
-                                        className="d-inline-block"
-                                    />{" "}
-                                    {appTitle}
-                                </Link>
+                        <div className="h3 blue-header-logo text-white ms-5 blue-sidebar-visible-on-open gap-1">
+                            <Link to="/">
+                                <img src={logo} alt="Logo" className="blue-header-logo-image" />
+                            </Link>
+                            <span className="blue-header-logo-title-labels">
+                                <Link to="/">{appTitle}</Link>
+                            </span>
+                        </div>
 
-                                <div
-                                    className="d-flex flex-column justify-content-between"
-                                    style={{ height: "calc(100vh - var(--blue-control-size) - 0.5rem)" }}
-                                >
-                                    <div>
-                                        <MenuItem
-                                            icon={<House />}
-                                            iconForActive={<HouseFill />}
-                                            label="Start"
-                                            elementType={NavLink}
-                                            exact
-                                            to="/"
-                                        />
-                                        <MenuItem
-                                            icon={<Rss />}
-                                            iconForActive={<RssFill />}
-                                            label="Blog"
-                                            elementType={NavLink}
-                                            to="/blog"
-                                        />
+                        <SidebarMenu
+                            sidebarClass="overflow-visible"
+                            menuClass="overflow-visible"
+                            bottomContent={
+                                <>
+                                    <SidebarMenuItem
+                                        to="/demo#intro"
+                                        elementType={Link}
+                                        icon={<Eye />}
+                                        label="Demo App"
+                                    />
 
-                                        <MenuItem
-                                            icon={<Tools />}
-                                            label="Utilities"
-                                            elementType={NavLink}
-                                            to="/utilities"
-                                        />
-                                        <MenuItem
-                                            icon={<Puzzle />}
-                                            iconForActive={<PuzzleFill />}
-                                            label="React Components"
-                                            elementType={NavLink}
-                                            to="/component"
-                                        />
-                                        <MenuItem
-                                            icon={<Stickies />}
-                                            iconForActive={<StickiesFill />}
-                                            label="Recipes"
-                                            elementType={NavLink}
-                                            to="/recipes"
-                                        />
-                                    </div>
+                                    <SidebarMenuItem
+                                        href="https://bruegmann.github.io/themify"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        label="Customize with Themify"
+                                        icon={<Palette2 />}
+                                    />
 
-                                    <div>
-                                        <MenuItem to="/demo#intro" elementType={Link} icon={<Eye />} label="Demo App" />
+                                    <SidebarMenuItem
+                                        href="https://github.com/bruegmann/blue-react"
+                                        icon={<CodeSquare />}
+                                        label="Code on GitHub"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    />
+                                </>
+                            }
+                        >
+                            <SidebarMenuItem
+                                icon={<House />}
+                                iconForActive={<HouseFill />}
+                                label="Start"
+                                elementType={NavLink}
+                                exact
+                                to="/"
+                            />
+                            <SidebarMenuItem
+                                icon={<Rss />}
+                                iconForActive={<RssFill />}
+                                label="Blog"
+                                elementType={NavLink}
+                                to="/blog"
+                            />
 
-                                        <MenuItem
-                                            href="https://bruegmann.github.io/themify"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            label="Customize with Themify"
-                                            icon={<Palette2 />}
-                                        />
+                            <SidebarMenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
+                            <SidebarMenuItem
+                                icon={<Puzzle />}
+                                iconForActive={<PuzzleFill />}
+                                label="React Components"
+                                elementType={NavLink}
+                                to="/component"
+                            />
+                            <SidebarMenuItem
+                                icon={<Stickies />}
+                                iconForActive={<StickiesFill />}
+                                label="Recipes"
+                                elementType={NavLink}
+                                to="/recipes"
+                            />
+                        </SidebarMenu>
 
-                                        <MenuItem
-                                            href="https://github.com/bruegmann/blue-react"
-                                            icon={<CodeSquare />}
-                                            label="Code on GitHub"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        />
-                                    </div>
-                                </div>
-                            </blue-sidebar>
+                        <div className="router-page active">
+                            <Route path="/utilities">
+                                <UtilitiesPage />
+                            </Route>
 
-                            <div className="router-page active">
-                                <Route path="/utilities">
-                                    <UtilitiesPage />
-                                </Route>
+                            <Route path="/blog">
+                                <BlogPage />
+                            </Route>
 
-                                <Route path="/blog">
-                                    <BlogPage />
-                                </Route>
+                            <Route path="/component/:selectedComponent?">
+                                <ComponentPage />
+                            </Route>
 
-                                <Route path="/component/:selectedComponent?">
-                                    <ComponentPage />
-                                </Route>
+                            <Route path="/recipes/:active?">
+                                <RecipesPage />
+                            </Route>
 
-                                <Route path="/recipes/:active?">
-                                    <RecipesPage />
-                                </Route>
+                            <Route path="/license-report">
+                                <LicenseReportPage />
+                            </Route>
 
-                                <Route path="/license-report">
-                                    <LicenseReportPage />
-                                </Route>
-
-                                <Route path="/" exact>
-                                    <HomePage />
-                                </Route>
-                            </div>
+                            <Route path="/" exact>
+                                <HomePage />
+                            </Route>
                         </div>
                     </Layout>
                 </Route>

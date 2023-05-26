@@ -148,8 +148,8 @@ body {
 
     @media screen and (min-width: 768px) {
         .sign-in-container {
-            padding: 0 calc(50% - 18rem);
-            width: auto;
+            padding: var(--blue-sign-in-container-md-padding, 0 calc(50% - 18rem));
+            width: var(--blue-sign-in-container-md-width, auto);
         }
     }
 }

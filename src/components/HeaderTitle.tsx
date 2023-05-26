@@ -34,14 +34,7 @@ export interface HeaderTitleProps {
  * The title area at the header bar.
  * Depending on its content, the document's title will be set aswell (what will be shown in the browser title bar).
  */
-export default function HeaderTitle({
-    logo,
-    appTitle,
-    keepAppTitle,
-    children,
-    className,
-    sidebar
-}: HeaderTitleProps) {
+export default function HeaderTitle({ logo, appTitle, keepAppTitle, children, className, sidebar }: HeaderTitleProps) {
     const uniqueId = "HeaderTitle-" + Utilities.guid()
 
     const setDocumentTitle = () => {
@@ -50,16 +43,12 @@ export default function HeaderTitle({
             window.blueLayoutRef.props &&
             window.blueLayoutRef.props.disableTitleSet === false
         ) {
-            const element = document.querySelector(
-                `#${uniqueId} .blue-header-logo-title-labels`
-            ) as HTMLElement
+            const element = document.querySelector(`#${uniqueId} .blue-header-logo-title-labels`) as HTMLElement
             const titleElement = document.querySelector("title")
             if (element && element.innerText && titleElement) {
                 const titlePaths = element.innerText.split("/")
                 if (titlePaths.length > 1) {
-                    titleElement.innerText = `${titlePaths[
-                        titlePaths.length - 1
-                    ].trim()} - ${titlePaths[0].trim()}`
+                    titleElement.innerText = `${titlePaths[titlePaths.length - 1].trim()} - ${titlePaths[0].trim()}`
                 } else {
                     titleElement.innerText = element.innerText
                 }
@@ -71,34 +60,22 @@ export default function HeaderTitle({
     useEffect(setDocumentTitle, [children])
 
     return (
-        <h3
+        <div
             id={uniqueId}
-            className={
-                "blue-header-logo" +
-                (className ? ` ${className}` : "") +
-                (sidebar ? " sidebar" : "")
-            }
+            className={"h3 blue-header-logo" + (className ? ` ${className}` : "") + (sidebar ? " sidebar" : "")}
         >
             <span className="blue-header-logo-title">
                 {logo ? (
                     <span>
                         <a href="#">
-                            <img
-                                src={logo}
-                                className="blue-header-logo-image"
-                            />
+                            <img src={logo} className="blue-header-logo-image" />
                         </a>
                         &nbsp;
                     </span>
                 ) : (
                     ""
                 )}
-                <span
-                    className={
-                        "blue-header-logo-title-labels " +
-                        (keepAppTitle ? "keep" : "")
-                    }
-                >
+                <span className={"blue-header-logo-title-labels " + (keepAppTitle ? "keep" : "")}>
                     {appTitle ? (
                         <span>
                             <a href="#">{appTitle}</a> {children ? "/" : ""}
@@ -110,6 +87,6 @@ export default function HeaderTitle({
                     {children}
                 </span>
             </span>
-        </h3>
+        </div>
     )
 }
