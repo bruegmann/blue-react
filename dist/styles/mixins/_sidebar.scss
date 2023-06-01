@@ -94,12 +94,26 @@
         }
 
         &:hover,
-        &:active {
+        &:active,
+        &.highlighted {
             color: inherit;
             border-color: transparent;
 
             &::before {
                 transform: scale(1);
+                opacity: 0.25;
+            }
+        }
+
+        &.highlighted {
+            &::before {
+                opacity: 0.16;
+            }
+        }
+
+        &:hover,
+        &:active {
+            &::before {
                 opacity: 0.25;
             }
         }
