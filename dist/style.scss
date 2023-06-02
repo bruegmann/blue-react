@@ -4,15 +4,15 @@
 */
 
 @import "./styles/bootstrap-variables";
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
 @import "./styles/_variables";
 
 @import "./styles/_mixins";
 @import "./styles/_keyframes";
 
 // @import "./styles/_bootstrap";
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 @import "./styles/_general";
 @import "./styles/_router";
