@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react"
+import React, { ReactNode, RefObject, useEffect, useState } from "react"
 import MenuItem from "./MenuItem"
 import Utilities from "./Utilities"
 
@@ -12,8 +12,8 @@ export interface SearchProps {
 
     className?: string
     icon?: any
-    onChange?: (event: React.ChangeEvent) => void
-    onSubmit?: (event: React.FormEvent) => void
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+    onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
     placeholder?: string
 
     /**
@@ -35,13 +35,31 @@ export interface SearchProps {
 
     children?: ReactNode
     id?: string
+
+    /**
+     * Set `ref` prop of the input element. Let's you take control of it from the outside, e.g. to set focus.
+     */
+    inputRef?: RefObject<HTMLInputElement>
 }
 
 /**
  * A search bar that can be placed to the sidebar or on a page.
  */
 export default function Search(props: SearchProps) {
-    const { autoFocus, body, className, icon, onChange, onSubmit, placeholder, reset, resetIcon, sidebar, id } = props
+    const {
+        autoFocus,
+        body,
+        className,
+        icon,
+        onChange,
+        onSubmit,
+        placeholder,
+        reset,
+        resetIcon,
+        sidebar,
+        id,
+        inputRef
+    } = props
     const SearchControlId = id || "blue-search-control-" + Utilities.guid()
 
     const [value, setValue] = useState<string>(props.value || "")
@@ -103,6 +121,7 @@ export default function Search(props: SearchProps) {
 
                     {props.children || (
                         <input
+                            ref={inputRef}
                             type="search"
                             value={value}
                             onChange={(event) => {
