@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/blue-react/v8/static/css/main.64e05add.css",
-    "main.js": "/blue-react/v8/static/js/main.5debc0f2.js",
+    "main.css": "/blue-react/v8/static/css/main.284fb47a.css",
+    "main.js": "/blue-react/v8/static/js/main.e99acfaa.js",
     "static/media/stackblitz.png": "/blue-react/v8/static/media/stackblitz.f72cfdf89a1ff8df2098.png",
     "static/media/blue.svg": "/blue-react/v8/static/media/blue.fb422456b614ac039838a6847b7f8a97.svg",
     "index.html": "/blue-react/v8/index.html",
-    "main.64e05add.css.map": "/blue-react/v8/static/css/main.64e05add.css.map",
-    "main.5debc0f2.js.map": "/blue-react/v8/static/js/main.5debc0f2.js.map"
+    "main.284fb47a.css.map": "/blue-react/v8/static/css/main.284fb47a.css.map",
+    "main.e99acfaa.js.map": "/blue-react/v8/static/js/main.e99acfaa.js.map"
   },
   "entrypoints": [
-    "static/css/main.64e05add.css",
-    "static/js/main.5debc0f2.js"
+    "static/css/main.284fb47a.css",
+    "static/js/main.e99acfaa.js"
   ]
 }
