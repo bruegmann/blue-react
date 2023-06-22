@@ -1,8 +1,28 @@
-$primary: #261f31;
+$theme: #261f31;
+$primary: #3d13d4;
 $link-color: #3200e5;
 $link-color-dark: #836cd8;
 
+$body-bg: #efeeee;
+$body-bg-dark: lighten(#261f31, 4%);
+$body-color-dark: white;
+// $theme: $body-bg;
+// $body-color: #212529;
+// $sidebar-color: $body-color;
+// $header-color: $body-color;
+// $sidebar-indicator-color: $primary;
+
 @import "../../dist/style.scss";
+@import "../../dist/styles/neu";
+
+// @include color-mode(dark) {
+//     body {
+//         --blue-sidebar-bg: var(--bs-body-bg);
+//         --blue-sidebar-color: var(--bs-body-color);
+//         --bs-theme-rgb: var(--bs-body-bg-rgb);
+//         --blue-app-bg: var(--bs-body-bg);
+//     }
+// }
 
 :root {
     --blue-sidebar-button-color: var(--blue-sidebar-color);
@@ -55,4 +75,46 @@ pre {
 
 .docs-blog-content {
     padding: 0 calc(50% - 24rem);
+}
+
+.router-page {
+    @include neu($body-bg, $body-bg);
+}
+
+@include color-mode(dark) {
+    .router-page {
+        @include neu($body-bg-dark, $body-bg-dark);
+    }
+}
+
+.neu-theme-area,
+.bg-theme {
+    @include neu($theme, $theme);
+
+    .btn-primary {
+        @include neu($theme, $primary);
+        &:hover {
+            @include neu($theme, #3410b4);
+        }
+    }
+}
+
+// .btn-theme {
+//     box-shadow: var(--neu-shadow-3);
+// }
+
+.neu-input {
+    box-shadow: var(--neu-shadow-1), var(--neu-shadow-inset-3);
+    border-radius: 0.5rem;
+}
+
+pre {
+    @include neu($body-bg, rgb(42, 33, 57));
+    box-shadow: var(--neu-shadow-1), var(--neu-shadow-inset-3);
+}
+
+@include color-mode(dark) {
+    pre {
+        @include neu($body-bg-dark, rgb(42, 33, 57));
+    }
 }

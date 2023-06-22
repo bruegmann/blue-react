@@ -15,7 +15,7 @@ export default function TestCssVars() {
         <>
             <div className="form-floating mb-3">
                 <textarea
-                    className="form-control"
+                    className="form-control neu-input"
                     value={css}
                     onChange={({ target }) => setCss(target.value)}
                     style={{ height: "16rem" }}

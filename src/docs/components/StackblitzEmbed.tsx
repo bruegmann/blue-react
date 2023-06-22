@@ -17,7 +17,7 @@ export default function StackblitzEmbed() {
                 </div>
             ) : (
                 <div
-                    className="bg-primary text-white rounded p-4 d-flex justify-content-between"
+                    className="bg-primary neu-shadow-4 text-white rounded p-4 d-flex justify-content-between"
                     style={{ backgroundImage: `url(${image})` }}
                 >
                     <div>
