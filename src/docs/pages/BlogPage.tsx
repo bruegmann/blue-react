@@ -8,12 +8,72 @@ export default function BlogPage() {
             <Body containerClass="d-flex flex-column docs-min-height-100vh">
                 <div className="container-fluid pt-5 pt-md-0 flex-grow-1">
                     <article className="docs-blog-content">
-                        <h1 className="page-header blue-opacity-hover">
+                        <h2 className="page-header blue-opacity-hover">
+                            Make use of Bootstrap placeholders{" "}
+                            <a href="#make-use-of-bootstrap-placeholders" className="blue-opacity-hover-content-active">
+                                #
+                            </a>
+                        </h2>
+
+                        <p className="lead">
+                            Use{" "}
+                            <a
+                                href="https://getbootstrap.com/docs/5.2/components/placeholders/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Bootstrap placeholders
+                            </a>{" "}
+                            with Blue React ^8.10.0.
+                        </p>
+
+                        <div className="row">
+                            <div className="col">
+                                <div className="card">
+                                    <div className="card-body">
+                                        <h5 className="card-title">Card title</h5>
+                                        <p className="card-text">
+                                            Some quick example text to build on the card title and make up the bulk of
+                                            the card's content.
+                                        </p>
+                                        <a href="#" className="btn btn-primary">
+                                            Go somewhere
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="col">
+                                <div className="card" aria-hidden="true">
+                                    <div className="card-body">
+                                        <h5 className="card-title placeholder-glow">
+                                            <span className="placeholder col-6"></span>
+                                        </h5>
+                                        <p className="card-text placeholder-glow">
+                                            <span className="placeholder col-7"></span>
+                                            <span className="placeholder col-4"></span>
+                                            <span className="placeholder col-4"></span>
+                                            <span className="placeholder col-6"></span>
+                                            <span className="placeholder col-8"></span>
+                                        </p>
+                                        <a
+                                            href="#"
+                                            tabIndex={-1}
+                                            className="btn btn-primary disabled placeholder col-6"
+                                        ></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article className="docs-blog-content">
+                        <h2 className="page-header blue-opacity-hover">
                             Theming using CSS Custom Properties (aka CSS Variables){" "}
                             <a href="#theming-with-css-custom-properties" className="blue-opacity-hover-content-active">
                                 #
                             </a>
-                        </h1>
+                        </h2>
 
                         <p className="lead">Easier theming without build tools thanks to Bootstrap 5.2.0!</p>
 
@@ -25,7 +85,7 @@ export default function BlogPage() {
 
                         <p>
                             You can still use{" "}
-                            <a href="https://bruegmann.github.io/themify" target="_blank">
+                            <a href="https://bruegmann.github.io/themify" target="_blank" rel="noreferrer">
                                 Themify
                             </a>{" "}
                             to create themes: Check the "Export CSS Variables Only" option. Download the CSS file and
@@ -49,12 +109,12 @@ export default function BlogPage() {
                     </article>
 
                     <article className="docs-blog-content">
-                        <h1 className="page-header blue-opacity-hover">
+                        <h2 className="page-header blue-opacity-hover">
                             Using Blue Web Components with Blue React{" "}
                             <a href="#use-web-components" className="blue-opacity-hover-content-active">
                                 #
                             </a>
-                        </h1>
+                        </h2>
 
                         <p className="lead">
                             The docs now use <code>&lt;blue-sidebar&gt;</code> instead of <code>SidebarMenu</code>.
