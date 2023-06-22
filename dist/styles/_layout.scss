@@ -196,7 +196,7 @@
     &,
     &:hover,
     &:focus {
-        color: $sidebar-color;
+        color: var(--blue-sidebar-color);
         background-color: var(--blue-sidebar-bg);
         border-color: transparent;
     }

@@ -60,11 +60,7 @@ $sidebar-open-bg: darken($sidebar-bg, 30%) !default;
 $sidebar-deep-bg: darken($sidebar-bg, 4%) !default;
 
 // Text color of sidebar.
-$blue-sidebar-color-h: 0 !default;
-$blue-sidebar-color-s: 100% !default;
-$blue-sidebar-color-l: 100% !default;
-$blue-sidebar-color: hsl($blue-sidebar-color-h, $blue-sidebar-color-s, $blue-sidebar-color-l) !default;
-$sidebar-color: $blue-sidebar-color !default;
+$sidebar-color: #fff !default;
 
 // Color of indicator for active sidebar item.
 $sidebar-indicator-color: $sidebar-color !default;
@@ -92,10 +88,7 @@ $scrollbar-size: 10px;
 
 :root {
     --blue-sidebar-width: #{$bla-sidebar-width};
-    --blue-sidebar-color-h: #{$blue-sidebar-color-h};
-    --blue-sidebar-color-s: #{$blue-sidebar-color-s};
-    --blue-sidebar-color-l: #{$blue-sidebar-color-l};
-    --blue-sidebar-color: #{$blue-sidebar-color};
+    --blue-sidebar-color: #{$sidebar-color};
     --blue-theme: var(--theme, #{$theme});
     --blue-shimmering: 0.8;
 
