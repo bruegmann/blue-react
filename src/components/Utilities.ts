@@ -62,7 +62,7 @@ export function toggleActions() {
 
 /**
  * Resets alert messages that was set with `setAlertMessage`.
- * When using React, you should use `StatusProvider` instead: https://bruegmann.github.io/blue-react/v8/component/StatusProvider
+ * When using React, you should use `StatusProvider` instead: https://bruegmann.github.io/blue-react/v9/component/StatusProvider
  * @param alertClassName Leave empty to reset messages of any status type
  */
 export function resetAlertMessage(alertClassName?: StatusType) {
@@ -82,7 +82,7 @@ export function resetAlertMessage(alertClassName?: StatusType) {
 }
 
 /**
- * When using React, you should use `StatusProvider` instead: https://bruegmann.github.io/blue-react/v8/component/StatusProvider
+ * When using React, you should use `StatusProvider` instead: https://bruegmann.github.io/blue-react/v9/component/StatusProvider
  */
 export function setAlertMessage(
     message: string,

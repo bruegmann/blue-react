@@ -12,7 +12,7 @@ export default function StackblitzEmbed() {
                     <iframe
                         title="Stackblitz"
                         className="rounded"
-                        src="https://stackblitz.com/edit/blue-react-app-stackblitz-rr6xeh?embed=1&file=index.tsx&hideExplorer=1"
+                        src="https://stackblitz.com/edit/blue-react-app-stackblitz-qavjnx?embed=1&file=index.tsx&hideExplorer=1"
                     />
                 </div>
             ) : (
@@ -32,7 +32,7 @@ export default function StackblitzEmbed() {
                         </button>
                         <a
                             className="btn btn-link text-white"
-                            href="https://stackblitz.com/edit/blue-react-app-stackblitz-rr6xeh?"
+                            href="https://stackblitz.com/edit/blue-react-app-stackblitz-qavjnx?"
                             target="_blank"
                             rel="noopener noreferrer"
                         >

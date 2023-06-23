@@ -9,21 +9,11 @@
 [Checkout the docs](https://bruegmann.github.io/blue-react) to find out how to
 use Blue React.
 
-## Breaking changes between v7 and v8
+## Breaking changes between v8 and v9
 
--   Removed deprecated components:
-    -   Actions (Alternative: ActionMenu)
-    -   ActionMenuItem (Alternative: MenuItem)
-    -   FluentBtn (Alternative: button, bzw. a)
-    -   HeaderActions
-    -   DropdownMenuItem (Alternative: MenuItem)
--   Stylesheets
-    -   Renamed all `.blue-app-*` to `.blue-*`
-    -   Renamed all `.blue-sidebar-*` to `.blue-menu-item-*`
--   Renamed `Grid` to `Layout`
-    -   `.blue-grid` ➡ `.blue-layout`
-    -   `Grid.tsx` ➡ `Layout.tsx`
-    -   Global `window.blueGridRef` ➡ `window.blueLayoutRef`
+-   Renamed `.caret` ➡️ `.blue-caret`
+-   Removed `.switch` CSS
+-   Removed deprecated DocumentView
 
 ## Developing
 

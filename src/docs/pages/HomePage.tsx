@@ -55,7 +55,7 @@ export const HomePage = () => (
 
                     <h2 className="mt-4 mb-3">Create new project using CRA</h2>
                     <code>
-                        npx create-react-app@latest <strong>name-of-my-app</strong> --template blue@8
+                        npx create-react-app@latest <strong>name-of-my-app</strong> --template blue@9
                     </code>
 
                     <h2 className="mt-4 mb-3">Install to existing project</h2>

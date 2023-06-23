@@ -1,7 +1,5 @@
 $theme: #261f31;
-$primary: #3d13d4;
-$link-color: #3200e5;
-$link-color-dark: #836cd8;
+$primary: #655be9;
 
 $body-bg: #efeeee;
 $body-bg-dark: lighten(#261f31, 4%);
@@ -80,7 +78,7 @@ pre {
     .btn-primary {
         @include neu($theme, $primary);
         &:hover {
-            @include neu($theme, #3410b4);
+            @include neu($theme, shade-color($primary, $btn-hover-bg-shade-amount));
         }
     }
 }
