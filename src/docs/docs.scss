@@ -1,4 +1,14 @@
-@import "../../dist/style.scss";
+$theme: #261f31;
+$primary: #3d13d4;
+$link-color: #3200e5;
+$link-color-dark: #836cd8;
+
+$body-bg: #efeeee;
+$body-bg-dark: lighten(#261f31, 4%);
+$body-color-dark: white;
+
+@import "../../dist/style";
+@import "../../dist/neu";
 
 :root {
     --blue-sidebar-button-color: var(--blue-sidebar-color);
@@ -51,4 +61,62 @@ pre {
 
 .docs-blog-content {
     padding: 0 calc(50% - 24rem);
+}
+
+.router-page {
+    @include neu($body-bg, $body-bg);
+}
+
+@include color-mode(dark) {
+    .router-page {
+        @include neu($body-bg-dark, $body-bg-dark);
+    }
+}
+
+.neu-theme-area,
+.bg-theme {
+    @include neu($theme, $theme);
+
+    .btn-primary {
+        @include neu($theme, $primary);
+        &:hover {
+            @include neu($theme, #3410b4);
+        }
+    }
+}
+
+// .btn-theme {
+//     box-shadow: var(--neu-shadow-3);
+// }
+
+.neu-input {
+    box-shadow: var(--neu-shadow-1), var(--neu-shadow-inset-3);
+    border-radius: 0.5rem;
+}
+
+pre {
+    @include neu($body-bg, rgb(42, 33, 57));
+    box-shadow: var(--neu-shadow-1), var(--neu-shadow-inset-3);
+}
+
+@include color-mode(dark) {
+    pre {
+        @include neu($body-bg-dark, rgb(42, 33, 57));
+    }
+}
+
+.btn-lg.btn-primary {
+    @include neu($body-bg, $primary);
+
+    box-shadow: var(--neu-shadow-4), var(--neu-shadow-inset-switch-3);
+
+    &:hover {
+        box-shadow: var(--neu-shadow-4), 0 0 1rem $primary;
+    }
+}
+
+@include color-mode(dark) {
+    .btn-lg.btn-primary {
+        @include neu($body-bg-dark, $primary);
+    }
 }

@@ -97,7 +97,7 @@ export default function DemoApp() {
                                 <div className="container pt-3">
                                     <div className="row mb-3">
                                         <div className="offset-xl-4 col-xl-4 offset-md-3 col-md-5">
-                                            <Search body placeholder="Search for content..." />
+                                            <Search body placeholder="Search for content..." className="neu-input" />
                                         </div>
                                     </div>
 

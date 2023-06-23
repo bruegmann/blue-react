@@ -38,7 +38,7 @@
         left: $bla-sidebar-width;
     }
 
-    .blue-menu-item-dropdown-caret.caret {
+    .blue-menu-item-dropdown-caret.blue-caret {
         display: flex;
     }
 
@@ -141,7 +141,7 @@
 
     .blue-sidebar {
         width: $width;
-        color: $sidebar-color;
+        color: var(--blue-sidebar-color);
         background: var(--blue-sidebar-bg);
         position: fixed;
         left: 0;

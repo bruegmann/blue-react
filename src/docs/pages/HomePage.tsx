@@ -19,14 +19,19 @@ export const HomePage = () => (
                         <section className="d-flex justify-content-between">
                             <div>
                                 <h1>React component library based on Bootstrap 5</h1>
-                                <h2>
+                                <div className="h2">
                                     <Bootstrap /> <ReactIcon /> <Code /> <WindowSidebar /> <BoxSeam />
-                                </h2>
-                                <h3 className="d-flex align-content-center gap-3">
-                                    <span className="badge bg-white text-theme">{packageJson.version}</span>
+                                </div>
+                                <div className="h3 mt-3 d-flex align-content-center gap-3">
+                                    <span
+                                        className="badge text-white"
+                                        style={{ boxShadow: "var(--neu-shadow-3), var(--neu-shadow-inset-3)" }}
+                                    >
+                                        {packageJson.version}
+                                    </span>
 
                                     <VersionToggle />
-                                </h3>
+                                </div>
                             </div>
 
                             <div>

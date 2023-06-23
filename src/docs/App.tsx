@@ -22,7 +22,9 @@ import {
     StickiesFill,
     Rss,
     RssFill,
-    Eye
+    Eye,
+    LayersHalf,
+    LayersFill
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
@@ -35,7 +37,9 @@ import LicenseReportPage from "./pages/LicenseReportPage"
 import { useEffect } from "react"
 import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
+import ColorModeSwitch from "./components/ColorModeSwitch"
 import SidebarMenuItem from "../components/SidebarMenuItem"
+import NeumorphismPage from "./pages/NeumorphismPage"
 
 function App() {
     const onHashChange = () => {
@@ -44,7 +48,6 @@ function App() {
 
             const { css } = JSON.parse(hash)
 
-            // @ts-ignore
             for (const linkEl of document.querySelectorAll(".docs-css")) {
                 linkEl.remove()
             }
@@ -150,6 +153,13 @@ function App() {
                                 elementType={NavLink}
                                 to="/blog"
                             />
+                            <SidebarMenuItem
+                                icon={<LayersHalf />}
+                                iconForActive={<LayersFill />}
+                                label="Neumorphism"
+                                elementType={NavLink}
+                                to="/neu"
+                            />
 
                             <SidebarMenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
                             <SidebarMenuItem
@@ -169,12 +179,18 @@ function App() {
                         </SidebarMenu>
 
                         <div className="router-page active">
+                            <ColorModeSwitch />
+
                             <Route path="/utilities">
                                 <UtilitiesPage />
                             </Route>
 
                             <Route path="/blog">
                                 <BlogPage />
+                            </Route>
+
+                            <Route path="/neu">
+                                <NeumorphismPage />
                             </Route>
 
                             <Route path="/component/:selectedComponent?">

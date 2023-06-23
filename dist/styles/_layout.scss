@@ -196,7 +196,7 @@
     &,
     &:hover,
     &:focus {
-        color: $sidebar-color;
+        color: var(--blue-sidebar-color);
         background-color: var(--blue-sidebar-bg);
         border-color: transparent;
     }
@@ -370,7 +370,7 @@
     }
 }
 
-.blue-menu-item-dropdown-caret.caret {
+.blue-menu-item-dropdown-caret.blue-caret {
     display: none;
     position: absolute;
     right: 1.5rem;

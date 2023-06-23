@@ -346,7 +346,7 @@ export const ComponentPage = () => {
                                             }
                                         }}
                                         value={value}
-                                        className="mb-1 ms-5 ms-md-0 "
+                                        className="mb-1 ms-5 ms-md-0 neu-input"
                                         placeholder="Search..."
                                     />
 
