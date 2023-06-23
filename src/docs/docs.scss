@@ -6,23 +6,9 @@ $link-color-dark: #836cd8;
 $body-bg: #efeeee;
 $body-bg-dark: lighten(#261f31, 4%);
 $body-color-dark: white;
-// $theme: $body-bg;
-// $body-color: #212529;
-// $sidebar-color: $body-color;
-// $header-color: $body-color;
-// $sidebar-indicator-color: $primary;
 
-@import "../../dist/style.scss";
-@import "../../dist/styles/neu";
-
-// @include color-mode(dark) {
-//     body {
-//         --blue-sidebar-bg: var(--bs-body-bg);
-//         --blue-sidebar-color: var(--bs-body-color);
-//         --bs-theme-rgb: var(--bs-body-bg-rgb);
-//         --blue-app-bg: var(--bs-body-bg);
-//     }
-// }
+@import "../../dist/style";
+@import "../../dist/neu";
 
 :root {
     --blue-sidebar-button-color: var(--blue-sidebar-color);
@@ -116,5 +102,21 @@ pre {
 @include color-mode(dark) {
     pre {
         @include neu($body-bg-dark, rgb(42, 33, 57));
+    }
+}
+
+.btn-lg.btn-primary {
+    @include neu($body-bg, $primary);
+
+    box-shadow: var(--neu-shadow-4), var(--neu-shadow-inset-switch-3);
+
+    &:hover {
+        box-shadow: var(--neu-shadow-4), 0 0 1rem $primary;
+    }
+}
+
+@include color-mode(dark) {
+    .btn-lg.btn-primary {
+        @include neu($body-bg-dark, $primary);
     }
 }

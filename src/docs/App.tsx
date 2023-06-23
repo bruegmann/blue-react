@@ -22,7 +22,9 @@ import {
     StickiesFill,
     Rss,
     RssFill,
-    Eye
+    Eye,
+    LayersHalf,
+    LayersFill
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
@@ -37,6 +39,7 @@ import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
 import ColorModeSwitch from "./components/ColorModeSwitch"
 import SidebarMenuItem from "../components/SidebarMenuItem"
+import NeumorphismPage from "./pages/NeumorphismPage"
 
 function App() {
     const onHashChange = () => {
@@ -150,6 +153,13 @@ function App() {
                                 elementType={NavLink}
                                 to="/blog"
                             />
+                            <SidebarMenuItem
+                                icon={<LayersHalf />}
+                                iconForActive={<LayersFill />}
+                                label="Neumorphism"
+                                elementType={NavLink}
+                                to="/neu"
+                            />
 
                             <SidebarMenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
                             <SidebarMenuItem
@@ -177,6 +187,10 @@ function App() {
 
                             <Route path="/blog">
                                 <BlogPage />
+                            </Route>
+
+                            <Route path="/neu">
+                                <NeumorphismPage />
                             </Route>
 
                             <Route path="/component/:selectedComponent?">
