@@ -2,6 +2,7 @@ import Body from "../../components/Body"
 import Page from "../../components/Page"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
+import NeumorphismExperiments from "../components/NeumorphismExperiments"
 
 export default function NeumorphismPage() {
     return (
@@ -28,7 +29,10 @@ export default function NeumorphismPage() {
                     </div>
 
                     <div className="container pb-5">
-                        <h1 className="page-header">Neumorphism SCSS utilities</h1>
+                        <h1 className="page-header">
+                            Neumorphism SCSS utilities{" "}
+                            <small className="badge text-bg-secondary fs-5 neu-shadow-3">Experimental</small>
+                        </h1>
 
                         <p className="lead">
                             Blue React comes with <code>dist/neu.scss</code> containing some SCSS and CSS utilities to
@@ -68,7 +72,10 @@ export default function NeumorphismPage() {
 
                             <p>
                                 Where <em>switch</em> is optional. When you set it, the light and dark shadow colors
-                                will be switched.
+                                will be switched.{" "}
+                                <strong>
+                                    Can only be used together with <em>inset</em>!
+                                </strong>
                             </p>
 
                             <p>
@@ -96,13 +103,24 @@ export default function NeumorphismPage() {
                                 <a href="https://getbootstrap.com/docs/5.3/utilities/spacing/#notation">Bootstrap</a>
                             </p>
 
+                            <h2 className="mt-4 mb-3">Combining classes</h2>
+                            <p>You can combine shadows with inset shadows like this:</p>
+                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">
+                                {`<div class="neu-shadow-5 neu-shadow-inset-switch-3"></div>`}
+                            </SyntaxHighlighter>
+                            <div
+                                className="neu-shadow-5 neu-shadow-inset-switch-3"
+                                style={{
+                                    width: 400,
+                                    height: 200,
+                                    borderRadius: "1rem",
+                                    margin: "2rem"
+                                }}
+                            ></div>
+
                             <h2 className="mt-4 mb-3">CSS variables</h2>
                             <p>
-                                Disadvantage of utility classes is, you can't combine them, because a second class will
-                                override the <code>box-shadow</code> property of the previous one.
-                            </p>
-                            <p>
-                                But you can use Neu's CSS variables and combine them like this:
+                                You can use Neu's CSS variables and combine them like this:
                                 <br />
                                 <code>{`style="var(--neu-shadow-3), var(--neu-shadow-inset-switch-1)"`}</code>
                             </p>
@@ -111,16 +129,30 @@ export default function NeumorphismPage() {
                             <h3 className="mt-4 mb-3">Examples</h3>
                             <p>You can combine shadows to different soft effects.</p>
 
+                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">
+                                {`<div class="mt-2 rounded-5 p-4 mx-4" style="box-shadow: var(--neu-shadow-5), var(--neu-shadow-inset-switch-1);">
+    Neumorph card<br>
+    <button class="btn btn-lg btn-primary mt-3" style="var(--neu-shadow-4), var(--neu-shadow-inset-switch-3)">Click me</button>
+</div>`}
+                            </SyntaxHighlighter>
+
                             <div
-                                className="mt-2 rounded-5 p-4 mx-4"
+                                className="mt-5 rounded-5 p-4 mx-4"
                                 style={{
                                     boxShadow: "var(--neu-shadow-5), var(--neu-shadow-inset-switch-1)"
                                 }}
                             >
                                 Neumorph card
                                 <br />
-                                <button className="btn btn-lg btn-primary mt-3">Click me</button>
+                                <button
+                                    className="btn btn-lg btn-primary mt-3"
+                                    style={{ boxShadow: "var(--neu-shadow-4), var(--neu-shadow-inset-switch-3)" }}
+                                >
+                                    Click me
+                                </button>
                             </div>
+
+                            <NeumorphismExperiments />
                         </article>
                     </div>
                 </main>

@@ -83,10 +83,6 @@ pre {
     }
 }
 
-// .btn-theme {
-//     box-shadow: var(--neu-shadow-3);
-// }
-
 .neu-input {
     box-shadow: var(--neu-shadow-1), var(--neu-shadow-inset-3);
     border-radius: 0.5rem;
@@ -106,10 +102,8 @@ pre {
 .btn-lg.btn-primary {
     @include neu($body-bg, $primary);
 
-    box-shadow: var(--neu-shadow-4), var(--neu-shadow-inset-switch-3);
-
     &:hover {
-        box-shadow: var(--neu-shadow-4), 0 0 1rem $primary;
+        @include neu($body-bg, shade-color($primary, $btn-hover-bg-shade-amount));
     }
 }
 

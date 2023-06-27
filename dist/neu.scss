@@ -54,17 +54,31 @@ $neu-steps: (
 @mixin neu-define-utility-classes() {
     @each $unit, $value in $neu-steps {
         .neu-shadow-#{$unit} {
-            box-shadow: var(--neu-shadow-#{$unit}) !important;
+            box-shadow: #{neu-shadow($value, $inset: false, $switch: false)} !important;
+
+            @each $unit, $value in $neu-steps {
+                &.neu-shadow-inset-#{$unit} {
+                    box-shadow: #{neu-shadow($value, $inset: false, $switch: false)},
+                        #{neu-shadow($value, $inset: true, $switch: false)} !important;
+                }
+
+                &.neu-shadow-inset-switch-#{$unit} {
+                    box-shadow: #{neu-shadow($value, $inset: false, $switch: false)},
+                        #{neu-shadow($value, $inset: true, $switch: true)} !important;
+                }
+            }
         }
         .neu-shadow-inset-#{$unit} {
-            box-shadow: var(--neu-shadow-inset-#{$unit}) !important;
+            box-shadow: #{neu-shadow($value, $inset: true, $switch: false)} !important;
         }
 
-        .neu-shadow-switch-#{$unit} {
-            box-shadow: var(--neu-shadow-switch-#{$unit}) !important;
-        }
+        // Uncommented to reduce CSS size.
+        // I don't see that `.neu-shadow-switch-#{$unit}` should be used in practice.
+        // .neu-shadow-switch-#{$unit} {
+        //     box-shadow: #{neu-shadow($value, $inset: false, $switch: true)} !important;
+        // }
         .neu-shadow-inset-switch-#{$unit} {
-            box-shadow: var(--neu-shadow-inset-switch-#{$unit}) !important;
+            box-shadow: #{neu-shadow($value, $inset: true, $switch: true)} !important;
         }
     }
 }

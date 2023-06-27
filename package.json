@@ -19,6 +19,7 @@
         "build-types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --noEmit false",
         "build": "babel ./src/components --out-dir ./dist/components --extensions \".tsx,.js,.ts\"",
         "build-css": "node ./setVersionToStyleScss.js && node-sass ./dist/style.scss ./dist/style.css && npx postcss ./dist/style.css --use autoprefixer -r && npx postcss ./dist/style.css --use postcss-minify -o ./dist/style.min.css",
+        "build-neu-css": "node-sass ./dist/neu.scss ./dist/neu.css && npx postcss ./dist/neu.css --use autoprefixer -r && npx postcss ./dist/neu.css --use postcss-minify -o ./dist/neu.min.css",
         "build-release": "npm run build-types && npm run build && npm run build-css && npm run docgen",
         "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js --extension tsx && node followUpDocs && npm run license-report",
         "test": "react-scripts test",
