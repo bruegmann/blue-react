@@ -54,8 +54,6 @@
     // Support for MenuItems
     .blue-menu-item {
         width: auto;
-        margin-top: 0;
-        margin-bottom: 0;
 
         &.active::after {
             @include blue-menu-item-indicator-horizontal();

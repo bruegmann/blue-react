@@ -25,6 +25,7 @@ import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
 import SidebarMenuItem from "../../components/SidebarMenuItem"
 import IconMenuItem from "../../components/IconMenuItem"
+import { useModal } from "../../components/ModalProvider"
 
 const exampleHistoryItems = ["Nice person", "Important message", "Document XYZ", "Boring appointment"]
 const exampleFavoriteItems = ["Max Mustermann person", "A Word Document", "Boring appointment"]
@@ -319,10 +320,17 @@ export default function DemoApp() {
                             icon={<Person className="bi" />}
                         />
 
-                        <IconMenuItem href="#" outerClass="flex-fill" label="Settings" icon={<Gear className="bi" />} />
+                        <IconMenuItem
+                            onClick={() => {
+                                alert("There are actually no settings 😅")
+                            }}
+                            outerClass="flex-fill"
+                            label="Settings"
+                            icon={<Gear className="bi" />}
+                        />
 
                         <IconMenuItem
-                            href="#"
+                            href="#intro"
                             outerClass="flex-fill"
                             label="Sign out"
                             icon={<BoxArrowLeft className="bi" />}
