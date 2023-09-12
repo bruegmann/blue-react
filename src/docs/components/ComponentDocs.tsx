@@ -67,7 +67,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                     </a>
                 </p>
 
-                <Markdown>{this.prepareForMarkdown(comp.description)}</Markdown>
+                <Markdown>{comp.description && this.prepareForMarkdown(comp.description)}</Markdown>
 
                 {comp.displayName == "Intro" && (
                     <p>
@@ -112,7 +112,8 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                             <th>{j}</th>
                                             <td>
                                                 <Markdown>
-                                                    {this.prepareForMarkdown(comp.props[j].description)}
+                                                    {comp.props[j].description &&
+                                                        this.prepareForMarkdown(comp.props[j].description)}
                                                 </Markdown>
 
                                                 {comp.props[j].defaultValue ? (
