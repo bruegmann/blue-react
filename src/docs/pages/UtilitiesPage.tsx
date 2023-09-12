@@ -331,7 +331,7 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                             </HashLink>
                             <p>
                                 With <code>.blue-opacity-hover</code> you can hide things by default and let them appear
-                                when the user hovers the area around it.
+                                when the user hovers the area around it or focuses an element inside.
                                 <br />
                                 This way you can simplify the UI a bit and make controls disappear when they are not
                                 needed. On touch screens the elements will always be visible.
@@ -341,6 +341,11 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
 
                             <div className="card blue-opacity-hover p-3 flex-row justify-content-between">
                                 <h5 className="blue-opacity-hover-content-default">Hover here to see a button</h5>
+                                <input
+                                    type="text"
+                                    className="form-control me-1"
+                                    placeholder="When you focus me, the button should appear too"
+                                />
                                 <button className="btn btn-secondary blue-opacity-hover-content-active">
                                     Hey there
                                 </button>
@@ -349,7 +354,12 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                 style={syntaxHighlighterStyle}
                                 language="html"
                             >{`<div className="card blue-opacity-hover p-3 flex-row justify-content-between">
-    <h5 className="blue-opacity-hover-content-default">Hover here to see a button</HashLink>
+    <h5 className="blue-opacity-hover-content-default">Hover here to see a button</h5>
+    <input
+        type="text"
+        className="form-control me-1"
+        placeholder="When you focus me, the button should appear too"
+    />
     <button className="btn btn-secondary blue-opacity-hover-content-active">Hey there</button>
 </div>`}</SyntaxHighlighter>
                         </article>
@@ -370,14 +380,14 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                 Usage:
                             </p>
 
-                            <button className="btn blue-d-hover d-inline-flex align-items-center gap-1">
+                            <button className="btn btn-secondary blue-d-hover d-inline-flex align-items-center gap-1">
                                 <CheckCircle className="blue-d-hover-content-default" />
                                 <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
                             </button>
                             <SyntaxHighlighter
                                 style={syntaxHighlighterStyle}
                                 language="html"
-                            >{`<button className="btn blue-d-hover d-inline-flex align-items-center gap-1">
+                            >{`<button className="btn btn-secondary blue-d-hover d-inline-flex align-items-center gap-1">
     <CheckCircle className="blue-d-hover-content-default" />
     <CheckCircleFill className="blue-d-hover-content-active" /> Hover to fill the icon
 </button>`}</SyntaxHighlighter>

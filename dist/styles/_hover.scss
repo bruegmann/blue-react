@@ -7,7 +7,7 @@
 
 @media (hover: hover) {
     .blue-d-hover {
-        &:not(:hover):not(:focus):not(:active):not(.active) {
+        &:not(:hover):not(:focus):not(:active):not(.active):not(:focus-within) {
             .blue-d-hover-content-active {
                 display: none;
             }
@@ -16,7 +16,8 @@
         &:hover,
         &:focus,
         &:active,
-        &.active {
+        &.active,
+        &:focus-within {
             .blue-d-hover-content-default {
                 display: none;
             }
@@ -24,7 +25,7 @@
     }
 
     .blue-opacity-hover {
-        &:not(:hover):not(:focus):not(:active):not(.active) {
+        &:not(:hover):not(:focus):not(:active):not(.active):not(:focus-within) {
             .blue-opacity-hover-content-active {
                 opacity: 0;
             }
@@ -33,7 +34,8 @@
         &:hover,
         &:focus,
         &:active,
-        &.active {
+        &.active,
+        &:focus-within {
             .blue-opacity-hover-content-default {
                 opacity: 0;
             }
