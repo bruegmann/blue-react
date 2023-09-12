@@ -29,6 +29,11 @@ export interface MenuItemProps {
     icon?: any
 
     /**
+     * Addition to class name of icon wrapper element
+     */
+    iconClassName?: string
+
+    /**
      * Icon component or a class name when the MenuItem is active.
      */
     iconForActive?: any
@@ -256,13 +261,17 @@ export default function MenuItem(props: MenuItemProps) {
                 },
                 <>
                     <span
-                        className={clsx("blue-menu-item-icon", {
+                        className={clsx("blue-menu-item-icon", props.iconClassName, {
                             hasIconForActive: iconForActive
                         })}
                     >
                         {icon}
                     </span>
-                    {iconForActive && <span className="blue-menu-item-icon iconForActive">{iconForActive}</span>}
+                    {iconForActive && (
+                        <span className={clsx("blue-menu-item-icon iconForActive", props.iconClassName)}>
+                            {iconForActive}
+                        </span>
+                    )}
                     {props.label && <span className="blue-menu-item-label text-truncate">{props.label}</span>}
                     {props.children && (
                         <Caret open={showDropdown} mirrored className="blue-menu-item-dropdown-caret mt-2" />

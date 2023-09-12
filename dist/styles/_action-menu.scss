@@ -58,13 +58,7 @@
         margin-bottom: 0;
 
         &.active::after {
-            top: initial;
-            bottom: 0.125rem;
-            left: 0.625rem;
-            right: 0.625rem;
-            width: auto;
-            height: 0.25rem;
-            animation: sidebar-menu-item-indicator-in-from-below 0.2s ease-in-out;
+            @include blue-menu-item-indicator-horizontal();
         }
     }
 

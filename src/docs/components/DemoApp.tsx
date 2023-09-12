@@ -4,6 +4,7 @@ import {
     Calendar,
     ClockHistory,
     FileEarmark,
+    Gear,
     House,
     Pencil,
     PencilFill,
@@ -23,6 +24,7 @@ import Search from "../../components/Search"
 import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
 import SidebarMenuItem from "../../components/SidebarMenuItem"
+import IconMenuItem from "../../components/IconMenuItem"
 
 const exampleHistoryItems = ["Nice person", "Important message", "Document XYZ", "Boring appointment"]
 const exampleFavoriteItems = ["Max Mustermann person", "A Word Document", "Boring appointment"]
@@ -309,8 +311,22 @@ export default function DemoApp() {
                     </>
                 }
                 bottomContent={
-                    <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Sign out">
-                        <MenuItem href="#intro" label="Sign out" icon={<BoxArrowLeft className="bi" />} />
+                    <div className="d-flex flex-wrap">
+                        <IconMenuItem
+                            href="#record"
+                            outerClass="flex-fill"
+                            label="User settings"
+                            icon={<Person className="bi" />}
+                        />
+
+                        <IconMenuItem href="#" outerClass="flex-fill" label="Settings" icon={<Gear className="bi" />} />
+
+                        <IconMenuItem
+                            href="#"
+                            outerClass="flex-fill"
+                            label="Sign out"
+                            icon={<BoxArrowLeft className="bi" />}
+                        />
                     </div>
                 }
             >

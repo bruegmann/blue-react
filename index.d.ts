@@ -27,6 +27,9 @@ export { HeaderProps } from "./dist/types/components/Header"
 export { default as HeaderTitle } from "./dist/types/components/HeaderTitle"
 export { HeaderTitleProps } from "./dist/types/components/HeaderTitle"
 
+export { default as IconMenuItem } from "./dist/types/components/IconMenuItem"
+export { IconMenuItemProps } from "./dist/types/components/IconMenuItem"
+
 export { default as Intro } from "./dist/types/components/Intro"
 export { IntroProps } from "./dist/types/components/Intro"
 

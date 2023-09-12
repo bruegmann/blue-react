@@ -399,6 +399,17 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                             </HashLink>
                             <p>Use this to control the state of the sidebar and sidebar menu items inside.</p>
                         </article>
+
+                        <article>
+                            <HashLink id="blue-sidebar-menu-horizontal-on-open">
+                                <code>.blue-sidebar-menu-horizontal-on-open</code>
+                            </HashLink>
+                            <p>
+                                Use this inside of the sidebar to make menus act like horizontal menus when the sidebar
+                                is open. Designed for the <code>IconMenuItem</code> component. But might be useful for
+                                other scenarios aswell.
+                            </p>
+                        </article>
                     </>
                 )
             },

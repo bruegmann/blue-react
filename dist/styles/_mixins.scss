@@ -1,6 +1,7 @@
-@import "./mixins/_misc.scss";
-@import "./mixins/_sidebar.scss";
-@import "./mixins/action-menu.scss";
-@import "./mixins/_switch.scss";
-@import "./mixins/custom-property.scss";
+@import "./mixins/misc";
+@import "./mixins/menu-item";
+@import "./mixins/sidebar";
+@import "./mixins/action-menu";
+@import "./mixins/switch";
+@import "./mixins/custom-property";
 @import "./mixins/scroll-shadow";

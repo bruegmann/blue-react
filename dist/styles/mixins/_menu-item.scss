@@ -1,0 +1,21 @@
+@mixin blue-menu-item-indicator() {
+    content: "";
+    position: absolute;
+    top: 0.625rem;
+    bottom: 0.625rem;
+    left: 0.125rem;
+    width: 0.25rem;
+    background-color: var(--blue-menu-item-indicator-bg);
+    border-radius: 1rem;
+    animation: blue-menu-item-indicator-in-from-side 0.2s ease-in-out;
+}
+
+@mixin blue-menu-item-indicator-horizontal() {
+    top: initial;
+    bottom: 0.125rem;
+    left: 0.625rem;
+    right: 0.625rem;
+    width: auto;
+    height: 0.25rem;
+    animation: blue-menu-item-indicator-in-from-below 0.2s ease-in-out;
+}
