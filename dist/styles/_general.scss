@@ -1,4 +1,9 @@
-@include custom-scrollbar($scrollbar-thumb-color, transparent, false);
+@include blue-custom-scrollbar(
+    transparent,
+    rgba($scrollbar-thumb-color, 0.5),
+    rgba($scrollbar-thumb-color, 0.6),
+    rgba($scrollbar-thumb-color, 0.7)
+);
 
 * {
     scrollbar-width: thin;

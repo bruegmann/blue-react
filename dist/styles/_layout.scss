@@ -114,7 +114,13 @@
 .blue-normal-scrollbar,
 .modal-body,
 .blue-page {
-    @include custom-scrollbar($body-color, $body-bg, 0.3rem);
+    @include blue-custom-scrollbar(
+        var(--bs-body-bg, #{$body-bg}),
+        var(--bs-tertiary-color, #{$body-color}),
+        var(--bs-secondary-color, #{$body-color}),
+        var(--bs-body-color, #{$body-color}),
+        0.3rem
+    );
 }
 
 .blue-page {
@@ -203,7 +209,13 @@
 }
 
 .blue-sidebar {
-    @include custom-scrollbar($sidebar-color, var(--blue-sidebar-bg), 0.3rem);
+    @include blue-custom-scrollbar(
+        var(--blue-sidebar-bg),
+        rgba($sidebar-color, 0.5),
+        rgba($sidebar-color, 0.6),
+        rgba($sidebar-color, 0.7),
+        0.3rem
+    );
     overflow-y: auto;
 }
 
