@@ -158,12 +158,6 @@
             @include scroll-shadow(var(--blue-sidebar-bg), $sidebar-bg);
         }
 
-        &:hover {
-            .blue-menu-item {
-                background-color: var(--blue-sidebar-bg);
-            }
-        }
-
         .blue-menu-item {
             & > * {
                 width: 100%;

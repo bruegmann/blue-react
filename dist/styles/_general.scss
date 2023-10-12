@@ -154,3 +154,7 @@ body {
     background: var(--blue-sidebar-bg);
     color: $sidebar-color;
 }
+
+.blue-scroll-shadow {
+    @include scroll-shadow(var(--bs-body-bg));
+}

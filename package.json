@@ -1,6 +1,6 @@
 {
     "name": "blue-react",
-    "version": "9.1.2",
+    "version": "9.1.4",
     "description": "Blue React Components",
     "license": "LGPL-3.0-or-later",
     "main": "index.js",
@@ -33,7 +33,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.5",
-        "bootstrap": "~5.3.0",
+        "bootstrap": "~5.3.2",
         "clsx": "^1.1.1"
     },
     "peerDependencies": {

@@ -250,6 +250,16 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                         </article>
 
                         <article className="mb-5">
+                            <HashLink id="blue-scroll-shadow">
+                                <code>.blue-scroll-shadow</code>
+                            </HashLink>
+                            <p>
+                                {"Adds shadow if area is scrollable. "}
+                                <NormalScrollbarDemo />
+                            </p>
+                        </article>
+
+                        <article className="mb-5">
                             <HashLink id="btn-black">
                                 <code>.btn-black</code>, <code>.btn-outline-black</code>
                             </HashLink>
