@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import React, { createElement, useEffect, useState } from "react"
+import React, { CSSProperties, createElement, useEffect, useState } from "react"
 import Caret from "./Caret"
 import Outside from "./Outside"
 import Utilities from "./Utilities"
@@ -49,6 +49,16 @@ export interface MenuItemProps {
     labelClassName?: string
 
     /**
+     * Addition to class name of caret
+     */
+    caretClassName?: string
+
+    /**
+     * Addition to style of caret
+     */
+    caretStyle?: CSSProperties
+
+    /**
      * Should be set as active.
      */
     isActive?: boolean
@@ -67,6 +77,11 @@ export interface MenuItemProps {
      * Extends class name of the dropdown menu.
      */
     dropdownClassName?: string
+
+    /**
+     * Extends style of the dropdown menu.
+     */
+    dropdownStyle?: CSSProperties
 
     /**
      * Set children to create a nested `MenuItem` as a dropdown.
@@ -285,7 +300,12 @@ export default function MenuItem(props: MenuItemProps) {
                         </span>
                     )}
                     {props.children && (
-                        <Caret open={showDropdown} mirrored className="blue-menu-item-dropdown-caret mt-2" />
+                        <Caret
+                            open={showDropdown}
+                            mirrored
+                            className={clsx("blue-menu-item-dropdown-caret mt-2", props.caretClassName)}
+                            style={props.caretStyle}
+                        />
                     )}
                 </>
             )}
@@ -293,13 +313,19 @@ export default function MenuItem(props: MenuItemProps) {
             {showDropdown &&
                 (props.supportOutside ? (
                     <Outside
-                        className={`blue-menu-item-dropdown ${props.dropdownClassName}`}
+                        className={clsx("blue-menu-item-dropdown", props.dropdownClassName)}
                         onClickOutside={onClickOutside}
+                        style={props.dropdownStyle}
                     >
                         {props.children}
                     </Outside>
                 ) : (
-                    <div className={`blue-menu-item-dropdown ${props.dropdownClassName}`}>{props.children}</div>
+                    <div
+                        className={clsx("blue-menu-item-dropdown", props.dropdownClassName)}
+                        style={props.dropdownStyle}
+                    >
+                        {props.children}
+                    </div>
                 ))}
         </>
     )

@@ -1,6 +1,7 @@
 // Fügt Beispiel-Code der Doku hinzu
 
 const fs = require("fs")
+const path = require("path")
 
 const packageName = require("./package.json").name
 const docPath = "./src/docs/data/docs.json"
@@ -13,9 +14,7 @@ function prepareExampleCode(exampleCode) {
      * */
     exampleCode.replace('"../../../index.js"', `"${packageName}"`)
 
-    const matches = [
-        ...exampleCode.matchAll(/import (.*) from "..\/..\/components\/(.*)"/gm)
-    ]
+    const matches = [...exampleCode.matchAll(/import (.*) from "..\/..\/(..\/)?components\/(.*)"/gm)]
 
     let extraModules = []
 
@@ -27,20 +26,18 @@ function prepareExampleCode(exampleCode) {
                 .split(",")
                 .forEach((s) => {
                     const moduleName = s.trim()
-                    if (match[2] !== moduleName) {
+                    if (match[3] !== moduleName) {
                         extraModules.push(moduleName)
                     }
                 })
         }
 
-        return match[2]
+        return match[3]
     })
 
     componentNames = [...componentNames, ...extraModules]
 
-    const importCode = `import { ${componentNames
-        .sort()
-        .join(", ")} } from "${packageName}"`
+    const importCode = `import { ${componentNames.sort().join(", ")} } from "${packageName}"`
 
     matches.forEach((match) => {
         if (exampleCode.includes(importCode)) {
@@ -61,6 +58,19 @@ Object.keys(doc).forEach((prop) => {
     if (fs.existsSync(exampleFilePathTsx)) {
         let exampleCode = fs.readFileSync(exampleFilePathTsx, "utf8")
         doc[prop].exampleCode = prepareExampleCode(exampleCode)
+    }
+
+    // Looking for folder in examples folder named after the component
+    const exampleFolderPath = "./src/docs/examples/" + displayName
+    if (fs.existsSync(exampleFolderPath)) {
+        if (!doc[prop].examples) doc[prop].examples = {}
+
+        const files = fs.readdirSync(exampleFolderPath)
+        for (const file of files) {
+            const subExampleFilePathTsx = path.join(exampleFolderPath, file)
+            let exampleCode = fs.readFileSync(subExampleFilePathTsx, "utf8")
+            doc[prop].examples[file] = prepareExampleCode(exampleCode)
+        }
     }
 
     const exampleFilePathJs = "./src/docs/examples/" + displayName + ".js"

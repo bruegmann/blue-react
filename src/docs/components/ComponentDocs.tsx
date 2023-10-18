@@ -1,4 +1,4 @@
-import { Component, ComponentClass } from "react"
+import { Component, ComponentClass, Fragment, createElement } from "react"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
 import { Link } from "react-router-dom"
@@ -12,17 +12,30 @@ export interface IComponentDocsProps {
         description: string
         props: any
         exampleCode?: string
+        examples?: {
+            [file: string]: string
+        }
     }
 }
 
-export class ComponentDocs extends Component<IComponentDocsProps, { ExampleComponent: ComponentClass<any> }> {
+export class ComponentDocs extends Component<
+    IComponentDocsProps,
+    {
+        ExampleComponent: ComponentClass<any>
+        exampleComponents: {
+            [file: string]: ComponentClass<any>
+        }
+    }
+> {
     state = {
-        ExampleComponent: null as unknown as ComponentClass<any>
+        ExampleComponent: null as unknown as ComponentClass<any>,
+        exampleComponents: {}
     }
 
     componentDidMount() {
+        const { comp } = this.props
+
         try {
-            const { comp } = this.props
             const ExampleComponent = require(`../examples/${comp.displayName}.tsx`)
             this.setState({ ExampleComponent: ExampleComponent["default"] })
         } catch (ex) {
@@ -31,12 +44,26 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
         }
 
         try {
-            const { comp } = this.props
             const ExampleComponent = require(`../examples/${comp.displayName}.js`)
             this.setState({ ExampleComponent: ExampleComponent["default"] })
         } catch (ex) {
             // console.error(ex)
             // This component has no example
+        }
+
+        if (comp.examples) {
+            for (const file in comp.examples) {
+                try {
+                    const ExampleComponent = require(`../examples/${comp.displayName}/${file}`)
+                    console.log(ExampleComponent)
+                    this.setState((state) => ({
+                        exampleComponents: { ...state.exampleComponents, [file]: ExampleComponent["default"] }
+                    }))
+                } catch (ex) {
+                    console.error(ex)
+                    // This component has no example
+                }
+            }
         }
     }
 
@@ -46,7 +73,7 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
 
     render() {
         const { comp, standalone } = this.props
-        const { ExampleComponent } = this.state
+        const { ExampleComponent, exampleComponents } = this.state
 
         return (
             <article className="pt-5">
@@ -77,9 +104,41 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                     </p>
                 )}
 
+                {standalone && (
+                    <ul>
+                        {comp.composes && comp.composes.length > 0 && (
+                            <li>
+                                <a href="#extending-props">Extending props</a>
+                            </li>
+                        )}
+                        <li>
+                            <a href="#props">Props</a>
+                        </li>
+                        {(ExampleComponent || comp.exampleCode) && (
+                            <li>
+                                <a href="#example">Example</a>
+                            </li>
+                        )}
+                        {Object.keys(exampleComponents).length > 0 && (
+                            <li>
+                                <a href="#examples">Examples</a>
+                                <ul>
+                                    {Object.keys(exampleComponents).map((key) => (
+                                        <li key={key}>
+                                            <a href={`#${key}`}>{key.replace(".tsx", "")}</a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+                        )}
+                    </ul>
+                )}
+
                 {comp.composes && comp.composes.length > 0 && (
                     <>
-                        <h2 className="mt-4 mb-3">Extending props</h2>
+                        <h2 id="extending-props" className="page-header">
+                            Extending props
+                        </h2>
 
                         {comp.composes.map((comp: string, key: number) => (
                             <div key={key}>
@@ -94,7 +153,9 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
 
                 {comp.props && (
                     <div>
-                        <h2 className="mt-4 mb-3">Props</h2>
+                        <h2 id="props" className="page-header">
+                            Props
+                        </h2>
 
                         <table className="table table-bordered">
                             <thead>
@@ -146,18 +207,22 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                         {(ExampleComponent || comp.exampleCode) &&
                             (standalone ? (
                                 <div>
-                                    <h2 className="mt-4 mb-3">Example</h2>
+                                    <h2 id="example" className="page-header">
+                                        Example
+                                    </h2>
 
                                     {ExampleComponent && (
-                                        <div className="mb-3">
-                                            <ExampleComponent />
-                                        </div>
-                                    )}
+                                        <div className="border p-2 rounded-5">
+                                            <div className="p-3">
+                                                <ExampleComponent />
+                                            </div>
 
-                                    {comp.exampleCode && (
-                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
-                                            {comp.exampleCode}
-                                        </SyntaxHighlighter>
+                                            {comp.exampleCode && (
+                                                <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
+                                                    {comp.exampleCode}
+                                                </SyntaxHighlighter>
+                                            )}
+                                        </div>
                                     )}
                                 </div>
                             ) : (
@@ -165,6 +230,39 @@ export class ComponentDocs extends Component<IComponentDocsProps, { ExampleCompo
                                     Show example
                                 </Link>
                             ))}
+
+                        {Object.keys(exampleComponents).length > 0 && (
+                            <>
+                                <h2 id="examples" className="page-header">
+                                    Examples
+                                </h2>
+
+                                {Object.keys(exampleComponents).map((key) => {
+                                    // @ts-expect-error
+                                    const ExampleComponent = exampleComponents[key]
+
+                                    return (
+                                        <Fragment key={key}>
+                                            <h3 id={key} className="mt-4 mb-3">
+                                                {key.replace(".tsx", "")}
+                                            </h3>
+
+                                            <div className="border p-2 rounded-5">
+                                                <div className="p-3">
+                                                    <ExampleComponent />
+                                                </div>
+
+                                                {comp.examples && (
+                                                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
+                                                        {comp.examples[key]}
+                                                    </SyntaxHighlighter>
+                                                )}
+                                            </div>
+                                        </Fragment>
+                                    )
+                                })}
+                            </>
+                        )}
                     </div>
                 )}
             </article>

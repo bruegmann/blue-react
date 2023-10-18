@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 
 export interface CaretProps {
     /**
@@ -12,12 +12,13 @@ export interface CaretProps {
     mirrored?: boolean
 
     className?: string
+    style?: CSSProperties
 }
 
 /**
  * Caret icon component.
  */
-export default function Caret({ open, mirrored, className }: CaretProps) {
+export default function Caret({ open, mirrored, className, style }: CaretProps) {
     return (
         <span
             className={
@@ -26,6 +27,7 @@ export default function Caret({ open, mirrored, className }: CaretProps) {
                 (mirrored ? " blue-caret-mirrored " : "") +
                 className
             }
+            style={style}
         />
     )
 }

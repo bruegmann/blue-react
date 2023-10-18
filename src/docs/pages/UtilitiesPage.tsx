@@ -305,8 +305,11 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                 <code>data-tooltip</code>.<br />
                                 Usage:
                             </p>
-                            <strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
-                                Hover me!
+                            <strong
+                                data-tooltip="Put your tooltip text here. It can also become pretty long if you want to."
+                                className="blue-tooltip-up"
+                            >
+                                Hover me! Ohhhh yeah
                             </strong>
                             <SyntaxHighlighter
                                 style={syntaxHighlighterStyle}

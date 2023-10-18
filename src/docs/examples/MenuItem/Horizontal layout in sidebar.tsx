@@ -1,6 +1,6 @@
 import { useState } from "react"
-import MenuItem from "../../components/MenuItem"
-import SidebarMenu from "../../components/SidebarMenu"
+import MenuItem from "../../../components/MenuItem"
+import SidebarMenu from "../../../components/SidebarMenu"
 
 export default function MenuItemExample() {
     const [navigationSource, setNavigationSource] = useState<"user" | "default">("default")

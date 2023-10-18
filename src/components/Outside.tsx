@@ -1,22 +1,15 @@
-import React, { MutableRefObject, useEffect, useRef } from "react"
+import React, { CSSProperties, MutableRefObject, useEffect, useRef } from "react"
 
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-export function useOutside(
-    ref: MutableRefObject<any>,
-    callback?: (event: MouseEvent) => void
-) {
+export function useOutside(ref: MutableRefObject<any>, callback?: (event: MouseEvent) => void) {
     useEffect(() => {
         /**
          * Alert if clicked on outside of element
          */
         function handleClickOutside(event: MouseEvent) {
-            if (
-                ref.current &&
-                !ref.current.contains(event.target) &&
-                callback
-            ) {
+            if (ref.current && !ref.current.contains(event.target) && callback) {
                 callback(event)
             }
         }
@@ -33,21 +26,18 @@ export interface OutsideProps {
     children: any
     className?: string
     onClickOutside?: (event: MouseEvent) => void
+    style?: CSSProperties
 }
 
 /**
  * Component that fires an event if you click outside of it
  */
-export default function Outside({
-    children,
-    className,
-    onClickOutside
-}: OutsideProps) {
+export default function Outside({ children, className, onClickOutside, style }: OutsideProps) {
     const wrapperRef = useRef(null)
     useOutside(wrapperRef, onClickOutside)
 
     return (
-        <div ref={wrapperRef} className={className}>
+        <div ref={wrapperRef} className={className} style={style}>
             {children}
         </div>
     )
