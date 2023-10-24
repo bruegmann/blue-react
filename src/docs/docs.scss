@@ -61,12 +61,12 @@ pre {
     padding: 0 calc(50% - 24rem);
 }
 
-.router-page {
+:root {
     @include neu($body-bg, $body-bg);
 }
 
 @include color-mode(dark) {
-    .router-page {
+    :root {
         @include neu($body-bg-dark, $body-bg-dark);
     }
 }
