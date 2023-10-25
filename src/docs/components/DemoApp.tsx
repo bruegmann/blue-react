@@ -309,6 +309,24 @@ export default function DemoApp() {
                         <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Search">
                             <Search sidebar placeholder="Search in menu" />
                         </div>
+
+                        <div className="blue-sidebar-visible-on-open blue-sidebar-menu-horizontal-on-open">
+                            <MenuItem
+                                href="#home"
+                                label="Sign out"
+                                icon={<BoxArrowLeft className="bi" />}
+                                labelClassName="text-center w-100"
+                            />
+                            <div className="position-relative">
+                                <IconMenuItem
+                                    label="More"
+                                    supportOutside
+                                    dropdownClassName="position-absolute z-3 end-0 blue-sidebar-menu-vertical-on-open"
+                                >
+                                    <MenuItem href="#intro" label="Sign out" icon={<BoxArrowLeft className="bi" />} />
+                                </IconMenuItem>
+                            </div>
+                        </div>
                     </>
                 }
                 bottomContent={

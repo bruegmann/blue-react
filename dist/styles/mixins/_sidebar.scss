@@ -73,6 +73,14 @@
             }
         }
     }
+
+    .blue-sidebar-menu-vertical-on-open {
+        .blue-menu-item {
+            &.active::after {
+                @include blue-menu-item-indicator();
+            }
+        }
+    }
 }
 
 @mixin blue-sidebar($width) {

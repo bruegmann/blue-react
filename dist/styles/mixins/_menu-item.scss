@@ -4,7 +4,9 @@
     top: 0.625rem;
     bottom: 0.625rem;
     left: 0.125rem;
+    right: initial;
     width: 0.25rem;
+    height: auto;
     background-color: var(--blue-menu-item-indicator-bg);
     border-radius: 1rem;
     animation: blue-menu-item-indicator-in-from-side 0.2s ease-in-out;

@@ -423,6 +423,17 @@ export class UtilitiesPage extends React.Component<UtilitiesPageProps, Utilities
                                 other scenarios aswell.
                             </p>
                         </article>
+
+                        <article>
+                            <HashLink id="blue-sidebar-menu-vertical-on-open">
+                                <code>.blue-sidebar-menu-vertical-on-open</code>
+                            </HashLink>
+                            <p>
+                                If you want to change direction inside of{" "}
+                                <code>.blue-sidebar-menu-horizontal-on-open</code> back to vertical, use{" "}
+                                <code>.blue-sidebar-menu-vertical-on-open</code>. Might be useful for dropdowns.
+                            </p>
+                        </article>
                     </>
                 )
             },

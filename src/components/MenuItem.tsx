@@ -99,6 +99,11 @@ export interface MenuItemProps {
     showDropdown?: boolean
 
     /**
+     * Callback when `showDropdown` changes.
+     */
+    onShowDropdown?: (showDropdown: boolean) => void
+
+    /**
      * Close on click outside.
      */
     supportOutside?: boolean
@@ -224,6 +229,12 @@ export default function MenuItem(props: MenuItemProps) {
     useEffect(() => {
         if (props.showDropdown !== undefined) setShowDropdown(props.showDropdown)
     }, [props.showDropdown])
+
+    useEffect(() => {
+        if (props.onShowDropdown) {
+            props.onShowDropdown(showDropdown)
+        }
+    }, [props.onShowDropdown, showDropdown])
 
     const className =
         "blue-menu-item btn" +
