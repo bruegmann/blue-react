@@ -23,8 +23,11 @@ $theme-colors: map-merge(
 // Alpha value (RGBA) e.g. for header background.
 $shimmering: 0.8 !default;
 
-// Thumb color of scrollbar
+// Thumb color of scrollbar.
 $scrollbar-thumb-color: white !default;
+
+// Thumb color of scrollbar as RGB (like `255, 255, 255`).
+$scrollbar-thumb-color-rgb: red($scrollbar-thumb-color), green($scrollbar-thumb-color), blue($scrollbar-thumb-color) !default;
 
 // Default size for many components, like sidebar menu items.
 $normal-size: 3rem !default;
@@ -87,6 +90,9 @@ $actions-control-bg-hover: $bla-button-bg-hover !default;
 $scrollbar-size: 10px;
 
 :root {
+    --blue-scrollbar-thumb-color-rgb: #{$scrollbar-thumb-color-rgb};
+    --blue-scrollbar-size: #{$scrollbar-size};
+
     --blue-sidebar-width: #{$bla-sidebar-width};
     --blue-sidebar-color: #{$sidebar-color};
     --blue-theme: var(--theme, #{$theme});

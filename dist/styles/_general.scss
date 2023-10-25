@@ -1,8 +1,8 @@
 @include blue-custom-scrollbar(
     transparent,
-    rgba($scrollbar-thumb-color, 0.5),
-    rgba($scrollbar-thumb-color, 0.6),
-    rgba($scrollbar-thumb-color, 0.7)
+    rgba(var(--blue-scrollbar-thumb-color-rgb), 0.5),
+    rgba(var(--blue-scrollbar-thumb-color-rgb), 0.6),
+    rgba(var(--blue-scrollbar-thumb-color-rgb), 0.7)
 );
 
 * {
@@ -11,9 +11,9 @@
 
 @media screen and (min-width: 768px) {
     ::-webkit-scrollbar {
-        height: $scrollbar-size;
+        height: var(--blue-scrollbar-size);
         overflow: visible;
-        width: $scrollbar-size;
+        width: var(--blue-scrollbar-size);
     }
     ::-webkit-scrollbar-thumb {
         background-clip: padding-box;
