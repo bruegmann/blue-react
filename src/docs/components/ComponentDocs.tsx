@@ -55,7 +55,6 @@ export class ComponentDocs extends Component<
             for (const file in comp.examples) {
                 try {
                     const ExampleComponent = require(`../examples/${comp.displayName}/${file}`)
-                    console.log(ExampleComponent)
                     this.setState((state) => ({
                         exampleComponents: { ...state.exampleComponents, [file]: ExampleComponent["default"] }
                     }))

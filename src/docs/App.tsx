@@ -24,7 +24,8 @@ import {
     RssFill,
     Eye,
     LayersHalf,
-    LayersFill
+    LayersFill,
+    BracesAsterisk
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
@@ -40,6 +41,7 @@ import SidebarMenu from "../components/SidebarMenu"
 import ColorModeSwitch from "./components/ColorModeSwitch"
 import SidebarMenuItem from "../components/SidebarMenuItem"
 import NeumorphismPage from "./pages/NeumorphismPage"
+import { CssPage } from "./pages/CssPage"
 
 function App() {
     const onHashChange = () => {
@@ -161,6 +163,12 @@ function App() {
                                 to="/neu"
                             />
 
+                            <SidebarMenuItem
+                                icon={<BracesAsterisk />}
+                                label="CSS Classes"
+                                elementType={NavLink}
+                                to="/css"
+                            />
                             <SidebarMenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
                             <SidebarMenuItem
                                 icon={<Puzzle />}
@@ -191,6 +199,10 @@ function App() {
 
                             <Route path="/neu">
                                 <NeumorphismPage />
+                            </Route>
+
+                            <Route path="/css/:selectedSection?">
+                                <CssPage />
                             </Route>
 
                             <Route path="/component/:selectedComponent?">

@@ -1,0 +1,91 @@
+// Inspired by Bootstrap's button system but extended with more variants
+
+// scss-docs-start btn-variant-loops
+@each $color, $value in $theme-colors {
+    $bg: tint-color($value, 80%);
+    $text-color: shade-color($value, 60%);
+
+    .blue-btn-soft-#{$color} {
+        @if $color == "light" {
+            $text-color: color-contrast($value);
+        }
+
+        @include button-variant(
+            $bg,
+            $bg,
+            $text-color,
+            $hover-background: shade-color($bg, $btn-hover-bg-shade-amount),
+            $hover-border: shade-color($bg, $btn-hover-border-shade-amount),
+            $active-background: shade-color($bg, $btn-active-bg-shade-amount),
+            $active-border: shade-color($bg, $btn-active-border-shade-amount)
+        );
+    }
+}
+
+@include color-mode(dark) {
+    @each $color, $value in $theme-colors {
+        $bg: shade-color($value, 80%);
+        $text-color: tint-color($value, 60%);
+
+        .blue-btn-soft-#{$color} {
+            @if $color == "dark" {
+                $text-color: color-contrast($value);
+            }
+
+            @include button-variant(
+                $bg,
+                $bg,
+                $text-color,
+                $hover-background: tint-color($bg, $btn-hover-bg-tint-amount),
+                $hover-border: tint-color($bg, $btn-hover-border-tint-amount),
+                $active-background: tint-color($bg, $btn-active-bg-tint-amount),
+                $active-border: tint-color($bg, $btn-active-border-tint-amount)
+            );
+        }
+    }
+}
+
+// scss-docs-start btn-variant-loops
+@each $color, $value in $theme-colors {
+    $bg: tint-color($value, 80%);
+    $text-color: $value;
+
+    .blue-btn-plain-#{$color} {
+        @if $color == "light" {
+            $text-color: color-contrast($value);
+        }
+
+        @include button-variant(
+            transparent,
+            transparent,
+            $text-color,
+            $hover-background: shade-color($bg, $btn-hover-bg-shade-amount),
+            $hover-border: shade-color($bg, $btn-hover-border-shade-amount),
+            $active-background: shade-color($bg, $btn-active-bg-shade-amount),
+            $active-border: shade-color($bg, $btn-active-border-shade-amount)
+        );
+    }
+}
+
+@include color-mode(dark) {
+    @each $color, $value in $theme-colors {
+        $bg: shade-color($value, 80%);
+        $text-color: $value;
+
+        .blue-btn-plain-#{$color} {
+            @if $color == "dark" {
+                $text-color: color-contrast($value);
+            }
+
+            @include button-variant(
+                transparent,
+                transparent,
+                $text-color,
+                $hover-background: tint-color($bg, $btn-hover-bg-tint-amount),
+                $hover-border: tint-color($bg, $btn-hover-border-tint-amount),
+                $active-background: tint-color($bg, $btn-active-bg-tint-amount),
+                $active-border: tint-color($bg, $btn-active-border-tint-amount)
+            );
+        }
+    }
+}
