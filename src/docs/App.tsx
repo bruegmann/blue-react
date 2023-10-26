@@ -55,6 +55,12 @@ function App() {
             }
 
             document.getElementById("docs-inline-style")!.innerHTML = css
+        } else if (window.location.hash !== "") {
+            setTimeout(() => {
+                document.querySelector(window.location.hash)?.scrollIntoView({
+                    behavior: "smooth"
+                })
+            }, 500)
         }
     }
 

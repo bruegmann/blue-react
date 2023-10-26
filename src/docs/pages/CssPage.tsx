@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams, NavLink } from "react-router-dom"
+import { useParams, NavLink, Link } from "react-router-dom"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
 import Page from "../../components/Page"
@@ -419,7 +419,15 @@ export const CssPage = () => {
                     (s, i) =>
                         (!selectedSection || selectedSection === s.title) && (
                             <article key={i} id={"section-" + encodeURIComponent(s.title)}>
-                                <h2 className="page-header">{s.title}</h2>
+                                <h2 className="page-header blue-opacity-hover">
+                                    {s.title}{" "}
+                                    <Link
+                                        to={`/css/${encodeURIComponent(s.title)}`}
+                                        className="blue-opacity-hover-content-active"
+                                    >
+                                        #
+                                    </Link>
+                                </h2>
                                 {s.body}
                             </article>
                         )
