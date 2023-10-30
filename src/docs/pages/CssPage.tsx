@@ -11,6 +11,7 @@ import TestCssVars from "../components/TestCssVars"
 import HashLink from "../components/HashLink"
 import { NormalScrollbarDemo } from "../components/NormalScrollbarDemo"
 import { CheckCircle, CheckCircleFill } from "react-bootstrap-icons"
+import ButtonsExample from "../examples/css/ButtonsExample"
 
 const sections = [
     {
@@ -25,29 +26,7 @@ const sections = [
                         A soft variant of Bootstrap's buttons. Always use together with <code>.btn</code>!
                     </p>
 
-                    <div className="d-flex gap-3 mb-3">
-                        <button className="btn blue-btn-soft-primary">Primary</button>
-                        <button className="btn blue-btn-soft-secondary">Secondary</button>
-                        <button className="btn blue-btn-soft-success">Success</button>
-                        <button className="btn blue-btn-soft-danger">Danger</button>
-                        <button className="btn blue-btn-soft-warning">Warning</button>
-                        <button className="btn blue-btn-soft-info">Info</button>
-                        <button className="btn blue-btn-soft-light">Light</button>
-                        <button className="btn blue-btn-soft-dark">Dark</button>
-                    </div>
-                    <SyntaxHighlighter
-                        style={syntaxHighlighterStyle}
-                        language="html"
-                    >{`<div className="d-flex gap-3 mb-3">
-    <button className="btn blue-btn-soft-primary">Primary</button>
-    <button className="btn blue-btn-soft-secondary">Secondary</button>
-    <button className="btn blue-btn-soft-success">Success</button>
-    <button className="btn blue-btn-soft-danger">Danger</button>
-    <button className="btn blue-btn-soft-warning">Warning</button>
-    <button className="btn blue-btn-soft-info">Info</button>
-    <button className="btn blue-btn-soft-light">Light</button>
-    <button className="btn blue-btn-soft-dark">Dark</button>
-</div>`}</SyntaxHighlighter>
+                    <ButtonsExample variant="soft" />
                 </article>
 
                 <article className="mb-5">
@@ -58,29 +37,7 @@ const sections = [
                         A plain variant of Bootstrap's buttons. Always use together with <code>.btn</code>!
                     </p>
 
-                    <div className="d-flex gap-3 mb-3">
-                        <button className="btn blue-btn-plain-primary">Primary</button>
-                        <button className="btn blue-btn-plain-secondary">Secondary</button>
-                        <button className="btn blue-btn-plain-success">Success</button>
-                        <button className="btn blue-btn-plain-danger">Danger</button>
-                        <button className="btn blue-btn-plain-warning">Warning</button>
-                        <button className="btn blue-btn-plain-info">Info</button>
-                        <button className="btn blue-btn-plain-light">Light</button>
-                        <button className="btn blue-btn-plain-dark">Dark</button>
-                    </div>
-                    <SyntaxHighlighter
-                        style={syntaxHighlighterStyle}
-                        language="html"
-                    >{`<div className="d-flex gap-3 mb-3">
-    <button className="btn blue-btn-plain-primary">Primary</button>
-    <button className="btn blue-btn-plain-secondary">Secondary</button>
-    <button className="btn blue-btn-plain-success">Success</button>
-    <button className="btn blue-btn-plain-danger">Danger</button>
-    <button className="btn blue-btn-plain-warning">Warning</button>
-    <button className="btn blue-btn-plain-info">Info</button>
-    <button className="btn blue-btn-plain-light">Light</button>
-    <button className="btn blue-btn-plain-dark">Dark</button>
-</div>`}</SyntaxHighlighter>
+                    <ButtonsExample variant="plain" />
                 </article>
 
                 <article className="mb-5">
