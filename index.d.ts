@@ -67,4 +67,6 @@ export { StatusProvider, useStatus } from "./dist/types/components/StatusProvide
 export { default as Switch } from "./dist/types/components/Switch"
 export { SwitchProps } from "./dist/types/components/Switch"
 
+export { ToastProvider, useToast } from "./dist/types/components/ToastProvider"
+
 export { default as Utilities } from "./dist/types/components/Utilities"

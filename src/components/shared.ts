@@ -19,7 +19,10 @@ const phrases: Phrases = {
     Yes: ["Yes", "Ja"],
     No: ["No", "Nein"],
     Message: ["Message", "Nachricht"],
-    "Toggle menu": ["Toggle menu", "Menü umschalten"]
+    "Toggle menu": ["Toggle menu", "Menü umschalten"],
+    "Close all": ["Close all", "Alle schließen"],
+    Error: ["Error", "Fehler"],
+    Information: ["Information", "Information"]
 }
 
 export function getPhrase(
