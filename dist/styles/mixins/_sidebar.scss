@@ -12,7 +12,7 @@
         display: flex;
     }
 
-    .blue-sidebar .blue-menu-item-label {
+    .blue-menu-item-label {
         display: inline-block;
     }
     .blue-sidebar {
@@ -38,11 +38,11 @@
         left: $bla-sidebar-width;
     }
 
-    .blue-sidebar .blue-menu-item-dropdown-caret.blue-caret {
+    .blue-menu-item-dropdown-caret.blue-caret {
         display: flex;
     }
 
-    .blue-sidebar .blue-menu-item-dropdown {
+    .blue-menu-item-dropdown {
         .blue-menu-item {
             width: 100%;
         }
