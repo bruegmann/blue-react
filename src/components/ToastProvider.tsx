@@ -6,7 +6,7 @@ const ToastContext = createContext({
     clearToasts: undefined as unknown as () => void
 })
 
-interface ToastProviderProps {
+export interface ToastProviderProps {
     children?: ReactNode
     successIcon?: ReactNode
     infoIcon?: ReactNode
