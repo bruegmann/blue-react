@@ -1,6 +1,6 @@
 {
     "name": "blue-react",
-    "version": "9.3.3",
+    "version": "9.4.0",
     "description": "Blue React Components",
     "license": "LGPL-3.0-or-later",
     "main": "index.js",
@@ -58,6 +58,7 @@
         "gh-pages": "^3.1.0",
         "license-report": "^6.2.0",
         "lint-staged": "^11.1.2",
+        "node-sass": "^9.0.0",
         "postcss-cli": "^9.0.1",
         "postcss-minify": "^1.1.0",
         "prettier": "2.4.1",
@@ -70,7 +71,6 @@
         "react-scripts": "^5.0.1",
         "react-syntax-highlighter": "^15.4.3",
         "reactstrap": "^9.0.0-0",
-        "sass": "^1.70.0",
         "typescript": "^4.3.5"
     },
     "eslintConfig": {
