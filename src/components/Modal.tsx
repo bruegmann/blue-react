@@ -22,6 +22,8 @@ export interface ModalProps {
 
     inputType?: string
     switchPrimaryBtn?: boolean
+    acceptBtnText?: string
+    cancelBtnText?: string
 }
 
 /**
@@ -39,7 +41,9 @@ export default function Modal({
     defaultInput,
     type,
     inputType = "text",
-    switchPrimaryBtn = false
+    switchPrimaryBtn = false,
+    acceptBtnText,
+    cancelBtnText
 }: ModalProps) {
     const modalRef = useRef() as MutableRefObject<HTMLDivElement>
     const [input, setInput] = useState<string>(defaultInput || "")
@@ -129,7 +133,13 @@ export default function Modal({
                                 } d-block w-100`}
                                 style={btnStyle}
                             >
-                                {type === "verify" ? getPhrase("Yes") : "OK"}
+                                {type === "verify"
+                                    ? acceptBtnText
+                                        ? acceptBtnText
+                                        : getPhrase("Yes")
+                                    : acceptBtnText
+                                    ? acceptBtnText
+                                    : "OK"}
                             </button>
                             {(type === "ask" || type === "verify") &&
                                 (type === "verify" ? (
@@ -140,7 +150,7 @@ export default function Modal({
                                         style={btnStyle}
                                         onClick={sayNo}
                                     >
-                                        {getPhrase("No")}
+                                        {cancelBtnText ? cancelBtnText : getPhrase("No")}
                                     </button>
                                 ) : (
                                     <button
@@ -148,7 +158,7 @@ export default function Modal({
                                         style={btnStyle}
                                         onClick={cancel}
                                     >
-                                        {getPhrase("Cancel")}
+                                        {cancelBtnText ? cancelBtnText : getPhrase("Cancel")}
                                     </button>
                                 ))}
                         </div>

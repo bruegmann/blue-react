@@ -6,6 +6,8 @@ interface ModelAlertOptions {
     title?: string
     icon?: ReactNode
     switchPrimaryBtn?: boolean
+    acceptBtnText?: string
+    cancelBtnText?: string
 }
 
 interface ModelAskOptions extends ModelAlertOptions {
@@ -30,6 +32,8 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
     const [defaultInput, setDefaultInput] = useState<string | undefined>()
     const [inputType, setInputType] = useState<string>()
     const [switchPrimaryBtn, setSwitchPrimaryBtn] = useState<boolean | undefined>(false)
+    const [acceptBtnText, setAcceptBtnText] = useState<string | undefined>()
+    const [cancelBtnText, setCancelBtnText] = useState<string | undefined>()
 
     const unSetModalContent = useCallback(() => {
         setModalContent(undefined)
@@ -42,11 +46,13 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
             setType("ask")
             setModalContent(text)
             if (options) {
-                const { title, icon, inputType, switchPrimaryBtn } = options
+                const { title, icon, inputType, switchPrimaryBtn, acceptBtnText, cancelBtnText } = options
                 setModalTitle(title)
                 setModalIcon(icon)
                 setInputType(inputType)
                 setSwitchPrimaryBtn(switchPrimaryBtn)
+                setAcceptBtnText(acceptBtnText)
+                setCancelBtnText(cancelBtnText)
             }
             setDefaultInput("")
             setOnSubmit(() => (input: string | boolean) => {
@@ -62,10 +68,12 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
             setType("tell")
             setModalContent(text)
             if (options) {
-                const { title, icon, switchPrimaryBtn } = options
+                const { title, icon, switchPrimaryBtn, acceptBtnText, cancelBtnText } = options
                 setModalTitle(title)
                 setModalIcon(icon)
                 setSwitchPrimaryBtn(switchPrimaryBtn)
+                setAcceptBtnText(acceptBtnText)
+                setCancelBtnText(cancelBtnText)
             }
             setOnSubmit(() => (input: string | boolean) => {
                 resolve(input ? true : false)
@@ -79,10 +87,12 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
             setType("verify")
             setModalContent(text)
             if (options) {
-                const { title, icon, switchPrimaryBtn } = options
+                const { title, icon, switchPrimaryBtn, acceptBtnText, cancelBtnText } = options
                 setModalTitle(title)
                 setModalIcon(icon)
                 setSwitchPrimaryBtn(switchPrimaryBtn)
+                setAcceptBtnText(acceptBtnText)
+                setCancelBtnText(cancelBtnText)
             }
             setOnSubmit(() => (input: string | boolean) => {
                 resolve(input ? true : false)
@@ -111,6 +121,8 @@ const ModalProvider = ({ children, ...rest }: ModalProviderProps) => {
                 type={type}
                 inputType={inputType}
                 switchPrimaryBtn={switchPrimaryBtn}
+                acceptBtnText={acceptBtnText}
+                cancelBtnText={cancelBtnText}
             />
         </ModalContext.Provider>
     )
