@@ -9,14 +9,17 @@ function InsideComp() {
             <p>
                 Allowed params for the functions <code>tell</code> and <code>verify</code>:<br />
                 <code>
-                    (text: string, options: {`{ title?: string, icon?: ReactNode, switchPrimaryBtn?: boolean }`}?)
+                    (text: string, options:{" "}
+                    {`{ title?: string, icon?: ReactNode, switchPrimaryBtn?: boolean, acceptBtnText?: string, cancelBtnText?: string }`}
+                    ?)
                 </code>
             </p>
             <p>
                 Allowed params for the function <code>ask</code>:<br />
                 <code>
                     (text: string, options:{" "}
-                    {`{ title?: string, icon?: ReactNode, switchPrimaryBtn?: boolean, inputType?: string }`}?)
+                    {`{ title?: string, icon?: ReactNode, switchPrimaryBtn?: boolean, inputType?: string, acceptBtnText?: string, cancelBtnText?: string }`}
+                    ?)
                 </code>
             </p>
 
