@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { createElement, useEffect } from "react"
 import Utilities from "./Utilities"
 
 export interface HeaderTitleProps {
@@ -6,6 +6,7 @@ export interface HeaderTitleProps {
      * Can be an image. Will be placed inside of the `src` attribute.
      */
     logo?: string
+    logoAlt?: string
 
     /**
      * Text next to the logo.
@@ -28,13 +29,37 @@ export interface HeaderTitleProps {
      * Is the component used on the sidebar?
      */
     sidebar?: boolean
+
+    /**
+     * By default, MenuItem is a `"a"`.
+     * If you want to have it another type, you can pass a component reference with this prop (e.g. `Link`).
+     */
+    elementType?: any
+
+    /**
+     * Sets `to` prop, e.g. when you use the `Link` component from React Router.
+     */
+    to?: string
+
+    href?: string
 }
 
 /**
  * The title area at the header bar.
  * Depending on its content, the document's title will be set aswell (what will be shown in the browser title bar).
  */
-export default function HeaderTitle({ logo, appTitle, keepAppTitle, children, className, sidebar }: HeaderTitleProps) {
+export default function HeaderTitle({
+    logo,
+    logoAlt = "Logo",
+    appTitle,
+    keepAppTitle,
+    children,
+    className,
+    sidebar,
+    elementType = "a",
+    to,
+    href = "#"
+}: HeaderTitleProps) {
     const uniqueId = "HeaderTitle-" + Utilities.guid()
 
     const setDocumentTitle = () => {
@@ -67,9 +92,11 @@ export default function HeaderTitle({ logo, appTitle, keepAppTitle, children, cl
             <span className="blue-header-logo-title">
                 {logo ? (
                     <span>
-                        <a href="#">
-                            <img src={logo} className="blue-header-logo-image" />
-                        </a>
+                        {createElement(
+                            elementType,
+                            { to, href },
+                            <img src={logo} alt={logoAlt} className="blue-header-logo-image" />
+                        )}
                         &nbsp;
                     </span>
                 ) : (
@@ -78,7 +105,7 @@ export default function HeaderTitle({ logo, appTitle, keepAppTitle, children, cl
                 <span className={"blue-header-logo-title-labels " + (keepAppTitle ? "keep" : "")}>
                     {appTitle ? (
                         <span>
-                            <a href="#">{appTitle}</a> {children ? "/" : ""}
+                            {createElement(elementType, { to, href }, appTitle)} {children ? "/" : ""}
                             &nbsp;
                         </span>
                     ) : (

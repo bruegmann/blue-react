@@ -192,6 +192,43 @@ export default function DemoApp() {
                                     <label htmlFor="DempApp-intro-password">Password</label>
                                 </div>
 
+                                <div className="form-check mb-3">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        id="flexCheckChecked"
+                                        defaultChecked
+                                    />
+                                    <label className="form-check-label" htmlFor="flexCheckChecked">
+                                        Checked checkbox
+                                    </label>
+                                </div>
+
+                                <div className="form-check form-switch mb-3">
+                                    <input
+                                        className="form-check-input"
+                                        role="switch"
+                                        type="checkbox"
+                                        id="flexCheckChecked2"
+                                        defaultChecked
+                                    />
+                                    <label className="form-check-label" htmlFor="flexCheckChecked2">
+                                        Checked switch
+                                    </label>
+                                </div>
+
+                                <div className="form-check mb-3">
+                                    <input
+                                        className="form-check-input"
+                                        type="radio"
+                                        id="flexCheckChecked3"
+                                        defaultChecked
+                                    />
+                                    <label className="form-check-label" htmlFor="flexCheckChecked3">
+                                        Checked radio
+                                    </label>
+                                </div>
+
                                 <div className="text-center">
                                     <button type="submit" className="btn btn-primary btn-lg w-100">
                                         Sign in

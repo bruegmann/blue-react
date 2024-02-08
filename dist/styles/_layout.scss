@@ -64,7 +64,7 @@
 
 .blue-header {
     @include header-bg();
-    color: $header-color;
+    color: var(--blue-header-color);
 }
 
 .blue-header {
@@ -87,7 +87,7 @@
 
             > a {
                 background-color: transparent;
-                color: $header-color;
+                color: var(--blue-header-color);
                 padding: $bla-header-nav-padding;
 
                 &:hover,
