@@ -1,5 +1,6 @@
 import { useState } from "react"
 import {
+    ArrowLeft,
     BoxArrowLeft,
     Calendar,
     ClockHistory,
@@ -25,7 +26,6 @@ import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
 import SidebarMenuItem from "../../components/SidebarMenuItem"
 import IconMenuItem from "../../components/IconMenuItem"
-import { useModal } from "../../components/ModalProvider"
 
 const exampleHistoryItems = ["Nice person", "Important message", "Document XYZ", "Boring appointment"]
 const exampleFavoriteItems = ["Max Mustermann person", "A Word Document", "Boring appointment"]
@@ -342,55 +342,43 @@ export default function DemoApp() {
                 sidebarClass="overflow-visible"
                 menuClass="overflow-visible"
                 topContent={
-                    <>
-                        <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Search">
-                            <Search sidebar placeholder="Search in menu" />
-                        </div>
-
-                        <div className="blue-sidebar-visible-on-open blue-sidebar-menu-horizontal-on-open">
-                            <MenuItem
-                                href="#home"
-                                label="Sign out"
-                                icon={<BoxArrowLeft className="bi" />}
-                                labelClassName="text-center w-100"
-                            />
-                            <div className="position-relative">
-                                <IconMenuItem
-                                    label="More"
-                                    supportOutside
-                                    dropdownClassName="position-absolute z-3 end-0 blue-sidebar-menu-vertical-on-open"
-                                >
-                                    <MenuItem href="#intro" label="Sign out" icon={<BoxArrowLeft className="bi" />} />
-                                </IconMenuItem>
-                            </div>
-                        </div>
-                    </>
+                    <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Search">
+                        <Search sidebar placeholder="Search in menu" />
+                    </div>
                 }
                 bottomContent={
-                    <div className="d-flex flex-wrap">
-                        <IconMenuItem
-                            href="#record"
-                            outerClass="flex-fill"
-                            label="User settings"
-                            icon={<Person className="bi" />}
+                    <>
+                        <SidebarMenuItem
+                            to="/"
+                            elementType={Link}
+                            icon={<ArrowLeft className="bi" />}
+                            label="Back to the docs"
                         />
+                        <div className="d-flex flex-wrap">
+                            <IconMenuItem
+                                href="#record"
+                                outerClass="flex-fill"
+                                label="User settings"
+                                icon={<Person className="bi" />}
+                            />
 
-                        <IconMenuItem
-                            onClick={() => {
-                                alert("There are actually no settings 😅")
-                            }}
-                            outerClass="flex-fill"
-                            label="Settings"
-                            icon={<Gear className="bi" />}
-                        />
+                            <IconMenuItem
+                                onClick={() => {
+                                    alert("There are actually no settings 😅")
+                                }}
+                                outerClass="flex-fill"
+                                label="Settings"
+                                icon={<Gear className="bi" />}
+                            />
 
-                        <IconMenuItem
-                            href="#intro"
-                            outerClass="flex-fill"
-                            label="Sign out"
-                            icon={<BoxArrowLeft className="bi" />}
-                        />
-                    </div>
+                            <IconMenuItem
+                                href="#intro"
+                                outerClass="flex-fill"
+                                label="Sign out"
+                                icon={<BoxArrowLeft className="bi" />}
+                            />
+                        </div>
+                    </>
                 }
             >
                 <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Home">
