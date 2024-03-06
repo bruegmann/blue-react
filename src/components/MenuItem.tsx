@@ -156,8 +156,12 @@ export interface MenuItemProps {
 
     /**
      * Specifies whether an element is draggable or not.
+     *
+     * **Important:** To make draggable menu items work in Firefox, the elementType must not be `"button"`. Set it to something else, like `"div"`.
      */
     draggable?: boolean
+
+    hideDraggableIcon?: boolean
 
     "data-tooltip"?: string
     /**
@@ -168,6 +172,8 @@ export interface MenuItemProps {
      * Specifies style of an element.
      */
     style?: React.CSSProperties
+
+    id?: string
 }
 
 /**
@@ -288,9 +294,25 @@ export default function MenuItem(props: MenuItemProps) {
                     "data-tooltip": props["data-tooltip"],
                     disabled: props.disabled,
                     style: props.style,
-                    type: props.type
+                    type: props.type,
+                    id: props.id
                 },
                 <>
+                    {props.draggable && props.hideDraggableIcon !== true && (
+                        <>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width=".5em"
+                                height="1em"
+                                fill="currentColor"
+                                className="bi bi-grip-vertical opacity-50"
+                                viewBox="0 0 8 16"
+                            >
+                                <path d="M3.376 1.876c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1m3 0c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1m-3 3c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1m3 0c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1m-3 3c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1m3 0c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1m-3 3c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1m3 0c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1m-3 3c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1m3 0c0 .55-.45 1-1 1-.549 0-1-.45-1-1 0-.549.451-1 1-1 .55 0 1 .451 1 1"></path>
+                            </svg>{" "}
+                        </>
+                    )}
+
                     {props.icon !== undefined && (
                         <span
                             className={clsx("blue-menu-item-icon", props.iconClassName, {

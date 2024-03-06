@@ -109,6 +109,14 @@
             transition: all 0.2s;
         }
 
+        &[draggable] {
+            cursor: move;
+
+            &:active {
+                box-shadow: inset 0 0 0.25rem;
+            }
+        }
+
         &:hover,
         &:active,
         &.highlighted {
