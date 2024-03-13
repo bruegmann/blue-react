@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { CSSProperties, useEffect, useState } from "react"
 import { useParams, NavLink, Link } from "react-router-dom"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
@@ -207,6 +207,32 @@ const sections = [
                         language="html"
                     >{`<strong data-tooltip="Put your tooltip text here" className="blue-tooltip-up">
     Hover me!
+</strong>`}</SyntaxHighlighter>
+                </article>
+
+                <article className="mb-5">
+                    <HashLink id="blue-tooltip-nowrap">
+                        <code>.blue-tooltip-nowrap</code>
+                    </HashLink>
+                    <p>
+                        Avoid wrapping in the tooltip text. Together with CSS variable{" "}
+                        <code>--bs-tooltip-max-width</code> you can limit the width.
+                        <br />
+                        Usage:
+                    </p>
+                    <strong
+                        data-tooltip="Put your tooltip text here. It can also become pretty long if you want to."
+                        className="blue-tooltip-start blue-tooltip-nowrap"
+                        style={{ "--bs-tooltip-max-width": "600px" } as CSSProperties}
+                    >
+                        Or me! My tooltip is not wrapping and is just one line. With a css variable for max-width.
+                    </strong>
+                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="html">{`<strong
+    data-tooltip="Put your tooltip text here. It can also become pretty long if you want to."
+    className="blue-tooltip-start blue-tooltip-nowrap"
+    style={{ "--bs-tooltip-max-width": "600px" } as CSSProperties}
+>
+    Or me! My tooltip is not wrapping and is just one line.
 </strong>`}</SyntaxHighlighter>
                 </article>
             </>

@@ -184,3 +184,11 @@
         display: none !important;
     }
 }
+
+.blue-tooltip-nowrap {
+    &::after {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
