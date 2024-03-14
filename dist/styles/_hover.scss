@@ -9,7 +9,7 @@
     .blue-d-hover {
         &:not(:hover):not(:focus):not(:active):not(.active):not(:focus-within) {
             .blue-d-hover-content-active {
-                display: none;
+                display: none !important;
             }
         }
 
@@ -19,7 +19,7 @@
         &.active,
         &:focus-within {
             .blue-d-hover-content-default {
-                display: none;
+                display: none !important;
             }
         }
     }

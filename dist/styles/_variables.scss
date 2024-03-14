@@ -77,6 +77,9 @@ $header-color: #fff !default;
 // Background color of Header
 $header-bg: $theme !default;
 
+// Background color of Header as RGB (like `255, 255, 255`).
+$header-bg-rgb: red($header-bg), green($header-bg), blue($header-bg) !default;
+
 // Background of header action menu dropdown menus
 $header-deep-bg: darken($header-bg, 4%) !default;
 
@@ -96,8 +99,24 @@ $scrollbar-size: 10px;
     --blue-shimmering: 0.9;
 
     --blue-app-bg: #{$app-bg};
+
     --blue-sidebar-bg: #{$sidebar-bg};
+    --blue-sidebar-depth-1-bg: #{darken($sidebar-bg, 4%)};
+    --blue-sidebar-depth-2-bg: #{darken(darken($sidebar-bg, 4%), 4%)};
+    --blue-sidebar-depth-3-bg: #{darken(darken($sidebar-bg, 4%), 8%)};
+    --blue-sidebar-depth-4-bg: #{darken(darken($sidebar-bg, 4%), 12%)};
+    --blue-sidebar-depth-5-bg: #{darken(darken($sidebar-bg, 4%), 16%)};
+    --blue-sidebar-depth-6-bg: #{darken(darken($sidebar-bg, 4%), 20%)};
+
     --blue-header-bg: #{$header-bg};
+    --blue-header-bg-rgb: #{$header-bg-rgb};
+    --blue-header-depth-1-bg: #{darken($header-bg, 4%)};
+    --blue-header-depth-2-bg: #{darken(darken($header-bg, 4%), 4%)};
+    --blue-header-depth-3-bg: #{darken(darken($header-bg, 4%), 8%)};
+    --blue-header-depth-4-bg: #{darken(darken($header-bg, 4%), 12%)};
+    --blue-header-depth-5-bg: #{darken(darken($header-bg, 4%), 16%)};
+    --blue-header-depth-6-bg: #{darken(darken($header-bg, 4%), 20%)};
+
     --blue-header-color: #{$header-color};
     --blue-action-link-bg-color: var(--blue-theme);
     --blue-menu-item-indicator-bg: #{$sidebar-indicator-color};

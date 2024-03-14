@@ -1,19 +1,5 @@
-.blue-actions-menu {
-    .nav-link {
-        position: relative;
-        margin-left: 2px;
-
-        background-color: var(--blue-action-link-bg-color);
-
-        &:hover {
-            background-color: $bla-button-bg-hover;
-        }
-    }
-}
-
 .blue-actions {
     display: inline;
-    transition: background-color 0.5s linear;
     position: absolute;
     left: 0;
     right: 0;

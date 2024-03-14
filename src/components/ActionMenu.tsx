@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { Children, useState } from "react"
 import MenuItem from "./MenuItem"
 import { breakOption } from "./shared"
 import Outside from "./Outside"
@@ -51,6 +51,8 @@ export default function ActionMenu(props: ActionMenuProps) {
 
     const toggleActions = () => setActionsToggledIn(!actionsToggledIn)
 
+    const validChildren = Children.toArray(children).filter(Boolean)
+
     return (
         <Outside
             className={`blue-actions navbar ${className} navbar-expand${
@@ -61,7 +63,7 @@ export default function ActionMenu(props: ActionMenuProps) {
             }}
         >
             <ul className="blue-actions-menu nav navbar-nav navbar-right">
-                {!actionsToggledIn && !hideToggleAction && (
+                {validChildren.length > 0 && !actionsToggledIn && !hideToggleAction && (
                     <MenuItem
                         className="blue-actions-menu-toggle"
                         onClick={() => toggleActions()}
