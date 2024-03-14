@@ -37,7 +37,7 @@
 
     &:not(.open) {
         .blue-sidebar-visible-on-open {
-            display: none;
+            display: none !important;
         }
 
         .blue-sidebar-hidden-on-open {
