@@ -1,6 +1,7 @@
 .blue-layout {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
 
     &.hasNoSidebarMenu {
         .blue-page,
@@ -231,6 +232,7 @@
 
 .blue-page {
     min-height: calc(100vh - #{$normal-size});
+    min-height: calc(100dvh - #{$normal-size});
     margin-top: $normal-size;
 }
 
@@ -238,6 +240,7 @@
     .blue-page {
         margin-top: initial;
         min-height: calc(100vh);
+        min-height: calc(100dvh);
     }
 }
 
