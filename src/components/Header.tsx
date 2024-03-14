@@ -1,22 +1,12 @@
-import React from "react"
-import Utilities from "./Utilities"
+import React, { ReactNode } from "react"
 
 export interface HeaderProps {
-    children?: any
+    children?: ReactNode
 }
 
 /**
  * The top of a page.
  */
 export default function Header({ children }: HeaderProps) {
-    return (
-        <div className="blue-header blue-header-extension">
-            <div
-                className="blue-header-wrapper"
-                onClick={Utilities.scrollToTop}
-            />
-
-            {children}
-        </div>
-    )
+    return <div className="blue-header blue-header-extension">{children}</div>
 }

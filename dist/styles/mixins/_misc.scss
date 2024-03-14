@@ -41,6 +41,9 @@
 }
 
 @mixin header-bg() {
-    background-color: rgba(var(--bs-theme-rgb, $header-bg), var(--blue-shimmering, $shimmering));
+    background-image: linear-gradient(
+        var(--blue-header-bg, $header-bg),
+        rgba(var(--blue-header-bg-rgb, var(--bs-theme-rgb)), var(--blue-shimmering, $shimmering))
+    );
     backdrop-filter: blur(3px) saturate(125%);
 }

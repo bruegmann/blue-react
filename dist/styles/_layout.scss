@@ -1,6 +1,7 @@
 .blue-layout {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
 
     &.hasNoSidebarMenu {
         .blue-page,
@@ -36,21 +37,13 @@
 
     &:not(.open) {
         .blue-sidebar-visible-on-open {
-            display: none;
+            display: none !important;
         }
 
         .blue-sidebar-hidden-on-open {
             animation: fade-in 1s;
         }
     }
-}
-
-.blue-header-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
 }
 
 .blue-sidebar-toggler {
@@ -231,6 +224,7 @@
 
 .blue-page {
     min-height: calc(100vh - #{$normal-size});
+    min-height: calc(100dvh - #{$normal-size});
     margin-top: $normal-size;
 }
 
@@ -238,6 +232,7 @@
     .blue-page {
         margin-top: initial;
         min-height: calc(100vh);
+        min-height: calc(100dvh);
     }
 }
 
@@ -318,26 +313,26 @@
 }
 
 .blue-sidebar .blue-menu-item-dropdown {
-    --blue-sidebar-bg: #{$sidebar-deep-bg};
+    --blue-sidebar-bg: var(--blue-sidebar-depth-1-bg, #{$sidebar-deep-bg});
 
     &::before {
         background-color: var(--blue-sidebar-bg);
     }
 
     .blue-menu-item-dropdown {
-        --blue-sidebar-bg: #{darken($sidebar-deep-bg, 4%)};
+        --blue-sidebar-bg: var(--blue-sidebar-depth-2-bg, #{darken($sidebar-deep-bg, 4%)});
 
         .blue-menu-item-dropdown {
-            --blue-sidebar-bg: #{darken($sidebar-deep-bg, 8%)};
+            --blue-sidebar-bg: var(--blue-sidebar-depth-3-bg, #{darken($sidebar-deep-bg, 8%)});
 
             .blue-menu-item-dropdown {
-                --blue-sidebar-bg: #{darken($sidebar-deep-bg, 12%)};
+                --blue-sidebar-bg: var(--blue-sidebar-depth-4-bg, #{darken($sidebar-deep-bg, 12%)});
 
                 .blue-menu-item-dropdown {
-                    --blue-sidebar-bg: #{darken($sidebar-deep-bg, 16%)};
+                    --blue-sidebar-bg: var(--blue-sidebar-depth-5-bg, #{darken($sidebar-deep-bg, 16%)});
 
                     .blue-menu-item-dropdown {
-                        --blue-sidebar-bg: #{darken($sidebar-deep-bg, 20%)};
+                        --blue-sidebar-bg: var(--blue-sidebar-depth-6-bg, #{darken($sidebar-deep-bg, 20%)});
                     }
                 }
             }

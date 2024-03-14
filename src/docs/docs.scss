@@ -1,4 +1,4 @@
-$theme: #261f31;
+// $theme: #261f31;
 $primary: #655be9;
 
 $body-bg: #efeeee;
@@ -45,6 +45,7 @@ $body-color-dark: white;
 
 .docs-min-height-100vh {
     min-height: 100vh;
+    min-height: 100dvh;
 }
 
 pre {

@@ -4,12 +4,12 @@
     .blue-sidebar-after-hidden-on-open::after,
     .blue-sidebar-pseudo-hidden-on-open::before,
     .blue-sidebar-pseudo-hidden-on-open::after {
-        display: none;
+        display: none !important;
     }
 
     .blue-sidebar-visible-on-open {
         animation: fade-in 1s;
-        display: flex;
+        display: flex !important;
     }
 
     .blue-menu-item-label {

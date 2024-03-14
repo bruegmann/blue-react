@@ -105,6 +105,13 @@ const sections = [
         body: (
             <>
                 <article className="mb-5">
+                    <HashLink id="blue-sidebar-exception">
+                        <code>.blue-sidebar-exception</code>
+                    </HashLink>
+                    <p>Prevents the default behaviour of closing sidebar after clicking an item.</p>
+                </article>
+
+                <article className="mb-5">
                     <HashLink id="blue-sidebar-bottom">
                         <code>.blue-sidebar-bottom</code>
                     </HashLink>
