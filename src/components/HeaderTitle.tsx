@@ -68,7 +68,7 @@ export default function HeaderTitle({
             window.blueLayoutRef.props &&
             window.blueLayoutRef.props.disableTitleSet === false
         ) {
-            const element = document.querySelector(`#${uniqueId} .blue-header-logo-title-labels`) as HTMLElement
+            const element = document.querySelector(`#${uniqueId} .blue-header-title-labels`) as HTMLElement
             const titleElement = document.querySelector("title")
             if (element && element.innerText && titleElement) {
                 const titlePaths = element.innerText.split("/")
@@ -87,32 +87,26 @@ export default function HeaderTitle({
     return (
         <div
             id={uniqueId}
-            className={"h3 blue-header-logo" + (className ? ` ${className}` : "") + (sidebar ? " sidebar" : "")}
+            className={
+                "blue-header-title d-inline-flex gap-2 fw-medium align-items-center px-3 py-2 position-absolute z-1" +
+                (className ? ` ${className}` : "") +
+                (sidebar ? " sidebar" : "")
+            }
         >
-            <span className="blue-header-logo-title">
-                {logo ? (
-                    <span>
-                        {createElement(
-                            elementType,
-                            { to, href },
-                            <img src={logo} alt={logoAlt} className="blue-header-logo-image" />
-                        )}
-                        &nbsp;
-                    </span>
-                ) : (
-                    ""
+            {logo &&
+                createElement(
+                    elementType,
+                    { to, href },
+                    <img src={logo} alt={logoAlt} className="blue-header-title-image" />
                 )}
-                <span className={"blue-header-logo-title-labels " + (keepAppTitle ? "keep" : "")}>
-                    {appTitle ? (
-                        <span>
-                            {createElement(elementType, { to, href }, appTitle)} {children ? "/" : ""}
-                            &nbsp;
-                        </span>
-                    ) : (
-                        ""
-                    )}
-                    {children}
-                </span>
+            <span className={"blue-header-title-labels " + (keepAppTitle ? "keep" : "")}>
+                {appTitle && (
+                    <>
+                        {createElement(elementType, { to, href }, appTitle)} {children ? "/" : ""}
+                        &nbsp;
+                    </>
+                )}
+                {children}
             </span>
         </div>
     )

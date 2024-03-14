@@ -188,7 +188,7 @@
         }
     }
 
-    .blue-layout .blue-header-logo {
+    .blue-layout .blue-header-title {
         padding-left: $spacer;
     }
 }
@@ -241,16 +241,7 @@
     }
 }
 
-.blue-header-logo {
-    padding: 0.625rem 0.938rem;
-    margin: 0;
-    cursor: default;
-    display: inline-block;
-    font-weight: 400;
-    font-size: $bla-header-logo-font-size;
-    position: absolute;
-    z-index: 1;
-
+.blue-header-title {
     a {
         color: inherit;
 
@@ -260,10 +251,9 @@
     }
 }
 
-.blue-header-logo-image {
+.blue-header-title-image {
     width: 2rem;
     height: 2rem;
-    margin-top: -0.25rem;
 }
 
 .blue-menu-item {

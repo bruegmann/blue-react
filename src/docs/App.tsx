@@ -42,6 +42,7 @@ import ColorModeSwitch from "./components/ColorModeSwitch"
 import SidebarMenuItem from "../components/SidebarMenuItem"
 import NeumorphismPage from "./pages/NeumorphismPage"
 import { CssPage } from "./pages/CssPage"
+import HeaderTitle from "../components/HeaderTitle"
 
 function App() {
     const onHashChange = () => {
@@ -107,14 +108,13 @@ function App() {
                         }}
                         disableHeaders
                     >
-                        <div className="h3 blue-header-logo text-white ms-5 blue-sidebar-visible-on-open gap-1">
-                            <Link to="/">
-                                <img src={logo} alt="Logo" className="blue-header-logo-image" />
-                            </Link>
-                            <span className="blue-header-logo-title-labels">
-                                <Link to="/">{appTitle}</Link>
-                            </span>
-                        </div>
+                        <HeaderTitle
+                            logo={logo}
+                            appTitle={appTitle}
+                            to="/"
+                            elementType={Link}
+                            className="text-white blue-sidebar-visible-on-open ms-5"
+                        />
 
                         <SidebarMenu
                             sidebarClass="overflow-visible"
