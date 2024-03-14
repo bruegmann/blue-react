@@ -50,6 +50,9 @@ export function hideSuccess() {
     ;(document.querySelector(".blue-status-success") as HTMLElement).style.display = ""
 }
 
+/**
+ * @deprecated Is handled inside of `ActioMenu` component now
+ */
 export function toggleActions() {
     toggleClass(document.querySelector(".blue-wrapper")!, "active")
     toggleClass(document.querySelector(".blue-layout")!, "wrapper-in")

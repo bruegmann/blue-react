@@ -364,7 +364,6 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
     render() {
         return (
             <div>
-                <div className="blue-wrapper"></div>
                 <div
                     id={this.props.id ? this.props.id : ""}
                     style={this.props.style ? this.props.style : {}}

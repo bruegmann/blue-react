@@ -14,13 +14,14 @@
 
             display: block;
             background-color: var(--blue-action-link-bg-color);
-            width: 100%;
+            width: calc(100% - 0.25rem);
             position: absolute;
             z-index: 1;
             left: 0;
-            top: 0;
+            top: 0.25rem;
             box-shadow: 0.6rem 6rem 6rem rgba(0, 0, 0, 0.3);
             animation: fadeInDown 0.5s;
+            border-radius: $border-radius;
 
             @include show-action-menu-again();
 
