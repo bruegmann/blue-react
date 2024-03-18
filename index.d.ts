@@ -21,6 +21,9 @@ export { BodyProps } from "./dist/types/components/Body"
 export { default as Caret } from "./dist/types/components/Caret"
 export { CaretProps } from "./dist/types/components/Caret"
 
+export { default as Chevron } from "./dist/types/components/Chevron"
+export { ChevronProps } from "./dist/types/components/Chevron"
+
 export { default as Header } from "./dist/types/components/Header"
 export { HeaderProps } from "./dist/types/components/Header"
 

@@ -17,6 +17,7 @@ export interface CaretProps {
 
 /**
  * Caret icon component.
+ * Will be replaced by the `Chevron` component in the next major version.
  */
 export default function Caret({ open, mirrored, className, style }: CaretProps) {
     return (

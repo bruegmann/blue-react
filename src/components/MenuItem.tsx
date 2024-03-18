@@ -1,8 +1,8 @@
 import clsx from "clsx"
 import React, { CSSProperties, createElement, useEffect, useState } from "react"
-import Caret from "./Caret"
 import Outside from "./Outside"
 import Utilities from "./Utilities"
+import Chevron from "./Chevron"
 
 export interface MenuItemProps {
     /**
@@ -333,10 +333,10 @@ export default function MenuItem(props: MenuItemProps) {
                         </span>
                     )}
                     {props.children && (
-                        <Caret
+                        <Chevron
                             open={showDropdown}
                             mirrored
-                            className={clsx("blue-menu-item-dropdown-caret mt-2", props.caretClassName)}
+                            className={clsx("blue-menu-item-dropdown-caret ms-auto", props.caretClassName)}
                             style={props.caretStyle}
                         />
                     )}
