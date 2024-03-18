@@ -65,7 +65,7 @@ export default function ActionMenu(props: ActionMenuProps) {
             <ul className="blue-actions-menu nav navbar-nav navbar-right">
                 {validChildren.length > 0 && !actionsToggledIn && !hideToggleAction && (
                     <MenuItem
-                        className="blue-actions-menu-toggle"
+                        className="blue-actions-menu-toggle w-100"
                         onClick={() => toggleActions()}
                         icon={toggleIcon}
                         aria-label="Toggle menu"
