@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import ColorModeSwitch from "./ColorModeSwitch"
 
 interface FooterProps {
     containerClass?: string
@@ -8,8 +9,8 @@ interface FooterProps {
 export function Footer({ containerClass = "container" }: FooterProps) {
     return (
         <footer className="docs-footer mb-1">
-            <div className={`${containerClass} mt-5`}>
-                <p className="text-muted mb-0">
+            <div className={`${containerClass} d-flex mt-5`}>
+                <p className="text-muted mb-0 flex-grow-1">
                     <small>
                         {`©${new Date().getFullYear() || "2021"} Brügmann Software GmbH. `}
                         {"Licensed under "}
@@ -37,6 +38,8 @@ export function Footer({ containerClass = "container" }: FooterProps) {
                         .
                     </small>
                 </p>
+
+                <ColorModeSwitch />
             </div>
         </footer>
     )

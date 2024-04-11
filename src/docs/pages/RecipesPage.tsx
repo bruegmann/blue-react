@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { NavLink, useParams } from "react-router-dom"
-import Body from "../components/BodyRounded"
+import Body from "../../components/Body"
 import Page from "../../components/Page"
 import { Footer } from "../components/Footer"
 import { Recipe } from "../components/Recipe"

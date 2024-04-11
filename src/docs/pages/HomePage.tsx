@@ -15,7 +15,7 @@ export const HomePage = () => (
         <Body className="pt-0" containerClass="no-container d-flex flex-column docs-min-height-100vh">
             <main className="flex-grow-1">
                 <div className="welcome-jumbotron pt-5 bg-theme text-white">
-                    <div className="container pt-3 pt-md-0">
+                    <div className="container pt-3 mt-5 pt-md-0">
                         <section className="d-flex justify-content-between">
                             <div>
                                 <h1>React component library based on Bootstrap 5</h1>

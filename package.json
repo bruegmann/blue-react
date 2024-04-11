@@ -15,7 +15,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build-docs": "react-scripts build && npm run docgen",
+        "build-docs": "react-scripts build && npm run docgen && node indexCssSections.js",
         "build-types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --noEmit false",
         "build": "babel ./src/components --out-dir ./dist/components --extensions \".tsx,.js,.ts\"",
         "build-css": "node ./setVersionToStyleScss.js && node-sass ./dist/style.scss ./dist/style.css && npx postcss ./dist/style.css --use autoprefixer -r && npx postcss ./dist/style.css --use postcss-minify -o ./dist/style.min.css",

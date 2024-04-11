@@ -30,7 +30,7 @@ import {
 
 import { ComponentPage } from "./pages/ComponentPage"
 import UtilitiesPage from "./pages/UtilitiesPage"
-import { appTitle, logo } from "./Global"
+import { logo } from "./Global"
 import { RecipesPage } from "./pages/RecipesPage"
 import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
 import BlogPage from "./pages/BlogPage"
@@ -38,11 +38,9 @@ import LicenseReportPage from "./pages/LicenseReportPage"
 import { useEffect } from "react"
 import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
-import ColorModeSwitch from "./components/ColorModeSwitch"
 import SidebarMenuItem from "../components/SidebarMenuItem"
 import NeumorphismPage from "./pages/NeumorphismPage"
 import { CssPage } from "./pages/CssPage"
-import HeaderTitle from "../components/HeaderTitle"
 
 function App() {
     const onHashChange = () => {
@@ -96,8 +94,26 @@ function App() {
                 </Route>
 
                 <Route path="/">
+                    <nav className="docs-nav navbar navbar-expand navbar-dark bg-dark shadow-lg position-fixed top-0 rounded-4 z-1 py-1 mt-1 ms-1">
+                        <div className="container-fluid px-2">
+                            <Link className="navbar-brand" to="/">
+                                <img src={logo} alt="Blue Logo" width="32" height="32" className="d-block" />
+                            </Link>
+
+                            <div className="navbar-nav flex-grow-1">
+                                <NavLink to="/css" className="nav-link">
+                                    CSS Classes
+                                </NavLink>
+                                <NavLink to="/utilities" className="nav-link">
+                                    JS Utilities
+                                </NavLink>
+                                <NavLink to="/component" className="nav-link">
+                                    React Components
+                                </NavLink>
+                            </div>
+                        </div>
+                    </nav>
                     <Layout
-                        pages={[]}
                         unrouteable
                         sidebarToggleIconComponent={<List />}
                         statusIcons={{
@@ -107,15 +123,9 @@ function App() {
                             warning: <ExclamationCircleFill />
                         }}
                         disableHeaders
+                        className="docs-layout"
+                        expandSidebar={false}
                     >
-                        <HeaderTitle
-                            logo={logo}
-                            appTitle={appTitle}
-                            to="/"
-                            elementType={Link}
-                            className="text-white blue-sidebar-visible-on-open ms-5"
-                        />
-
                         <SidebarMenu
                             sidebarClass="overflow-visible"
                             menuClass="overflow-visible"
@@ -193,8 +203,6 @@ function App() {
                         </SidebarMenu>
 
                         <div className="router-page active">
-                            <ColorModeSwitch />
-
                             <Route path="/utilities">
                                 <UtilitiesPage />
                             </Route>

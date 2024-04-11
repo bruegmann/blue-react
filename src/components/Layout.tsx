@@ -147,7 +147,9 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
             sidebarIn: props.sidebarIn || false,
             expandSidebar: props.hideSidebarMenu
                 ? false
-                : props.expandSidebar || localStorage.getItem("blueLayoutShrinkSidebar") === null,
+                : props.expandSidebar !== undefined
+                ? props.expandSidebar
+                : localStorage.getItem("blueLayoutShrinkSidebar") === null,
             match: null,
             history: [],
             hash: window.location.hash,

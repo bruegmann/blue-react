@@ -1,4 +1,4 @@
-import { Component, ComponentClass, Fragment, createElement } from "react"
+import { Component, ComponentClass, Fragment } from "react"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
 import { Link } from "react-router-dom"

@@ -1,5 +1,5 @@
 import Page from "../../components/Page"
-import Body from "../components/BodyRounded"
+import Body from "../../components/Body"
 import { Footer } from "../components/Footer"
 import reports from "../data/license-report.json"
 

@@ -6,7 +6,7 @@ const path = require("path")
 const packageName = require("./package.json").name
 const docPath = "./src/docs/data/docs.json"
 
-let doc = require(docPath)
+const doc = require(docPath)
 
 function prepareExampleCode(exampleCode) {
     /**

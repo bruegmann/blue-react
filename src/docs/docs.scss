@@ -2,7 +2,7 @@ $theme: #261f31;
 $primary: #655be9;
 
 $body-bg: #efeeee;
-$body-bg-dark: lighten(#261f31, 4%);
+$body-bg-dark: lighten($theme, 4%);
 $body-color-dark: white;
 
 @import "../../dist/style";
@@ -111,5 +111,52 @@ pre {
 @include color-mode(dark) {
     .btn-lg.btn-primary {
         @include neu($body-bg-dark, $primary);
+    }
+}
+
+.docs-layout {
+    .blue-sidebar-toggler {
+        top: 3.5rem;
+    }
+
+    .blue-sidebar {
+        top: 3.5rem + $normal-size;
+    }
+
+    .router-page {
+        all: unset;
+    }
+
+    .blue-page {
+        padding-top: 3.5rem;
+    }
+}
+
+body:has(.docs-layout) {
+    overflow: initial;
+}
+
+.docs-nav {
+    --bs-bg-opacity: 0.9;
+    backdrop-filter: blur(3px) saturate(125%);
+
+    .nav-link {
+        position: relative;
+    }
+
+    .nav-link.active::after {
+        content: "•";
+        opacity: 0.5;
+        position: absolute;
+        bottom: -0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 992px) {
+    .docs-nav {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
