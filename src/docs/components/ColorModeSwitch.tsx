@@ -72,7 +72,7 @@ export default function ColorModeSwitch() {
 
     return (
         <Dropdown isOpen={open} toggle={toggle}>
-            <DropdownToggle caret color="theme" outline aria-label={`Toggle theme (${theme})`}>
+            <DropdownToggle caret color="secondary" outline aria-label={`Toggle theme (${theme})`}>
                 {createElement(theme === "light" ? SunFill : theme === "dark" ? MoonStarsFill : CircleHalf, {
                     className: "bi"
                 })}
