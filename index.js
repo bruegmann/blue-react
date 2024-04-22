@@ -1,5 +1,6 @@
 exports.ActionMenu = require("./dist/components/ActionMenu.js")["default"]
 exports.ActionMenuSwitch = require("./dist/components/ActionMenuSwitch.js")["default"]
+exports.ActionMenuItem = require("./dist/components/ActionMenuItem.js")["default"]
 exports.Body = require("./dist/components/Body.js")["default"]
 exports.Caret = require("./dist/components/Caret.js")["default"]
 exports.Chevron = require("./dist/components/Chevron.js")["default"]

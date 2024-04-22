@@ -26,6 +26,7 @@ import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
 import SidebarMenuItem from "../../components/SidebarMenuItem"
 import IconMenuItem from "../../components/IconMenuItem"
+import ActionMenuItem from "../../components/ActionMenuItem"
 
 const exampleHistoryItems = ["Nice person", "Important message", "Document XYZ", "Boring appointment"]
 const exampleFavoriteItems = ["Max Mustermann person", "A Word Document", "Boring appointment"]
@@ -248,18 +249,24 @@ export default function DemoApp() {
                                     Record
                                 </HeaderTitle>
 
-                                <ActionMenu>
+                                <ActionMenu break="md">
                                     <div className="position-relative z-1">
                                         <MenuItem
                                             label="Actions"
                                             supportOutside
-                                            dropdownClassName="position-absolute end-0"
+                                            dropdownClassName="position-xl-absolute end-0"
                                         >
                                             <MenuItem label="Do a lot, a loooot of stuff" />
                                             <MenuItem label="Oh boy, really a lot of stuff" />
                                         </MenuItem>
                                     </div>
-                                    <MenuItem
+
+                                    <ActionMenuItem label="Actions">
+                                        <MenuItem label="Do a lot, a loooot of stuff" />
+                                        <MenuItem label="Oh boy, really a lot of stuff" />
+                                    </ActionMenuItem>
+
+                                    <ActionMenuItem
                                         icon={<Pencil className="bi" />}
                                         iconForActive={<PencilFill className="bi" />}
                                         label="Edit"
@@ -278,6 +285,11 @@ export default function DemoApp() {
                             </Header>
                             <Body containerClass="container">
                                 <section className="mb-3">
+                                    <ActionMenuItem label="Actions">
+                                        <MenuItem label="Do a lot, a loooot of stuff" />
+                                        <MenuItem label="Oh boy, really a lot of stuff" />
+                                    </ActionMenuItem>
+
                                     <h2 className="page-header h3">First field group</h2>
 
                                     <div className="row mb-3">

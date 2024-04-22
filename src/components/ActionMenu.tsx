@@ -1,7 +1,9 @@
-import React, { Children, useState } from "react"
+import React, { Children, createContext, useState } from "react"
 import MenuItem from "./MenuItem"
 import { breakOption } from "./shared"
 import Outside from "./Outside"
+
+export const ActionMenuContext = createContext<{ breakOption: breakOption | "none" }>({ breakOption: "lg" })
 
 export interface ActionMenuProps {
     /**
@@ -19,7 +21,7 @@ export interface ActionMenuProps {
     className?: string
 
     /**
-     * "sm" | "md" | "lg" | "xl" | "none"
+     * "sm" | "md" | "lg" | "xl" | "none". Default is "lg". The responsive breakpoint at which the menu will be shown as a dropdown.
      */
     break?: breakOption | "none"
 }
@@ -54,26 +56,28 @@ export default function ActionMenu(props: ActionMenuProps) {
     const validChildren = Children.toArray(children).filter(Boolean)
 
     return (
-        <Outside
-            className={`blue-actions navbar ${className} navbar-expand${
-                _break !== "none" ? `-${_break}` : ""
-            } ${_break} ${actionsToggledIn ? "open" : ""}`}
-            onClickOutside={() => {
-                setActionsToggledIn(false)
-            }}
-        >
-            <ul className="blue-actions-menu nav navbar-nav navbar-right">
-                {validChildren.length > 0 && !actionsToggledIn && !hideToggleAction && (
-                    <MenuItem
-                        className="blue-actions-menu-toggle w-100"
-                        onClick={() => toggleActions()}
-                        icon={toggleIcon}
-                        aria-label="Toggle menu"
-                    />
-                )}
+        <ActionMenuContext.Provider value={{ breakOption: _break }}>
+            <Outside
+                className={`blue-actions navbar ${className} navbar-expand${
+                    _break !== "none" ? `-${_break}` : ""
+                } ${_break} ${actionsToggledIn ? "open" : ""}`}
+                onClickOutside={() => {
+                    setActionsToggledIn(false)
+                }}
+            >
+                <ul className="blue-actions-menu nav navbar-nav navbar-right">
+                    {validChildren.length > 0 && !actionsToggledIn && !hideToggleAction && (
+                        <MenuItem
+                            className="blue-actions-menu-toggle w-100"
+                            onClick={() => toggleActions()}
+                            icon={toggleIcon}
+                            aria-label="Toggle menu"
+                        />
+                    )}
 
-                {children}
-            </ul>
-        </Outside>
+                    {children}
+                </ul>
+            </Outside>
+        </ActionMenuContext.Provider>
     )
 }

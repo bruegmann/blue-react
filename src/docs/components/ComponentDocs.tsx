@@ -151,7 +151,7 @@ export class ComponentDocs extends Component<
                 )}
 
                 {comp.props && (
-                    <div>
+                    <>
                         <h2 id="props" className="page-header">
                             Props
                         </h2>
@@ -202,67 +202,67 @@ export class ComponentDocs extends Component<
                                     ))}
                             </tbody>
                         </table>
+                    </>
+                )}
 
-                        {(ExampleComponent || comp.exampleCode) &&
-                            (standalone ? (
-                                <div>
-                                    <h2 id="example" className="page-header">
-                                        Example
-                                    </h2>
+                {(ExampleComponent || comp.exampleCode) &&
+                    (standalone ? (
+                        <div>
+                            <h2 id="example" className="page-header">
+                                Example
+                            </h2>
 
-                                    {ExampleComponent && (
-                                        <div className="border p-2 rounded-5">
-                                            <div className="p-3">
-                                                <ExampleComponent />
-                                            </div>
+                            {ExampleComponent && (
+                                <div className="border p-2 rounded-5">
+                                    <div className="p-3">
+                                        <ExampleComponent />
+                                    </div>
 
-                                            {comp.exampleCode && (
-                                                <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
-                                                    {comp.exampleCode}
-                                                </SyntaxHighlighter>
-                                            )}
-                                        </div>
+                                    {comp.exampleCode && (
+                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
+                                            {comp.exampleCode}
+                                        </SyntaxHighlighter>
                                     )}
                                 </div>
-                            ) : (
-                                <Link to={"/component/" + comp.displayName} onClick={() => window.scrollTo(0, 0)}>
-                                    Show example
-                                </Link>
-                            ))}
+                            )}
+                        </div>
+                    ) : (
+                        <Link to={"/component/" + comp.displayName} onClick={() => window.scrollTo(0, 0)}>
+                            Show example
+                        </Link>
+                    ))}
 
-                        {Object.keys(exampleComponents).length > 0 && (
-                            <>
-                                <h2 id="examples" className="page-header">
-                                    Examples
-                                </h2>
+                {Object.keys(exampleComponents).length > 0 && (
+                    <>
+                        <h2 id="examples" className="page-header">
+                            Examples
+                        </h2>
 
-                                {Object.keys(exampleComponents).map((key) => {
-                                    // @ts-expect-error
-                                    const ExampleComponent = exampleComponents[key]
+                        {Object.keys(exampleComponents).map((key) => {
+                            // @ts-expect-error
+                            const ExampleComponent = exampleComponents[key]
 
-                                    return (
-                                        <Fragment key={key}>
-                                            <h3 id={key} className="mt-4 mb-3">
-                                                {key.replace(".tsx", "")}
-                                            </h3>
+                            return (
+                                <Fragment key={key}>
+                                    <h3 id={key} className="mt-4 mb-3">
+                                        {key.replace(".tsx", "")}
+                                    </h3>
 
-                                            <div className="border p-2 rounded-5">
-                                                <div className="p-3">
-                                                    <ExampleComponent />
-                                                </div>
+                                    <div className="border p-2 rounded-5">
+                                        <div className="p-3">
+                                            <ExampleComponent />
+                                        </div>
 
-                                                {comp.examples && (
-                                                    <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
-                                                        {comp.examples[key]}
-                                                    </SyntaxHighlighter>
-                                                )}
-                                            </div>
-                                        </Fragment>
-                                    )
-                                })}
-                            </>
-                        )}
-                    </div>
+                                        {comp.examples && (
+                                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
+                                                {comp.examples[key]}
+                                            </SyntaxHighlighter>
+                                        )}
+                                    </div>
+                                </Fragment>
+                            )
+                        })}
+                    </>
                 )}
             </article>
         )

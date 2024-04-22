@@ -66,8 +66,7 @@ export const ComponentPage = () => {
                 {docs &&
                     Object.values(docs).map(
                         (i: any, index: number) =>
-                            (!selectedComponent || selectedComponent === i.displayName) &&
-                            i.props && (
+                            (!selectedComponent || selectedComponent === i.displayName) && (
                                 <ComponentDocs key={index} comp={i} standalone={selectedComponent ? true : false} />
                             )
                     )}

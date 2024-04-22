@@ -15,6 +15,9 @@ export { ActionMenuProps } from "./dist/types/components/ActionMenu"
 export { default as ActionMenuSwitch } from "./dist/types/components/ActionMenuSwitch"
 export { ActionMenuSwitchProps } from "./dist/types/components/ActionMenuSwitch"
 
+export { default as ActionMenuItem } from "./dist/types/components/ActionMenuItem"
+export { ActionMenuItemProps } from "./dist/types/components/ActionMenuItem"
+
 export { default as Body } from "./dist/types/components/Body"
 export { BodyProps } from "./dist/types/components/Body"
 
