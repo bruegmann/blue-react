@@ -7,6 +7,7 @@ import { ComponentDocs } from "../components/ComponentDocs"
 import Search from "../../components/Search"
 import { appTitle } from "../Global"
 import PageBodyWithSide from "../components/PageBodyWithSide"
+import clsx from "clsx"
 
 export const ComponentPage = () => {
     const { selectedComponent } = useParams<any>()
@@ -48,11 +49,17 @@ export const ComponentPage = () => {
                                 </NavLink>
                                 {docs &&
                                     Object.values(docs).map(
-                                        (i: any, index: number) =>
+                                        (i, index: number) =>
                                             (value === "" ||
                                                 JSON.stringify(i).toLowerCase().includes(value.toLowerCase())) && (
                                                 <div key={index} className="nav-item">
-                                                    <NavLink to={`/component/${i.displayName}`} className="nav-link">
+                                                    <NavLink
+                                                        to={`/component/${i.displayName}`}
+                                                        className={clsx("nav-link", {
+                                                            ["text-decoration-line-through"]:
+                                                                i.description.startsWith("@deprecated")
+                                                        })}
+                                                    >
                                                         {i.displayName}
                                                     </NavLink>
                                                 </div>

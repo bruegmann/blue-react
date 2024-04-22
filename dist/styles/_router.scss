@@ -6,7 +6,7 @@ body {
     /* This is nessesary, because scrolling on iOS devices would not be smooth without it */
     -webkit-overflow-scrolling: touch;
 
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     width: 100vw;
 
