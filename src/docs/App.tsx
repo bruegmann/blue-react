@@ -47,12 +47,13 @@ function App() {
         if (window.location.hash !== "" && window.location.hash.includes("css")) {
             let hash = decodeURIComponent(window.location.hash.substring(1)).replace("home/", "")
 
-            const { css } = JSON.parse(hash)
+            const { colorMode, css } = JSON.parse(hash)
 
             for (const linkEl of document.querySelectorAll(".docs-css")) {
                 linkEl.remove()
             }
 
+            document.documentElement.setAttribute("data-bs-theme", colorMode)
             document.getElementById("docs-inline-style")!.innerHTML = css
         } else if (window.location.hash !== "") {
             setTimeout(() => {
