@@ -144,6 +144,7 @@ export default function Modal({
                             {(type === "ask" || type === "verify") &&
                                 (type === "verify" ? (
                                     <button
+                                        type="button"
                                         className={`btn ${
                                             switchPrimaryBtn ? "btn-primary" : "btn-outline-primary"
                                         } d-block w-100`}
@@ -154,6 +155,7 @@ export default function Modal({
                                     </button>
                                 ) : (
                                     <button
+                                        type="button"
                                         className="btn btn-outline-primary d-block w-100"
                                         style={btnStyle}
                                         onClick={cancel}
