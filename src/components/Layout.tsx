@@ -422,7 +422,7 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
                                 </div>
                             </div>
 
-                            <div className="blue-status-circle blue-status-success">
+                            <div className="blue-status-circle blue-status-success" role="status" aria-live="polite">
                                 {this.props.statusIcons!.success}
                             </div>
 

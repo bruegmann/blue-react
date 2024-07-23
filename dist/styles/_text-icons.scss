@@ -1,0 +1,15 @@
+// In previous versions of Bootstrap, `.page-header` was a class that could be used to add a border to the bottom of a page header.
+// Unfortunately his class was removed in Bootstrap 5, so it's now part of Blue React CSS.
+.blue-page-header,
+.page-header {
+    padding-bottom: 0.563rem;
+    margin: 2.5rem 0 1.25rem;
+    border-bottom: 0.25rem solid var(--blue-page-header-border-color, $table-border-color);
+}
+
+// Vertically alignment, especially for Bootstrap Icons.
+.blue-icon,
+.bi {
+    display: inline-block;
+    vertical-align: -0.125em;
+}
