@@ -1,59 +1,6 @@
 /*!
- * Blue React v9.9.4 (https://bruegmann.github.io/blue-react)
+ * Blue React v9.10.0 (https://bruegmann.github.io/blue-react)
  * Licensed under GNU General Public License v3.0 (https://github.com/bruegmann/blue-react/blob/master/LICENSE).
 */
 
-@import "./styles/bootstrap-variables";
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "./styles/_variables";
-
-@import "./styles/_mixins";
-@import "./styles/_keyframes";
-
-// @import "./styles/_bootstrap";
-@import "node_modules/bootstrap/scss/bootstrap";
-
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/variables-dark";
-@import "node_modules/bootstrap/scss/maps";
-@import "node_modules/bootstrap/scss/mixins";
-@import "node_modules/bootstrap/scss/utilities";
-
-// Extended Bootstrap utilities with responsive position as mentioned on
-// https://getbootstrap.com/docs/5.3/utilities/api/#enable-responsive
-$utilities: map-merge(
-    $utilities,
-    (
-        "position":
-            map-merge(
-                map-get($utilities, "position"),
-                (
-                    responsive: true
-                )
-            )
-    )
-);
-
-@import "node_modules/bootstrap/scss/utilities/api";
-
-// Per CSS-Variablen überschreibbar machen, da es von Bootstrap aus noch nicht möglich ist.
-// Bei neuer Bootstrap-Version prüfen, ob es noch nötig ist.
-.form-check-input:checked {
-    background-color: var(--bs-primary, #{$form-check-input-checked-bg-color});
-    border-color: var(--bs-primary, #{$form-check-input-checked-border-color});
-}
-
-@import "./styles/_text-icons";
-@import "./styles/_general";
-@import "./styles/_router";
-@import "./styles/_status";
-@import "./styles/_layout";
-@import "./styles/_sidebar";
-@import "./styles/_search";
-@import "./styles/action-menu";
-@import "./styles/_caret";
-@import "./styles/_tooltips";
-@import "./styles/_hover";
-@import "./styles/buttons";
+@import "node_modules/blue-web/dist/style.scss";

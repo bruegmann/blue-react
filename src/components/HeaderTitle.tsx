@@ -1,5 +1,5 @@
 import React, { createElement, useEffect } from "react"
-import Utilities from "./Utilities"
+import { guid } from "blue-web/dist/js/utils"
 
 export interface HeaderTitleProps {
     /**
@@ -60,7 +60,7 @@ export default function HeaderTitle({
     to,
     href = "#"
 }: HeaderTitleProps) {
-    const uniqueId = "HeaderTitle-" + Utilities.guid()
+    const uniqueId = "HeaderTitle-" + guid()
 
     const setDocumentTitle = () => {
         if (

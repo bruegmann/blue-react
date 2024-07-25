@@ -10,12 +10,10 @@ import {
     House,
     CodeSquare,
     Puzzle,
-    Tools,
     XCircleFill,
     InfoCircleFill,
     CheckCircleFill,
     ExclamationCircleFill,
-    Palette2,
     HouseFill,
     PuzzleFill,
     Stickies,
@@ -23,13 +21,10 @@ import {
     Rss,
     RssFill,
     Eye,
-    LayersHalf,
-    LayersFill,
-    BracesAsterisk
+    BoxArrowUpRight
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
-import UtilitiesPage from "./pages/UtilitiesPage"
 import { logo } from "./Global"
 import { RecipesPage } from "./pages/RecipesPage"
 import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
@@ -39,8 +34,6 @@ import { useEffect } from "react"
 import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
 import SidebarMenuItem from "../components/SidebarMenuItem"
-import NeumorphismPage from "./pages/NeumorphismPage"
-import { CssPage } from "./pages/CssPage"
 
 function App() {
     const onHashChange = () => {
@@ -102,15 +95,21 @@ function App() {
                             </Link>
 
                             <div className="navbar-nav flex-grow-1">
-                                <NavLink to="/css" className="nav-link">
-                                    CSS Classes
-                                </NavLink>
-                                <NavLink to="/utilities" className="nav-link">
-                                    JS Utilities
-                                </NavLink>
                                 <NavLink to="/component" className="nav-link">
                                     React Components
                                 </NavLink>
+                                <a href="https://bruegmann.github.io/blue-web/v1/css" className="nav-link">
+                                    CSS Classes{" "}
+                                    <sup>
+                                        <BoxArrowUpRight className="blue-icon" />
+                                    </sup>
+                                </a>
+                                <a href="https://bruegmann.github.io/blue-web/v1/utilities" className="nav-link">
+                                    JS Utilities{" "}
+                                    <sup>
+                                        <BoxArrowUpRight className="blue-icon" />
+                                    </sup>
+                                </a>
                             </div>
                         </div>
                     </nav>
@@ -140,14 +139,6 @@ function App() {
                                     />
 
                                     <SidebarMenuItem
-                                        href="https://bruegmann.github.io/themify"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        label="Customize with Themify"
-                                        icon={<Palette2 />}
-                                    />
-
-                                    <SidebarMenuItem
                                         href="https://github.com/bruegmann/blue-react"
                                         icon={<CodeSquare />}
                                         label="Code on GitHub"
@@ -172,21 +163,7 @@ function App() {
                                 elementType={NavLink}
                                 to="/blog"
                             />
-                            <SidebarMenuItem
-                                icon={<LayersHalf />}
-                                iconForActive={<LayersFill />}
-                                label="Neumorphism"
-                                elementType={NavLink}
-                                to="/neu"
-                            />
 
-                            <SidebarMenuItem
-                                icon={<BracesAsterisk />}
-                                label="CSS Classes"
-                                elementType={NavLink}
-                                to="/css"
-                            />
-                            <SidebarMenuItem icon={<Tools />} label="Utilities" elementType={NavLink} to="/utilities" />
                             <SidebarMenuItem
                                 icon={<Puzzle />}
                                 iconForActive={<PuzzleFill />}
@@ -204,20 +181,8 @@ function App() {
                         </SidebarMenu>
 
                         <div className="router-page active">
-                            <Route path="/utilities">
-                                <UtilitiesPage />
-                            </Route>
-
                             <Route path="/blog">
                                 <BlogPage />
-                            </Route>
-
-                            <Route path="/neu">
-                                <NeumorphismPage />
-                            </Route>
-
-                            <Route path="/css/:selectedSection?">
-                                <CssPage />
                             </Route>
 
                             <Route path="/component/:selectedComponent?">

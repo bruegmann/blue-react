@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import Utilities from "../../components/Utilities"
 import { GitHubContent } from "../gitHubApiTypes"
 import Markdown from "./Markdown"
+import { setAlertMessage } from "blue-web/dist/js/utils"
 
 export interface RecipeProps {
     recipe: GitHubContent
@@ -20,7 +20,7 @@ export function Recipe({ recipe }: RecipeProps) {
             const text = await r.text()
             setMarkdown(text)
         } else {
-            Utilities.setAlertMessage("This GitHub file has no download_url", "danger", true)
+            setAlertMessage("This GitHub file has no download_url", "danger", true)
         }
     }
 

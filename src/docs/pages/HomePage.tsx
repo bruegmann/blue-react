@@ -16,12 +16,23 @@ export const HomePage = () => (
             <main className="flex-grow-1">
                 <div className="welcome-jumbotron pt-5 bg-theme text-white">
                     <div className="container pt-3 mt-5 pt-md-0">
-                        <section className="d-flex justify-content-between">
-                            <div>
-                                <h1>React component library based on Bootstrap 5</h1>
+                        <div className="d-md-flex">
+                            <div className="flex-grow-1">
+                                <h1
+                                    className="display-2 d-inline-flex align-items-center"
+                                    style={{ fontWeight: "600" }}
+                                >
+                                    <img src={logo} alt={appTitle} style={{ height: "1em" }} className="me-3" /> Blue
+                                    React
+                                </h1>
+
+                                <p className="h2">React component library based on Bootstrap 5</p>
                                 <div className="h2">
                                     <Bootstrap /> <ReactIcon /> <Code /> <WindowSidebar /> <BoxSeam />
                                 </div>
+                            </div>
+
+                            <div>
                                 <div className="h3 mt-3 d-flex align-content-center gap-3">
                                     <span
                                         className="badge text-white"
@@ -33,16 +44,7 @@ export const HomePage = () => (
                                     <VersionToggle />
                                 </div>
                             </div>
-
-                            <div>
-                                <h1
-                                    className="display-1 d-inline-flex align-items-center"
-                                    style={{ fontWeight: "900" }}
-                                >
-                                    <img src={logo} alt={appTitle} style={{ height: "1em" }} className="me-3" /> Blue
-                                </h1>
-                            </div>
-                        </section>
+                        </div>
                     </div>
 
                     <div className="mt-5 rounded-top bg-body" style={{ height: "1rem" }} />
@@ -50,6 +52,11 @@ export const HomePage = () => (
 
                 <div className="container">
                     <StackblitzEmbed />
+
+                    <div className="alert alert-info mt-4" role="alert">
+                        Notice: sections for CSS and JavaScript moved to the{" "}
+                        <a href="https://bruegmann.github.io/blue-web">Blue Web docs</a>.
+                    </div>
 
                     <h1 className="page-header">Use Blue React</h1>
 

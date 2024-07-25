@@ -5,8 +5,8 @@ $body-bg: #efeeee;
 $body-bg-dark: lighten($theme, 4%);
 $body-color-dark: white;
 
-@import "../../dist/style";
-@import "../../dist/neu";
+@import "node_modules/blue-web/dist/style";
+@import "node_modules/blue-web/dist/neu";
 
 :root {
     --blue-sidebar-button-color: var(--blue-sidebar-color);
@@ -14,7 +14,7 @@ $body-color-dark: white;
 
 .welcome-jumbotron {
     .display-1 {
-        font-family: "Work Sans", sans-serif;
+        font-family: "Inter Tight", sans-serif;
         font-weight: "600";
     }
 }

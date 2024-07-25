@@ -1,5 +1,4 @@
 import React, { Component, CSSProperties } from "react"
-import Utilities from "./Utilities"
 import SidebarToggler from "./SidebarToggler"
 
 declare global {
@@ -284,16 +283,16 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
     hideSidebar(e: any) {
         if (
             !(
-                Utilities.hasClass(e.target, "blue-open-menu") ||
-                Utilities.hasClass(e.target, "bi-menu") ||
-                Utilities.hasClass(e.target, "blue-search") ||
-                Utilities.hasClass(e.target, "blue-search-control") ||
-                Utilities.hasClass(e.target, "blue-search-btn") ||
-                Utilities.hasClass(e.target, "blue-search-btn-icon") ||
-                Utilities.hasClass(e.target, "blue-menu-item-dropdown-toggle") ||
-                Utilities.hasClass(e.target, "blue-menu-item-dropdown-caret") ||
-                Utilities.hasClass(e.target, "blue-menu-item-dropdown-icon") ||
-                Utilities.hasClass(e.target, "blue-sidebar-exception")
+                e.target.classList.contains("blue-open-menu") ||
+                e.target.classList.contains("bi-menu") ||
+                e.target.classList.contains("blue-search") ||
+                e.target.classList.contains("blue-search-control") ||
+                e.target.classList.contains("blue-search-btn") ||
+                e.target.classList.contains("blue-search-btn-icon") ||
+                e.target.classList.contains("blue-menu-item-dropdown-toggle") ||
+                e.target.classList.contains("blue-menu-item-dropdown-caret") ||
+                e.target.classList.contains("blue-menu-item-dropdown-icon") ||
+                e.target.classList.contains("blue-sidebar-exception")
             )
         ) {
             this.setState({ sidebarIn: false })

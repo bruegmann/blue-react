@@ -1,7 +1,6 @@
 import clsx from "clsx"
 import React, { CSSProperties, createElement, useEffect, useState } from "react"
 import Outside from "./Outside"
-import Utilities from "./Utilities"
 import Chevron from "./Chevron"
 
 export interface MenuItemProps {
@@ -205,11 +204,6 @@ export default function MenuItem(props: MenuItemProps) {
             setShowDropdown(!showDropdown)
         }
 
-        // When user clicks again on active menu item, scroll to top of page
-        if (props.href && props.href === window.location.hash) {
-            Utilities.scrollToTop()
-        }
-
         if (props.onClickAttached !== undefined) {
             props.onClickAttached(event as any)
         }
@@ -218,8 +212,8 @@ export default function MenuItem(props: MenuItemProps) {
     const onClickOutside = ({ target }: MouseEvent) => {
         // Don't trigger when clicking on MenuItem
         if (
-            !Utilities.hasClass(target as HTMLElement | null, "blue-menu-item-dropdown-toggle") &&
-            !Utilities.hasClass(target as HTMLElement | null, "blue-menu-item-label")
+            !(target as HTMLElement | null)?.classList.contains("blue-menu-item-dropdown-toggle") &&
+            !(target as HTMLElement | null)?.classList.contains("blue-menu-item-label")
         ) {
             setShowDropdown(false)
         }

@@ -1,6 +1,6 @@
 {
     "name": "blue-react",
-    "version": "9.9.4",
+    "version": "9.10.0",
     "description": "Blue React Components",
     "license": "LGPL-3.0-or-later",
     "main": "index.js",
@@ -15,13 +15,12 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build-docs": "react-scripts build && npm run docgen && node indexCssSections.js",
+        "build-docs": "react-scripts build && npm run docgen",
         "build-types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --noEmit false",
         "build": "babel ./src/components --out-dir ./dist/components --extensions \".tsx,.js,.ts\"",
         "build-css": "node ./setVersionToStyleScss.js && node-sass ./dist/style.scss ./dist/style.css && npx postcss ./dist/style.css --use autoprefixer -r && npx postcss ./dist/style.css --use postcss-minify -o ./dist/style.min.css",
-        "build-neu-css": "node-sass ./dist/neu.scss ./dist/neu.css && npx postcss ./dist/neu.css --use autoprefixer -r && npx postcss ./dist/neu.css --use postcss-minify -o ./dist/neu.min.css",
         "build-release": "npm run build-types && npm run build && npm run build-css && npm run docgen",
-        "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --exclude Utilities.js --extension tsx && node followUpDocs && npm run license-report",
+        "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --extension tsx && node followUpDocs && npm run license-report",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "npm run build-docs",
@@ -33,6 +32,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.5",
+        "blue-web": "file:../blue-web/blue-web-1.0.1.tgz",
         "bootstrap": "~5.3.3",
         "clsx": "^1.1.1"
     },

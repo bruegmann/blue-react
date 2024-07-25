@@ -1,6 +1,6 @@
 import React, { ReactNode, RefObject, useEffect, useState } from "react"
 import MenuItem from "./MenuItem"
-import Utilities from "./Utilities"
+import { guid } from "blue-web/dist/js/utils"
 
 export interface SearchProps {
     autoFocus?: boolean
@@ -60,7 +60,7 @@ export default function Search(props: SearchProps) {
         id,
         inputRef
     } = props
-    const SearchControlId = id || "blue-search-control-" + Utilities.guid()
+    const SearchControlId = id || "blue-search-control-" + guid()
 
     const [value, setValue] = useState<string>(props.value || "")
     const [focus, setFocus] = useState<boolean>(false)
