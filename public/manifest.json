@@ -1,6 +1,5 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Blue React",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +19,6 @@
   ],
   "start_url": ".",
   "display": "browser",
-  "theme_color": "#261f31",
+  "theme_color": "#2c1fe0",
   "background_color": "#ffffff"
 }

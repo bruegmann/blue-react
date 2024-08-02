@@ -35,7 +35,6 @@ export function Footer({ containerClass = "container" }: FooterProps) {
                         <a href="https://patorg.de/privacy-policy/" target="_blank" rel="noopener noreferrer">
                             Privacy Policy
                         </a>
-                        .
                     </small>
                 </p>
 

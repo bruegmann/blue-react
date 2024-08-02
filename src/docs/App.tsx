@@ -88,31 +88,28 @@ function App() {
                 </Route>
 
                 <Route path="/">
-                    <nav className="docs-nav navbar navbar-expand navbar-dark bg-dark shadow-lg position-fixed top-0 rounded-4 z-1 py-1 mt-1 ms-1">
-                        <div className="container-fluid px-2">
-                            <Link className="navbar-brand" to="/">
-                                <img src={logo} alt="Blue Logo" width="32" height="32" className="d-block" />
-                            </Link>
+                    <nav className="docs-nav">
+                        <Link className="navbar-brand" to="/">
+                            <img src={logo} alt="Blue Logo" width="32" height="32" className="d-block" /> Blue React
+                        </Link>
 
-                            <div className="navbar-nav flex-grow-1">
-                                <NavLink to="/component" className="nav-link">
-                                    React Components
-                                </NavLink>
-                                <a href="https://bruegmann.github.io/blue-web/v1/css" className="nav-link">
-                                    CSS Classes{" "}
-                                    <sup>
-                                        <BoxArrowUpRight className="blue-icon" />
-                                    </sup>
-                                </a>
-                                <a href="https://bruegmann.github.io/blue-web/v1/utilities" className="nav-link">
-                                    JS Utilities{" "}
-                                    <sup>
-                                        <BoxArrowUpRight className="blue-icon" />
-                                    </sup>
-                                </a>
-                            </div>
+                        <div className="navbar-nav">
+                            <a href="https://bruegmann.github.io/blue-web" className="nav-link">
+                                Web
+                            </a>
+                            <a
+                                href="https://bruegmann.github.io/blue-react"
+                                className="nav-link active"
+                                aria-current="page"
+                            >
+                                React
+                            </a>
+                            <a href="https://bruegmann.github.io/blue-blazor" className="nav-link">
+                                Blazor
+                            </a>
                         </div>
                     </nav>
+
                     <Layout
                         unrouteable
                         sidebarToggleIconComponent={<List />}
@@ -124,7 +121,6 @@ function App() {
                         }}
                         disableHeaders
                         className="docs-layout"
-                        expandSidebar={false}
                     >
                         <SidebarMenu
                             sidebarClass="overflow-visible"
