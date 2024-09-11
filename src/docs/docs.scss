@@ -120,6 +120,10 @@ pre {
     }
 }
 
+.docs-sticky-top {
+    top: 3.5rem !important;
+}
+
 body:has(.docs-layout) {
     overflow: initial;
 }

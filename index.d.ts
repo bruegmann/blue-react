@@ -9,6 +9,9 @@ export default global
 export { default as Layout } from "./dist/types/components/Layout"
 export { LayoutProps } from "./dist/types/components/Layout"
 
+export { default as A } from "./dist/types/components/A"
+export { AProps } from "./dist/types/components/A"
+
 export { default as ActionMenu } from "./dist/types/components/ActionMenu"
 export { ActionMenuProps } from "./dist/types/components/ActionMenu"
 

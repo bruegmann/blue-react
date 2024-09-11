@@ -1,3 +1,4 @@
+exports.A = require("./dist/components/A.js")["default"]
 exports.ActionMenu = require("./dist/components/ActionMenu.js")["default"]
 exports.ActionMenuSwitch = require("./dist/components/ActionMenuSwitch.js")["default"]
 exports.ActionMenuItem = require("./dist/components/ActionMenuItem.js")["default"]

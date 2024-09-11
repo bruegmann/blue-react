@@ -7,6 +7,7 @@ import { VersionToggle } from "../components/VersionToggle"
 import { Footer } from "../components/Footer"
 import IntroductionSections from "../components/IntroductionSections"
 import StackblitzEmbed from "../components/StackblitzEmbed"
+import A from "../../components/A"
 
 const packageJson = require("../../../package.json")
 
@@ -60,7 +61,38 @@ export const HomePage = () => (
 
                     <h1 className="page-header">Use Blue React</h1>
 
-                    <h2 className="mt-4 mb-3">Create new project using CRA</h2>
+                    <h2 className="mt-4 mb-3">
+                        Create new project with{" "}
+                        <A href="https://vitejs.dev/" target="_blank">
+                            Vite
+                        </A>
+                    </h2>
+                    <p>
+                        To quickly getting started, you can use the{" "}
+                        <A href="https://github.com/bruegmann/vite-template-blue-react" target="_blank">
+                            template with Vite, React, TypeScript and Blue React
+                        </A>
+                        .<br />
+                        You can use{" "}
+                        <A href="https://github.com/Rich-Harris/degit" target="_blank">
+                            degit
+                        </A>{" "}
+                        to create a new project with this command:
+                    </p>
+                    <code>
+                        npx degit bruegmann/vite-template-blue-react <strong>name-of-my-app</strong>
+                    </code>
+
+                    <h2 className="mt-4 mb-3">
+                        Create new project using{" "}
+                        <A href="https://create-react-app.dev/" target="_blank">
+                            CRA
+                        </A>
+                    </h2>
+                    <p className="alert alert-warning">
+                        Create React App isn't under active development anymore. For new projects you should consider
+                        using Vite instead.
+                    </p>
                     <code>
                         npx create-react-app@latest <strong>name-of-my-app</strong> --template blue@9
                     </code>

@@ -13,7 +13,7 @@ export default function PageBodyWithSide({ side, children }: PageBodyWithSidePro
             <div className="container-fluid flex-grow-1">
                 <div className="row">
                     <div className="col-md-2">
-                        <div className="sticky-top z-0">
+                        <div className="docs-sticky-top sticky-top z-0">
                             <div className="pt-1 pt-sm-3">{side}</div>
                         </div>
                     </div>
