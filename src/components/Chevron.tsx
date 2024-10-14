@@ -19,6 +19,8 @@ export interface ChevronProps {
  * Chevron icon component with open state.
  */
 export default function Chevron({ open, mirrored, className, style }: ChevronProps) {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion)").matches
+
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +33,7 @@ export default function Chevron({ open, mirrored, className, style }: ChevronPro
                 display: "inline-block",
                 verticalAlign: "-0.125em",
                 transform: `rotate(${open && mirrored ? -90 : open ? 90 : 0}deg)`,
-                transition: "transform 0.2s"
+                transition: prefersReducedMotion ? "none" : "transform 0.2s"
             }}
             viewBox="0 0 16 16"
         >
