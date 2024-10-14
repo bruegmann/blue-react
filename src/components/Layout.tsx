@@ -142,13 +142,15 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
 
         this.defaultMatch = ["home"]
 
+        const expandSidebar = props.hideSidebarMenu
+            ? false
+            : props.expandSidebar !== undefined
+            ? props.expandSidebar
+            : localStorage.getItem("blueLayoutShrinkSidebar") === null
+
         this.state = {
             sidebarIn: props.sidebarIn || false,
-            expandSidebar: props.hideSidebarMenu
-                ? false
-                : props.expandSidebar !== undefined
-                ? props.expandSidebar
-                : localStorage.getItem("blueLayoutShrinkSidebar") === null,
+            expandSidebar,
             match: null,
             history: [],
             hash: window.location.hash,
@@ -160,6 +162,8 @@ export default class Layout extends Component<LayoutProps, LayoutState> {
         this.toggleExpandSidebar = this.toggleExpandSidebar.bind(this)
 
         this.eventListeners = []
+
+        if (this.props.onChangeExpandSidebar) this.props.onChangeExpandSidebar(expandSidebar)
     }
 
     onHashChange() {

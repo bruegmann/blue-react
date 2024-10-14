@@ -1,7 +1,14 @@
 import clsx from "clsx"
-import React, { CSSProperties, createElement, useEffect, useState } from "react"
+import React, { CSSProperties, createElement, useEffect, useRef, useState } from "react"
 import Outside from "./Outside"
 import Chevron from "./Chevron"
+
+function findParentWithClass(element: HTMLElement | null, className: string) {
+    while (element && !element.classList.contains(className)) {
+        element = element.parentElement
+    }
+    return element
+}
 
 export interface MenuItemProps {
     /**
@@ -108,6 +115,13 @@ export interface MenuItemProps {
     supportOutside?: boolean
 
     /**
+     * Overrides default class list to be ignored on click outside.
+     * Hint: If you want this menu item to stay open when others will open, set:
+     * `outsideIgnoreClasses={["blue-menu-item-wrapper"]}`.
+     */
+    outsideIgnoreClasses?: string[]
+
+    /**
      * By default, MenuItem is a `"button"`. If you set a `href`, it's a `"a"`.
      * If you want to have it another type, you can pass a component reference with this prop (e.g. `Link`).
      */
@@ -179,8 +193,12 @@ export interface MenuItemProps {
  * Link, button or custom component for Sidebar, Actions or ActionMenu
  */
 export default function MenuItem(props: MenuItemProps) {
+    const id = `blue-menu-item-wrapper-${Math.random().toString(36).substring(7)}`
+
     const [showDropdown, setShowDropdown] = useState<boolean>(false)
     const [active, setActive] = useState<boolean>(false)
+
+    const menuRef = useRef<HTMLDivElement>(null)
 
     const checkActive = () => {
         setActive(
@@ -210,13 +228,20 @@ export default function MenuItem(props: MenuItemProps) {
     }
 
     const onClickOutside = ({ target }: MouseEvent) => {
-        // Don't trigger when clicking on MenuItem
-        if (
-            !(target as HTMLElement | null)?.classList.contains("blue-menu-item-dropdown-toggle") &&
-            !(target as HTMLElement | null)?.classList.contains("blue-menu-item-label")
-        ) {
-            setShowDropdown(false)
+        const ignoreClasses = props.outsideIgnoreClasses || [id]
+
+        if (ignoreClasses && target) {
+            for (let i = 0; i < ignoreClasses.length; i++) {
+                if (
+                    (target as HTMLElement | null)?.classList.contains(ignoreClasses[i]) ||
+                    findParentWithClass(target as HTMLElement, ignoreClasses[i])
+                ) {
+                    return
+                }
+            }
         }
+
+        setShowDropdown(false)
     }
 
     useEffect(() => {
@@ -235,6 +260,14 @@ export default function MenuItem(props: MenuItemProps) {
             props.onShowDropdown(showDropdown)
         }
     }, [props.onShowDropdown, showDropdown])
+
+    useEffect(() => {
+        if (menuRef && menuRef.current) {
+            const el = menuRef.current
+            const rect = el.getBoundingClientRect()
+            el.style.setProperty("--offset-top", Math.round(rect.top) + "px")
+        }
+    }, [menuRef, showDropdown])
 
     const className =
         "blue-menu-item btn" +
@@ -264,7 +297,7 @@ export default function MenuItem(props: MenuItemProps) {
     }
 
     return (
-        <>
+        <div className={`blue-menu-item-wrapper ${id}`}>
             {createElement(
                 props.elementType || (props.href ? "a" : "button"),
                 {
@@ -340,6 +373,7 @@ export default function MenuItem(props: MenuItemProps) {
             {showDropdown &&
                 (props.supportOutside ? (
                     <Outside
+                        wrapperRef={menuRef}
                         className={clsx("blue-menu-item-dropdown", props.dropdownClassName)}
                         onClickOutside={onClickOutside}
                         style={props.dropdownStyle}
@@ -348,12 +382,13 @@ export default function MenuItem(props: MenuItemProps) {
                     </Outside>
                 ) : (
                     <div
+                        ref={menuRef}
                         className={clsx("blue-menu-item-dropdown", props.dropdownClassName)}
                         style={props.dropdownStyle}
                     >
                         {props.children}
                     </div>
                 ))}
-        </>
+        </div>
     )
 }

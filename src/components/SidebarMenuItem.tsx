@@ -6,15 +6,8 @@ export interface SidebarMenuItemProps extends MenuItemProps {
     outerClass?: string
 }
 
-function getOffset(el: HTMLElement) {
-    const rect = el.getBoundingClientRect()
-    return {
-        left: Math.round(rect.left + window.scrollX),
-        top: Math.round(rect.top + window.scrollY)
-    }
-}
-
 /**
+ * @deprecated `MenuItem` now has all the features of `SidebarMenuItem`. Use `MenuItem` instead.
  * Extends `MenuItem` with following features:
  * * Shows provided label as tooltip if sidebar is closed.
  * * Children will be displayed on the right side of the parent item.
@@ -43,8 +36,7 @@ export default function SidebarMenuItem({ outerClass = "", children, onClick, ..
 
     useEffect(() => {
         if (menuRef && menuRef.current) {
-            const offset = getOffset(menuRef.current)
-            setOffsetTop(offset.top)
+            setOffsetTop(menuRef.current.getBoundingClientRect().top)
         }
     }, [menuRef, open])
 
@@ -69,7 +61,6 @@ export default function SidebarMenuItem({ outerClass = "", children, onClick, ..
                                 "ms-1",
                                 "rounded",
                                 "w-bla-sidebar-width",
-                                "blue-menu-item-dropdown",
                                 "blue-menu-item-dropdown-from-start"
                             ].join(" ")}
                             style={{

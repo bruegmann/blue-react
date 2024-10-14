@@ -1,4 +1,4 @@
-import React, { CSSProperties, MouseEventHandler, MutableRefObject, useEffect, useRef } from "react"
+import React, { CSSProperties, MouseEventHandler, MutableRefObject, RefObject, useEffect, useRef } from "react"
 
 /**
  * Hook that alerts clicks outside of the passed ref
@@ -28,17 +28,18 @@ export interface OutsideProps {
     onClickOutside?: (event: MouseEvent) => void
     onClick?: MouseEventHandler<HTMLDivElement> | undefined
     style?: CSSProperties
+    wrapperRef?: RefObject<HTMLDivElement>
 }
 
 /**
  * Component that fires an event if you click outside of it
  */
-export default function Outside({ children, className, onClickOutside, onClick, style }: OutsideProps) {
-    const wrapperRef = useRef(null)
-    useOutside(wrapperRef, onClickOutside)
+export default function Outside({ children, className, onClickOutside, onClick, style, wrapperRef }: OutsideProps) {
+    const ref = useRef(null)
+    useOutside(wrapperRef || ref, onClickOutside)
 
     return (
-        <div ref={wrapperRef} className={className} style={style} onClick={onClick}>
+        <div ref={wrapperRef || ref} className={className} style={style} onClick={onClick}>
             {children}
         </div>
     )

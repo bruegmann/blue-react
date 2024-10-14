@@ -20,8 +20,7 @@ import {
     StickiesFill,
     Rss,
     RssFill,
-    Eye,
-    BoxArrowUpRight
+    Eye
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
@@ -33,7 +32,6 @@ import LicenseReportPage from "./pages/LicenseReportPage"
 import { useEffect } from "react"
 import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
-import SidebarMenuItem from "../components/SidebarMenuItem"
 
 function App() {
     const onHashChange = () => {
@@ -127,14 +125,9 @@ function App() {
                             menuClass="overflow-visible"
                             bottomContent={
                                 <>
-                                    <SidebarMenuItem
-                                        to="/demo#intro"
-                                        elementType={Link}
-                                        icon={<Eye />}
-                                        label="Demo App"
-                                    />
+                                    <MenuItem to="/demo#intro" elementType={Link} icon={<Eye />} label="Demo App" />
 
-                                    <SidebarMenuItem
+                                    <MenuItem
                                         href="https://github.com/bruegmann/blue-react"
                                         icon={<CodeSquare />}
                                         label="Code on GitHub"
@@ -144,7 +137,7 @@ function App() {
                                 </>
                             }
                         >
-                            <SidebarMenuItem
+                            <MenuItem
                                 icon={<House />}
                                 iconForActive={<HouseFill />}
                                 label="Start"
@@ -152,7 +145,7 @@ function App() {
                                 exact
                                 to="/"
                             />
-                            <SidebarMenuItem
+                            <MenuItem
                                 icon={<Rss />}
                                 iconForActive={<RssFill />}
                                 label="Blog"
@@ -160,14 +153,14 @@ function App() {
                                 to="/blog"
                             />
 
-                            <SidebarMenuItem
+                            <MenuItem
                                 icon={<Puzzle />}
                                 iconForActive={<PuzzleFill />}
                                 label="React Components"
                                 elementType={NavLink}
                                 to="/component"
                             />
-                            <SidebarMenuItem
+                            <MenuItem
                                 icon={<Stickies />}
                                 iconForActive={<StickiesFill />}
                                 label="Recipes"
