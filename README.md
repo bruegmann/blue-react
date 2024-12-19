@@ -9,11 +9,40 @@
 [Checkout the docs](https://bruegmann.github.io/blue-react) to find out how to
 use Blue React.
 
-## Breaking changes between v8 and v9
+## Breaking changes between v9 and v10
 
--   Renamed `.caret` ➡️ `.blue-caret`
--   Removed `.switch` CSS
--   Removed deprecated DocumentView
+### Removed hash router from Layout
+
+The new `Layout` no longer has a hash router. So there is no `pages` prop anymore. The router moved to its own component `HashRouter` for legacy reasons. But it's recommended to use other solutions like [React Router](https://reactrouter.com/) or [TanStack Router](https://tanstack.com/router/latest).
+
+### Move side content to `side` prop
+
+It should look like this:
+
+```tsx
+<Layout
+    side={
+        <SidebarMenu>
+            <MenuItem href="." label="Home" />
+        </SidebarMenu>
+    }
+>
+    Your page content
+</Layout>
+```
+
+### Removed HTML elements for status
+
+If you use util functions for status like `showSuccess()` or `setAlertMessage()` you need to embed the `Status` React component like this:
+
+```tsx
+<Status
+    dangerIcon={<XCircleFill />}
+    infoIcon={<InfoCircleFill />}
+    successIcon={<CheckCircleFill />}
+    warningIcon={<ExclamationCircleFill />}
+/>
+```
 
 ## Developing
 

@@ -1,11 +1,12 @@
-$theme: #261f31;
-$primary: #655be9;
+$theme: #23272f;
+$primary: #087ea4;
 
 $body-bg: #efeeee;
 $body-bg-dark: lighten($theme, 4%);
 $body-color-dark: white;
 
 @import "node_modules/blue-web/dist/style";
+
 @import "node_modules/blue-web/dist/neu";
 
 :root {
@@ -56,12 +57,12 @@ pre {
     padding: 0 calc(50% - 24rem);
 }
 
-.router-page {
+.bg-body {
     @include neu($body-bg, $body-bg);
 }
 
 @include color-mode(dark) {
-    .router-page {
+    .bg-body {
         @include neu($body-bg-dark, $body-bg-dark);
     }
 }
@@ -106,22 +107,6 @@ pre {
     .btn-lg.btn-primary {
         @include neu($body-bg-dark, $primary);
     }
-}
-
-.docs-layout {
-    .router-page {
-        all: unset;
-    }
-
-    .blue-page {
-        padding-top: 3.5rem;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-}
-
-.docs-sticky-top {
-    top: 3.5rem !important;
 }
 
 body:has(.docs-layout) {

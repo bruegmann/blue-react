@@ -15,8 +15,8 @@ export const HomePage = () => (
     <Page>
         <Body className="pt-0" containerClass="no-container d-flex flex-column docs-min-height-100vh">
             <main className="flex-grow-1">
-                <div className="welcome-jumbotron pt-5 bg-theme text-white">
-                    <div className="container pt-3 mt-5 pt-md-0">
+                <div className="welcome-jumbotron pt-3 bg-theme text-white">
+                    <div className="container pt-3 mt-3 pt-md-0">
                         <div className="d-md-flex">
                             <div className="flex-grow-1">
                                 <h1
@@ -94,7 +94,7 @@ export const HomePage = () => (
                         using Vite instead.
                     </p>
                     <code>
-                        npx create-react-app@latest <strong>name-of-my-app</strong> --template blue@9
+                        npx create-react-app@latest <strong>name-of-my-app</strong> --template blue
                     </code>
 
                     <h2 className="mt-4 mb-3">Install to existing project</h2>

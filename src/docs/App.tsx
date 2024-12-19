@@ -1,19 +1,15 @@
 import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom"
 import Layout from "../components/Layout"
+import HashRouter from "../components/HashRouter"
 
 import "./docs.scss"
 import { HomePage } from "./pages/HomePage"
 import MenuItem from "../components/MenuItem"
 
 import {
-    List,
     House,
     CodeSquare,
     Puzzle,
-    XCircleFill,
-    InfoCircleFill,
-    CheckCircleFill,
-    ExclamationCircleFill,
     HouseFill,
     PuzzleFill,
     Stickies,
@@ -72,16 +68,20 @@ function App() {
 
                 <Route path="/action-menu-example">
                     <Layout
-                        pages={[
-                            {
-                                name: "home",
-                                component: <ActionMenuExamplePage />
-                            }
-                        ]}
+                        side={
+                            <SidebarMenu>
+                                <MenuItem href="#" label="Home" icon={<span>🏠</span>} isHome />
+                            </SidebarMenu>
+                        }
                     >
-                        <SidebarMenu>
-                            <MenuItem href="#" label="Home" icon={<span>🏠</span>} isHome />
-                        </SidebarMenu>
+                        <HashRouter
+                            pages={[
+                                {
+                                    name: "home",
+                                    component: <ActionMenuExamplePage />
+                                }
+                            ]}
+                        />
                     </Layout>
                 </Route>
 
@@ -109,87 +109,77 @@ function App() {
                     </nav>
 
                     <Layout
-                        unrouteable
-                        sidebarToggleIconComponent={<List />}
-                        statusIcons={{
-                            danger: <XCircleFill />,
-                            info: <InfoCircleFill />,
-                            success: <CheckCircleFill />,
-                            warning: <ExclamationCircleFill />
-                        }}
-                        disableHeaders
-                        className="docs-layout"
+                        pageBorder={false}
+                        side={
+                            <SidebarMenu
+                                sidebarClass="overflow-visible"
+                                menuClass="overflow-visible"
+                                bottomContent={
+                                    <>
+                                        <MenuItem to="/demo#intro" elementType={Link} icon={<Eye />} label="Demo App" />
+
+                                        <MenuItem
+                                            href="https://github.com/bruegmann/blue-react"
+                                            icon={<CodeSquare />}
+                                            label="Code on GitHub"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        />
+                                    </>
+                                }
+                            >
+                                <MenuItem
+                                    icon={<House />}
+                                    iconForActive={<HouseFill />}
+                                    label="Start"
+                                    elementType={NavLink}
+                                    exact
+                                    to="/"
+                                />
+                                <MenuItem
+                                    icon={<Rss />}
+                                    iconForActive={<RssFill />}
+                                    label="Blog"
+                                    elementType={NavLink}
+                                    to="/blog"
+                                />
+
+                                <MenuItem
+                                    icon={<Puzzle />}
+                                    iconForActive={<PuzzleFill />}
+                                    label="React Components"
+                                    elementType={NavLink}
+                                    to="/component"
+                                />
+                                <MenuItem
+                                    icon={<Stickies />}
+                                    iconForActive={<StickiesFill />}
+                                    label="Recipes"
+                                    elementType={NavLink}
+                                    to="/recipes"
+                                />
+                            </SidebarMenu>
+                        }
                     >
-                        <SidebarMenu
-                            sidebarClass="overflow-visible"
-                            menuClass="overflow-visible"
-                            bottomContent={
-                                <>
-                                    <MenuItem to="/demo#intro" elementType={Link} icon={<Eye />} label="Demo App" />
+                        <Route path="/blog">
+                            <BlogPage />
+                        </Route>
 
-                                    <MenuItem
-                                        href="https://github.com/bruegmann/blue-react"
-                                        icon={<CodeSquare />}
-                                        label="Code on GitHub"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    />
-                                </>
-                            }
-                        >
-                            <MenuItem
-                                icon={<House />}
-                                iconForActive={<HouseFill />}
-                                label="Start"
-                                elementType={NavLink}
-                                exact
-                                to="/"
-                            />
-                            <MenuItem
-                                icon={<Rss />}
-                                iconForActive={<RssFill />}
-                                label="Blog"
-                                elementType={NavLink}
-                                to="/blog"
-                            />
+                        <Route path="/component/:selectedComponent?">
+                            <ComponentPage />
+                        </Route>
 
-                            <MenuItem
-                                icon={<Puzzle />}
-                                iconForActive={<PuzzleFill />}
-                                label="React Components"
-                                elementType={NavLink}
-                                to="/component"
-                            />
-                            <MenuItem
-                                icon={<Stickies />}
-                                iconForActive={<StickiesFill />}
-                                label="Recipes"
-                                elementType={NavLink}
-                                to="/recipes"
-                            />
-                        </SidebarMenu>
+                        <Route path="/recipes/:active?">
+                            <RecipesPage />
+                        </Route>
 
-                        <div className="router-page active">
-                            <Route path="/blog">
-                                <BlogPage />
-                            </Route>
+                        <Route path="/license-report">
+                            <LicenseReportPage />
+                        </Route>
 
-                            <Route path="/component/:selectedComponent?">
-                                <ComponentPage />
-                            </Route>
-
-                            <Route path="/recipes/:active?">
-                                <RecipesPage />
-                            </Route>
-
-                            <Route path="/license-report">
-                                <LicenseReportPage />
-                            </Route>
-
-                            <Route path="/" exact>
-                                <HomePage />
-                            </Route>
-                        </div>
+                        <Route path="/" exact>
+                            <HomePage />
+                        </Route>
                     </Layout>
                 </Route>
             </Switch>

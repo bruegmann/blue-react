@@ -64,9 +64,9 @@ export default function HeaderTitle({
 
     const setDocumentTitle = () => {
         if (
-            window.blueLayoutRef &&
-            window.blueLayoutRef.props &&
-            window.blueLayoutRef.props.disableTitleSet === false
+            window.blueHashRouterRef &&
+            window.blueHashRouterRef.props &&
+            window.blueHashRouterRef.props.disableTitleSet === false
         ) {
             const element = document.querySelector(`#${uniqueId} .blue-header-title-labels`) as HTMLElement
             const titleElement = document.querySelector("title")

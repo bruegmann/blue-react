@@ -38,72 +38,21 @@ export interface SidebarMenuProps {
  * Sidebar for the `Layout` component.
  */
 export default function SidebarMenu(props: SidebarMenuProps) {
-    const [hasShadow, setHasShadow] = useState<boolean>(false)
-
-    const updateDimensions = () => {
-        if (window.innerHeight > 500) {
-            setHasShadow(false)
-        }
-    }
-
-    useEffect(() => {
-        const blueAppSidebar = document.querySelector(
-            ".blue-sidebar"
-        ) as HTMLElement
-
-        window.addEventListener("resize", updateDimensions)
-
-        if (blueAppSidebar.scrollHeight > blueAppSidebar.clientHeight) {
-            setHasShadow(true)
-        }
-
-        blueAppSidebar.addEventListener("scroll", () => {
-            if (
-                blueAppSidebar.scrollHeight - blueAppSidebar.scrollTop ===
-                blueAppSidebar.clientHeight
-            ) {
-                setHasShadow(false)
-            } else {
-                setHasShadow(true)
-            }
-        })
-
-        return () => {
-            window.removeEventListener("resize", updateDimensions)
-        }
-    }, [])
-
     return (
         <div
-            className={
-                "blue-sidebar " +
-                (props.sidebarClass ? props.sidebarClass : "")
-            }
+            className={"d-flex flex-column h-100 " + (props.sidebarClass ? props.sidebarClass : "")}
             style={props.sidebarStyle ? props.sidebarStyle : {}}
         >
-            {props.topContent && (
-                <div className="blue-sidebar-top">{props.topContent}</div>
-            )}
+            {props.topContent && <div className="blue-sidebar-top">{props.topContent}</div>}
 
             <div
-                className={
-                    "blue-menu " + (props.menuClass ? props.menuClass : "")
-                }
+                className={"flex-grow-1 overflow-auto " + (props.menuClass ? props.menuClass : "")}
                 style={props.menuStyle ? props.menuStyle : {}}
             >
                 {props.children}
             </div>
 
-            {props.bottomContent && (
-                <div
-                    className={
-                        "blue-sidebar-bottom " +
-                        (hasShadow ? " has-shadow" : "")
-                    }
-                >
-                    {props.bottomContent}
-                </div>
-            )}
+            {props.bottomContent && <div className={" "}>{props.bottomContent}</div>}
         </div>
     )
 }

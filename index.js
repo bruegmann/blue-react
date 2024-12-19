@@ -5,6 +5,7 @@ exports.ActionMenuItem = require("./dist/components/ActionMenuItem.js")["default
 exports.Body = require("./dist/components/Body.js")["default"]
 exports.Caret = require("./dist/components/Caret.js")["default"]
 exports.Chevron = require("./dist/components/Chevron.js")["default"]
+exports.HashRouter = require("./dist/components/HashRouter.js")["default"]
 exports.Layout = require("./dist/components/Layout.js")["default"]
 exports.Header = require("./dist/components/Header.js")["default"]
 exports.HeaderTitle = require("./dist/components/HeaderTitle.js")["default"]

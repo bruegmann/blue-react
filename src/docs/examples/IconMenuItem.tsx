@@ -33,8 +33,8 @@ export default function IconMenuItemExample() {
                     icon={<List className="bi" />}
                     label="Toggle menu"
                     onClick={() => {
-                        window.blueLayoutRef.setState({
-                            expandSidebar: !window.blueLayoutRef.state.expandSidebar
+                        window.blueHashRouterRef.setState({
+                            expandSidebar: !window.blueHashRouterRef.state.expandSidebar
                         })
                     }}
                 />
