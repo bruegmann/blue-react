@@ -1,0 +1,33 @@
+$theme: #efeeee;
+$body-color: #212529;
+$sidebar-color: $body-color;
+$header-color: $body-color;
+$primary: #0d6efd;
+$sidebar-indicator-color: $primary;
+$scrollbar-thumb-color: $body-color;
+
+// Enables dark mode depending on user's device settings.
+// See below to see color values for dark mode.
+$color-mode-type: media-query;
+
+@import "node_modules/blue-web/dist/style.scss";
+
+@include color-mode(dark) {
+    $theme: #413c3c;
+
+    :root {
+        --theme: #{$theme};
+        --bs-theme: #{$theme};
+        --bs-theme-rgb: #{red($theme)}, #{green($theme)}, #{blue($theme)};
+        --blue-sidebar-bg: var(--bs-theme);
+        --blue-sidebar-color: white;
+        --blue-app-bg: var(--bs-theme);
+        --blue-scrollbar-thumb-color-rgb: 255, 255, 255;
+        --blue-header-bg: var(--bs-theme);
+        --blue-header-bg-rgb: var(--bs-theme-rgb);
+    }
+
+    .blue-header {
+        color: white;
+    }
+}

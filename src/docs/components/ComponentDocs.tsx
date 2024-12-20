@@ -10,6 +10,7 @@ export interface IComponentDocsProps {
         composes?: string[]
         displayName: string
         description: string
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         props: any
         exampleCode?: string
         examples?: {
@@ -21,31 +22,25 @@ export interface IComponentDocsProps {
 export class ComponentDocs extends Component<
     IComponentDocsProps,
     {
-        ExampleComponent: ComponentClass<any>
+        ExampleComponent: ComponentClass
         exampleComponents: {
-            [file: string]: ComponentClass<any>
+            [file: string]: ComponentClass
         }
     }
 > {
     state = {
-        ExampleComponent: null as unknown as ComponentClass<any>,
+        ExampleComponent: null as unknown as ComponentClass,
         exampleComponents: {}
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const { comp } = this.props
 
         try {
-            const ExampleComponent = require(`../examples/${comp.displayName}.tsx`)
-            this.setState({ ExampleComponent: ExampleComponent["default"] })
-        } catch (ex) {
-            // console.error(ex)
-            // This component has no example
-        }
-
-        try {
-            const ExampleComponent = require(`../examples/${comp.displayName}.js`)
-            this.setState({ ExampleComponent: ExampleComponent["default"] })
+            const ExampleComponent = await import(
+                `../examples/${comp.displayName}.tsx`
+            )
+            this.setState({ ExampleComponent: ExampleComponent.default })
         } catch (ex) {
             // console.error(ex)
             // This component has no example
@@ -54,9 +49,17 @@ export class ComponentDocs extends Component<
         if (comp.examples) {
             for (const file in comp.examples) {
                 try {
-                    const ExampleComponent = require(`../examples/${comp.displayName}/${file}`)
+                    const ExampleComponent = await import(
+                        `../examples/${comp.displayName}/${file.replace(
+                            ".tsx",
+                            ""
+                        )}.tsx`
+                    )
                     this.setState((state) => ({
-                        exampleComponents: { ...state.exampleComponents, [file]: ExampleComponent["default"] }
+                        exampleComponents: {
+                            ...state.exampleComponents,
+                            [file]: ExampleComponent.default
+                        }
                     }))
                 } catch (ex) {
                     console.error(ex)
@@ -78,7 +81,10 @@ export class ComponentDocs extends Component<
             <article className="pt-5">
                 <h1 className="page-header mt-0 blue-opacity-hover">
                     {comp.displayName}{" "}
-                    <Link to={`/component/${comp.displayName}`} className="blue-opacity-hover-content-active">
+                    <Link
+                        to={`/component/${comp.displayName}`}
+                        className="blue-opacity-hover-content-active"
+                    >
                         #
                     </Link>
                 </h1>
@@ -93,7 +99,10 @@ export class ComponentDocs extends Component<
                     </a>
                 </p>
 
-                <Markdown>{comp.description && this.prepareForMarkdown(comp.description)}</Markdown>
+                <Markdown>
+                    {comp.description &&
+                        this.prepareForMarkdown(comp.description)}
+                </Markdown>
 
                 {comp.displayName == "Intro" && (
                     <p>
@@ -122,11 +131,15 @@ export class ComponentDocs extends Component<
                             <li>
                                 <a href="#examples">Examples</a>
                                 <ul>
-                                    {Object.keys(exampleComponents).map((key) => (
-                                        <li key={key}>
-                                            <a href={`#${key}`}>{key.replace(".tsx", "")}</a>
-                                        </li>
-                                    ))}
+                                    {Object.keys(exampleComponents).map(
+                                        (key) => (
+                                            <li key={key}>
+                                                <a href={`#${key}`}>
+                                                    {key.replace(".tsx", "")}
+                                                </a>
+                                            </li>
+                                        )
+                                    )}
                                 </ul>
                             </li>
                         )}
@@ -141,7 +154,12 @@ export class ComponentDocs extends Component<
 
                         {comp.composes.map((comp: string, key: number) => (
                             <div key={key}>
-                                <Link to={`/component/${comp.replace("Props", "")}`}>
+                                <Link
+                                    to={`/component/${comp.replace(
+                                        "Props",
+                                        ""
+                                    )}`}
+                                >
                                     {" "}
                                     <code>{comp}</code>
                                 </Link>
@@ -172,15 +190,27 @@ export class ComponentDocs extends Component<
                                             <th>{j}</th>
                                             <td>
                                                 <Markdown>
-                                                    {comp.props[j].description &&
-                                                        this.prepareForMarkdown(comp.props[j].description)}
+                                                    {comp.props[j]
+                                                        .description &&
+                                                        this.prepareForMarkdown(
+                                                            comp.props[j]
+                                                                .description
+                                                        )}
                                                 </Markdown>
 
                                                 {comp.props[j].defaultValue ? (
                                                     <div>
-                                                        <strong>Default:</strong>
+                                                        <strong>
+                                                            Default:
+                                                        </strong>
                                                         &nbsp;
-                                                        <code>{comp.props[j].defaultValue.value}</code>
+                                                        <code>
+                                                            {
+                                                                comp.props[j]
+                                                                    .defaultValue
+                                                                    .value
+                                                            }
+                                                        </code>
                                                     </div>
                                                 ) : (
                                                     ""
@@ -188,14 +218,20 @@ export class ComponentDocs extends Component<
                                             </td>
                                             <td>
                                                 {comp.props[j].tsType &&
-                                                    (comp.props[j].tsType.raw || comp.props[j].tsType.name)}
+                                                    (comp.props[j].tsType.raw ||
+                                                        comp.props[j].tsType
+                                                            .name)}
 
                                                 <span
                                                     className={`badge ${
-                                                        comp.props[j].required ? "bg-secondary" : "bg-light text-body"
+                                                        comp.props[j].required
+                                                            ? "bg-secondary"
+                                                            : "bg-light text-body"
                                                     } ms-1`}
                                                 >
-                                                    {comp.props[j].required ? "required" : "optional"}
+                                                    {comp.props[j].required
+                                                        ? "required"
+                                                        : "optional"}
                                                 </span>
                                             </td>
                                         </tr>
@@ -219,7 +255,10 @@ export class ComponentDocs extends Component<
                                     </div>
 
                                     {comp.exampleCode && (
-                                        <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
+                                        <SyntaxHighlighter
+                                            style={syntaxHighlighterStyle}
+                                            language="jsx"
+                                        >
                                             {comp.exampleCode}
                                         </SyntaxHighlighter>
                                     )}
@@ -227,7 +266,10 @@ export class ComponentDocs extends Component<
                             )}
                         </div>
                     ) : (
-                        <Link to={"/component/" + comp.displayName} onClick={() => window.scrollTo(0, 0)}>
+                        <Link
+                            to={"/component/" + comp.displayName}
+                            onClick={() => window.scrollTo(0, 0)}
+                        >
                             Show example
                         </Link>
                     ))}
@@ -239,7 +281,7 @@ export class ComponentDocs extends Component<
                         </h2>
 
                         {Object.keys(exampleComponents).map((key) => {
-                            // @ts-expect-error
+                            // @ts-expect-error: Is dynamic loading.
                             const ExampleComponent = exampleComponents[key]
 
                             return (
@@ -254,7 +296,10 @@ export class ComponentDocs extends Component<
                                         </div>
 
                                         {comp.examples && (
-                                            <SyntaxHighlighter style={syntaxHighlighterStyle} language="jsx">
+                                            <SyntaxHighlighter
+                                                style={syntaxHighlighterStyle}
+                                                language="jsx"
+                                            >
                                                 {comp.examples[key]}
                                             </SyntaxHighlighter>
                                         )}
