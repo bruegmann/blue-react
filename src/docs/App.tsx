@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom"
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    NavLink,
+    Link
+} from "react-router-dom"
 import Layout from "../components/Layout"
 import HashRouter from "../components/HashRouter"
 
@@ -12,8 +18,6 @@ import {
     Puzzle,
     HouseFill,
     PuzzleFill,
-    Stickies,
-    StickiesFill,
     Rss,
     RssFill,
     Eye
@@ -21,7 +25,6 @@ import {
 
 import { ComponentPage } from "./pages/ComponentPage"
 import { logo } from "./Global"
-import { RecipesPage } from "./pages/RecipesPage"
 import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
 import BlogPage from "./pages/BlogPage"
 import LicenseReportPage from "./pages/LicenseReportPage"
@@ -31,8 +34,13 @@ import SidebarMenu from "../components/SidebarMenu"
 
 function App() {
     const onHashChange = () => {
-        if (window.location.hash !== "" && window.location.hash.includes("css")) {
-            let hash = decodeURIComponent(window.location.hash.substring(1)).replace("home/", "")
+        if (
+            window.location.hash !== "" &&
+            window.location.hash.includes("css")
+        ) {
+            const hash = decodeURIComponent(
+                window.location.hash.substring(1)
+            ).replace("home/", "")
 
             const { colorMode, css } = JSON.parse(hash)
 
@@ -60,7 +68,7 @@ function App() {
     }, [])
 
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router basename={import.meta.env.BASE_URL}>
             <Switch>
                 <Route path="/demo">
                     <DemoApp />
@@ -70,7 +78,12 @@ function App() {
                     <Layout
                         side={
                             <SidebarMenu>
-                                <MenuItem href="#" label="Home" icon={<span>🏠</span>} isHome />
+                                <MenuItem
+                                    href="#"
+                                    label="Home"
+                                    icon={<span>🏠</span>}
+                                    isHome
+                                />
                             </SidebarMenu>
                         }
                     >
@@ -88,11 +101,21 @@ function App() {
                 <Route path="/">
                     <nav className="docs-nav">
                         <Link className="navbar-brand" to="/">
-                            <img src={logo} alt="Blue Logo" width="32" height="32" className="d-block" /> Blue React
+                            <img
+                                src={logo}
+                                alt="Blue Logo"
+                                width="32"
+                                height="32"
+                                className="d-block"
+                            />{" "}
+                            Blue React
                         </Link>
 
                         <div className="navbar-nav">
-                            <a href="https://bruegmann.github.io/blue-web" className="nav-link">
+                            <a
+                                href="https://bruegmann.github.io/blue-web"
+                                className="nav-link"
+                            >
                                 Web
                             </a>
                             <a
@@ -102,7 +125,10 @@ function App() {
                             >
                                 React
                             </a>
-                            <a href="https://bruegmann.github.io/blue-blazor" className="nav-link">
+                            <a
+                                href="https://bruegmann.github.io/blue-blazor"
+                                className="nav-link"
+                            >
                                 Blazor
                             </a>
                         </div>
@@ -116,7 +142,12 @@ function App() {
                                 menuClass="overflow-visible"
                                 bottomContent={
                                     <>
-                                        <MenuItem to="/demo#intro" elementType={Link} icon={<Eye />} label="Demo App" />
+                                        <MenuItem
+                                            to="/demo#intro"
+                                            elementType={Link}
+                                            icon={<Eye />}
+                                            label="Demo App"
+                                        />
 
                                         <MenuItem
                                             href="https://github.com/bruegmann/blue-react"
@@ -137,14 +168,6 @@ function App() {
                                     to="/"
                                 />
                                 <MenuItem
-                                    icon={<Rss />}
-                                    iconForActive={<RssFill />}
-                                    label="Blog"
-                                    elementType={NavLink}
-                                    to="/blog"
-                                />
-
-                                <MenuItem
                                     icon={<Puzzle />}
                                     iconForActive={<PuzzleFill />}
                                     label="React Components"
@@ -152,11 +175,11 @@ function App() {
                                     to="/component"
                                 />
                                 <MenuItem
-                                    icon={<Stickies />}
-                                    iconForActive={<StickiesFill />}
-                                    label="Recipes"
+                                    icon={<Rss />}
+                                    iconForActive={<RssFill />}
+                                    label="Blog"
                                     elementType={NavLink}
-                                    to="/recipes"
+                                    to="/blog"
                                 />
                             </SidebarMenu>
                         }
@@ -167,10 +190,6 @@ function App() {
 
                         <Route path="/component/:selectedComponent?">
                             <ComponentPage />
-                        </Route>
-
-                        <Route path="/recipes/:active?">
-                            <RecipesPage />
                         </Route>
 
                         <Route path="/license-report">

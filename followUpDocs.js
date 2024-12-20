@@ -1,12 +1,13 @@
 // Fügt Beispiel-Code der Doku hinzu
 
-const fs = require("fs")
-const path = require("path")
+import fs from "fs"
+import path from "path"
+import packageJson from "./package.json" with {type: "json"}
 
-const packageName = require("./package.json").name
 const docPath = "./src/docs/data/docs.json"
+import doc from "./src/docs/data/docs.json" with {type: "json"}
 
-const doc = require(docPath)
+const packageName = packageJson.name
 
 function prepareExampleCode(exampleCode) {
     /**
@@ -14,11 +15,15 @@ function prepareExampleCode(exampleCode) {
      * */
     exampleCode.replace('"../../../index.js"', `"${packageName}"`)
 
-    const matches = [...exampleCode.matchAll(/import (.*) from "..\/..\/(..\/)?components\/(.*)"/gm)]
+    const matches = [
+        ...exampleCode.matchAll(
+            /import (.*) from "..\/..\/(..\/)?components\/(.*)"/gm
+        )
+    ]
 
     let extraModules = []
 
-    let componentNames = matches.map((match, idx, array) => {
+    let componentNames = matches.map((match) => {
         if (match[1].includes(",")) {
             match[1]
                 .replace("{", "")
@@ -37,7 +42,9 @@ function prepareExampleCode(exampleCode) {
 
     componentNames = [...componentNames, ...extraModules]
 
-    const importCode = `import { ${componentNames.sort().join(", ")} } from "${packageName}"`
+    const importCode = `import { ${componentNames
+        .sort()
+        .join(", ")} } from "${packageName}"`
 
     matches.forEach((match) => {
         if (exampleCode.includes(importCode)) {
