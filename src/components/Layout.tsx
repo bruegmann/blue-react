@@ -1,13 +1,7 @@
-import React, { CSSProperties } from "react"
+import React, { CSSProperties, FC } from "react"
 import "blue-web/dist/js/side-layout"
 
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            "side-layout": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
-        }
-    }
-}
+const SideLayout = "side-layout" as unknown as FC<{ style?: CSSProperties; children: React.ReactNode }>
 
 export interface LayoutProps {
     children?: React.ReactNode
@@ -19,7 +13,7 @@ export interface LayoutProps {
 export default function Layout({ children, header, side, noPageBorder = false }: LayoutProps) {
     return (
         <div style={{ height: "100vh" }}>
-            <side-layout style={{ "--base-z-index": 500 } as CSSProperties}>
+            <SideLayout style={{ "--base-z-index": 500 } as CSSProperties}>
                 <div
                     slot="expand-toggler"
                     className="w-100 h-100"
@@ -81,7 +75,7 @@ export default function Layout({ children, header, side, noPageBorder = false }:
                         {children}
                     </div>
                 </div>
-            </side-layout>
+            </SideLayout>
         </div>
     )
 }

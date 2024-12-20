@@ -39,7 +39,7 @@ export interface SearchProps {
     /**
      * Set `ref` prop of the input element. Let's you take control of it from the outside, e.g. to set focus.
      */
-    inputRef?: RefObject<HTMLInputElement>
+    inputRef?: RefObject<HTMLInputElement | null>
 }
 
 /**

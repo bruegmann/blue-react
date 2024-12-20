@@ -1,11 +1,11 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Dropdown } from "bootstrap"
 import Outside from "../../components/Outside"
 
 export function VersionToggle() {
     const [show, setShow] = useState<boolean>(false)
     const toggle = () => setShow(!show)
-    const dropdownRef = useRef() as MutableRefObject<HTMLButtonElement>
+    const dropdownRef = useRef(null)
 
     useEffect(() => {
         const myElement = dropdownRef.current as unknown as Element

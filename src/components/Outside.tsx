@@ -28,7 +28,7 @@ export interface OutsideProps {
     onClickOutside?: (event: MouseEvent) => void
     onClick?: MouseEventHandler<HTMLDivElement> | undefined
     style?: CSSProperties
-    wrapperRef?: RefObject<HTMLDivElement>
+    wrapperRef?: RefObject<HTMLDivElement | null>
 }
 
 /**

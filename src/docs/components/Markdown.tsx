@@ -28,7 +28,7 @@ export default function Markdown({ children }: MarkdownProps) {
                     )
                 }
             }}
-            transformImageUri={(src: string) =>
+            urlTransform={(src: string) =>
                 `https://raw.githubusercontent.com/bruegmann/blue-react/master/recipes/${src}`
             }
         />

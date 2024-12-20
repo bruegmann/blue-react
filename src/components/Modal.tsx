@@ -45,7 +45,7 @@ export default function Modal({
     acceptBtnText,
     cancelBtnText
 }: ModalProps) {
-    const modalRef = useRef() as MutableRefObject<HTMLDivElement>
+    const modalRef = useRef(null)
     const [input, setInput] = useState<string>(defaultInput || "")
     const cancel = () => {
         unSetModalContent()

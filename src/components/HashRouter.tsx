@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, ReactNode } from "react"
 
 declare global {
     interface Window {
@@ -13,7 +13,7 @@ export interface HashRouterProps {
     /**
      * Registers pages for the built-in routing system. Example: `[{name: "home", component: <HomePage />}]`
      */
-    pages?: { name: string; component: JSX.Element }[]
+    pages?: { name: string; component: ReactNode }[]
 
     /**
      * When `true`, always the "home" route will be rendered.

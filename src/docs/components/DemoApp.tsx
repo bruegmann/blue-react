@@ -25,7 +25,6 @@ import Page from "../../components/Page"
 import Search from "../../components/Search"
 import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
-import SidebarMenuItem from "../../components/SidebarMenuItem"
 import IconMenuItem from "../../components/IconMenuItem"
 import ActionMenuItem from "../../components/ActionMenuItem"
 
@@ -78,7 +77,7 @@ export default function DemoApp() {
                 <SidebarMenu
                     bottomContent={
                         <>
-                            <SidebarMenuItem
+                            <MenuItem
                                 to="/"
                                 elementType={Link}
                                 icon={<ArrowLeft className="bi" />}
@@ -111,22 +110,14 @@ export default function DemoApp() {
                         </>
                     }
                 >
-                    <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Home">
-                        <MenuItem href="#home" label="Home" icon={<House className="bi" />} isHome />
-                    </div>
-                    <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Documents">
-                        <MenuItem icon={<FileEarmark className="bi" />} label="Documents">
-                            <MenuItem href="#record" icon={<FileEarmark className="bi" />} label="Example record" />
-                        </MenuItem>
-                    </div>
-                    <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Appointments">
-                        <MenuItem icon={<Calendar className="bi" />} label="Appointments" />
-                    </div>
-                    <div className="blue-tooltip-end blue-sidebar-pseudo-hidden-on-open" data-tooltip="Users">
-                        <MenuItem icon={<Person className="bi" />} label="Users" />
-                    </div>
+                    <MenuItem href="#home" label="Home" icon={<House className="bi" />} isHome />
+                    <MenuItem icon={<FileEarmark className="bi" />} label="Documents">
+                        <MenuItem href="#record" icon={<FileEarmark className="bi" />} label="Example record" />
+                    </MenuItem>
+                    <MenuItem icon={<Calendar className="bi" />} label="Appointments" />
+                    <MenuItem icon={<Person className="bi" />} label="Users" />
 
-                    <SidebarMenuItem icon={<span>😅</span>} label="Hello World" />
+                    <MenuItem icon={<span>😅</span>} label="Hello World" />
                 </SidebarMenu>
             }
         >
