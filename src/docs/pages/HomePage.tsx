@@ -80,7 +80,7 @@ export const HomePage = () => (
                         to create a new project with this command:
                     </p>
                     <code>
-                        npx degit bruegmann/vite-template-blue-react <strong>name-of-my-app</strong>
+                        npx degit bruegmann/vite-template-blue-react#9 <strong>name-of-my-app</strong>
                     </code>
 
                     <h2 className="mt-4 mb-3">
