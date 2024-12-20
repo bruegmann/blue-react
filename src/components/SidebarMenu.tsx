@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react"
+import React from "react"
 
 export interface SidebarMenuProps {
     /**
@@ -39,20 +39,17 @@ export interface SidebarMenuProps {
  */
 export default function SidebarMenu(props: SidebarMenuProps) {
     return (
-        <div
-            className={"d-flex flex-column h-100 " + (props.sidebarClass ? props.sidebarClass : "")}
-            style={props.sidebarStyle ? props.sidebarStyle : {}}
-        >
-            {props.topContent && <div className="blue-sidebar-top">{props.topContent}</div>}
+        <div className={"d-flex flex-column h-100 " + (props.sidebarClass || "")} style={props.sidebarStyle}>
+            {props.topContent && <div>{props.topContent}</div>}
 
             <div
-                className={"flex-grow-1 overflow-auto " + (props.menuClass ? props.menuClass : "")}
+                className={"flex-grow-1 overflow-auto " + (props.menuClass || "")}
                 style={props.menuStyle ? props.menuStyle : {}}
             >
                 {props.children}
             </div>
 
-            {props.bottomContent && <div className={" "}>{props.bottomContent}</div>}
+            {props.bottomContent && <div>{props.bottomContent}</div>}
         </div>
     )
 }

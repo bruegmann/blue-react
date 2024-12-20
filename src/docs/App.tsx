@@ -109,7 +109,7 @@ function App() {
                     </nav>
 
                     <Layout
-                        pageBorder={false}
+                        noPageBorder
                         side={
                             <SidebarMenu
                                 sidebarClass="overflow-visible"

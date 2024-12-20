@@ -13,10 +13,10 @@ export interface LayoutProps {
     children?: React.ReactNode
     header?: React.ReactNode
     side?: React.ReactNode
-    pageBorder?: boolean
+    noPageBorder?: boolean
 }
 
-export default function Layout({ children, header, side, pageBorder = true }: LayoutProps) {
+export default function Layout({ children, header, side, noPageBorder = false }: LayoutProps) {
     return (
         <div style={{ height: "100vh" }}>
             <side-layout style={{ "--base-z-index": 500 } as CSSProperties}>
@@ -29,6 +29,7 @@ export default function Layout({ children, header, side, pageBorder = true }: La
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
+                            aria-hidden="true"
                             width="1em"
                             height="1em"
                             fill="currentColor"
@@ -47,6 +48,7 @@ export default function Layout({ children, header, side, pageBorder = true }: La
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
+                            aria-hidden="true"
                             width="1em"
                             height="1em"
                             fill="currentColor"
@@ -73,7 +75,7 @@ export default function Layout({ children, header, side, pageBorder = true }: La
                 <div className="w-100 h-100 p-1">
                     <div
                         className={`"w-100 h-100 overflow-auto rounded ${
-                            pageBorder ? "border " : ""
+                            noPageBorder ? "" : "border "
                         }bg-body shadow-sm"`}
                     >
                         {children}
