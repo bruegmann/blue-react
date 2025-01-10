@@ -57,7 +57,7 @@
         "eslint": "^8.57.0",
         "eslint-plugin-react-hooks": "^4.6.2",
         "eslint-plugin-react-refresh": "^0.4.7",
-        "gh-pages": "^3.1.0",
+        "gh-pages": "^6.3.0",
         "license-report": "^6.2.0",
         "prettier": "2.4.1",
         "react": "^19.0.0",
@@ -67,7 +67,6 @@
         "react-markdown": "^9.0.1",
         "react-router-dom": "^5.3.3",
         "react-syntax-highlighter": "^15.4.3",
-        "reactstrap": "^9.0.0-0",
         "sass": "1.77.6",
         "typescript": "^5.2.2",
         "vite": "^5.3.4"

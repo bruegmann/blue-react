@@ -74,7 +74,10 @@ pre {
     .btn-primary {
         @include neu($theme, $primary);
         &:hover {
-            @include neu($theme, shade-color($primary, $btn-hover-bg-shade-amount));
+            @include neu(
+                $theme,
+                shade-color($primary, $btn-hover-bg-shade-amount)
+            );
         }
     }
 }
@@ -99,7 +102,10 @@ pre {
     @include neu($body-bg, $primary);
 
     &:hover {
-        @include neu($body-bg, shade-color($primary, $btn-hover-bg-shade-amount));
+        @include neu(
+            $body-bg,
+            shade-color($primary, $btn-hover-bg-shade-amount)
+        );
     }
 }
 
@@ -114,3 +120,12 @@ body:has(.docs-layout) {
 }
 
 @import "./docs-nav";
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

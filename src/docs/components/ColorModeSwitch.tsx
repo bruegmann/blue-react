@@ -1,6 +1,14 @@
-import { createElement, useEffect, useState } from "react"
-import { Check, CircleHalf, Icon, MoonStarsFill, SunFill } from "react-bootstrap-icons"
-import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap"
+import { createElement, useEffect, useRef, useState } from "react"
+import {
+    Check,
+    CircleHalf,
+    Icon,
+    MoonStarsFill,
+    SunFill
+} from "react-bootstrap-icons"
+// import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap"
+import { Dropdown } from "bootstrap"
+import Outside from "../../components/Outside"
 
 const storedTheme = localStorage.getItem("theme")
 
@@ -9,7 +17,9 @@ const getPreferredTheme = () => {
         return storedTheme
     }
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"
 }
 
 function Item({
@@ -26,7 +36,9 @@ function Item({
     return (
         <button
             type="button"
-            className={`dropdown-item d-flex align-items-center ${theme === thisTheme ? "active" : ""}`}
+            className={`dropdown-item d-flex align-items-center ${
+                theme === thisTheme ? "active" : ""
+            }`}
             onClick={() => {
                 setTheme(thisTheme)
             }}
@@ -44,9 +56,13 @@ export default function ColorModeSwitch() {
         setOpen(!open)
     }
     const [theme, setTheme] = useState(getPreferredTheme())
+    const dropdownRef = useRef(null)
 
     useEffect(() => {
-        if (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        if (
+            theme === "auto" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
             document.documentElement.setAttribute("data-bs-theme", "dark")
         } else {
             document.documentElement.setAttribute("data-bs-theme", theme)
@@ -61,28 +77,75 @@ export default function ColorModeSwitch() {
     }
 
     useEffect(() => {
-        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", onMatchMediaChange)
+        window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", onMatchMediaChange)
 
         return () => {
-            window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", onMatchMediaChange)
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .removeEventListener("change", onMatchMediaChange)
         }
     }, [])
+
+    useEffect(() => {
+        const myElement = dropdownRef.current as unknown as Element
+        let bsDropdown = Dropdown.getInstance(myElement)
+
+        if (!bsDropdown) {
+            bsDropdown = new Dropdown(myElement)
+            bsDropdown.hide()
+            setOpen(false)
+        } else {
+            open ? bsDropdown.show() : bsDropdown.hide()
+        }
+    }, [open])
 
     const itemProps = { theme, setTheme }
 
     return (
-        <Dropdown isOpen={open} toggle={toggle}>
-            <DropdownToggle caret color="secondary" outline aria-label={`Toggle theme (${theme})`}>
-                {createElement(theme === "light" ? SunFill : theme === "dark" ? MoonStarsFill : CircleHalf, {
-                    className: "bi"
-                })}
-            </DropdownToggle>
-
-            <DropdownMenu>
-                <Item thisTheme="light" {...itemProps} icon={SunFill} />
-                <Item thisTheme="dark" {...itemProps} icon={MoonStarsFill} />
-                <Item thisTheme="auto" {...itemProps} icon={CircleHalf} />
-            </DropdownMenu>
-        </Dropdown>
+        <Outside onClickOutside={() => setOpen(false)}>
+            <div className="dropdown">
+                <button
+                    className="btn blue-btn-soft-secondary dropdown-toggle"
+                    type="button"
+                    onClick={toggle}
+                    ref={dropdownRef}
+                >
+                    {createElement(
+                        theme === "light"
+                            ? SunFill
+                            : theme === "dark"
+                            ? MoonStarsFill
+                            : CircleHalf,
+                        {
+                            className: "bi"
+                        }
+                    )}
+                </button>
+                <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    style={{ minWidth: "5rem" }}
+                >
+                    <li>
+                        <Item thisTheme="light" {...itemProps} icon={SunFill} />
+                    </li>
+                    <li>
+                        <Item
+                            thisTheme="dark"
+                            {...itemProps}
+                            icon={MoonStarsFill}
+                        />
+                    </li>
+                    <li>
+                        <Item
+                            thisTheme="auto"
+                            {...itemProps}
+                            icon={CircleHalf}
+                        />
+                    </li>
+                </ul>
+            </div>
+        </Outside>
     )
 }

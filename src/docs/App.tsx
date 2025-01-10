@@ -18,19 +18,21 @@ import {
     Puzzle,
     HouseFill,
     PuzzleFill,
-    Rss,
-    RssFill,
     Eye
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
 import { logo } from "./Global"
 import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
-import BlogPage from "./pages/BlogPage"
 import LicenseReportPage from "./pages/LicenseReportPage"
 import { useEffect } from "react"
 import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
+import _docs from "./data/docs.json"
+import { ComponentDocumentation } from "./types"
+import clsx from "clsx"
+
+const docs = _docs as { [key: string]: ComponentDocumentation }
 
 function App() {
     const onHashChange = () => {
@@ -136,58 +138,78 @@ function App() {
 
                     <Layout
                         noPageBorder
+                        header={
+                            <div className="d-flex justify-content-end text-white">
+                                <MenuItem
+                                    to="/demo#intro"
+                                    elementType={Link}
+                                    icon={<Eye />}
+                                    label="Demo App"
+                                />
+
+                                <MenuItem
+                                    href="https://github.com/bruegmann/blue-react"
+                                    icon={<CodeSquare />}
+                                    label="Code on GitHub"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                />
+                            </div>
+                        }
                         side={
                             <SidebarMenu
-                                sidebarClass="overflow-visible"
-                                menuClass="overflow-visible"
-                                bottomContent={
-                                    <>
-                                        <MenuItem
-                                            to="/demo#intro"
-                                            elementType={Link}
-                                            icon={<Eye />}
-                                            label="Demo App"
-                                        />
-
-                                        <MenuItem
-                                            href="https://github.com/bruegmann/blue-react"
-                                            icon={<CodeSquare />}
-                                            label="Code on GitHub"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        />
-                                    </>
+                                topContent={
+                                    <MenuItem
+                                        icon={<House />}
+                                        iconForActive={<HouseFill />}
+                                        label="Start"
+                                        elementType={NavLink}
+                                        exact
+                                        to="/"
+                                    />
                                 }
+                                menuClass="no-scrollbar"
                             >
-                                <MenuItem
-                                    icon={<House />}
-                                    iconForActive={<HouseFill />}
-                                    label="Start"
-                                    elementType={NavLink}
-                                    exact
-                                    to="/"
-                                />
                                 <MenuItem
                                     icon={<Puzzle />}
                                     iconForActive={<PuzzleFill />}
-                                    label="React Components"
+                                    label="All Components"
                                     elementType={NavLink}
                                     to="/component"
+                                    exact
                                 />
-                                <MenuItem
-                                    icon={<Rss />}
-                                    iconForActive={<RssFill />}
-                                    label="Blog"
-                                    elementType={NavLink}
-                                    to="/blog"
+
+                                {docs &&
+                                    Object.values(docs).map((comp) => (
+                                        <MenuItem
+                                            key={comp.displayName}
+                                            to={`/component/${comp.displayName}`}
+                                            elementType={NavLink}
+                                            label={comp.displayName}
+                                            className={clsx({
+                                                ["text-decoration-line-through"]:
+                                                    comp.description.startsWith(
+                                                        "@deprecated"
+                                                    )
+                                            })}
+                                        />
+                                    ))}
+
+                                <div
+                                    style={{
+                                        background: "var(--blue-sidebar-bg)",
+                                        pointerEvents: "none",
+                                        position: "sticky",
+                                        bottom: 0,
+                                        display: "flex",
+                                        height: "10rem",
+                                        maskImage:
+                                            "linear-gradient(transparent,#000)"
+                                    }}
                                 />
                             </SidebarMenu>
                         }
                     >
-                        <Route path="/blog">
-                            <BlogPage />
-                        </Route>
-
                         <Route path="/component/:selectedComponent?">
                             <ComponentPage />
                         </Route>

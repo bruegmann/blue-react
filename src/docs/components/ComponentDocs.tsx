@@ -3,20 +3,11 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { synthwave84 as syntaxHighlighterStyle } from "react-syntax-highlighter/dist/esm/styles/prism"
 import { Link } from "react-router-dom"
 import Markdown from "./Markdown"
+import { ComponentDocumentation } from "../types"
 
 export interface IComponentDocsProps {
     standalone: boolean
-    comp: {
-        composes?: string[]
-        displayName: string
-        description: string
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        props: any
-        exampleCode?: string
-        examples?: {
-            [file: string]: string
-        }
-    }
+    comp: ComponentDocumentation
 }
 
 export class ComponentDocs extends Component<

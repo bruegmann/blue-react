@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Dropdown } from "bootstrap"
 import Outside from "../../components/Outside"
 
@@ -25,7 +25,10 @@ export function VersionToggle() {
             <div className="dropdown">
                 <button
                     className="btn btn-primary dropdown-toggle"
-                    style={{ boxShadow: "var(--neu-shadow-3), var(--neu-shadow-inset-switch-2)" }}
+                    style={{
+                        boxShadow:
+                            "var(--neu-shadow-3), var(--neu-shadow-inset-switch-2)"
+                    }}
                     type="button"
                     onClick={toggle}
                     ref={dropdownRef}
@@ -33,7 +36,10 @@ export function VersionToggle() {
                 >
                     /v10
                 </button>
-                <ul className="dropdown-menu dropdown-menu-end" style={{ minWidth: "5rem" }}>
+                <ul
+                    className="dropdown-menu dropdown-menu-end"
+                    style={{ minWidth: "5rem" }}
+                >
                     <li>
                         <a className="dropdown-item" href="/blue-react/v9/">
                             /v9
