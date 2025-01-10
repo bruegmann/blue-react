@@ -25,12 +25,21 @@ export default function ActionMenuExample() {
                 <Link to="/action-menu-example" className="btn btn-link">
                     Open in full view
                 </Link>{" "}
-                <Link to="/action-menu-example" target="_blank" rel="noopener noreferrer" className="btn btn-link">
+                <Link
+                    to="/action-menu-example"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-link"
+                >
                     Open in new tab
                 </Link>
             </div>
             <div className="ratio ratio-16x9">
-                <iframe src={`${process.env.PUBLIC_URL}/action-menu-example`} style={style} title="Actions Demo page" />
+                <iframe
+                    src={`${import.meta.env.BASE_URL}/action-menu-example`}
+                    style={style}
+                    title="Actions Demo page"
+                />
                 {/**
                  * See the source code of the iframe page on:
                  * https://github.com/bruegmann/blue-react/blob/master/src/docs/pages/ActionMenuExamplePage.tsx

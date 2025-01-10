@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom"
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    NavLink,
+    Link
+} from "react-router-dom"
 import Layout from "../components/Layout"
 import HashRouter from "../components/HashRouter"
 
@@ -12,27 +18,31 @@ import {
     Puzzle,
     HouseFill,
     PuzzleFill,
-    Stickies,
-    StickiesFill,
-    Rss,
-    RssFill,
     Eye
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
 import { logo } from "./Global"
-import { RecipesPage } from "./pages/RecipesPage"
 import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
-import BlogPage from "./pages/BlogPage"
 import LicenseReportPage from "./pages/LicenseReportPage"
 import { useEffect } from "react"
 import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
+import _docs from "./data/docs.json"
+import { ComponentDocumentation } from "./types"
+import clsx from "clsx"
+
+const docs = _docs as { [key: string]: ComponentDocumentation }
 
 function App() {
     const onHashChange = () => {
-        if (window.location.hash !== "" && window.location.hash.includes("css")) {
-            let hash = decodeURIComponent(window.location.hash.substring(1)).replace("home/", "")
+        if (
+            window.location.hash !== "" &&
+            window.location.hash.includes("css")
+        ) {
+            const hash = decodeURIComponent(
+                window.location.hash.substring(1)
+            ).replace("home/", "")
 
             const { colorMode, css } = JSON.parse(hash)
 
@@ -60,7 +70,7 @@ function App() {
     }, [])
 
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router basename={import.meta.env.BASE_URL}>
             <Switch>
                 <Route path="/demo">
                     <DemoApp />
@@ -70,7 +80,12 @@ function App() {
                     <Layout
                         side={
                             <SidebarMenu>
-                                <MenuItem href="#" label="Home" icon={<span>🏠</span>} isHome />
+                                <MenuItem
+                                    href="#"
+                                    label="Home"
+                                    icon={<span>🏠</span>}
+                                    isHome
+                                />
                             </SidebarMenu>
                         }
                     >
@@ -88,11 +103,21 @@ function App() {
                 <Route path="/">
                     <nav className="docs-nav">
                         <Link className="navbar-brand" to="/">
-                            <img src={logo} alt="Blue Logo" width="32" height="32" className="d-block" /> Blue React
+                            <img
+                                src={logo}
+                                alt="Blue Logo"
+                                width="32"
+                                height="32"
+                                className="d-block"
+                            />{" "}
+                            Blue React
                         </Link>
 
                         <div className="navbar-nav">
-                            <a href="https://bruegmann.github.io/blue-web" className="nav-link">
+                            <a
+                                href="https://bruegmann.github.io/blue-web"
+                                className="nav-link"
+                            >
                                 Web
                             </a>
                             <a
@@ -102,7 +127,10 @@ function App() {
                             >
                                 React
                             </a>
-                            <a href="https://bruegmann.github.io/blue-blazor" className="nav-link">
+                            <a
+                                href="https://bruegmann.github.io/blue-blazor"
+                                className="nav-link"
+                            >
                                 Blazor
                             </a>
                         </div>
@@ -110,67 +138,80 @@ function App() {
 
                     <Layout
                         noPageBorder
+                        header={
+                            <div className="d-flex justify-content-end text-white">
+                                <MenuItem
+                                    to="/demo#intro"
+                                    elementType={Link}
+                                    icon={<Eye />}
+                                    label="Demo App"
+                                />
+
+                                <MenuItem
+                                    href="https://github.com/bruegmann/blue-react"
+                                    icon={<CodeSquare />}
+                                    label="Code on GitHub"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                />
+                            </div>
+                        }
                         side={
                             <SidebarMenu
-                                sidebarClass="overflow-visible"
-                                menuClass="overflow-visible"
-                                bottomContent={
-                                    <>
-                                        <MenuItem to="/demo#intro" elementType={Link} icon={<Eye />} label="Demo App" />
-
-                                        <MenuItem
-                                            href="https://github.com/bruegmann/blue-react"
-                                            icon={<CodeSquare />}
-                                            label="Code on GitHub"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        />
-                                    </>
+                                topContent={
+                                    <MenuItem
+                                        icon={<House />}
+                                        iconForActive={<HouseFill />}
+                                        label="Start"
+                                        elementType={NavLink}
+                                        exact
+                                        to="/"
+                                    />
                                 }
+                                menuClass="no-scrollbar"
                             >
-                                <MenuItem
-                                    icon={<House />}
-                                    iconForActive={<HouseFill />}
-                                    label="Start"
-                                    elementType={NavLink}
-                                    exact
-                                    to="/"
-                                />
-                                <MenuItem
-                                    icon={<Rss />}
-                                    iconForActive={<RssFill />}
-                                    label="Blog"
-                                    elementType={NavLink}
-                                    to="/blog"
-                                />
-
                                 <MenuItem
                                     icon={<Puzzle />}
                                     iconForActive={<PuzzleFill />}
-                                    label="React Components"
+                                    label="All Components"
                                     elementType={NavLink}
                                     to="/component"
+                                    exact
                                 />
-                                <MenuItem
-                                    icon={<Stickies />}
-                                    iconForActive={<StickiesFill />}
-                                    label="Recipes"
-                                    elementType={NavLink}
-                                    to="/recipes"
+
+                                {docs &&
+                                    Object.values(docs).map((comp) => (
+                                        <MenuItem
+                                            key={comp.displayName}
+                                            to={`/component/${comp.displayName}`}
+                                            elementType={NavLink}
+                                            label={comp.displayName}
+                                            className={clsx({
+                                                ["text-decoration-line-through"]:
+                                                    comp.description.startsWith(
+                                                        "@deprecated"
+                                                    )
+                                            })}
+                                        />
+                                    ))}
+
+                                <div
+                                    style={{
+                                        background: "var(--blue-sidebar-bg)",
+                                        pointerEvents: "none",
+                                        position: "sticky",
+                                        bottom: 0,
+                                        display: "flex",
+                                        height: "10rem",
+                                        maskImage:
+                                            "linear-gradient(transparent,#000)"
+                                    }}
                                 />
                             </SidebarMenu>
                         }
                     >
-                        <Route path="/blog">
-                            <BlogPage />
-                        </Route>
-
                         <Route path="/component/:selectedComponent?">
                             <ComponentPage />
-                        </Route>
-
-                        <Route path="/recipes/:active?">
-                            <RecipesPage />
                         </Route>
 
                         <Route path="/license-report">
