@@ -1,7 +1,6 @@
 declare global {
     interface Window {
-        blueLayoutRef: any
-        toggleSidebarEvent: any
+        blueHashRouterRef: any
     }
 }
 export default global
@@ -15,20 +14,17 @@ export { AProps } from "./dist/types/components/A"
 export { default as ActionMenu } from "./dist/types/components/ActionMenu"
 export { ActionMenuProps } from "./dist/types/components/ActionMenu"
 
-export { default as ActionMenuSwitch } from "./dist/types/components/ActionMenuSwitch"
-export { ActionMenuSwitchProps } from "./dist/types/components/ActionMenuSwitch"
-
 export { default as ActionMenuItem } from "./dist/types/components/ActionMenuItem"
 export { ActionMenuItemProps } from "./dist/types/components/ActionMenuItem"
 
 export { default as Body } from "./dist/types/components/Body"
 export { BodyProps } from "./dist/types/components/Body"
 
-export { default as Caret } from "./dist/types/components/Caret"
-export { CaretProps } from "./dist/types/components/Caret"
-
 export { default as Chevron } from "./dist/types/components/Chevron"
 export { ChevronProps } from "./dist/types/components/Chevron"
+
+export { default as HashRouter } from "./dist/types/components/HashRouter"
+export { HashRouterProps } from "./dist/types/components/HashRouter"
 
 export { default as Header } from "./dist/types/components/Header"
 export { HeaderProps } from "./dist/types/components/Header"
@@ -71,10 +67,10 @@ export { SlimContainerProps } from "./dist/types/components/SlimContainer"
 export { default as Status } from "./dist/types/components/Status"
 export { StatusProps } from "./dist/types/components/Status"
 
-export { StatusProvider, useStatus } from "./dist/types/components/StatusProvider"
-
-export { default as Switch } from "./dist/types/components/Switch"
-export { SwitchProps } from "./dist/types/components/Switch"
+export {
+    StatusProvider,
+    useStatus
+} from "./dist/types/components/StatusProvider"
 
 export {
     ToastProvider,

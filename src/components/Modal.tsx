@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState, MutableRefObject, useRef, ReactNode } from "react"
+import React, { FormEvent, useEffect, useState, useRef, ReactNode } from "react"
 import { Modal as BootstrapModal } from "bootstrap"
 import { getPhrase, ModalType } from "./shared"
 
@@ -70,7 +70,9 @@ export default function Modal({
     const focusFirstControl = () => {
         const myModal = modalRef.current as unknown as Element
         myModal.removeEventListener("shown.bs.modal", focusFirstControl)
-        const firstControl = myModal.querySelector(".btn-primary, .form-control") as HTMLElement | null
+        const firstControl = myModal.querySelector(
+            ".btn-primary, .form-control"
+        ) as HTMLElement | null
         if (firstControl) {
             firstControl.focus()
         }
@@ -107,19 +109,32 @@ export default function Modal({
                 <div className="modal-content">
                     <form onSubmit={submit}>
                         <div className="modal-header align-items-center">
-                            {modalIcon !== undefined && <div className="me-2">{modalIcon}</div>}
-                            <h5 className="modal-title">{modalTitle || getPhrase("Message")}</h5>
-                            <button type="button" className="btn-close" onClick={cancel} />
+                            {modalIcon !== undefined && (
+                                <div className="me-2">{modalIcon}</div>
+                            )}
+                            <h5 className="modal-title">
+                                {modalTitle || getPhrase("Message")}
+                            </h5>
+                            <button
+                                type="button"
+                                className="btn-close"
+                                onClick={cancel}
+                            />
                         </div>
 
-                        <div className="modal-body" style={{ whiteSpace: "pre-wrap" }}>
+                        <div
+                            className="modal-body"
+                            style={{ whiteSpace: "pre-wrap" }}
+                        >
                             {modalContent}
                             {type === "ask" && (
                                 <input
                                     type={inputType}
                                     className="form-control mt-1"
                                     value={input}
-                                    onChange={({ target }) => setInput(target.value)}
+                                    onChange={({ target }) =>
+                                        setInput(target.value)
+                                    }
                                     autoFocus
                                 />
                             )}
@@ -129,7 +144,9 @@ export default function Modal({
                             <button
                                 type="submit"
                                 className={`btn ${
-                                    switchPrimaryBtn ? "btn-outline-primary" : "btn-primary"
+                                    switchPrimaryBtn
+                                        ? "btn-outline-primary"
+                                        : "btn-primary"
                                 } d-block w-100`}
                                 style={btnStyle}
                             >
@@ -146,12 +163,16 @@ export default function Modal({
                                     <button
                                         type="button"
                                         className={`btn ${
-                                            switchPrimaryBtn ? "btn-primary" : "btn-outline-primary"
+                                            switchPrimaryBtn
+                                                ? "btn-primary"
+                                                : "btn-outline-primary"
                                         } d-block w-100`}
                                         style={btnStyle}
                                         onClick={sayNo}
                                     >
-                                        {cancelBtnText ? cancelBtnText : getPhrase("No")}
+                                        {cancelBtnText
+                                            ? cancelBtnText
+                                            : getPhrase("No")}
                                     </button>
                                 ) : (
                                     <button
@@ -160,7 +181,9 @@ export default function Modal({
                                         style={btnStyle}
                                         onClick={cancel}
                                     >
-                                        {cancelBtnText ? cancelBtnText : getPhrase("Cancel")}
+                                        {cancelBtnText
+                                            ? cancelBtnText
+                                            : getPhrase("Cancel")}
                                     </button>
                                 ))}
                         </div>

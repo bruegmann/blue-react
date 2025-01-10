@@ -1,6 +1,11 @@
 {
     "presets": [
-        "@babel/preset-env",
+        [
+            "@babel/preset-env",
+            {
+                "modules": false // Verhindert die Transformation von ES-Modules
+            }
+        ],
         "@babel/preset-react",
         [
             "@babel/preset-typescript",

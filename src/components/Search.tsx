@@ -65,12 +65,6 @@ export default function Search(props: SearchProps) {
     const [value, setValue] = useState<string>(props.value || "")
     const [focus, setFocus] = useState<boolean>(false)
 
-    const toggleSidebar = () => {
-        if (sidebar) {
-            document.dispatchEvent(window.toggleSidebarEvent)
-        }
-    }
-
     useEffect(() => {
         if (props.value) setValue(props.value)
     }, [props.value])
@@ -82,19 +76,22 @@ export default function Search(props: SearchProps) {
                     "blue-search " +
                     (body ? "blue-search-body " : "") +
                     (focus ? "focus " : "") +
-                    (sidebar ? "blue-search-sidebar blue-sidebar-visible-on-open " : "") +
+                    (sidebar
+                        ? "blue-search-sidebar blue-sidebar-visible-on-open "
+                        : "") +
                     className
                 }
                 onSubmit={(event) => {
                     event.preventDefault()
-                    toggleSidebar()
                     if (onSubmit) onSubmit(event)
                 }}
             >
                 <div className="blue-search-input-group input-group">
                     <span
                         className="input-group-text"
-                        onClick={() => document.getElementById(SearchControlId)?.focus()}
+                        onClick={() =>
+                            document.getElementById(SearchControlId)?.focus()
+                        }
                     >
                         {icon || (
                             <span>
@@ -147,7 +144,9 @@ export default function Search(props: SearchProps) {
                                 className="blue-search-reset-btn btn btn-link"
                                 onClick={() => {
                                     setValue("")
-                                    document.getElementById(SearchControlId)?.focus()
+                                    document
+                                        .getElementById(SearchControlId)
+                                        ?.focus()
                                     if (onChange)
                                         onChange({
                                             target: {
@@ -200,9 +199,12 @@ export default function Search(props: SearchProps) {
                         )
                     }
                     onClick={() => {
-                        toggleSidebar()
                         setTimeout(() => {
-                            ;(document.querySelector(".blue-search-control") as HTMLInputElement | null)?.select()
+                            ;(
+                                document.querySelector(
+                                    ".blue-search-control"
+                                ) as HTMLInputElement | null
+                            )?.select()
                         }, 200)
                     }}
                 />

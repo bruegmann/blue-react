@@ -71,14 +71,6 @@ export const HomePage = () => (
                 <div className="container">
                     <StackblitzEmbed />
 
-                    <div className="alert alert-info mt-4" role="alert">
-                        Notice: sections for CSS and JavaScript moved to the{" "}
-                        <a href="https://bruegmann.github.io/blue-web">
-                            Blue Web docs
-                        </a>
-                        .
-                    </div>
-
                     <h1 className="page-header">Use Blue React</h1>
 
                     <h2 className="mt-4 mb-3">

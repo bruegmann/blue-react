@@ -1,37 +1,82 @@
-# React + TypeScript + Vite + Blue React
+<p align="center">
+<img src="https://raw.githubusercontent.com/bruegmann/blue-react/master/public/blue-readme-cover.png" alt="React component library based on Bootstrap">
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.\
-Also [Blue React](https://bruegmann.github.io/blue-react) and Sass is already installed.
+# Blue React
 
-Currently, two official plugins are available:
+[![npm version](https://img.shields.io/npm/v/blue-react)](https://www.npmjs.com/package/blue-react)
 
--   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
--   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Checkout the docs](https://bruegmann.github.io/blue-react) to find out how to
+use Blue React.
 
-**Since this template was created, some of the dependencies might already have newer versions. When you created a new project, you should check them for updates or upgrades.**
+## Breaking changes between v9 and v10
 
-## Expanding the ESLint configuration
+### Exported JS files are now ES modules
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Previously JS files were in type CommonJS, now they are in ESM. For projects with Webpack or CRA, take a look at this: https://stackoverflow.com/questions/70964723/webpack-5-in-ceate-react-app-cant-resolve-not-fully-specified-routes
 
--   Configure the top-level `parserOptions` property like this:
+### Removed hash router from Layout
 
-```js
-export default {
-    // other rules...
-    parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-        project: [
-            "./tsconfig.json",
-            "./tsconfig.node.json",
-            "./tsconfig.app.json"
-        ],
-        tsconfigRootDir: __dirname
+The new `Layout` no longer has a hash router. So there is no `pages` prop anymore. The router moved to its own component `HashRouter` for legacy reasons. But it's recommended to use other solutions like [React Router](https://reactrouter.com/) or [TanStack Router](https://tanstack.com/router/latest).
+
+### Move side content to `side` prop
+
+It should look like this:
+
+```tsx
+<Layout
+    side={
+        <SidebarMenu>
+            <MenuItem href="." label="Home" />
+        </SidebarMenu>
     }
-}
+>
+    Your page content
+</Layout>
 ```
 
--   Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
--   Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
--   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Removed HTML elements for status
+
+If you use util functions for status like `showSuccess()` or `setAlertMessage()` you need to embed the `Status` React component like this:
+
+```tsx
+<Status
+    dangerIcon={<XCircleFill />}
+    infoIcon={<InfoCircleFill />}
+    successIcon={<CheckCircleFill />}
+    warningIcon={<ExclamationCircleFill />}
+/>
+```
+
+## Developing
+
+This project is built with [CRA](https://create-react-app.dev/). To start
+developing, just and install everything with `npm i` and run:
+
+```
+npm start
+```
+
+## Create a new release
+
+This is how to manually create a release:\
+By running
+
+```
+npm publish
+```
+
+the missing files in `./dist` will be created, the docs will be generated and
+the NPM package will be released.
+
+To publish changes on the documentary, run:
+
+```
+npm run deploy
+```
+
+To run both of them:
+
+```
+npm run release
+```

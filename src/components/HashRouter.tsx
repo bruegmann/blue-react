@@ -3,11 +3,8 @@ import React, { Component, ReactNode } from "react"
 declare global {
     interface Window {
         blueHashRouterRef: any
-        toggleSidebarEvent: any
     }
 }
-
-window.toggleSidebarEvent = new CustomEvent("toggleSidebar")
 
 export interface HashRouterProps {
     /**
@@ -29,7 +26,10 @@ export interface HashRouterProps {
      * Define a function, that will be fired when switching routes. When your function returns `true`, the default route behaviour will be blocked.
      * You can use something like `window.blueHashRouterRef.setState({ blockRouting: onHashChange })` globally to set the value from anywhere in your app.
      */
-    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean
+    blockRouting?: (
+        newMatch: string[],
+        currentMatch: string[]
+    ) => void | boolean
 
     children?: any
 }
@@ -39,7 +39,10 @@ export interface HashRouterState {
     history: string[]
     hash: string
     hashHistory: string[]
-    blockRouting?: (newMatch: string[], currentMatch: string[]) => void | boolean
+    blockRouting?: (
+        newMatch: string[],
+        currentMatch: string[]
+    ) => void | boolean
 }
 
 /**
@@ -64,7 +67,10 @@ export interface HashRouterState {
  * * `window.blueHashRouterRef.`**removeEventListener**`(eventName: string, listenerId: string)`
  * * `window.blueHashRouterRef.`**removeDuplicatedEventListeners**`()` - Will automatically be called when running `addEventListener`
  */
-export default class HashRouter extends Component<HashRouterProps, HashRouterState> {
+export default class HashRouter extends Component<
+    HashRouterProps,
+    HashRouterState
+> {
     defaultMatch: string[]
     eventListeners: any[]
     constructor(props: HashRouterProps) {
@@ -106,7 +112,10 @@ export default class HashRouter extends Component<HashRouterProps, HashRouterSta
     }
 
     componentDidUpdate(prevProps: HashRouterProps, prevState: HashRouterState) {
-        if (prevProps.blockRouting !== this.props.blockRouting && this.props.blockRouting !== this.state.blockRouting) {
+        if (
+            prevProps.blockRouting !== this.props.blockRouting &&
+            this.props.blockRouting !== this.state.blockRouting
+        ) {
             this.setState({ blockRouting: this.props.blockRouting })
         }
 
@@ -119,7 +128,10 @@ export default class HashRouter extends Component<HashRouterProps, HashRouterSta
                 let pageId = eventListener[1]
                 let callback = eventListener[2]
 
-                if (prevState.hash !== this.state.hash && this.state.match[0] === pageId) {
+                if (
+                    prevState.hash !== this.state.hash &&
+                    this.state.match[0] === pageId
+                ) {
                     callback(prevProps, prevState)
                 }
             }
@@ -128,7 +140,10 @@ export default class HashRouter extends Component<HashRouterProps, HashRouterSta
                 let pageId = eventListener[1]
                 let callback = eventListener[2]
 
-                if (prevState.hash !== this.state.hash && prevState.match[0] === pageId) {
+                if (
+                    prevState.hash !== this.state.hash &&
+                    prevState.match[0] === pageId
+                ) {
                     callback(prevProps, prevState)
                 }
             }
@@ -138,7 +153,11 @@ export default class HashRouter extends Component<HashRouterProps, HashRouterSta
     initMatch() {
         let newMatch
 
-        if (window.location.hash && window.location.hash !== "" && window.location.hash !== "#/") {
+        if (
+            window.location.hash &&
+            window.location.hash !== "" &&
+            window.location.hash !== "#/"
+        ) {
             newMatch = window.location.hash
                 .replace("#", "")
                 .split("/")
@@ -151,7 +170,10 @@ export default class HashRouter extends Component<HashRouterProps, HashRouterSta
             newMatch = this.defaultMatch
         }
 
-        if (this.state.blockRouting && this.state.blockRouting(newMatch, this.state.match) === true) {
+        if (
+            this.state.blockRouting &&
+            this.state.blockRouting(newMatch, this.state.match) === true
+        ) {
             window.location.hash = this.state.hash
         } else {
             if (!(this.state.history.indexOf(newMatch[0]) > -1)) {
@@ -162,12 +184,19 @@ export default class HashRouter extends Component<HashRouterProps, HashRouterSta
                 match: newMatch,
                 history: this.state.history,
                 hash: window.location.hash,
-                hashHistory: this.state.hashHistory.concat([window.location.hash])
+                hashHistory: this.state.hashHistory.concat([
+                    window.location.hash
+                ])
             })
         }
     }
 
-    addEventListener(param1: any, param2: any, param3: any, listenerId?: string) {
+    addEventListener(
+        param1: any,
+        param2: any,
+        param3: any,
+        listenerId?: string
+    ) {
         this.eventListeners.push([param1, param2, param3, listenerId])
         this.removeDuplicatedEventListeners()
     }
@@ -184,7 +213,9 @@ export default class HashRouter extends Component<HashRouterProps, HashRouterSta
 
     removeDuplicatedEventListeners() {
         this.eventListeners = this.eventListeners.filter(
-            (value, index, self) => index === self.findIndex((t) => t[3] === value[3] && t[0] === value[0])
+            (value, index, self) =>
+                index ===
+                self.findIndex((t) => t[3] === value[3] && t[0] === value[0])
         )
     }
 
@@ -196,7 +227,12 @@ export default class HashRouter extends Component<HashRouterProps, HashRouterSta
                         this.state.history.indexOf(page.name) > -1 && (
                             <div
                                 key={page.name}
-                                className={"router-page " + (this.state.match[0] === page.name ? "active" : "d-none")}
+                                className={
+                                    "router-page " +
+                                    (this.state.match[0] === page.name
+                                        ? "active"
+                                        : "d-none")
+                                }
                             >
                                 {page.component}
                             </div>
