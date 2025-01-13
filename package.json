@@ -15,7 +15,8 @@
         "url": "https://github.com/bruegmann/blue-react/issues"
     },
     "scripts": {
-        "start": "vite",
+        "dev": "vite",
+        "start": "npm run dev",
         "build-docs": "tsc -b && vite build --base=/blue-react/v10/ && npm run docgen",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",

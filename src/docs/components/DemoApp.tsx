@@ -28,8 +28,17 @@ import { logo } from "../Global"
 import IconMenuItem from "../../components/IconMenuItem"
 import ActionMenuItem from "../../components/ActionMenuItem"
 
-const exampleHistoryItems = ["Nice person", "Important message", "Document XYZ", "Boring appointment"]
-const exampleFavoriteItems = ["Max Mustermann person", "A Word Document", "Boring appointment"]
+const exampleHistoryItems = [
+    "Nice person",
+    "Important message",
+    "Document XYZ",
+    "Boring appointment"
+]
+const exampleFavoriteItems = [
+    "Max Mustermann person",
+    "A Word Document",
+    "Boring appointment"
+]
 
 function RecordField({
     edit,
@@ -93,7 +102,9 @@ export default function DemoApp() {
 
                                 <IconMenuItem
                                     onClick={() => {
-                                        alert("There are actually no settings 😅")
+                                        alert(
+                                            "There are actually no settings 😅"
+                                        )
                                     }}
                                     outerClass="flex-fill"
                                     label="Settings"
@@ -110,11 +121,27 @@ export default function DemoApp() {
                         </>
                     }
                 >
-                    <MenuItem href="#home" label="Home" icon={<House className="bi" />} isHome />
-                    <MenuItem icon={<FileEarmark className="bi" />} label="Documents">
-                        <MenuItem href="#record" icon={<FileEarmark className="bi" />} label="Example record" />
+                    <MenuItem
+                        href="#home"
+                        label="Home"
+                        icon={<House className="bi" />}
+                        isHome
+                    />
+                    <MenuItem
+                        icon={<FileEarmark className="bi" />}
+                        label="Documents"
+                    >
+                        <MenuItem
+                            href="#record"
+                            icon={<FileEarmark className="bi" />}
+                            label="Example record"
+                        />
                     </MenuItem>
-                    <MenuItem icon={<Calendar className="bi" />} label="Appointments" />
+                    <MenuItem
+                        href="#home"
+                        icon={<Calendar className="bi" />}
+                        label="Appointments"
+                    />
                     <MenuItem icon={<Person className="bi" />} label="Users" />
 
                     <MenuItem icon={<span>😅</span>} label="Hello World" />
@@ -128,7 +155,10 @@ export default function DemoApp() {
                         component: (
                             <Page>
                                 <Header>
-                                    <HeaderTitle logo={logo} appTitle="Demo App">
+                                    <HeaderTitle
+                                        logo={logo}
+                                        appTitle="Demo App"
+                                    >
                                         Home page
                                     </HeaderTitle>
                                 </Header>
@@ -141,7 +171,9 @@ export default function DemoApp() {
                                         }}
                                         className="text-white p-5 rounded-top"
                                     >
-                                        <h1 className="display-5">Welcome, how are you doing?</h1>
+                                        <h1 className="display-5">
+                                            Welcome, how are you doing?
+                                        </h1>
                                     </div>
 
                                     <div className="container pt-3">
@@ -158,44 +190,58 @@ export default function DemoApp() {
                                         <div className="row mb-3">
                                             <div className="col">
                                                 <h2 className="mt-4 mb-3">
-                                                    <ClockHistory className="bi" /> Browser history
+                                                    <ClockHistory className="bi" />{" "}
+                                                    Browser history
                                                 </h2>
 
                                                 <div className="list-group">
-                                                    {exampleHistoryItems.map((entry: string, i: number) => (
-                                                        <a
-                                                            key={i}
-                                                            href="#record"
-                                                            className="list-group-item list-group-item-action"
-                                                        >
-                                                            {entry}
-                                                        </a>
-                                                    ))}
+                                                    {exampleHistoryItems.map(
+                                                        (
+                                                            entry: string,
+                                                            i: number
+                                                        ) => (
+                                                            <a
+                                                                key={i}
+                                                                href="#record"
+                                                                className="list-group-item list-group-item-action"
+                                                            >
+                                                                {entry}
+                                                            </a>
+                                                        )
+                                                    )}
                                                 </div>
                                             </div>
 
                                             <div className="col">
                                                 <h2 className="mt-4 mb-3">
-                                                    <Star className="bi" /> Favorites
+                                                    <Star className="bi" />{" "}
+                                                    Favorites
                                                 </h2>
 
                                                 <div className="list-group">
-                                                    {exampleFavoriteItems.map((entry: string, i: number) => (
-                                                        <a
-                                                            key={i}
-                                                            href="#record"
-                                                            className="list-group-item list-group-item-action"
-                                                        >
-                                                            {entry}
-                                                        </a>
-                                                    ))}
+                                                    {exampleFavoriteItems.map(
+                                                        (
+                                                            entry: string,
+                                                            i: number
+                                                        ) => (
+                                                            <a
+                                                                key={i}
+                                                                href="#record"
+                                                                className="list-group-item list-group-item-action"
+                                                            >
+                                                                {entry}
+                                                            </a>
+                                                        )
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
 
                                         <ul>
                                             <li>
-                                                <Link to="">Back to the docs</Link>
+                                                <Link to="">
+                                                    Back to the docs
+                                                </Link>
                                             </li>
 
                                             <li>
@@ -217,7 +263,11 @@ export default function DemoApp() {
                     {
                         name: "intro",
                         component: (
-                            <Intro logo={logo} logoMaxWidth="100px" title="Here could be your introduction">
+                            <Intro
+                                logo={logo}
+                                logoMaxWidth="100px"
+                                title="Here could be your introduction"
+                            >
                                 <form
                                     onSubmit={(event) => {
                                         event.preventDefault()
@@ -231,7 +281,9 @@ export default function DemoApp() {
                                             id="DempApp-intro-user"
                                             placeholder="User"
                                         />
-                                        <label htmlFor="DempApp-intro-user">User</label>
+                                        <label htmlFor="DempApp-intro-user">
+                                            User
+                                        </label>
                                     </div>
                                     <div className="form-floating mb-3">
                                         <input
@@ -240,7 +292,9 @@ export default function DemoApp() {
                                             id="DempApp-intro-password"
                                             placeholder="Password"
                                         />
-                                        <label htmlFor="DempApp-intro-password">Password</label>
+                                        <label htmlFor="DempApp-intro-password">
+                                            Password
+                                        </label>
                                     </div>
 
                                     <div className="form-check mb-3">
@@ -250,7 +304,10 @@ export default function DemoApp() {
                                             id="flexCheckChecked"
                                             defaultChecked
                                         />
-                                        <label className="form-check-label" htmlFor="flexCheckChecked">
+                                        <label
+                                            className="form-check-label"
+                                            htmlFor="flexCheckChecked"
+                                        >
                                             Checked checkbox
                                         </label>
                                     </div>
@@ -263,7 +320,10 @@ export default function DemoApp() {
                                             id="flexCheckChecked2"
                                             defaultChecked
                                         />
-                                        <label className="form-check-label" htmlFor="flexCheckChecked2">
+                                        <label
+                                            className="form-check-label"
+                                            htmlFor="flexCheckChecked2"
+                                        >
                                             Checked switch
                                         </label>
                                     </div>
@@ -275,13 +335,19 @@ export default function DemoApp() {
                                             id="flexCheckChecked3"
                                             defaultChecked
                                         />
-                                        <label className="form-check-label" htmlFor="flexCheckChecked3">
+                                        <label
+                                            className="form-check-label"
+                                            htmlFor="flexCheckChecked3"
+                                        >
                                             Checked radio
                                         </label>
                                     </div>
 
                                     <div className="text-center">
-                                        <button type="submit" className="btn btn-primary btn-lg w-100">
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary btn-lg w-100"
+                                        >
                                             Sign in
                                         </button>
                                     </div>
@@ -295,7 +361,10 @@ export default function DemoApp() {
                         component: (
                             <Page>
                                 <Header>
-                                    <HeaderTitle logo={logo} appTitle="Demo App">
+                                    <HeaderTitle
+                                        logo={logo}
+                                        appTitle="Demo App"
+                                    >
                                         Record
                                     </HeaderTitle>
 
@@ -318,14 +387,18 @@ export default function DemoApp() {
 
                                         <ActionMenuItem
                                             icon={<Pencil className="bi" />}
-                                            iconForActive={<PencilFill className="bi" />}
+                                            iconForActive={
+                                                <PencilFill className="bi" />
+                                            }
                                             label="Edit"
                                             onClick={toggleEdit}
                                             isActive={edit}
                                         />
                                         <MenuItem
                                             icon={<Pencil className="bi" />}
-                                            iconForActive={<PencilFill className="bi" />}
+                                            iconForActive={
+                                                <PencilFill className="bi" />
+                                            }
                                             label="Disabled Button with Tooltip"
                                             title="This is a Tooltip!"
                                             disabled
@@ -340,30 +413,72 @@ export default function DemoApp() {
                                             <MenuItem label="Oh boy, really a lot of stuff" />
                                         </ActionMenuItem>
 
-                                        <h2 className="page-header h3">First field group</h2>
+                                        <h2 className="page-header h3">
+                                            First field group
+                                        </h2>
 
                                         <div className="row mb-3">
-                                            <RecordField edit={edit} label="ID" value="XYZ" />
-                                            <RecordField edit={edit} label="Country" value="DE" className="col-md-2" />
-                                            <RecordField edit={edit} label="Created" value="2022-11-15" type="date" />
+                                            <RecordField
+                                                edit={edit}
+                                                label="ID"
+                                                value="XYZ"
+                                            />
+                                            <RecordField
+                                                edit={edit}
+                                                label="Country"
+                                                value="DE"
+                                                className="col-md-2"
+                                            />
+                                            <RecordField
+                                                edit={edit}
+                                                label="Created"
+                                                value="2022-11-15"
+                                                type="date"
+                                            />
                                         </div>
 
                                         <div className="row">
-                                            <RecordField edit={edit} label="Author" value="Max Mustermann" />
+                                            <RecordField
+                                                edit={edit}
+                                                label="Author"
+                                                value="Max Mustermann"
+                                            />
                                         </div>
                                     </section>
 
                                     <section className="mb-3">
-                                        <h2 className="page-header h3">Personal information</h2>
+                                        <h2 className="page-header h3">
+                                            Personal information
+                                        </h2>
 
                                         <div className="row mb-3">
-                                            <RecordField edit={edit} label="Editor ID" value="ABC" />
-                                            <RecordField edit={edit} label="Name" value="Alice Bacon" />
-                                            <RecordField edit={edit} label="Email" value="alice_bacon@fakemail.fake" />
+                                            <RecordField
+                                                edit={edit}
+                                                label="Editor ID"
+                                                value="ABC"
+                                            />
+                                            <RecordField
+                                                edit={edit}
+                                                label="Name"
+                                                value="Alice Bacon"
+                                            />
+                                            <RecordField
+                                                edit={edit}
+                                                label="Email"
+                                                value="alice_bacon@fakemail.fake"
+                                            />
                                         </div>
                                         <div className="row mb-3">
-                                            <RecordField edit={edit} label="Editor ID" value="MMS" />
-                                            <RecordField edit={edit} label="Name" value="Max Mustermann" />
+                                            <RecordField
+                                                edit={edit}
+                                                label="Editor ID"
+                                                value="MMS"
+                                            />
+                                            <RecordField
+                                                edit={edit}
+                                                label="Name"
+                                                value="Max Mustermann"
+                                            />
                                             <RecordField
                                                 edit={edit}
                                                 label="Email"
@@ -373,7 +488,9 @@ export default function DemoApp() {
                                     </section>
 
                                     <section className="mb-3">
-                                        <h2 className="page-header h3">Some table</h2>
+                                        <h2 className="page-header h3">
+                                            Some table
+                                        </h2>
 
                                         <table className="table">
                                             <thead>
