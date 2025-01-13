@@ -1,0 +1,1 @@
+import{j as e,A as s,d as t}from"./index-BSUHG5Iu.js";function i(){return e.jsx("div",{className:"position-relative text-bg-theme w-100",style:{height:"150px"},children:e.jsx(s,{children:e.jsxs(t,{label:"Parent",children:[e.jsx(t,{label:"Item 1"}),e.jsx(t,{label:"Item 2"})]})})})}export{i as default};
