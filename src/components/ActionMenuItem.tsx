@@ -5,6 +5,8 @@ import { ActionMenuContext } from "./ActionMenu"
 export interface ActionMenuItemProps extends MenuItemProps {}
 
 /**
+ * @deprecated Use `MenuItem` instead. Special `ActionMenu` functionality is now handles with CSS by Blue Web.
+ *
  * Use this instead of `MenuItem` when you want to use it inside an `ActionMenu` to make it appear as a dropdown.
  *
  * It basically is a shortcut. Instead of writing:
@@ -34,10 +36,13 @@ export interface ActionMenuItemProps extends MenuItemProps {}
  *
  * The responsive utility class for absolute position (`position-md-absolute` in this example) is automatically added based on the `break` param of the parent `ActionMenu`.
  */
-export default function ActionMenuItem({ children, ...props }: ActionMenuItemProps) {
+export default function ActionMenuItem({
+    children,
+    ...props
+}: ActionMenuItemProps) {
     const { breakOption } = useContext(ActionMenuContext)
     return (
-        <div className="position-relative z-1">
+        <div className="position-relative">
             <MenuItem
                 {...props}
                 supportOutside

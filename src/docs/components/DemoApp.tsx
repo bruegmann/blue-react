@@ -10,6 +10,7 @@ import {
     Pencil,
     PencilFill,
     Person,
+    PersonFill,
     Star
 } from "react-bootstrap-icons"
 import { Link } from "react-router-dom"
@@ -82,6 +83,34 @@ export default function DemoApp() {
 
     return (
         <Layout
+            header={
+                <>
+                    <HeaderTitle logo={logo} appTitle="Demo App" />
+
+                    <ActionMenu>
+                        <MenuItem
+                            icon={<PersonFill />}
+                            label="Profile"
+                            supportOutside
+                        >
+                            <MenuItem
+                                href="#intro"
+                                label="Sign out, sign out"
+                            />
+                        </MenuItem>
+                        <MenuItem
+                            icon={<PersonFill />}
+                            label="Profile"
+                            supportOutside
+                        >
+                            <MenuItem
+                                href="#intro"
+                                label="Sign out, sign out"
+                            />
+                        </MenuItem>
+                    </ActionMenu>
+                </>
+            }
             side={
                 <SidebarMenu
                     bottomContent={
@@ -142,9 +171,6 @@ export default function DemoApp() {
                         icon={<Calendar className="bi" />}
                         label="Appointments"
                     />
-                    <MenuItem icon={<Person className="bi" />} label="Users" />
-
-                    <MenuItem icon={<span>😅</span>} label="Hello World" />
                 </SidebarMenu>
             }
         >
@@ -156,11 +182,8 @@ export default function DemoApp() {
                             <Page>
                                 <Header>
                                     <HeaderTitle
-                                        logo={logo}
-                                        appTitle="Demo App"
-                                    >
-                                        Home page
-                                    </HeaderTitle>
+                                        breadcrumbItems={["Home page"]}
+                                    />
                                 </Header>
                                 <Body containerClass="no-container">
                                     <div
@@ -362,30 +385,25 @@ export default function DemoApp() {
                             <Page>
                                 <Header>
                                     <HeaderTitle
-                                        logo={logo}
-                                        appTitle="Demo App"
-                                    >
-                                        Record
-                                    </HeaderTitle>
+                                        appTitle="Home page"
+                                        breadcrumbItems={["Record"]}
+                                    />
 
                                     <ActionMenu break="md">
-                                        <div className="position-relative z-1">
-                                            <MenuItem
-                                                label="Actions"
-                                                supportOutside
-                                                dropdownClassName="position-xl-absolute end-0"
-                                            >
-                                                <MenuItem label="Do a lot, a loooot of stuff" />
-                                                <MenuItem label="Oh boy, really a lot of stuff" />
-                                            </MenuItem>
-                                        </div>
-
-                                        <ActionMenuItem label="Actions">
+                                        <MenuItem
+                                            label="Actions"
+                                            supportOutside
+                                        >
                                             <MenuItem label="Do a lot, a loooot of stuff" />
                                             <MenuItem label="Oh boy, really a lot of stuff" />
-                                        </ActionMenuItem>
+                                        </MenuItem>
 
-                                        <ActionMenuItem
+                                        <MenuItem label="Actions">
+                                            <MenuItem label="Do a lot, a loooot of stuff" />
+                                            <MenuItem label="Oh boy, really a lot of stuff" />
+                                        </MenuItem>
+
+                                        <MenuItem
                                             icon={<Pencil className="bi" />}
                                             iconForActive={
                                                 <PencilFill className="bi" />
@@ -408,11 +426,6 @@ export default function DemoApp() {
                                 </Header>
                                 <Body containerClass="container">
                                     <section className="mb-3">
-                                        <ActionMenuItem label="Actions">
-                                            <MenuItem label="Do a lot, a loooot of stuff" />
-                                            <MenuItem label="Oh boy, really a lot of stuff" />
-                                        </ActionMenuItem>
-
                                         <h2 className="page-header h3">
                                             First field group
                                         </h2>

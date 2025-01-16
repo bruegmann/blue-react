@@ -31,6 +31,7 @@ import SidebarMenu from "../components/SidebarMenu"
 import _docs from "./data/docs.json"
 import { ComponentDocumentation } from "./types"
 import clsx from "clsx"
+import ActionMenu from "../components/ActionMenu"
 
 const docs = _docs as { [key: string]: ComponentDocumentation }
 
@@ -139,7 +140,7 @@ function App() {
                     <Layout
                         noPageBorder
                         header={
-                            <div className="d-flex justify-content-end text-white">
+                            <ActionMenu className="ms-auto">
                                 <MenuItem
                                     to="/demo#intro"
                                     elementType={Link}
@@ -154,7 +155,7 @@ function App() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 />
-                            </div>
+                            </ActionMenu>
                         }
                         side={
                             <SidebarMenu

@@ -60,14 +60,14 @@ export default function ActionMenu(props: ActionMenuProps) {
     return (
         <ActionMenuContext.Provider value={{ breakOption: _break }}>
             <Outside
-                className={`blue-actions navbar ${className} navbar-expand${
-                    _break !== "none" ? `-${_break}` : ""
-                } ${_break} ${actionsToggledIn ? "open" : ""}`}
+                className={`blue-actions ${_break} ${
+                    actionsToggledIn ? "open" : ""
+                }`}
                 onClickOutside={() => {
                     setActionsToggledIn(false)
                 }}
             >
-                <ul className="blue-actions-menu nav navbar-nav navbar-right">
+                <div className="blue-actions-menu d-flex">
                     {validChildren.length > 0 &&
                         !actionsToggledIn &&
                         !hideToggleAction && (
@@ -80,7 +80,7 @@ export default function ActionMenu(props: ActionMenuProps) {
                         )}
 
                     {children}
-                </ul>
+                </div>
             </Outside>
         </ActionMenuContext.Provider>
     )

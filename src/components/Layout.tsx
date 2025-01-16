@@ -1,7 +1,10 @@
 import React, { CSSProperties, FC } from "react"
 import "blue-web/dist/js/side-layout"
 
-const SideLayout = "side-layout" as unknown as FC<{ style?: CSSProperties; children: React.ReactNode }>
+const SideLayout = "side-layout" as unknown as FC<{
+    style?: CSSProperties
+    children: React.ReactNode
+}>
 
 export interface LayoutProps {
     children?: React.ReactNode
@@ -10,14 +13,22 @@ export interface LayoutProps {
     noPageBorder?: boolean
 }
 
-export default function Layout({ children, header, side, noPageBorder = false }: LayoutProps) {
+export default function Layout({
+    children,
+    header,
+    side,
+    noPageBorder = false
+}: LayoutProps) {
     return (
         <div style={{ height: "100vh" }}>
             <SideLayout style={{ "--base-z-index": 500 } as CSSProperties}>
                 <div
                     slot="expand-toggler"
                     className="w-100 h-100"
-                    style={{ color: "var(--blue-sidebar-color)", background: "var(--blue-sidebar-bg)" }}
+                    style={{
+                        color: "var(--blue-sidebar-color)",
+                        background: "var(--blue-sidebar-bg)"
+                    }}
                 >
                     <div className="btn blue-menu-item w-100 h-100 d-flex align-items-center justify-content-center p-0">
                         <svg
@@ -36,7 +47,10 @@ export default function Layout({ children, header, side, noPageBorder = false }:
                 <div
                     slot="drawer-toggler"
                     className="w-100 h-100"
-                    style={{ color: "var(--blue-sidebar-color)", background: "var(--blue-sidebar-bg)" }}
+                    style={{
+                        color: "var(--blue-sidebar-color)",
+                        background: "var(--blue-sidebar-bg)"
+                    }}
                 >
                     <div className="btn blue-menu-item w-100 h-100 d-flex align-items-center justify-content-center p-0">
                         <svg
@@ -58,17 +72,34 @@ export default function Layout({ children, header, side, noPageBorder = false }:
                     className="bg-dark w-100 h-100"
                     style={{ "--bs-bg-opacity": 0.5 } as CSSProperties}
                 ></div>
-                <header slot="header">{header}</header>
+                <header
+                    slot="header"
+                    className="d-flex justify-content-between position-relative h-100"
+                    style={
+                        {
+                            color: "var(--blue-sidebar-color)",
+                            background: "var(--blue-sidebar-bg)",
+                            zIndex: "var(--blue-layout-header-z-index, 4)",
+                            "--blue-menu-item-dropdown-bg":
+                                "var(--blue-sidebar-bg)"
+                        } as CSSProperties
+                    }
+                >
+                    {header}
+                </header>
                 <div
                     slot="side"
                     className="overflow-x-hidden overflow-y-auto h-100"
-                    style={{ color: "var(--blue-sidebar-color)", background: "var(--blue-sidebar-bg)" }}
+                    style={{
+                        color: "var(--blue-sidebar-color)",
+                        background: "var(--blue-sidebar-bg)"
+                    }}
                 >
                     {side}
                 </div>
-                <div className="w-100 h-100 p-1">
+                <div className="w-100 h-100 p-1 pt-0">
                     <div
-                        className={`"w-100 h-100 overflow-auto rounded ${
+                        className={`"w-100 h-100 overflow-auto rounded-3 ${
                             noPageBorder ? "" : "border "
                         }bg-body shadow-sm"`}
                     >
