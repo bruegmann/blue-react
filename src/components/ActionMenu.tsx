@@ -62,7 +62,7 @@ export default function ActionMenu(props: ActionMenuProps) {
             <Outside
                 className={`blue-actions ${_break} ${
                     actionsToggledIn ? "open" : ""
-                }`}
+                } ${className}`}
                 onClickOutside={() => {
                     setActionsToggledIn(false)
                 }}

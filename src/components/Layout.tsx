@@ -30,7 +30,10 @@ export default function Layout({
                         background: "var(--blue-sidebar-bg)"
                     }}
                 >
-                    <div className="btn blue-menu-item w-100 h-100 d-flex align-items-center justify-content-center p-0">
+                    <div
+                        className="btn blue-menu-item w-100 h-100 d-flex align-items-center justify-content-center p-0"
+                        style={{ boxShadow: "var(--trigger-box-shadow)" }}
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
@@ -52,7 +55,10 @@ export default function Layout({
                         background: "var(--blue-sidebar-bg)"
                     }}
                 >
-                    <div className="btn blue-menu-item w-100 h-100 d-flex align-items-center justify-content-center p-0">
+                    <div
+                        className="btn blue-menu-item w-100 h-100 d-flex align-items-center justify-content-center p-0"
+                        style={{ boxShadow: "var(--trigger-box-shadow)" }}
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
