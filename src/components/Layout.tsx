@@ -20,8 +20,16 @@ export default function Layout({
     noPageBorder = false
 }: LayoutProps) {
     return (
-        <div style={{ height: "100vh" }}>
-            <SideLayout style={{ "--base-z-index": 500 } as CSSProperties}>
+        <div className="vh-100">
+            <SideLayout
+                style={
+                    {
+                        "--base-z-index": 500,
+                        "--side-width": "var(--blue-sidebar-width)",
+                        "--toggler-size": "var(--blue-menu-item-height)"
+                    } as CSSProperties
+                }
+            >
                 <div
                     slot="expand-toggler"
                     className="w-100 h-100"
@@ -79,7 +87,6 @@ export default function Layout({
                     style={{ "--bs-bg-opacity": 0.5 } as CSSProperties}
                 ></div>
                 <header
-                    slot="header"
                     className="d-flex justify-content-between position-relative h-100"
                     style={
                         {
@@ -90,6 +97,7 @@ export default function Layout({
                                 "var(--blue-sidebar-bg)"
                         } as CSSProperties
                     }
+                    slot="header"
                 >
                     {header}
                 </header>

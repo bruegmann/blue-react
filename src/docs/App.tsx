@@ -32,6 +32,7 @@ import _docs from "./data/docs.json"
 import { ComponentDocumentation } from "./types"
 import clsx from "clsx"
 import ActionMenu from "../components/ActionMenu"
+import HeaderTitle from "../components/HeaderTitle"
 
 const docs = _docs as { [key: string]: ComponentDocumentation }
 
@@ -102,60 +103,59 @@ function App() {
                 </Route>
 
                 <Route path="/">
-                    <nav className="docs-nav">
-                        <Link className="navbar-brand" to="/">
-                            <img
-                                src={logo}
-                                alt="Blue Logo"
-                                width="32"
-                                height="32"
-                                className="d-block"
-                            />{" "}
-                            Blue React
-                        </Link>
-
-                        <div className="navbar-nav">
-                            <a
-                                href="https://bruegmann.github.io/blue-web"
-                                className="nav-link"
-                            >
-                                Web
-                            </a>
-                            <a
-                                href="https://bruegmann.github.io/blue-react"
-                                className="nav-link active"
-                                aria-current="page"
-                            >
-                                React
-                            </a>
-                            <a
-                                href="https://bruegmann.github.io/blue-blazor"
-                                className="nav-link"
-                            >
-                                Blazor
-                            </a>
-                        </div>
-                    </nav>
-
                     <Layout
                         noPageBorder
                         header={
-                            <ActionMenu className="ms-auto">
-                                <MenuItem
-                                    to="/demo#intro"
+                            <>
+                                <HeaderTitle
+                                    appTitle="Blue React"
+                                    logo={logo}
+                                    logoAlt="Blue Logo"
+                                    to="/"
                                     elementType={Link}
-                                    icon={<Eye />}
-                                    label="Demo App"
                                 />
 
-                                <MenuItem
-                                    href="https://github.com/bruegmann/blue-react"
-                                    icon={<CodeSquare />}
-                                    label="Code on GitHub"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                />
-                            </ActionMenu>
+                                <nav className="docs-nav">
+                                    <div className="navbar-nav">
+                                        <a
+                                            href="https://bruegmann.github.io/blue-web"
+                                            className="nav-link"
+                                        >
+                                            Web
+                                        </a>
+                                        <a
+                                            href="https://bruegmann.github.io/blue-react"
+                                            className="nav-link active"
+                                            aria-current="page"
+                                        >
+                                            React
+                                        </a>
+                                        <a
+                                            href="https://bruegmann.github.io/blue-blazor"
+                                            className="nav-link"
+                                        >
+                                            Blazor
+                                        </a>
+                                    </div>
+                                </nav>
+
+                                <ActionMenu break="sm">
+                                    <MenuItem
+                                        to="/demo#intro"
+                                        elementType={Link}
+                                        icon={<Eye />}
+                                        label="Demo App"
+                                    />
+
+                                    <MenuItem
+                                        href="https://github.com/bruegmann/blue-react"
+                                        icon={<CodeSquare />}
+                                        label="Code on GitHub"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    />
+                                </ActionMenu>
+                            </>
                         }
                         side={
                             <SidebarMenu
