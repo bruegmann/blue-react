@@ -1,4 +1,4 @@
-import React, { createElement, useEffect } from "react"
+import React, { createElement, ReactNode, useEffect } from "react"
 import { guid } from "blue-web/dist/js/utils"
 
 export interface HeaderTitleProps {
@@ -13,12 +13,7 @@ export interface HeaderTitleProps {
      */
     appTitle?: string
 
-    /**
-     * Disables that the app title will disappear at a specific view width.
-     */
-    keepAppTitle?: boolean
-
-    children?: any
+    children?: ReactNode
 
     /**
      * Extends `className` from parent element.
@@ -34,6 +29,7 @@ export interface HeaderTitleProps {
      * By default, MenuItem is a `"a"`.
      * If you want to have it another type, you can pass a component reference with this prop (e.g. `Link`).
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     elementType?: any
 
     /**
@@ -42,6 +38,11 @@ export interface HeaderTitleProps {
     to?: string
 
     href?: string
+
+    /**
+     * Breadcrumb items to be shown.
+     */
+    breadcrumbItems?: ReactNode[]
 }
 
 /**
@@ -52,13 +53,13 @@ export default function HeaderTitle({
     logo,
     logoAlt = "Logo",
     appTitle,
-    keepAppTitle,
     children,
     className,
     sidebar,
     elementType = "a",
     to,
-    href = "#"
+    href = "#",
+    breadcrumbItems
 }: HeaderTitleProps) {
     const uniqueId = "HeaderTitle-" + guid()
 
@@ -68,12 +69,16 @@ export default function HeaderTitle({
             window.blueHashRouterRef.props &&
             window.blueHashRouterRef.props.disableTitleSet === false
         ) {
-            const element = document.querySelector(`#${uniqueId} .blue-header-title-labels`) as HTMLElement
+            const element = document.querySelector(
+                `#${uniqueId} .blue-header-title-labels`
+            ) as HTMLElement
             const titleElement = document.querySelector("title")
             if (element && element.innerText && titleElement) {
                 const titlePaths = element.innerText.split("/")
                 if (titlePaths.length > 1) {
-                    titleElement.innerText = `${titlePaths[titlePaths.length - 1].trim()} - ${titlePaths[0].trim()}`
+                    titleElement.innerText = `${titlePaths[
+                        titlePaths.length - 1
+                    ].trim()} - ${titlePaths[0].trim()}`
                 } else {
                     titleElement.innerText = element.innerText
                 }
@@ -88,7 +93,7 @@ export default function HeaderTitle({
         <div
             id={uniqueId}
             className={
-                "blue-header-title d-inline-flex gap-2 fw-medium align-items-center px-3 py-2 position-absolute z-1" +
+                "blue-header-title d-inline-flex gap-2 fw-medium align-items-center px-3 py-2" +
                 (className ? ` ${className}` : "") +
                 (sidebar ? " sidebar" : "")
             }
@@ -97,17 +102,39 @@ export default function HeaderTitle({
                 createElement(
                     elementType,
                     { to, href },
-                    <img src={logo} alt={logoAlt} className="blue-header-title-image" />
+                    <img
+                        src={logo}
+                        alt={logoAlt}
+                        className="blue-header-title-image"
+                    />
                 )}
-            <span className={"blue-header-title-labels " + (keepAppTitle ? "keep" : "")}>
-                {appTitle && (
-                    <>
-                        {createElement(elementType, { to, href }, appTitle)} {children ? "/" : ""}
-                        &nbsp;
-                    </>
-                )}
-                {children}
-            </span>
+
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb mb-0">
+                    {appTitle !== undefined && appTitle !== "" && (
+                        <li className="breadcrumb-item">
+                            {createElement(elementType, { to, href }, appTitle)}
+                        </li>
+                    )}
+
+                    {breadcrumbItems?.map((item, index) => {
+                        const active = index === breadcrumbItems.length - 1
+                        return (
+                            <li
+                                key={index}
+                                className={`breadcrumb-item ${
+                                    active ? "active" : ""
+                                }`}
+                                aria-current={active ? "page" : undefined}
+                            >
+                                {item}
+                            </li>
+                        )
+                    })}
+                </ol>
+            </nav>
+
+            {children}
         </div>
     )
 }

@@ -15,6 +15,52 @@ use Blue React.
 
 Previously JS files were in type CommonJS, now they are in ESM. For projects with Webpack or CRA, take a look at this: https://stackoverflow.com/questions/70964723/webpack-5-in-ceate-react-app-cant-resolve-not-fully-specified-routes
 
+#### Enable ESM in Webpack
+
+Add this to the `webpack.config.js` inside the `module.rules`:
+
+```js
+{
+    test: /\.m?js/,
+    resolve: {
+        fullySpecified: false
+    }
+}
+```
+
+#### Enable ESM in CRA (react-scripts)
+
+1. Install craco: `npm i -D @craco/craco`
+2. Update the scripts inside `package.json`:
+
+```json
+"scripts": {
+        "start": "craco start",
+        "build": "craco build",
+        "test": "craco test",
+```
+
+3. Add a file called `craco.config.js` with this content:
+
+```js
+module.exports = {
+    webpack: {
+        configure: {
+            module: {
+                rules: [
+                    {
+                        test: /\.m?js$/,
+                        resolve: {
+                            fullySpecified: false
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
 ### Removed hash router from Layout
 
 The new `Layout` no longer has a hash router. So there is no `pages` prop anymore. The router moved to its own component `HashRouter` for legacy reasons. But it's recommended to use other solutions like [React Router](https://reactrouter.com/) or [TanStack Router](https://tanstack.com/router/latest).

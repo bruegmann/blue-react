@@ -4,22 +4,20 @@
         .navbar-dark,
         .bg-dark,
         .shadow-lg,
-        .position-fixed,
         .top-0,
         .rounded-4,
         .py-0,
-        .mt-1,
+        .my-1,
         .border,
         .border-primary,
         .d-flex,
-        .px-1;
+        .px-1,
+        .me-auto;
 
     --bs-bg-opacity: 0.9;
     --bs-border-opacity: 0.5;
 
     backdrop-filter: blur(3px) saturate(125%);
-    z-index: 400;
-    margin-left: 3.5rem;
 
     .navbar-brand {
         @extend .d-flex, .gap-2;
@@ -37,7 +35,7 @@
         content: "•";
         opacity: 0.5;
         position: absolute;
-        bottom: -0.5rem;
+        bottom: -0.125rem;
         left: 50%;
         transform: translateX(-50%);
     }
