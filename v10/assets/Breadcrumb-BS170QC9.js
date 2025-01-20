@@ -1,0 +1,1 @@
+import{j as e,H as t,L as r}from"./index-b0_PY1bw.js";function n(){return e.jsx(t,{breadcrumb:[e.jsx(r,{to:"/",children:"Home page"}),e.jsx(r,{to:"/component/HeaderTitle",children:"This component"}),"Current page"]})}export{n as default};
