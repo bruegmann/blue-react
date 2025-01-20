@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties, ReactNode } from "react"
 
 export interface SidebarMenuProps {
     /**
@@ -9,7 +9,7 @@ export interface SidebarMenuProps {
     /**
      * Sets the `style` prop by the sidebar.
      */
-    sidebarStyle?: object
+    sidebarStyle?: CSSProperties
 
     /**
      * Extends the class name by the menu.
@@ -19,19 +19,19 @@ export interface SidebarMenuProps {
     /**
      * Sets the `style` prop by the menu.
      */
-    menuStyle?: object
+    menuStyle?: CSSProperties
 
     /**
      * Content on top of the menu.
      */
-    topContent?: any
+    topContent?: ReactNode
 
     /**
      * Content for the bottom part of the sidebar.
      */
-    bottomContent?: any
+    bottomContent?: ReactNode
 
-    children?: any
+    children?: ReactNode
 }
 
 /**
@@ -39,17 +39,22 @@ export interface SidebarMenuProps {
  */
 export default function SidebarMenu(props: SidebarMenuProps) {
     return (
-        <div className={"d-flex flex-column h-100 " + (props.sidebarClass || "")} style={props.sidebarStyle}>
-            {props.topContent && <div>{props.topContent}</div>}
+        <div
+            className={"d-flex flex-column h-100 " + (props.sidebarClass || "")}
+            style={props.sidebarStyle}
+        >
+            {props.topContent}
 
             <div
-                className={"flex-grow-1 overflow-auto " + (props.menuClass || "")}
+                className={
+                    "flex-grow-1 overflow-auto " + (props.menuClass || "")
+                }
                 style={props.menuStyle ? props.menuStyle : {}}
             >
                 {props.children}
             </div>
 
-            {props.bottomContent && <div>{props.bottomContent}</div>}
+            {props.bottomContent}
         </div>
     )
 }
