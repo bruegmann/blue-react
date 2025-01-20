@@ -1,5 +1,7 @@
 import React, { CSSProperties, FC } from "react"
 import "blue-web/dist/js/side-layout"
+import LayoutHeader from "./Layout/LayoutHeader"
+import LayoutMain from "./Layout/LayoutMain"
 
 const SideLayout = "side-layout" as unknown as FC<{
     style?: CSSProperties
@@ -13,6 +15,9 @@ export interface LayoutProps {
     noPageBorder?: boolean
 }
 
+/**
+ * A layout with header, side and main content area. Side is collapsible.
+ */
 export default function Layout({
     children,
     header,
@@ -86,21 +91,8 @@ export default function Layout({
                     className="bg-dark w-100 h-100"
                     style={{ "--bs-bg-opacity": 0.5 } as CSSProperties}
                 ></div>
-                <header
-                    className="d-flex justify-content-between position-relative h-100"
-                    style={
-                        {
-                            color: "var(--blue-sidebar-color)",
-                            background: "var(--blue-sidebar-bg)",
-                            zIndex: "var(--blue-layout-header-z-index, 4)",
-                            "--blue-menu-item-dropdown-bg":
-                                "var(--blue-sidebar-bg)"
-                        } as CSSProperties
-                    }
-                    slot="header"
-                >
-                    {header}
-                </header>
+                <LayoutHeader slot="header">{header}</LayoutHeader>
+
                 <div
                     slot="side"
                     className="overflow-x-hidden overflow-y-auto h-100"
@@ -111,15 +103,8 @@ export default function Layout({
                 >
                     {side}
                 </div>
-                <div className="w-100 h-100 p-1 pt-0">
-                    <div
-                        className={`"w-100 h-100 overflow-auto rounded-3 ${
-                            noPageBorder ? "" : "border "
-                        }bg-body shadow-sm"`}
-                    >
-                        {children}
-                    </div>
-                </div>
+
+                <LayoutMain noPageBorder={noPageBorder}>{children}</LayoutMain>
             </SideLayout>
         </div>
     )

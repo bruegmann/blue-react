@@ -42,7 +42,7 @@ export interface HeaderTitleProps {
     /**
      * Breadcrumb items to be shown.
      */
-    breadcrumbItems?: ReactNode[]
+    breadcrumb?: ReactNode[]
 }
 
 /**
@@ -59,7 +59,7 @@ export default function HeaderTitle({
     elementType = "a",
     to,
     href = "#",
-    breadcrumbItems
+    breadcrumb
 }: HeaderTitleProps) {
     const uniqueId = "HeaderTitle-" + guid()
 
@@ -117,8 +117,8 @@ export default function HeaderTitle({
                         </li>
                     )}
 
-                    {breadcrumbItems?.map((item, index) => {
-                        const active = index === breadcrumbItems.length - 1
+                    {breadcrumb?.map((item, index) => {
+                        const active = index === breadcrumb.length - 1
                         return (
                             <li
                                 key={index}

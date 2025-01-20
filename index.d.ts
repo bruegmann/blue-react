@@ -61,6 +61,9 @@ export { SidebarMenuProps } from "./dist/types/components/SidebarMenu"
 export { default as SidebarMenuItem } from "./dist/types/components/SidebarMenuItem"
 export { SidebarMenuItemProps } from "./dist/types/components/SidebarMenuItem"
 
+export { default as SimpleLayout } from "./dist/types/components/SimpleLayout"
+export { SimpleLayoutProps } from "./dist/types/components/SimpleLayout"
+
 export { default as SlimContainer } from "./dist/types/components/SlimContainer"
 export { SlimContainerProps } from "./dist/types/components/SlimContainer"
 

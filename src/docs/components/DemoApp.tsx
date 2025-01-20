@@ -181,9 +181,7 @@ export default function DemoApp() {
                         component: (
                             <Page>
                                 <Header>
-                                    <HeaderTitle
-                                        breadcrumbItems={["Home page"]}
-                                    />
+                                    <HeaderTitle breadcrumb={["Home page"]} />
                                 </Header>
                                 <Body containerClass="no-container">
                                     <div
@@ -386,7 +384,7 @@ export default function DemoApp() {
                                 <Header>
                                     <HeaderTitle
                                         appTitle="Home page"
-                                        breadcrumbItems={["Record"]}
+                                        breadcrumb={["Record"]}
                                     />
 
                                     <ActionMenu break="md">

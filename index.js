@@ -18,6 +18,7 @@ import Page from "./dist/components/Page.js"
 import Search from "./dist/components/Search.js"
 import SidebarMenu from "./dist/components/SidebarMenu.js"
 import SidebarMenuItem from "./dist/components/SidebarMenuItem.js"
+import SimpleLayout from "./dist/components/SimpleLayout.js"
 import SlimContainer from "./dist/components/SlimContainer.js"
 import Status from "./dist/components/Status.js"
 import { StatusProvider, useStatus } from "./dist/components/StatusProvider.js"
@@ -46,6 +47,7 @@ export {
     Search,
     SidebarMenu,
     SidebarMenuItem,
+    SimpleLayout,
     SlimContainer,
     Status,
     StatusProvider,
