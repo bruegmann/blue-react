@@ -23,7 +23,9 @@ export default function SimpleLayout({
             style={{ gridTemplateRows: "var(--blue-menu-item-height) auto" }}
         >
             <LayoutHeader slot="header">{header}</LayoutHeader>
-            <LayoutMain noPageBorder={noPageBorder}>{children}</LayoutMain>
+            <LayoutMain noPageBorder={noPageBorder} className="overflow-hidden">
+                {children}
+            </LayoutMain>
         </div>
     )
 }

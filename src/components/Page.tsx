@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from "react"
+import React, { ReactNode, useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 
 export interface PageProps {
@@ -6,7 +6,7 @@ export interface PageProps {
      * Will be set to the document's `<title>` tag.
      */
     title?: string
-    children?: any
+    children?: ReactNode
 }
 
 /**
@@ -14,7 +14,7 @@ export interface PageProps {
  */
 export default function Page({ children, title }: PageProps) {
     const [hasHeader, setHasHeader] = useState(false)
-    const elementRef = useRef(null) as MutableRefObject<any>
+    const elementRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         if (elementRef && elementRef.current) {
