@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC } from "react"
-import "blue-web/dist/js/side-layout"
+import "blue-web/dist/js/side-layout.js"
 import LayoutHeader from "./Layout/LayoutHeader"
 import LayoutMain from "./Layout/LayoutMain"
 

@@ -14,5 +14,6 @@
                 "allExtensions": true
             }
         ]
-    ]
+    ],
+    "plugins": ["babel-plugin-add-import-extension"]
 }

@@ -8,14 +8,17 @@ import {
     guid,
     scrollToTop,
     fetchData
-} from "blue-web/dist/js/utils"
+} from "blue-web/dist/js/utils.js"
 
 /**
  * @deprecated Use (el as HTMLElement).classList.contains("my-class") instead.
  */
 export function hasClass(el: HTMLElement | null, className: string) {
     if (el!.classList) return el!.classList.contains(className)
-    else return !!el!.className.match(new RegExp("(\\s|^)" + className + "(\\s|$)"))
+    else
+        return !!el!.className.match(
+            new RegExp("(\\s|^)" + className + "(\\s|$)")
+        )
 }
 
 /**
@@ -32,7 +35,10 @@ export function addClass(el: HTMLElement | null, className: string) {
 export function removeClass(el: HTMLElement | null, className: string) {
     if (el!.classList) el!.classList.remove(className)
     else if (hasClass(el, className))
-        el!.className = el!.className.replace(new RegExp("(\\s|^)" + className + "(\\s|$)"), " ")
+        el!.className = el!.className.replace(
+            new RegExp("(\\s|^)" + className + "(\\s|$)"),
+            " "
+        )
 }
 
 /**
@@ -48,7 +54,9 @@ export function toggleClass(element: HTMLElement | null, className: string) {
     if (nameIndex === -1) {
         classString += " " + className
     } else {
-        classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length)
+        classString =
+            classString.substr(0, nameIndex) +
+            classString.substr(nameIndex + className.length)
     }
     element.className = classString
 }

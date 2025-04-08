@@ -1,6 +1,6 @@
 import React, { ReactNode, RefObject, useEffect, useState } from "react"
 import MenuItem from "./MenuItem"
-import { guid } from "blue-web/dist/js/utils"
+import { guid } from "blue-web/dist/js/utils.js"
 
 export interface SearchProps {
     autoFocus?: boolean

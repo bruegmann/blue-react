@@ -1,5 +1,5 @@
 import React, { createElement, ReactNode, useEffect } from "react"
-import { guid } from "blue-web/dist/js/utils"
+import { guid } from "blue-web/dist/js/utils.js"
 
 export interface HeaderTitleProps {
     /**

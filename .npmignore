@@ -7,3 +7,6 @@ dist/types/*
 !dist/types/components
 
 dist/types_old/*
+
+dist/docs
+dist/main.d.ts
