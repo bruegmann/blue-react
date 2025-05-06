@@ -25,10 +25,6 @@ export function VersionToggle() {
             <div className="dropdown">
                 <button
                     className="btn btn-primary dropdown-toggle"
-                    style={{
-                        boxShadow:
-                            "var(--neu-shadow-3), var(--neu-shadow-inset-switch-2)"
-                    }}
                     type="button"
                     onClick={toggle}
                     ref={dropdownRef}

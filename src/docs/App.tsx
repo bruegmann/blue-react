@@ -104,7 +104,6 @@ function App() {
 
                 <Route path="/">
                     <Layout
-                        noPageBorder
                         header={
                             <>
                                 <HeaderTitle
