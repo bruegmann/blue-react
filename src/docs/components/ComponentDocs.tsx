@@ -217,7 +217,7 @@ export class ComponentDocs extends Component<
                                                     className={`badge ${
                                                         comp.props[j].required
                                                             ? "bg-secondary"
-                                                            : "bg-light text-body"
+                                                            : "text-bg-light"
                                                     } ms-1`}
                                                 >
                                                     {comp.props[j].required

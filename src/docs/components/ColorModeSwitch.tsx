@@ -10,7 +10,7 @@ import {
 import { Dropdown } from "bootstrap"
 import Outside from "../../components/Outside"
 
-const storedTheme = localStorage.getItem("theme")
+const storedTheme = localStorage.getItem("blue-web-color-mode")
 
 const getPreferredTheme = () => {
     if (storedTheme) {
@@ -67,12 +67,12 @@ export default function ColorModeSwitch() {
         } else {
             document.documentElement.setAttribute("data-bs-theme", theme)
         }
-        localStorage.setItem("theme", theme)
+        localStorage.setItem("blue-web-color-mode", theme)
         setOpen(false)
     }, [theme])
 
     const onMatchMediaChange = () => {
-        localStorage.removeItem("theme")
+        localStorage.removeItem("blue-web-color-mode")
         setTheme(getPreferredTheme())
     }
 

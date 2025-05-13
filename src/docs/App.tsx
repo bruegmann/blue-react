@@ -168,7 +168,6 @@ function App() {
                                         to="/"
                                     />
                                 }
-                                menuClass="no-scrollbar"
                             >
                                 <MenuItem
                                     icon={<Puzzle />}
