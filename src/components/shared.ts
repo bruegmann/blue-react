@@ -1,7 +1,13 @@
 export type breakOption = "sm" | "md" | "lg" | "xl"
 export type ModalType = "ask" | "tell" | "verify"
 
-export type StatusType = null | "loading" | "success" | "info" | "warning" | "danger"
+export type StatusType =
+    | null
+    | "loading"
+    | "success"
+    | "info"
+    | "warning"
+    | "danger"
 export interface StatusAlert {
     title?: string
     alertClassName?: string
@@ -30,7 +36,16 @@ export function getPhrase(
     countryCode: string | undefined = undefined,
     _phrases: Phrases | undefined = undefined
 ) {
-    countryCode = countryCode || navigator.language.toLowerCase().indexOf("de") > -1 ? "de-DE" : "en-US"
+    if (!countryCode) {
+        if (typeof navigator !== "undefined" && navigator.language) {
+            countryCode =
+                navigator.language.toLowerCase().indexOf("de") > -1
+                    ? "de-DE"
+                    : "en-US"
+        } else {
+            countryCode = "en-US"
+        }
+    }
     _phrases = _phrases || phrases
 
     if (_phrases[keyword]) {
