@@ -1,5 +1,6 @@
 declare global {
     interface Window {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         blueHashRouterRef: any
     }
 }
@@ -13,9 +14,6 @@ export { AProps } from "./dist/components/A"
 
 export { default as ActionMenu } from "./dist/components/ActionMenu"
 export { ActionMenuProps } from "./dist/components/ActionMenu"
-
-export { default as ActionMenuItem } from "./dist/components/ActionMenuItem"
-export { ActionMenuItemProps } from "./dist/components/ActionMenuItem"
 
 export { default as Body } from "./dist/components/Body"
 export { BodyProps } from "./dist/components/Body"
@@ -57,9 +55,6 @@ export { SearchProps } from "./dist/components/Search"
 
 export { default as SidebarMenu } from "./dist/components/SidebarMenu"
 export { SidebarMenuProps } from "./dist/components/SidebarMenu"
-
-export { default as SidebarMenuItem } from "./dist/components/SidebarMenuItem"
-export { SidebarMenuItemProps } from "./dist/components/SidebarMenuItem"
 
 export { default as SimpleLayout } from "./dist/components/SimpleLayout"
 export { SimpleLayoutProps } from "./dist/components/SimpleLayout"

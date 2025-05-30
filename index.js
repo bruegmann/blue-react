@@ -1,7 +1,6 @@
 // Import statements
 import A from "./dist/components/A.js"
 import ActionMenu from "./dist/components/ActionMenu.js"
-import ActionMenuItem from "./dist/components/ActionMenuItem.js"
 import Body from "./dist/components/Body.js"
 import Chevron from "./dist/components/Chevron.js"
 import HashRouter from "./dist/components/HashRouter.js"
@@ -17,7 +16,6 @@ import Outside from "./dist/components/Outside.js"
 import Page from "./dist/components/Page.js"
 import Search from "./dist/components/Search.js"
 import SidebarMenu from "./dist/components/SidebarMenu.js"
-import SidebarMenuItem from "./dist/components/SidebarMenuItem.js"
 import SimpleLayout from "./dist/components/SimpleLayout.js"
 import SlimContainer from "./dist/components/SlimContainer.js"
 import Status from "./dist/components/Status.js"
@@ -29,7 +27,6 @@ import Utilities from "./dist/components/Utilities.js"
 export {
     A,
     ActionMenu,
-    ActionMenuItem,
     Body,
     Chevron,
     HashRouter,
@@ -46,7 +43,6 @@ export {
     Page,
     Search,
     SidebarMenu,
-    SidebarMenuItem,
     SimpleLayout,
     SlimContainer,
     Status,
