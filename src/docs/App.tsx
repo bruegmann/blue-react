@@ -15,10 +15,17 @@ import MenuItem from "../components/MenuItem"
 import {
     House,
     CodeSquare,
-    Puzzle,
     HouseFill,
-    PuzzleFill,
-    Eye
+    Eye,
+    SegmentedNav,
+    FileCode,
+    Link45deg,
+    MenuButtonWide,
+    ChevronRight,
+    LayoutTextWindowReverse,
+    App as AppIcon,
+    Search,
+    Window
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
@@ -30,7 +37,6 @@ import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
 import _docs from "./data/docs.json"
 import { ComponentDocumentation } from "./types"
-import clsx from "clsx"
 import ActionMenu from "../components/ActionMenu"
 import HeaderTitle from "../components/HeaderTitle"
 
@@ -169,30 +175,123 @@ function App() {
                                     />
                                 }
                             >
-                                <MenuItem
-                                    icon={<Puzzle />}
-                                    iconForActive={<PuzzleFill />}
-                                    label="All Components"
-                                    elementType={NavLink}
-                                    to="/component"
-                                    exact
-                                />
-
-                                {docs &&
-                                    Object.values(docs).map((comp) => (
-                                        <MenuItem
-                                            key={comp.displayName}
-                                            to={`/component/${comp.displayName}`}
-                                            elementType={NavLink}
-                                            label={comp.displayName}
-                                            className={clsx({
-                                                ["text-decoration-line-through"]:
-                                                    comp.description.startsWith(
+                                {docs && (
+                                    <>
+                                        {Object.values(docs)
+                                            .filter(
+                                                (comp) =>
+                                                    !comp.description.startsWith(
                                                         "@deprecated"
                                                     )
+                                            )
+                                            .map((comp) => {
+                                                let icon
+                                                switch (comp.displayName) {
+                                                    case "A":
+                                                        icon = <Link45deg />
+                                                        break
+                                                    case "ActionMenu":
+                                                        icon = (
+                                                            <MenuButtonWide />
+                                                        )
+                                                        break
+                                                    case "Layout":
+                                                        icon = (
+                                                            <LayoutTextWindowReverse />
+                                                        )
+                                                        break
+                                                    case "MenuItem":
+                                                        icon = <AppIcon />
+                                                        break
+                                                    case "Chevron":
+                                                        icon = <ChevronRight />
+                                                        break
+                                                    case "Search":
+                                                        icon = <Search />
+                                                        break
+                                                    case "SimpleLayout":
+                                                        icon = <Window />
+                                                        break
+                                                    case "Tab":
+                                                        icon = <SegmentedNav />
+                                                        break
+                                                    case "Tabs":
+                                                        icon = <SegmentedNav />
+                                                        break
+                                                    default:
+                                                        icon = <FileCode />
+                                                }
+                                                return (
+                                                    <MenuItem
+                                                        key={comp.displayName}
+                                                        to={`/component/${comp.displayName}`}
+                                                        elementType={NavLink}
+                                                        label={comp.displayName}
+                                                        icon={icon}
+                                                        labelClassName={
+                                                            comp.displayName.includes(
+                                                                "Tab"
+                                                            )
+                                                                ? "docs-badge docs-badge-new"
+                                                                : undefined
+                                                        }
+                                                    />
+                                                )
                                             })}
-                                        />
-                                    ))}
+
+                                        <details className="blue-collapse ">
+                                            <summary className="blue-collapse-header blue-menu-item btn ">
+                                                <span className="blue-menu-item-label text-truncate ">
+                                                    Deprecated
+                                                </span>
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="1em"
+                                                    height="1em"
+                                                    fill="currentColor"
+                                                    className="blue-menu-item-dropdown-toggle blue-collapse-chevron blue-menu-item-chevron ms-auto d-inline-block"
+                                                    aria-hidden="true"
+                                                    style={{
+                                                        verticalAlign:
+                                                            "-0.125em",
+                                                        transition:
+                                                            "transform 0.2s"
+                                                    }}
+                                                    viewBox="0 0 16 16"
+                                                >
+                                                    <path
+                                                        className="blue-sidebar-exception"
+                                                        fillRule="evenodd"
+                                                        d="M11.354 1.646a.5.5 0 010 .708L5.707 8l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0"
+                                                    ></path>
+                                                </svg>
+                                            </summary>
+                                            <div className="d-flex flex-column ms-3 border-start position-relative">
+                                                {Object.values(docs)
+                                                    .filter((comp) =>
+                                                        comp.description.startsWith(
+                                                            "@deprecated"
+                                                        )
+                                                    )
+                                                    .map((comp) => (
+                                                        <MenuItem
+                                                            key={
+                                                                comp.displayName
+                                                            }
+                                                            to={`/component/${comp.displayName}`}
+                                                            elementType={
+                                                                NavLink
+                                                            }
+                                                            label={
+                                                                comp.displayName
+                                                            }
+                                                            className="text-decoration-line-through"
+                                                        />
+                                                    ))}
+                                            </div>
+                                        </details>
+                                    </>
+                                )}
 
                                 <div
                                     style={{

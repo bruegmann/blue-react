@@ -27,7 +27,6 @@ import Search from "../../components/Search"
 import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
 import IconMenuItem from "../../components/IconMenuItem"
-import ActionMenuItem from "../../components/ActionMenuItem"
 
 const exampleHistoryItems = [
     "Nice person",

@@ -8,12 +8,20 @@ export interface SidebarTogglerProps {
 }
 
 /**
+ * @deprecated With the new layout design, you don't need this anymore.
  * Button to toggle sidebar state. Designed for internal use inside of `Layout`.
  */
 
-export default function SidebarToggler({ className = "", sidebarToggleIconComponent, onClick }: SidebarTogglerProps) {
+export default function SidebarToggler({
+    className = "",
+    sidebarToggleIconComponent,
+    onClick
+}: SidebarTogglerProps) {
     return (
-        <div className={`blue-sidebar-toggler position-fixed ${className}`} data-tooltip={getPhrase("Toggle menu")}>
+        <div
+            className={`blue-sidebar-toggler position-fixed ${className}`}
+            data-tooltip={getPhrase("Toggle menu")}
+        >
             <button
                 type="button"
                 className="blue-open-menu blue-menu-item btn rounded-0"

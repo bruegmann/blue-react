@@ -10,6 +10,7 @@ export interface PageProps {
 }
 
 /**
+ * @deprecated With the new layout design, you don't need this anymore.
  * Main component for each page.
  */
 export default function Page({ children, title }: PageProps) {
