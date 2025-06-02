@@ -1,4 +1,4 @@
-import{j as e,f as o,h as s,H as r}from"./index-JDX1GDYo.js";class u extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render(),this.addEventListeners()}render(){if(!this.shadowRoot)return;const a=(document.documentElement.lang||navigator.language).startsWith("de")?"Seitenleiste umschalten":"Toggle sidebar";this.shadowRoot.innerHTML=`
+import{j as e,f as o,h as s,H as r}from"./index-BcsPFr1t.js";class u extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){this.render(),this.addEventListeners()}render(){if(!this.shadowRoot)return;const a=(document.documentElement.lang||navigator.language).startsWith("de")?"Seitenleiste umschalten":"Toggle sidebar";this.shadowRoot.innerHTML=`
             <style>
                 :host {
                     --spacing: 0.25rem;
