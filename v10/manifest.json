@@ -7,14 +7,14 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "blue-iOS-Default-83.5x83.5@2x.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "167x167"
     },
     {
-      "src": "logo512.png",
+      "src": "blue-iOS-Default-83.5x83.5@4x.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "334x334"
     }
   ],
   "start_url": ".",
