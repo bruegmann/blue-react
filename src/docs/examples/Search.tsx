@@ -9,7 +9,6 @@ export default function SearchExample() {
         <>
             <Search
                 inputRef={inputRef}
-                body
                 className="w-50"
                 onChange={({ target }) => setValue(target.value)}
                 onSubmit={() => alert("Do form submit now!")}

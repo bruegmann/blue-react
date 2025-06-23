@@ -230,9 +230,9 @@ function App() {
                                                         icon={icon}
                                                         labelClassName={
                                                             comp.displayName.includes(
-                                                                "Tab"
+                                                                "Search"
                                                             )
-                                                                ? "docs-badge docs-badge-new"
+                                                                ? "docs-badge docs-badge-update"
                                                                 : undefined
                                                         }
                                                     />
