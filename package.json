@@ -1,6 +1,6 @@
 {
     "name": "blue-react",
-    "version": "9.12.1",
+    "version": "9.12.2",
     "description": "Blue React Components",
     "license": "LGPL-3.0-or-later",
     "main": "index.js",
@@ -18,7 +18,7 @@
         "build-docs": "react-scripts build && npm run docgen",
         "build-types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --noEmit false",
         "build": "babel ./src/components --out-dir ./dist/components --extensions \".tsx,.js,.ts\"",
-        "build-css": "node ./setVersionToStyleScss.js && node-sass ./dist/style.scss ./dist/style.css && npx postcss ./dist/style.css --use autoprefixer -r && npx postcss ./dist/style.css --use postcss-minify -o ./dist/style.min.css",
+        "build-css": "node ./setVersionToStyleScss.js && sass --load-path=. ./dist/style.scss:./dist/style.css && npx postcss ./dist/style.css --use autoprefixer -r && npx postcss ./dist/style.css --use postcss-minify -o ./dist/style.min.css",
         "build-release": "npm run build-types && npm run build && npm run build-css && npm run docgen",
         "docgen": "react-docgen ./src/components/ -o ./src/docs/data/docs.json --extension tsx && node followUpDocs && npm run license-report",
         "test": "react-scripts test",
@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.5",
-        "blue-web": "^1.3.2",
+        "blue-web": "~1.3.3",
         "bootstrap": "~5.3.3",
         "clsx": "^1.1.1"
     },
@@ -58,7 +58,6 @@
         "gh-pages": "^3.1.0",
         "license-report": "^6.2.0",
         "lint-staged": "^11.1.2",
-        "node-sass": "^9.0.0",
         "postcss-cli": "^9.0.1",
         "postcss-minify": "^1.1.0",
         "prettier": "2.4.1",
@@ -71,6 +70,7 @@
         "react-scripts": "^5.0.1",
         "react-syntax-highlighter": "^15.4.3",
         "reactstrap": "^9.0.0-0",
+        "sass": "^1.90.0",
         "typescript": "^4.3.5"
     },
     "eslintConfig": {
