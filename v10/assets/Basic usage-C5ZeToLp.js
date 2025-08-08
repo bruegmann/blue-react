@@ -1,0 +1,1 @@
+import{j as a}from"./index-DvDORQN2.js";import{T as s,a as e}from"./Tab-C7nt5LZ6.js";function r(){return a.jsxs(s,{children:[a.jsx(e,{label:"Tab 1",active:!0,children:"Hello from Tab 1"}),a.jsx(e,{label:"Tab 2",contentClassName:"pt-3",children:"Hello from Tab 2. This one has some padding top."}),a.jsx(e,{label:"Tab 3",children:"Hello from Tab 3"})]})}export{r as default};
