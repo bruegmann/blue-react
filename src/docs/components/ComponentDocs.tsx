@@ -105,14 +105,6 @@ export class ComponentDocs extends Component<
 
                 {standalone && (
                     <ul>
-                        {comp.composes && comp.composes.length > 0 && (
-                            <li>
-                                <a href="#extending-props">Extending props</a>
-                            </li>
-                        )}
-                        <li>
-                            <a href="#props">Props</a>
-                        </li>
                         {(ExampleComponent || comp.exampleCode) && (
                             <li>
                                 <a href="#example">Example</a>
@@ -134,7 +126,84 @@ export class ComponentDocs extends Component<
                                 </ul>
                             </li>
                         )}
+                        {comp.composes && comp.composes.length > 0 && (
+                            <li>
+                                <a href="#extending-props">Extending props</a>
+                            </li>
+                        )}
+                        <li>
+                            <a href="#props">Props</a>
+                        </li>
                     </ul>
+                )}
+
+                {(ExampleComponent || comp.exampleCode) &&
+                    (standalone ? (
+                        <div>
+                            <h2 id="example" className="page-header">
+                                Example
+                            </h2>
+
+                            {ExampleComponent && (
+                                <div className="border p-2 rounded-5">
+                                    <div className="p-3">
+                                        <ExampleComponent />
+                                    </div>
+
+                                    {comp.exampleCode && (
+                                        <SyntaxHighlighter
+                                            style={syntaxHighlighterStyle}
+                                            language="jsx"
+                                        >
+                                            {comp.exampleCode}
+                                        </SyntaxHighlighter>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <Link
+                            to={"/component/" + comp.displayName}
+                            onClick={() => window.scrollTo(0, 0)}
+                        >
+                            Show example
+                        </Link>
+                    ))}
+
+                {Object.keys(exampleComponents).length > 0 && (
+                    <>
+                        <h2 id="examples" className="page-header">
+                            Examples
+                        </h2>
+
+                        {Object.keys(exampleComponents).map((key) => {
+                            // @ts-expect-error: Is dynamic loading.
+                            const ExampleComponent = exampleComponents[key]
+
+                            return (
+                                <Fragment key={key}>
+                                    <h3 id={key} className="mt-4 mb-3">
+                                        {key.replace(".tsx", "")}
+                                    </h3>
+
+                                    <div className="border p-2 rounded-5">
+                                        <div className="p-3">
+                                            <ExampleComponent />
+                                        </div>
+
+                                        {comp.examples && (
+                                            <SyntaxHighlighter
+                                                style={syntaxHighlighterStyle}
+                                                language="jsx"
+                                            >
+                                                {comp.examples[key]}
+                                            </SyntaxHighlighter>
+                                        )}
+                                    </div>
+                                </Fragment>
+                            )
+                        })}
+                    </>
                 )}
 
                 {comp.composes && comp.composes.length > 0 && (
@@ -229,75 +298,6 @@ export class ComponentDocs extends Component<
                                     ))}
                             </tbody>
                         </table>
-                    </>
-                )}
-
-                {(ExampleComponent || comp.exampleCode) &&
-                    (standalone ? (
-                        <div>
-                            <h2 id="example" className="page-header">
-                                Example
-                            </h2>
-
-                            {ExampleComponent && (
-                                <div className="border p-2 rounded-5">
-                                    <div className="p-3">
-                                        <ExampleComponent />
-                                    </div>
-
-                                    {comp.exampleCode && (
-                                        <SyntaxHighlighter
-                                            style={syntaxHighlighterStyle}
-                                            language="jsx"
-                                        >
-                                            {comp.exampleCode}
-                                        </SyntaxHighlighter>
-                                    )}
-                                </div>
-                            )}
-                        </div>
-                    ) : (
-                        <Link
-                            to={"/component/" + comp.displayName}
-                            onClick={() => window.scrollTo(0, 0)}
-                        >
-                            Show example
-                        </Link>
-                    ))}
-
-                {Object.keys(exampleComponents).length > 0 && (
-                    <>
-                        <h2 id="examples" className="page-header">
-                            Examples
-                        </h2>
-
-                        {Object.keys(exampleComponents).map((key) => {
-                            // @ts-expect-error: Is dynamic loading.
-                            const ExampleComponent = exampleComponents[key]
-
-                            return (
-                                <Fragment key={key}>
-                                    <h3 id={key} className="mt-4 mb-3">
-                                        {key.replace(".tsx", "")}
-                                    </h3>
-
-                                    <div className="border p-2 rounded-5">
-                                        <div className="p-3">
-                                            <ExampleComponent />
-                                        </div>
-
-                                        {comp.examples && (
-                                            <SyntaxHighlighter
-                                                style={syntaxHighlighterStyle}
-                                                language="jsx"
-                                            >
-                                                {comp.examples[key]}
-                                            </SyntaxHighlighter>
-                                        )}
-                                    </div>
-                                </Fragment>
-                            )
-                        })}
                     </>
                 )}
             </article>

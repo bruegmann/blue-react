@@ -27,6 +27,8 @@ import Search from "../../components/Search"
 import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
 import IconMenuItem from "../../components/IconMenuItem"
+import ColorModeSwitch from "./ColorModeSwitch"
+import Actions from "../../components/Actions"
 
 const exampleHistoryItems = [
     "Nice person",
@@ -86,7 +88,8 @@ export default function DemoApp() {
                 <>
                     <HeaderTitle logo={logo} appTitle="Demo App" />
 
-                    <ActionMenu>
+                    <Actions>
+                        <ColorModeSwitch />
                         <MenuItem
                             icon={<PersonFill />}
                             label="Profile"
@@ -97,17 +100,7 @@ export default function DemoApp() {
                                 label="Sign out, sign out"
                             />
                         </MenuItem>
-                        <MenuItem
-                            icon={<PersonFill />}
-                            label="Profile"
-                            supportOutside
-                        >
-                            <MenuItem
-                                href="#intro"
-                                label="Sign out, sign out"
-                            />
-                        </MenuItem>
-                    </ActionMenu>
+                    </Actions>
                 </>
             }
             side={

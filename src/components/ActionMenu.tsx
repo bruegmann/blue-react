@@ -29,6 +29,7 @@ export interface ActionMenuProps {
 }
 
 /**
+ * @deprecated Use the new `Actions` instead, which is more flexible.
  * The Action Menu on the top right of a page. You can place Actions here which are in context of the current page.
  */
 export default function ActionMenu(props: ActionMenuProps) {

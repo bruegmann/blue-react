@@ -1,10 +1,11 @@
 import React, { CSSProperties } from "react"
-import LayoutHeader from "./Layout/LayoutHeader"
-import LayoutMain from "./Layout/LayoutMain"
+import clsx from "clsx"
 import { getPhrase } from "./shared"
 
 export interface LayoutProps {
     children?: React.ReactNode
+    className?: string
+    style?: CSSProperties
     header?: React.ReactNode
     side?: React.ReactNode
     noPageBorder?: boolean
@@ -15,12 +16,14 @@ export interface LayoutProps {
  */
 export default function Layout({
     children,
+    className,
+    style,
     header,
     side,
     noPageBorder = false
 }: LayoutProps) {
     return (
-        <div className="blue-layout">
+        <div className={clsx("blue-layout", className)} style={style}>
             <input
                 id="layout-expand"
                 type="checkbox"
@@ -77,9 +80,7 @@ export default function Layout({
                 </span>
             </label>
 
-            <header className="blue-layout-header">
-                <LayoutHeader>{header}</LayoutHeader>
-            </header>
+            <header className="blue-layout-header">{header}</header>
 
             <aside
                 className="blue-layout-side blue-sidebar-state open h-100 overflow-y-auto overflow-x-hidden"
@@ -92,7 +93,13 @@ export default function Layout({
             </aside>
 
             <main className="blue-layout-main">
-                <LayoutMain noPageBorder={noPageBorder}>{children}</LayoutMain>
+                <div
+                    className={clsx("blue-layout-body", {
+                        "border-0": noPageBorder
+                    })}
+                >
+                    {children}
+                </div>
             </main>
 
             <label

@@ -29,7 +29,11 @@ const phrases: Phrases = {
     "Close all": ["Close all", "Alle schließen"],
     Error: ["Error", "Fehler"],
     Information: ["Information", "Information"],
-    Search: ["Search", "Suche"]
+    Search: ["Search", "Suche"],
+    "Toolbar with buttons and button groups": [
+        "Toolbar with buttons and button groups",
+        "Toolbar mit Buttons und Button-Gruppen"
+    ]
 }
 
 export function getPhrase(

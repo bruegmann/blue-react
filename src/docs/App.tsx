@@ -6,7 +6,6 @@ import {
     Link
 } from "react-router-dom"
 import Layout from "../components/Layout"
-import HashRouter from "../components/HashRouter"
 
 import "./docs.scss"
 import { HomePage } from "./pages/HomePage"
@@ -30,15 +29,14 @@ import {
 
 import { ComponentPage } from "./pages/ComponentPage"
 import { logo } from "./Global"
-import { ActionMenuExamplePage } from "./pages/ActionMenuExamplePage"
 import LicenseReportPage from "./pages/LicenseReportPage"
 import { useEffect } from "react"
 import DemoApp from "./components/DemoApp"
 import SidebarMenu from "../components/SidebarMenu"
 import _docs from "./data/docs.json"
 import { ComponentDocumentation } from "./types"
-import ActionMenu from "../components/ActionMenu"
 import HeaderTitle from "../components/HeaderTitle"
+import Actions from "../components/Actions"
 
 const docs = _docs as { [key: string]: ComponentDocumentation }
 
@@ -84,30 +82,6 @@ function App() {
                     <DemoApp />
                 </Route>
 
-                <Route path="/action-menu-example">
-                    <Layout
-                        side={
-                            <SidebarMenu>
-                                <MenuItem
-                                    href="#"
-                                    label="Home"
-                                    icon={<span>🏠</span>}
-                                    isHome
-                                />
-                            </SidebarMenu>
-                        }
-                    >
-                        <HashRouter
-                            pages={[
-                                {
-                                    name: "home",
-                                    component: <ActionMenuExamplePage />
-                                }
-                            ]}
-                        />
-                    </Layout>
-                </Route>
-
                 <Route path="/">
                     <Layout
                         header={
@@ -144,7 +118,7 @@ function App() {
                                     </div>
                                 </nav>
 
-                                <ActionMenu break="sm">
+                                <Actions>
                                     <MenuItem
                                         to="/demo#intro"
                                         elementType={Link}
@@ -159,7 +133,7 @@ function App() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     />
-                                </ActionMenu>
+                                </Actions>
                             </>
                         }
                         side={
@@ -190,7 +164,7 @@ function App() {
                                                     case "A":
                                                         icon = <Link45deg />
                                                         break
-                                                    case "ActionMenu":
+                                                    case "Actions":
                                                         icon = (
                                                             <MenuButtonWide />
                                                         )
@@ -233,6 +207,10 @@ function App() {
                                                                 "Search"
                                                             )
                                                                 ? "docs-badge docs-badge-update"
+                                                                : comp.displayName.includes(
+                                                                      "Actions"
+                                                                  )
+                                                                ? "docs-badge docs-badge-new"
                                                                 : undefined
                                                         }
                                                     />
@@ -249,7 +227,7 @@ function App() {
                                                     width="1em"
                                                     height="1em"
                                                     fill="currentColor"
-                                                    className="blue-menu-item-dropdown-toggle blue-collapse-chevron blue-menu-item-chevron ms-auto d-inline-block"
+                                                    className="blue-menu-item-dropdown-toggle blue-collapse-chevron blue-menu-item-chevron ms-auto"
                                                     aria-hidden="true"
                                                     style={{
                                                         verticalAlign:
@@ -260,9 +238,8 @@ function App() {
                                                     viewBox="0 0 16 16"
                                                 >
                                                     <path
-                                                        className="blue-sidebar-exception"
                                                         fillRule="evenodd"
-                                                        d="M11.354 1.646a.5.5 0 010 .708L5.707 8l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0"
+                                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
                                                     ></path>
                                                 </svg>
                                             </summary>

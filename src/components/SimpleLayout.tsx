@@ -1,9 +1,10 @@
-import React from "react"
-import LayoutHeader from "./Layout/LayoutHeader"
-import LayoutMain from "./Layout/LayoutMain"
+import React, { CSSProperties } from "react"
+import clsx from "clsx"
 
 export interface SimpleLayoutProps {
     children?: React.ReactNode
+    className?: string
+    style?: CSSProperties
     header?: React.ReactNode
     noPageBorder?: boolean
 }
@@ -13,18 +14,24 @@ export interface SimpleLayoutProps {
  */
 export default function SimpleLayout({
     children,
+    className,
+    style,
     header,
     noPageBorder = false
 }: SimpleLayoutProps) {
     return (
-        <div
-            className="vh-100 d-grid"
-            style={{ gridTemplateRows: "var(--blue-menu-item-height) auto" }}
-        >
-            <LayoutHeader slot="header">{header}</LayoutHeader>
-            <LayoutMain noPageBorder={noPageBorder} className="overflow-hidden">
-                {children}
-            </LayoutMain>
+        <div className={clsx("blue-layout", className)} style={style}>
+            <header className="blue-layout-header">{header}</header>
+
+            <main className="blue-layout-main">
+                <div
+                    className={clsx("blue-layout-body", {
+                        "border-0": noPageBorder
+                    })}
+                >
+                    {children}
+                </div>
+            </main>
         </div>
     )
 }
