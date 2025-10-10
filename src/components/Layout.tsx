@@ -82,15 +82,7 @@ export default function Layout({
 
             <header className="blue-layout-header">{header}</header>
 
-            <aside
-                className="blue-layout-side blue-sidebar-state open h-100 overflow-y-auto overflow-x-hidden"
-                style={{
-                    color: "var(--blue-sidebar-color)",
-                    background: "var(--blue-sidebar-bg)"
-                }}
-            >
-                {side}
-            </aside>
+            <aside className="blue-layout-side">{side}</aside>
 
             <main className="blue-layout-main">
                 <div
