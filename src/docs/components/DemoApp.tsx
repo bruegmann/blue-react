@@ -1,15 +1,12 @@
 import { useState } from "react"
 import {
     ArrowLeft,
-    BoxArrowLeft,
     Calendar,
     ClockHistory,
     FileEarmark,
-    Gear,
     House,
     Pencil,
     PencilFill,
-    Person,
     PersonFill,
     Star
 } from "react-bootstrap-icons"
@@ -26,7 +23,6 @@ import Page from "../../components/Page"
 import Search from "../../components/Search"
 import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
-import IconMenuItem from "../../components/IconMenuItem"
 import ColorModeSwitch from "./ColorModeSwitch"
 import Actions from "../../components/Actions"
 
@@ -106,40 +102,12 @@ export default function DemoApp() {
             side={
                 <SidebarMenu
                     bottomContent={
-                        <>
-                            <MenuItem
-                                to="/"
-                                elementType={Link}
-                                icon={<ArrowLeft className="bi" />}
-                                label="Back to the docs"
-                            />
-                            <div className="d-flex flex-wrap">
-                                <IconMenuItem
-                                    href="#record"
-                                    outerClass="flex-fill"
-                                    label="User settings"
-                                    icon={<Person className="bi" />}
-                                />
-
-                                <IconMenuItem
-                                    onClick={() => {
-                                        alert(
-                                            "There are actually no settings 😅"
-                                        )
-                                    }}
-                                    outerClass="flex-fill"
-                                    label="Settings"
-                                    icon={<Gear className="bi" />}
-                                />
-
-                                <IconMenuItem
-                                    href="#intro"
-                                    outerClass="flex-fill"
-                                    label="Sign out"
-                                    icon={<BoxArrowLeft className="bi" />}
-                                />
-                            </div>
-                        </>
+                        <MenuItem
+                            to="/"
+                            elementType={Link}
+                            icon={<ArrowLeft className="bi" />}
+                            label="Back to the docs"
+                        />
                     }
                 >
                     <MenuItem
