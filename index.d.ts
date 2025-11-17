@@ -18,6 +18,9 @@ export { ActionMenuProps } from "./dist/components/ActionMenu"
 export { default as Body } from "./dist/components/Body"
 export { BodyProps } from "./dist/components/Body"
 
+export { default as Button } from "./dist/components/Button"
+export { ButtonProps } from "./dist/components/Button"
+
 export { default as Chevron } from "./dist/components/Chevron"
 export { ChevronProps } from "./dist/components/Chevron"
 

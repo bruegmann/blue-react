@@ -33,7 +33,9 @@ const phrases: Phrases = {
     "Toolbar with buttons and button groups": [
         "Toolbar with buttons and button groups",
         "Toolbar mit Buttons und Button-Gruppen"
-    ]
+    ],
+    Loading: ["Loading", "Laden"],
+    Successful: ["Successful", "Erfolgreich"]
 }
 
 export function getPhrase(

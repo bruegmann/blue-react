@@ -2,6 +2,7 @@
 import A from "./dist/components/A.js"
 import ActionMenu from "./dist/components/ActionMenu.js"
 import Body from "./dist/components/Body.js"
+import Button from "./dist/components/Button.js"
 import Chevron from "./dist/components/Chevron.js"
 import HashRouter from "./dist/components/HashRouter.js"
 import Layout from "./dist/components/Layout.js"
@@ -28,6 +29,7 @@ export {
     A,
     ActionMenu,
     Body,
+    Button,
     Chevron,
     HashRouter,
     Layout,
