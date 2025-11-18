@@ -9,12 +9,12 @@ import Layout from "../components/Layout"
 
 import "./docs.scss"
 import { HomePage } from "./pages/HomePage"
-import MenuItem from "../components/MenuItem"
+import MenuItem from "../components/NewMenuItem"
+import NewMenuItem from "../components/NewMenuItem"
 
 import {
     House,
     CodeSquare,
-    HouseFill,
     Eye,
     SegmentedNav,
     FileCode,
@@ -24,7 +24,8 @@ import {
     LayoutTextWindowReverse,
     App as AppIcon,
     Search,
-    Window
+    Window,
+    PlayBtn
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
@@ -119,16 +120,16 @@ function App() {
                                 </nav>
 
                                 <Actions>
-                                    <MenuItem
+                                    <NewMenuItem
+                                        elementType={NavLink}
                                         to="/demo#intro"
-                                        elementType={Link}
-                                        icon={<Eye />}
+                                        iconBefore={<Eye />}
                                         label="Demo App"
                                     />
 
                                     <MenuItem
                                         href="https://github.com/bruegmann/blue-react"
-                                        icon={<CodeSquare />}
+                                        iconBefore={<CodeSquare />}
                                         label="Code on GitHub"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -140,8 +141,8 @@ function App() {
                             <SidebarMenu
                                 topContent={
                                     <MenuItem
-                                        icon={<House />}
-                                        iconForActive={<HouseFill />}
+                                        iconBefore={<House />}
+                                        // iconForActive={<HouseFill />}
                                         label="Start"
                                         elementType={NavLink}
                                         exact
@@ -192,6 +193,12 @@ function App() {
                                                     case "Tabs":
                                                         icon = <SegmentedNav />
                                                         break
+                                                    case "Button":
+                                                        icon = <PlayBtn />
+                                                        break
+                                                    case "NewMenuItem":
+                                                        icon = <AppIcon />
+                                                        break
                                                     default:
                                                         icon = <FileCode />
                                                 }
@@ -201,17 +208,17 @@ function App() {
                                                         to={`/component/${comp.displayName}`}
                                                         elementType={NavLink}
                                                         label={comp.displayName}
-                                                        icon={icon}
-                                                        labelClassName={
-                                                            comp.displayName.includes(
-                                                                "Search"
-                                                            )
-                                                                ? "docs-badge docs-badge-update"
-                                                                : comp.displayName.includes(
-                                                                      "Actions"
-                                                                  )
-                                                                ? "docs-badge docs-badge-new"
-                                                                : undefined
+                                                        iconBefore={icon}
+                                                        buttonContent={
+                                                            [
+                                                                "Actions",
+                                                                "NewMenuItem",
+                                                                "Button"
+                                                            ].includes(
+                                                                comp.displayName
+                                                            ) ? (
+                                                                <span className="docs-badge docs-badge-new"></span>
+                                                            ) : undefined
                                                         }
                                                     />
                                                 )

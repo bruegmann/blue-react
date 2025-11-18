@@ -37,7 +37,7 @@ function getButtonVariantClass(variant: ButtonVariant, color: ButtonColor) {
         case "link":
             return `btn-link link-${color} link-offset-2`
         case "menu-item":
-            return "blue-halo"
+            return "blue-menu-item"
         default:
             return `btn-${color}`
     }
