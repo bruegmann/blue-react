@@ -91,8 +91,9 @@ export class ComponentDocs extends Component<
                 </p>
 
                 <Markdown>
-                    {comp.description &&
-                        this.prepareForMarkdown(comp.description)}
+                    {comp.description
+                        ? this.prepareForMarkdown(comp.description)
+                        : ""}
                 </Markdown>
 
                 {comp.displayName == "Intro" && (
@@ -250,15 +251,16 @@ export class ComponentDocs extends Component<
                                             <th>{j}</th>
                                             <td>
                                                 <Markdown>
-                                                    {comp.props[j]
-                                                        .description &&
-                                                        this.prepareForMarkdown(
-                                                            comp.props[j]
-                                                                .description
-                                                        )}
+                                                    {comp.props?.[j].description
+                                                        ? this.prepareForMarkdown(
+                                                              comp.props[j]
+                                                                  .description
+                                                          )
+                                                        : ""}
                                                 </Markdown>
 
-                                                {comp.props[j].defaultValue ? (
+                                                {comp.props?.[j]
+                                                    .defaultValue ? (
                                                     <div>
                                                         <strong>
                                                             Default:
@@ -266,9 +268,9 @@ export class ComponentDocs extends Component<
                                                         &nbsp;
                                                         <code>
                                                             {
-                                                                comp.props[j]
+                                                                comp.props?.[j]
                                                                     .defaultValue
-                                                                    .value
+                                                                    .value as any
                                                             }
                                                         </code>
                                                     </div>
@@ -277,19 +279,17 @@ export class ComponentDocs extends Component<
                                                 )}
                                             </td>
                                             <td>
-                                                {comp.props[j].tsType &&
-                                                    (comp.props[j].tsType.raw ||
-                                                        comp.props[j].tsType
-                                                            .name)}
+                                                {comp.props?.[j].tsType &&
+                                                    comp.props[j].tsType.name}
 
                                                 <span
                                                     className={`badge ${
-                                                        comp.props[j].required
+                                                        comp.props?.[j].required
                                                             ? "bg-secondary"
                                                             : "text-bg-light"
                                                     } ms-1`}
                                                 >
-                                                    {comp.props[j].required
+                                                    {comp.props?.[j].required
                                                         ? "required"
                                                         : "optional"}
                                                 </span>

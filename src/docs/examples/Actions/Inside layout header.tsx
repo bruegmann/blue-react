@@ -1,6 +1,6 @@
 import Actions from "../../../components/Actions"
 import HeaderTitle from "../../../components/HeaderTitle"
-import MenuItem from "../../../components/MenuItem"
+import MenuItem from "../../../components/LegacyMenuItem"
 import SimpleLayout from "../../../components/SimpleLayout"
 
 export default function InsideLayoutHeaderDemo() {

@@ -1,13 +1,18 @@
 import { useState } from "react"
-import MenuItem from "../../../components/MenuItem"
+import MenuItem from "../../../components/LegacyMenuItem"
 import SidebarMenu from "../../../components/SidebarMenu"
 
 export default function MenuItemExample() {
-    const [navigationSource, setNavigationSource] = useState<"user" | "default">("default")
+    const [navigationSource, setNavigationSource] = useState<
+        "user" | "default"
+    >("default")
 
     return (
         <div className="bg-primary position-relative">
-            <SidebarMenu sidebarClass="position-static shadow-none overflow-visible" menuClass="overflow-visible">
+            <SidebarMenu
+                sidebarClass="position-static shadow-none overflow-visible"
+                menuClass="overflow-visible"
+            >
                 <div className="blue-sidebar-visible-on-open blue-sidebar-menu-horizontal-on-open">
                     <MenuItem
                         label="Default"
@@ -24,7 +29,9 @@ export default function MenuItemExample() {
                     />
                 </div>
             </SidebarMenu>
-            <p className="p-3 bg-body">Resize the browser to see how the sidebar and its items behave.</p>
+            <p className="p-3 bg-body">
+                Resize the browser to see how the sidebar and its items behave.
+            </p>
         </div>
     )
 }

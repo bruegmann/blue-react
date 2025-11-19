@@ -9,8 +9,6 @@ import Layout from "../components/Layout"
 
 import "./docs.scss"
 import { HomePage } from "./pages/HomePage"
-import MenuItem from "../components/NewMenuItem"
-import NewMenuItem from "../components/NewMenuItem"
 
 import {
     House,
@@ -38,6 +36,7 @@ import _docs from "./data/docs.json"
 import { ComponentDocumentation } from "./types"
 import HeaderTitle from "../components/HeaderTitle"
 import Actions from "../components/Actions"
+import MenuItem from "../components/MenuItem"
 
 const docs = _docs as { [key: string]: ComponentDocumentation[] }
 
@@ -120,7 +119,7 @@ function App() {
                                 </nav>
 
                                 <Actions>
-                                    <NewMenuItem
+                                    <MenuItem
                                         elementType={NavLink}
                                         to="/demo#intro"
                                         iconBefore={<Eye />}
@@ -196,7 +195,7 @@ function App() {
                                                     case "Button":
                                                         icon = <PlayBtn />
                                                         break
-                                                    case "NewMenuItem":
+                                                    case "MenuItem":
                                                         icon = <AppIcon />
                                                         break
                                                     default:
@@ -213,7 +212,7 @@ function App() {
                                                             comp.displayName &&
                                                             [
                                                                 "Actions",
-                                                                "NewMenuItem",
+                                                                "MenuItem",
                                                                 "Button"
                                                             ].includes(
                                                                 comp.displayName

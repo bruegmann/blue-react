@@ -1,8 +1,10 @@
-import MenuItem, { MenuItemProps } from "../../../components/MenuItem"
+import MenuItem, {
+    LegacyMenuItemProps
+} from "../../../components/LegacyMenuItem"
 import { EmojiHeartEyesFill } from "react-bootstrap-icons"
 
 export default function MenuItemExample() {
-    const bodyMenuItemProps: MenuItemProps = {
+    const bodyMenuItemProps: LegacyMenuItemProps = {
         className: "w-100",
         labelClassName: "d-inline-block",
         caretClassName: "d-inline-block"
@@ -15,13 +17,25 @@ export default function MenuItemExample() {
             <div className="d-flex flex-column flex-md-row gap-3 w-100">
                 <article className="flex-fill">
                     <h4 className="mt-4 mb-3">Single menu item</h4>
-                    <MenuItem {...bodyMenuItemProps} icon={<EmojiHeartEyesFill />} label="John Boy" />
+                    <MenuItem
+                        {...bodyMenuItemProps}
+                        icon={<EmojiHeartEyesFill />}
+                        label="John Boy"
+                    />
                 </article>
 
                 <article className="flex-fill">
                     <h4 className="mt-4 mb-3">Dropdown</h4>
-                    <MenuItem {...bodyMenuItemProps} icon={<EmojiHeartEyesFill />} label="John Boy">
-                        <MenuItem {...bodyMenuItemProps} icon={<EmojiHeartEyesFill />} label="I am a child item" />
+                    <MenuItem
+                        {...bodyMenuItemProps}
+                        icon={<EmojiHeartEyesFill />}
+                        label="John Boy"
+                    >
+                        <MenuItem
+                            {...bodyMenuItemProps}
+                            icon={<EmojiHeartEyesFill />}
+                            label="I am a child item"
+                        />
                     </MenuItem>
                 </article>
 
@@ -31,7 +45,8 @@ export default function MenuItemExample() {
                         className="d-grid w-100"
                         style={{
                             gridTemplateAreas: '"a b" "c c"',
-                            gridTemplateColumns: "minmax(auto, calc(100% - 3rem)) 3rem"
+                            gridTemplateColumns:
+                                "minmax(auto, calc(100% - 3rem)) 3rem"
                         }}
                     >
                         <MenuItem
@@ -46,7 +61,11 @@ export default function MenuItemExample() {
                             dropdownStyle={{ gridArea: "c" }}
                             supportOutside
                         >
-                            <MenuItem {...bodyMenuItemProps} icon={<EmojiHeartEyesFill />} label="I am a child item" />
+                            <MenuItem
+                                {...bodyMenuItemProps}
+                                icon={<EmojiHeartEyesFill />}
+                                label="I am a child item"
+                            />
                         </MenuItem>
                     </div>
                 </article>

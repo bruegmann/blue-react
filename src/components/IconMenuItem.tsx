@@ -1,7 +1,7 @@
 import React from "react"
-import MenuItem, { MenuItemProps } from "./MenuItem"
+import MenuItem, { LegacyMenuItemProps } from "./LegacyMenuItem"
 
-export interface IconMenuItemProps extends MenuItemProps {
+export interface IconMenuItemProps extends LegacyMenuItemProps {
     outerClass?: string
 
     /**
@@ -31,11 +31,17 @@ export default function IconMenuItem({
     return (
         <div
             className={`${tooltipClass} ${
-                horizontalOnOpenSidebar ? "blue-sidebar-menu-horizontal-on-open" : ""
+                horizontalOnOpenSidebar
+                    ? "blue-sidebar-menu-horizontal-on-open"
+                    : ""
             } ${outerClass}`}
             data-tooltip={label}
         >
-            <MenuItem {...props} className={`${className} w-100`} iconClassName="w-100" />
+            <MenuItem
+                {...props}
+                className={`${className} w-100`}
+                iconClassName="w-100"
+            />
         </div>
     )
 }

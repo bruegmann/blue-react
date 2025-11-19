@@ -39,6 +39,9 @@ export { IconMenuItemProps } from "./dist/components/IconMenuItem"
 export { default as Intro } from "./dist/components/Intro"
 export { IntroProps } from "./dist/components/Intro"
 
+export { default as LegacyMenuItem } from "./dist/components/LegacyMenuItem"
+export { LegacyMenuItemProps } from "./dist/components/LegacyMenuItem"
+
 export { default as MenuItem } from "./dist/components/MenuItem"
 export { MenuItemProps } from "./dist/components/MenuItem"
 

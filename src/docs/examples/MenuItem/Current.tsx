@@ -1,5 +1,5 @@
 import { useState } from "react"
-import NewMenuItem from "../../../components/NewMenuItem"
+import MenuItem from "../../../components/MenuItem"
 import { BrightnessHigh, BrightnessHighFill } from "react-bootstrap-icons"
 
 export default function Current() {
@@ -7,7 +7,7 @@ export default function Current() {
 
     return (
         <div className="vstack">
-            <NewMenuItem
+            <MenuItem
                 iconBefore={
                     <>
                         <BrightnessHigh className="blue-menu-item-current-hidden" />
@@ -19,7 +19,7 @@ export default function Current() {
                 onClick={() => setCurrentItem("item-1")}
             />
 
-            <NewMenuItem
+            <MenuItem
                 iconBefore={
                     <>
                         <BrightnessHigh className="blue-menu-item-current-hidden" />

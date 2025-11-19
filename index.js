@@ -10,6 +10,7 @@ import Header from "./dist/components/Header.js"
 import HeaderTitle from "./dist/components/HeaderTitle.js"
 import IconMenuItem from "./dist/components/IconMenuItem.js"
 import Intro from "./dist/components/Intro.js"
+import LegacyMenuItem from "./dist/components/LegacyMenuItem.js"
 import MenuItem from "./dist/components/MenuItem.js"
 import Modal from "./dist/components/Modal.js"
 import { ModalProvider, useModal } from "./dist/components/ModalProvider.js"
@@ -37,6 +38,7 @@ export {
     HeaderTitle,
     IconMenuItem,
     Intro,
+    LegacyMenuItem,
     MenuItem,
     Modal,
     ModalProvider,

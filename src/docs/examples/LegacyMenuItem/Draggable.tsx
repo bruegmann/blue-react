@@ -1,8 +1,10 @@
 import { DragEvent, useCallback, useState } from "react"
-import MenuItem, { MenuItemProps } from "../../../components/MenuItem"
+import MenuItem, {
+    LegacyMenuItemProps
+} from "../../../components/LegacyMenuItem"
 
 export default function MenuItemExample() {
-    const bodyMenuItemProps: MenuItemProps = {
+    const bodyMenuItemProps: LegacyMenuItemProps = {
         className: "w-100",
         labelClassName: "d-inline-block",
         caretClassName: "d-inline-block"
@@ -41,8 +43,10 @@ export default function MenuItemExample() {
     return (
         <>
             <p>
-                <strong>Important:</strong> To make draggable menu items work in Firefox, the <code>elementType</code>{" "}
-                must not be <code>"button"</code>. Set it to something else, like <code>"div"</code>.
+                <strong>Important:</strong> To make draggable menu items work in
+                Firefox, the <code>elementType</code> must not be{" "}
+                <code>"button"</code>. Set it to something else, like{" "}
+                <code>"div"</code>.
             </p>
             <div onDrop={drop} onDragOver={dragOver}>
                 {itemIDs.map((id) => (
