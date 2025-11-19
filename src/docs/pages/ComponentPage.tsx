@@ -8,7 +8,7 @@ import { ComponentDocumentation } from "../types"
 import { Footer } from "../components/Footer"
 import Body from "../../components/Body"
 
-const docs = _docs as { [key: string]: ComponentDocumentation }
+const docs = _docs as { [key: string]: ComponentDocumentation[] }
 
 export const ComponentPage = () => {
     const { selectedComponent } = useParams<{ selectedComponent?: string }>()
@@ -21,18 +21,20 @@ export const ComponentPage = () => {
         >
             <Body containerClass="container">
                 {docs &&
-                    Object.values(docs).map(
-                        (i, index: number) =>
-                            (!selectedComponent ||
-                                selectedComponent === i.displayName) && (
-                                <ComponentDocs
-                                    key={index}
-                                    comp={i}
-                                    standalone={
-                                        selectedComponent ? true : false
-                                    }
-                                />
-                            )
+                    Object.values(docs).map((comps) =>
+                        comps.map(
+                            (comp) =>
+                                (!selectedComponent ||
+                                    selectedComponent === comp.displayName) && (
+                                    <ComponentDocs
+                                        key={comp.displayName}
+                                        comp={comp}
+                                        standalone={
+                                            selectedComponent ? true : false
+                                        }
+                                    />
+                                )
+                        )
                     )}
             </Body>
 

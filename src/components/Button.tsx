@@ -58,9 +58,17 @@ export type ButtonProps = ComponentProps<"a"> &
         success?: boolean
         active?: boolean
     } & {
-        // For compatibility with React Router NavLink
+        /**
+         * For compatibility with React Router NavLink
+         */
         to?: string
+        /**
+         * For compatibility with React Router NavLink
+         */
         exact?: boolean
+        /**
+         * For compatibility with React Router NavLink
+         */
         activeClassName?: string
     }
 
@@ -79,6 +87,7 @@ export default function Button({
     busy: busyProp,
     success: successProp,
     active,
+    activeClassName = "current",
     ...props
 }: ButtonProps) {
     const Comp = elementType || (props.href ? "a" : "button")
@@ -94,6 +103,16 @@ export default function Button({
     }, [successProp])
 
     const variantClass = getButtonVariantClass(variant, color)
+
+    const isNavLink =
+        typeof elementType === "object" &&
+        elementType !== null &&
+        "displayName" in elementType &&
+        (elementType as any).displayName === "NavLink"
+
+    if (isNavLink) {
+        props = { ...props, activeClassName } as ButtonProps
+    }
 
     return (
         <Comp
