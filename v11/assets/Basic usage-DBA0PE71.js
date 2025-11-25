@@ -1,0 +1,1 @@
+import{c as n,r as a,j as o,B as r}from"./index-DMHRJqCa.js";function l(){const t=n.c(2),[e,c]=a.useState(0);let s;return t[0]!==e?(s=o.jsxs(o.Fragment,{children:[o.jsx(r,{label:"Click me",onClick:()=>c(e+1)}),o.jsxs("p",{children:["You have clicked the button ",e," times."]})]}),t[0]=e,t[1]=s):s=t[1],s}export{l as default};

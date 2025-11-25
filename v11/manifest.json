@@ -1,0 +1,24 @@
+{
+  "name": "Blue React",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "blue-iOS-Default-83.5x83.5@2x.png",
+      "type": "image/png",
+      "sizes": "167x167"
+    },
+    {
+      "src": "blue-iOS-Default-83.5x83.5@4x.png",
+      "type": "image/png",
+      "sizes": "334x334"
+    }
+  ],
+  "start_url": ".",
+  "display": "browser",
+  "theme_color": "#2c1fe0",
+  "background_color": "#ffffff"
+}
