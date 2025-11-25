@@ -1,12 +1,10 @@
 import { useParams } from "react-router-dom"
-import Page from "../../components/Page"
 
 import _docs from "../data/docs.json"
 import { ComponentDocs } from "../components/ComponentDocs"
 import { appTitle } from "../Global"
 import { ComponentDocumentation } from "../types"
 import { Footer } from "../components/Footer"
-import Body from "../../components/Body"
 
 const docs = _docs as { [key: string]: ComponentDocumentation[] }
 
@@ -14,12 +12,8 @@ export const ComponentPage = () => {
     const { selectedComponent } = useParams<{ selectedComponent?: string }>()
 
     return (
-        <Page
-            title={`${
-                selectedComponent ? `${selectedComponent} - ` : ""
-            }React Components - ${appTitle}`}
-        >
-            <Body containerClass="container">
+        <>
+            <div className="container">
                 {docs &&
                     Object.values(docs).map((comps) =>
                         comps.map(
@@ -36,9 +30,9 @@ export const ComponentPage = () => {
                                 )
                         )
                     )}
-            </Body>
+            </div>
 
             <Footer />
-        </Page>
+        </>
     )
 }

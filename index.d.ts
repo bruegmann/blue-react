@@ -15,9 +15,6 @@ export { AProps } from "./dist/components/A"
 export { default as ActionMenu } from "./dist/components/ActionMenu"
 export { ActionMenuProps } from "./dist/components/ActionMenu"
 
-export { default as Body } from "./dist/components/Body"
-export { BodyProps } from "./dist/components/Body"
-
 export { default as Button } from "./dist/components/Button"
 export { ButtonProps } from "./dist/components/Button"
 
@@ -52,9 +49,6 @@ export { ModalProvider, useModal } from "./dist/components/ModalProvider"
 
 export { default as Outside } from "./dist/components/Outside"
 export { OutsideProps, useOutside } from "./dist/components/Outside"
-
-export { default as Page } from "./dist/components/Page"
-export { PageProps } from "./dist/components/Page"
 
 export { default as Search } from "./dist/components/Search"
 export { SearchProps } from "./dist/components/Search"

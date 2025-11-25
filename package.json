@@ -1,12 +1,12 @@
 {
     "name": "blue-react",
-    "version": "10.2.1010",
+    "version": "11.0.0",
     "description": "Blue React Components",
     "license": "LGPL-3.0-or-later",
     "type": "module",
     "main": "index.js",
     "types": "index.d.ts",
-    "homepage": "https://bruegmann.github.io/blue-react/v10",
+    "homepage": "https://bruegmann.github.io/blue-react/v11",
     "repository": {
         "type": "git",
         "url": "https://github.com/bruegmann/blue-react.git"
@@ -17,7 +17,7 @@
     "scripts": {
         "dev": "vite",
         "start": "npm run dev",
-        "build-docs": "tsc -b && vite build --base=/blue-react/v10/ && npm run docgen",
+        "build-docs": "tsc -b && vite build --base=/blue-react/v11/ && npm run docgen",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
         "build-types": "tsc -p tsconfig.app.json --declaration --emitDeclarationOnly --declarationDir ./dist --noEmit false --composite false",
@@ -27,7 +27,7 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "predeploy": "npm run build-docs",
-        "deploy": "gh-pages --dist deployment --dest v10",
+        "deploy": "gh-pages --dist deployment --dest v11",
         "prepublishOnly": "npm i && npm run build-release",
         "release": "npm publish && npm run deploy",
         "prettier": "npx prettier --write .",
