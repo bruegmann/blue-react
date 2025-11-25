@@ -15,8 +15,8 @@ export { AProps } from "./dist/components/A"
 export { default as ActionMenu } from "./dist/components/ActionMenu"
 export { ActionMenuProps } from "./dist/components/ActionMenu"
 
-export { default as Body } from "./dist/components/Body"
-export { BodyProps } from "./dist/components/Body"
+export { default as Button } from "./dist/components/Button"
+export { ButtonProps } from "./dist/components/Button"
 
 export { default as Chevron } from "./dist/components/Chevron"
 export { ChevronProps } from "./dist/components/Chevron"
@@ -36,6 +36,9 @@ export { IconMenuItemProps } from "./dist/components/IconMenuItem"
 export { default as Intro } from "./dist/components/Intro"
 export { IntroProps } from "./dist/components/Intro"
 
+export { default as LegacyMenuItem } from "./dist/components/LegacyMenuItem"
+export { LegacyMenuItemProps } from "./dist/components/LegacyMenuItem"
+
 export { default as MenuItem } from "./dist/components/MenuItem"
 export { MenuItemProps } from "./dist/components/MenuItem"
 
@@ -46,9 +49,6 @@ export { ModalProvider, useModal } from "./dist/components/ModalProvider"
 
 export { default as Outside } from "./dist/components/Outside"
 export { OutsideProps, useOutside } from "./dist/components/Outside"
-
-export { default as Page } from "./dist/components/Page"
-export { PageProps } from "./dist/components/Page"
 
 export { default as Search } from "./dist/components/Search"
 export { SearchProps } from "./dist/components/Search"

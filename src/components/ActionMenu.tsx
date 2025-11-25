@@ -1,5 +1,5 @@
 import React, { Children, createContext, useState } from "react"
-import MenuItem from "./MenuItem"
+import MenuItem from "./LegacyMenuItem"
 import { breakOption } from "./shared"
 import Outside from "./Outside"
 

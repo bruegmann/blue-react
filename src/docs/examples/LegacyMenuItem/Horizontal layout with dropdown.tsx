@@ -1,4 +1,4 @@
-import MenuItem from "../../../components/MenuItem"
+import MenuItem from "../../../components/LegacyMenuItem"
 import SidebarMenu from "../../../components/SidebarMenu"
 import { BoxArrowLeft, House } from "react-bootstrap-icons"
 import IconMenuItem from "../../../components/IconMenuItem"
@@ -35,7 +35,12 @@ export default function MenuItemExample() {
                                             setShowDropdown(false)
                                         }}
                                     >
-                                        <MenuItem label="Sign out" icon={<BoxArrowLeft className="bi" />} />
+                                        <MenuItem
+                                            label="Sign out"
+                                            icon={
+                                                <BoxArrowLeft className="bi" />
+                                            }
+                                        />
                                     </div>
                                 </IconMenuItem>
                             </div>
@@ -43,7 +48,9 @@ export default function MenuItemExample() {
                     </>
                 }
             />
-            <p className="p-3 bg-body">Resize the browser to see how the sidebar and its items behave.</p>
+            <p className="p-3 bg-body">
+                Resize the browser to see how the sidebar and its items behave.
+            </p>
         </div>
     )
 }

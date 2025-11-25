@@ -1,32 +1,26 @@
 import { useState } from "react"
 import {
     ArrowLeft,
-    BoxArrowLeft,
     Calendar,
     ClockHistory,
     FileEarmark,
-    Gear,
     House,
     Pencil,
     PencilFill,
-    Person,
     PersonFill,
     Star
 } from "react-bootstrap-icons"
 import { Link } from "react-router-dom"
 import ActionMenu from "../../components/ActionMenu"
-import Body from "../../components/Body"
 import Header from "../../components/Header"
 import HeaderTitle from "../../components/HeaderTitle"
 import Intro from "../../components/Intro"
 import Layout from "../../components/Layout"
 import HashRouter from "../../components/HashRouter"
 import MenuItem from "../../components/MenuItem"
-import Page from "../../components/Page"
 import Search from "../../components/Search"
 import SidebarMenu from "../../components/SidebarMenu"
 import { logo } from "../Global"
-import IconMenuItem from "../../components/IconMenuItem"
 import ColorModeSwitch from "./ColorModeSwitch"
 import Actions from "../../components/Actions"
 
@@ -93,7 +87,7 @@ export default function DemoApp() {
                         <MenuItem
                             icon={<PersonFill />}
                             label="Profile"
-                            supportOutside
+                            as="popover-group"
                         >
                             <MenuItem
                                 href="#intro"
@@ -106,51 +100,23 @@ export default function DemoApp() {
             side={
                 <SidebarMenu
                     bottomContent={
-                        <>
-                            <MenuItem
-                                to="/"
-                                elementType={Link}
-                                icon={<ArrowLeft className="bi" />}
-                                label="Back to the docs"
-                            />
-                            <div className="d-flex flex-wrap">
-                                <IconMenuItem
-                                    href="#record"
-                                    outerClass="flex-fill"
-                                    label="User settings"
-                                    icon={<Person className="bi" />}
-                                />
-
-                                <IconMenuItem
-                                    onClick={() => {
-                                        alert(
-                                            "There are actually no settings 😅"
-                                        )
-                                    }}
-                                    outerClass="flex-fill"
-                                    label="Settings"
-                                    icon={<Gear className="bi" />}
-                                />
-
-                                <IconMenuItem
-                                    href="#intro"
-                                    outerClass="flex-fill"
-                                    label="Sign out"
-                                    icon={<BoxArrowLeft className="bi" />}
-                                />
-                            </div>
-                        </>
+                        <MenuItem
+                            to="/"
+                            elementType={Link}
+                            icon={<ArrowLeft className="bi" />}
+                            label="Back to the docs"
+                        />
                     }
                 >
                     <MenuItem
                         href="#home"
                         label="Home"
                         icon={<House className="bi" />}
-                        isHome
                     />
                     <MenuItem
                         icon={<FileEarmark className="bi" />}
                         label="Documents"
+                        as="collapse"
                     >
                         <MenuItem
                             href="#record"
@@ -171,11 +137,11 @@ export default function DemoApp() {
                     {
                         name: "home",
                         component: (
-                            <Page>
+                            <>
                                 <Header>
                                     <HeaderTitle breadcrumb={["Home page"]} />
                                 </Header>
-                                <Body containerClass="no-container">
+                                <>
                                     <div
                                         style={{
                                             backgroundColor: "#4158D0",
@@ -193,7 +159,6 @@ export default function DemoApp() {
                                         <div className="row mb-3">
                                             <div className="offset-xl-4 col-xl-4 offset-md-3 col-md-5">
                                                 <Search
-                                                    body
                                                     placeholder="Search for content..."
                                                     className="neu-input"
                                                 />
@@ -268,8 +233,8 @@ export default function DemoApp() {
                                             </li>
                                         </ul>
                                     </div>
-                                </Body>
-                            </Page>
+                                </>
+                            </>
                         )
                     },
 
@@ -372,7 +337,7 @@ export default function DemoApp() {
                     {
                         name: "record",
                         component: (
-                            <Page>
+                            <>
                                 <Header>
                                     <HeaderTitle
                                         appTitle="Home page"
@@ -382,29 +347,32 @@ export default function DemoApp() {
                                     <ActionMenu break="md">
                                         <MenuItem
                                             label="Actions"
-                                            supportOutside
+                                            as="popover-group"
                                         >
                                             <MenuItem label="Do a lot, a loooot of stuff" />
                                             <MenuItem label="Oh boy, really a lot of stuff" />
                                         </MenuItem>
 
-                                        <MenuItem label="Actions">
+                                        <MenuItem
+                                            label="Actions"
+                                            as="popover-group"
+                                        >
                                             <MenuItem label="Do a lot, a loooot of stuff" />
                                             <MenuItem label="Oh boy, really a lot of stuff" />
                                         </MenuItem>
 
                                         <MenuItem
                                             icon={<Pencil className="bi" />}
-                                            iconForActive={
+                                            iconForCurrent={
                                                 <PencilFill className="bi" />
                                             }
                                             label="Edit"
                                             onClick={toggleEdit}
-                                            isActive={edit}
+                                            current={edit}
                                         />
                                         <MenuItem
                                             icon={<Pencil className="bi" />}
-                                            iconForActive={
+                                            iconForCurrent={
                                                 <PencilFill className="bi" />
                                             }
                                             label="Disabled Button with Tooltip"
@@ -414,7 +382,7 @@ export default function DemoApp() {
                                         />
                                     </ActionMenu>
                                 </Header>
-                                <Body containerClass="container">
+                                <div className="container">
                                     <section className="mb-3">
                                         <h2 className="page-header h3">
                                             First field group
@@ -518,8 +486,8 @@ export default function DemoApp() {
                                             </tbody>
                                         </table>
                                     </section>
-                                </Body>
-                            </Page>
+                                </div>
+                            </>
                         )
                     }
                 ]}

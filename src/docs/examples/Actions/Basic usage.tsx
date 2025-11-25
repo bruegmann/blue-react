@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Actions from "../../../components/Actions"
-import MenuItem from "../../../components/MenuItem"
+import MenuItem from "../../../components/LegacyMenuItem"
 import { EmojiHeartEyesFill } from "react-bootstrap-icons"
 
 export default function BasicUsageExample() {

@@ -1,9 +1,6 @@
-export interface ComponentDocumentation {
-    composes?: string[]
-    displayName: string
-    description: string
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    props?: any
+import { Documentation } from "react-docgen"
+
+export type ComponentDocumentation = Documentation & {
     exampleCode?: string
     examples?: {
         [file: string]: string

@@ -26,6 +26,7 @@ const phrases: Phrases = {
     No: ["No", "Nein"],
     Message: ["Message", "Nachricht"],
     "Toggle menu": ["Toggle menu", "Menü umschalten"],
+    "Toggle details": ["Toggle details", "Details umschalten"],
     "Close all": ["Close all", "Alle schließen"],
     Error: ["Error", "Fehler"],
     Information: ["Information", "Information"],
@@ -33,7 +34,9 @@ const phrases: Phrases = {
     "Toolbar with buttons and button groups": [
         "Toolbar with buttons and button groups",
         "Toolbar mit Buttons und Button-Gruppen"
-    ]
+    ],
+    Loading: ["Loading", "Laden"],
+    Successful: ["Successful", "Erfolgreich"]
 }
 
 export function getPhrase(

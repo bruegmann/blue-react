@@ -58,12 +58,7 @@ export default function Actions({
 
             <div
                 className={clsx("BLUE-actions-collapse", collapseClassName)}
-                style={
-                    {
-                        ["--blue-anchor-name"]: `--action-${id}`,
-                        ...collapseStyle
-                    } as CSSProperties
-                }
+                style={collapseStyle}
             >
                 <button
                     type="button"

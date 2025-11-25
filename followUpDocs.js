@@ -57,26 +57,26 @@ function prepareExampleCode(exampleCode) {
     return exampleCode
 }
 
-Object.keys(doc).forEach((prop) => {
-    const displayName = doc[prop].displayName
+Object.keys(doc).forEach((prop) => doc[prop].forEach((comp, i) => {
+    const displayName = doc[prop][i].displayName
 
     const exampleFilePathTsx = "./src/docs/examples/" + displayName + ".tsx"
 
     if (fs.existsSync(exampleFilePathTsx)) {
         let exampleCode = fs.readFileSync(exampleFilePathTsx, "utf8")
-        doc[prop].exampleCode = prepareExampleCode(exampleCode)
+        doc[prop][i].exampleCode = prepareExampleCode(exampleCode)
     }
 
     // Looking for folder in examples folder named after the component
     const exampleFolderPath = "./src/docs/examples/" + displayName
     if (fs.existsSync(exampleFolderPath)) {
-        if (!doc[prop].examples) doc[prop].examples = {}
+        if (!doc[prop][i].examples) doc[prop][i].examples = {}
 
         const files = fs.readdirSync(exampleFolderPath)
         for (const file of files) {
             const subExampleFilePathTsx = path.join(exampleFolderPath, file)
             let exampleCode = fs.readFileSync(subExampleFilePathTsx, "utf8")
-            doc[prop].examples[file] = prepareExampleCode(exampleCode)
+            doc[prop][i].examples[file] = prepareExampleCode(exampleCode)
         }
     }
 
@@ -84,8 +84,8 @@ Object.keys(doc).forEach((prop) => {
 
     if (fs.existsSync(exampleFilePathJs)) {
         const exampleCode = fs.readFileSync(exampleFilePathJs, "utf8")
-        doc[prop].exampleCode = prepareExampleCode(exampleCode)
+        doc[prop][i].exampleCode = prepareExampleCode(exampleCode)
     }
-})
+}))
 
 fs.writeFileSync(docPath, JSON.stringify(doc))

@@ -6,7 +6,12 @@
                 "modules": false // Verhindert die Transformation von ES-Modules
             }
         ],
-        "@babel/preset-react",
+        [
+            "@babel/preset-react",
+            {
+                "runtime": "automatic"
+            }
+        ],
         [
             "@babel/preset-typescript",
             {

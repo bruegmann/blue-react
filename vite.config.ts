@@ -6,5 +6,11 @@ export default defineConfig({
     build: {
         outDir: "deployment"
     },
-    plugins: [react()]
+    plugins: [
+        react({
+            babel: {
+                plugins: ["babel-plugin-react-compiler"]
+            }
+        })
+    ]
 })

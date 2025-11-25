@@ -9,12 +9,10 @@ import Layout from "../components/Layout"
 
 import "./docs.scss"
 import { HomePage } from "./pages/HomePage"
-import MenuItem from "../components/MenuItem"
 
 import {
     House,
     CodeSquare,
-    HouseFill,
     Eye,
     SegmentedNav,
     FileCode,
@@ -24,7 +22,8 @@ import {
     LayoutTextWindowReverse,
     App as AppIcon,
     Search,
-    Window
+    Window,
+    PlayBtn
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
@@ -37,8 +36,9 @@ import _docs from "./data/docs.json"
 import { ComponentDocumentation } from "./types"
 import HeaderTitle from "../components/HeaderTitle"
 import Actions from "../components/Actions"
+import MenuItem from "../components/MenuItem"
 
-const docs = _docs as { [key: string]: ComponentDocumentation }
+const docs = _docs as { [key: string]: ComponentDocumentation[] }
 
 function App() {
     const onHashChange = () => {
@@ -120,15 +120,15 @@ function App() {
 
                                 <Actions>
                                     <MenuItem
+                                        elementType={NavLink}
                                         to="/demo#intro"
-                                        elementType={Link}
-                                        icon={<Eye />}
+                                        iconBefore={<Eye />}
                                         label="Demo App"
                                     />
 
                                     <MenuItem
                                         href="https://github.com/bruegmann/blue-react"
-                                        icon={<CodeSquare />}
+                                        iconBefore={<CodeSquare />}
                                         label="Code on GitHub"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -140,8 +140,8 @@ function App() {
                             <SidebarMenu
                                 topContent={
                                     <MenuItem
-                                        icon={<House />}
-                                        iconForActive={<HouseFill />}
+                                        iconBefore={<House />}
+                                        // iconForActive={<HouseFill />}
                                         label="Start"
                                         elementType={NavLink}
                                         exact
@@ -149,12 +149,12 @@ function App() {
                                     />
                                 }
                             >
-                                {docs && (
-                                    <>
-                                        {Object.values(docs)
+                                {docs &&
+                                    Object.values(docs).map((comps) =>
+                                        comps
                                             .filter(
                                                 (comp) =>
-                                                    !comp.description.startsWith(
+                                                    !comp.description?.startsWith(
                                                         "@deprecated"
                                                     )
                                             )
@@ -192,6 +192,9 @@ function App() {
                                                     case "Tabs":
                                                         icon = <SegmentedNav />
                                                         break
+                                                    case "Button":
+                                                        icon = <PlayBtn />
+                                                        break
                                                     default:
                                                         icon = <FileCode />
                                                 }
@@ -201,74 +204,68 @@ function App() {
                                                         to={`/component/${comp.displayName}`}
                                                         elementType={NavLink}
                                                         label={comp.displayName}
-                                                        icon={icon}
-                                                        labelClassName={
-                                                            comp.displayName.includes(
-                                                                "Search"
-                                                            )
-                                                                ? "docs-badge docs-badge-update"
-                                                                : comp.displayName.includes(
-                                                                      "Actions"
-                                                                  )
-                                                                ? "docs-badge docs-badge-new"
-                                                                : undefined
+                                                        iconBefore={icon}
+                                                        buttonContent={
+                                                            comp.displayName &&
+                                                            [
+                                                                "Actions",
+                                                                "MenuItem",
+                                                                "Button"
+                                                            ].includes(
+                                                                comp.displayName
+                                                            ) ? (
+                                                                <span className="docs-badge docs-badge-new"></span>
+                                                            ) : undefined
                                                         }
                                                     />
                                                 )
-                                            })}
+                                            })
+                                    )}
 
-                                        <details className="blue-collapse ">
-                                            <summary className="blue-collapse-header blue-menu-item btn ">
-                                                <span className="blue-menu-item-label text-truncate ">
-                                                    Deprecated
-                                                </span>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="1em"
-                                                    height="1em"
-                                                    fill="currentColor"
-                                                    className="blue-menu-item-dropdown-toggle blue-collapse-chevron blue-menu-item-chevron ms-auto"
-                                                    aria-hidden="true"
-                                                    style={{
-                                                        verticalAlign:
-                                                            "-0.125em",
-                                                        transition:
-                                                            "transform 0.2s"
-                                                    }}
-                                                    viewBox="0 0 16 16"
-                                                >
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
-                                                    ></path>
-                                                </svg>
-                                            </summary>
-                                            <div className="d-flex flex-column ms-3 border-start position-relative">
-                                                {Object.values(docs)
-                                                    .filter((comp) =>
-                                                        comp.description.startsWith(
-                                                            "@deprecated"
-                                                        )
+                                <details className="blue-collapse ">
+                                    <summary className="blue-collapse-header blue-menu-item btn ">
+                                        <span className="blue-menu-item-label text-truncate ">
+                                            Deprecated
+                                        </span>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="1em"
+                                            height="1em"
+                                            fill="currentColor"
+                                            className="blue-menu-item-dropdown-toggle blue-collapse-chevron blue-menu-item-chevron ms-auto"
+                                            aria-hidden="true"
+                                            style={{
+                                                verticalAlign: "-0.125em",
+                                                transition: "transform 0.2s"
+                                            }}
+                                            viewBox="0 0 16 16"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+                                            ></path>
+                                        </svg>
+                                    </summary>
+                                    <div className="d-flex flex-column ms-3 border-start position-relative">
+                                        {Object.values(docs).map((comps) =>
+                                            comps
+                                                .filter((comp) =>
+                                                    comp.description?.startsWith(
+                                                        "@deprecated"
                                                     )
-                                                    .map((comp) => (
-                                                        <MenuItem
-                                                            key={
-                                                                comp.displayName
-                                                            }
-                                                            to={`/component/${comp.displayName}`}
-                                                            elementType={
-                                                                NavLink
-                                                            }
-                                                            label={
-                                                                comp.displayName
-                                                            }
-                                                            className="text-decoration-line-through"
-                                                        />
-                                                    ))}
-                                            </div>
-                                        </details>
-                                    </>
-                                )}
+                                                )
+                                                .map((comp) => (
+                                                    <MenuItem
+                                                        key={comp.displayName}
+                                                        to={`/component/${comp.displayName}`}
+                                                        elementType={NavLink}
+                                                        label={comp.displayName}
+                                                        className="text-decoration-line-through"
+                                                    />
+                                                ))
+                                        )}
+                                    </div>
+                                </details>
 
                                 <div
                                     style={{
