@@ -1,12 +1,19 @@
-import { ComponentProps, CSSProperties, ReactNode, useId } from "react"
+import { ComponentProps, ReactNode, useId } from "react"
 import Button, { ButtonProps } from "./Button"
 import clsx from "clsx"
-import { getPhrase } from "blue-web/dist/js/shared"
+import { getPhrase } from "./shared"
 
 export type MenuItemProps = ButtonProps & {
     current?: boolean
     defaultDisplay?: boolean
     buttonContent?: ReactNode
+
+    /** Uses `iconBefore` slot. If `iconForCurrent` and menu item is current, this will be hidden. */
+    icon?: ReactNode
+
+    /** Uses `iconBefore` slot. If menu item is current, this will be visible. */
+    iconForCurrent?: ReactNode
+
     as?: "collapse" | "collapse-group" | "popover-group"
 }
 // & {
@@ -61,12 +68,13 @@ function ChevronSummary({
 }
 
 function Base({
-    variant,
     current,
     className,
     defaultDisplay = false,
     children,
     buttonContent,
+    icon,
+    iconForCurrent,
     ...props
 }: MenuItemProps) {
     return (
@@ -79,9 +87,37 @@ function Base({
                 },
                 className
             )}
-            children={buttonContent}
+            iconBefore={
+                props.iconBefore ||
+                ((icon || iconForCurrent) && (
+                    <>
+                        {icon !== null && (
+                            <span
+                                className={clsx({
+                                    "blue-menu-item-current-hidden":
+                                        iconForCurrent !== undefined
+                                })}
+                                style={{ display: "contents" }}
+                            >
+                                {icon}
+                            </span>
+                        )}
+                        {iconForCurrent !== undefined && (
+                            <span
+                                className="blue-menu-item-default-hidden"
+                                style={{ display: "contents" }}
+                            >
+                                {iconForCurrent}
+                            </span>
+                        )}
+                        {buttonContent}
+                    </>
+                ))
+            }
             {...props}
-        />
+        >
+            {buttonContent}
+        </Button>
     )
 }
 
@@ -101,7 +137,11 @@ function Collapse({
                         {iconBefore}
                     </span>
                 )}
-                {label && !labelHidden && label}
+                {labelHidden ? (
+                    <span className="visually-hidden">{label}</span>
+                ) : (
+                    label
+                )}
                 {buttonContent}
                 {iconAfter != null && (
                     <span className="blue-btn-icon-wrapper" aria-hidden>
@@ -161,11 +201,6 @@ function PopoverGroup({ children, iconAfter, ...props }: MenuItemProps) {
                 className={clsx(
                     "blue-anchored blue-anchored-fallback border rounded-4 shadow"
                 )}
-                style={
-                    {
-                        "--blue-anchor-name": `--${id}`
-                    } as CSSProperties
-                }
             >
                 <div className="vstack">{children}</div>
             </div>

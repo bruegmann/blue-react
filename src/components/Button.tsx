@@ -162,7 +162,9 @@ export default function Button({
                             {iconBefore}
                         </span>
                     )}
-                    {label && !labelHidden && label}
+                    {label && !labelHidden && (
+                        <span className="text-truncate">{label}</span>
+                    )}
                     {props.children}
                     {iconAfter != null && (
                         <span className="blue-btn-icon-wrapper" aria-hidden>

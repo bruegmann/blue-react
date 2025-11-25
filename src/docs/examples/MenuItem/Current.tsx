@@ -8,24 +8,15 @@ export default function Current() {
     return (
         <div className="vstack">
             <MenuItem
-                iconBefore={
-                    <>
-                        <BrightnessHigh className="blue-menu-item-current-hidden" />
-                        <BrightnessHighFill className="blue-menu-item-default-hidden" />
-                    </>
-                }
+                icon={<BrightnessHigh />}
+                iconForCurrent={<BrightnessHighFill />}
                 label="Item 1"
                 current={currentItem === "item-1"}
                 onClick={() => setCurrentItem("item-1")}
             />
 
             <MenuItem
-                iconBefore={
-                    <>
-                        <BrightnessHigh className="blue-menu-item-current-hidden" />
-                        <BrightnessHighFill className="blue-menu-item-default-hidden" />
-                    </>
-                }
+                icon={<BrightnessHigh />}
                 label="Item 2"
                 current={currentItem === "item-2"}
                 onClick={() => setCurrentItem("item-2")}

@@ -195,9 +195,6 @@ function App() {
                                                     case "Button":
                                                         icon = <PlayBtn />
                                                         break
-                                                    case "MenuItem":
-                                                        icon = <AppIcon />
-                                                        break
                                                     default:
                                                         icon = <FileCode />
                                                 }

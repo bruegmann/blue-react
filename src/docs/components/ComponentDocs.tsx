@@ -280,7 +280,12 @@ export class ComponentDocs extends Component<
                                             </td>
                                             <td>
                                                 {comp.props?.[j].tsType &&
-                                                    comp.props[j].tsType.name}
+                                                    ("raw" in
+                                                    comp.props[j].tsType
+                                                        ? comp.props[j].tsType
+                                                              .raw
+                                                        : comp.props[j].tsType
+                                                              .name)}
 
                                                 <span
                                                     className={`badge ${
