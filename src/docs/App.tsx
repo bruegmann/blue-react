@@ -1,10 +1,4 @@
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    NavLink,
-    Link
-} from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import Layout from "../components/Layout"
 
 import "./docs.scss"
@@ -37,6 +31,7 @@ import { ComponentDocumentation } from "./types"
 import HeaderTitle from "../components/HeaderTitle"
 import Actions from "../components/Actions"
 import MenuItem from "../components/MenuItem"
+import CustomNavLink from "./components/CustomNavLink"
 
 const docs = _docs as { [key: string]: ComponentDocumentation[] }
 
@@ -120,7 +115,7 @@ function App() {
 
                                 <Actions>
                                     <MenuItem
-                                        elementType={NavLink}
+                                        elementType={CustomNavLink}
                                         to="/demo#intro"
                                         iconBefore={<Eye />}
                                         label="Demo App"
@@ -143,7 +138,7 @@ function App() {
                                         iconBefore={<House />}
                                         // iconForActive={<HouseFill />}
                                         label="Start"
-                                        elementType={NavLink}
+                                        elementType={CustomNavLink}
                                         exact
                                         to="/"
                                     />
@@ -202,7 +197,9 @@ function App() {
                                                     <MenuItem
                                                         key={comp.displayName}
                                                         to={`/component/${comp.displayName}`}
-                                                        elementType={NavLink}
+                                                        elementType={
+                                                            CustomNavLink
+                                                        }
                                                         label={comp.displayName}
                                                         iconBefore={icon}
                                                         buttonContent={
@@ -234,7 +231,7 @@ function App() {
                                                 <MenuItem
                                                     key={comp.displayName}
                                                     to={`/component/${comp.displayName}`}
-                                                    elementType={NavLink}
+                                                    elementType={CustomNavLink}
                                                     label={comp.displayName}
                                                     className="text-decoration-line-through"
                                                 />

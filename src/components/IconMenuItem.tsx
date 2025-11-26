@@ -17,6 +17,7 @@ export interface IconMenuItemProps extends LegacyMenuItemProps {
 }
 
 /**
+ * @deprecated
  * Variant of `MenuItem` to primarily display an icon without a label.
  * The label prop will be displayed as a tooltip.
  */
