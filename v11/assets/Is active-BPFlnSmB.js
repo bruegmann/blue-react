@@ -1,1 +1,0 @@
-import{c as a,j as o,B as s}from"./index-DLPFF0hA.js";function r(){const t=a.c(1);let e;return t[0]===Symbol.for("react.memo_cache_sentinel")?(e=o.jsx(s,{label:"I am active",active:!0}),t[0]=e):e=t[0],e}export{r as default};
