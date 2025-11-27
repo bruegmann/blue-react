@@ -1,1 +1,0 @@
-import{c as n,j as r,H as a,d as o}from"./index-CRw26Wko.js";function c(){const t=n.c(1);let e;return t[0]===Symbol.for("react.memo_cache_sentinel")?(e=r.jsx(a,{breadcrumb:[r.jsx(o,{to:"/",children:"Home page"}),r.jsx(o,{to:"/component/HeaderTitle",children:"This component"}),"Current page"]}),t[0]=e):e=t[0],e}export{c as default};

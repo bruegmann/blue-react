@@ -1,0 +1,1 @@
+import{c as a,j as s,M as c}from"./index-CFcPlyR0.js";function o(){const t=a.c(1);let e;return t[0]===Symbol.for("react.memo_cache_sentinel")?(e=s.jsx(c,{label:"I am active",active:!0}),t[0]=e):e=t[0],e}export{o as default};
