@@ -1,56 +1,23 @@
-// Import statements
-import A from "./dist/components/A.js"
-import ActionMenu from "./dist/components/ActionMenu.js"
-import Button from "./dist/components/Button.js"
-import Chevron from "./dist/components/Chevron.js"
-import HashRouter from "./dist/components/HashRouter.js"
-import Layout from "./dist/components/Layout.js"
-import Header from "./dist/components/Header.js"
-import HeaderTitle from "./dist/components/HeaderTitle.js"
-import IconMenuItem from "./dist/components/IconMenuItem.js"
-import Intro from "./dist/components/Intro.js"
-import LegacyMenuItem from "./dist/components/LegacyMenuItem.js"
-import MenuItem from "./dist/components/MenuItem.js"
-import Modal from "./dist/components/Modal.js"
-import { ModalProvider, useModal } from "./dist/components/ModalProvider.js"
-import Outside from "./dist/components/Outside.js"
-import Search from "./dist/components/Search.js"
-import SidebarMenu from "./dist/components/SidebarMenu.js"
-import SimpleLayout from "./dist/components/SimpleLayout.js"
-import SlimContainer from "./dist/components/SlimContainer.js"
-import Status from "./dist/components/Status.js"
-import { StatusProvider, useStatus } from "./dist/components/StatusProvider.js"
-import { ToastProvider, useToast } from "./dist/components/ToastProvider.js"
-import Utilities from "./dist/components/Utilities.js"
-
-// Export statements
-export {
-    A,
-    ActionMenu,
-    Body,
-    Button,
-    Chevron,
-    HashRouter,
-    Layout,
-    Header,
-    HeaderTitle,
-    IconMenuItem,
-    Intro,
-    LegacyMenuItem,
-    MenuItem,
-    Modal,
-    ModalProvider,
-    useModal,
-    Outside,
-    Page,
-    Search,
-    SidebarMenu,
-    SimpleLayout,
-    SlimContainer,
-    Status,
-    StatusProvider,
-    useStatus,
-    ToastProvider,
-    useToast,
-    Utilities
-}
+export { default as A } from "./dist/components/A.js"
+export { default as ActionMenu } from "./dist/components/ActionMenu.js"
+export { default as Button } from "./dist/components/Button.js"
+export { default as Chevron } from "./dist/components/Chevron.js"
+export { default as HashRouter } from "./dist/components/HashRouter.js"
+export { default as Layout } from "./dist/components/Layout.js"
+export { default as Header } from "./dist/components/Header.js"
+export { default as HeaderTitle } from "./dist/components/HeaderTitle.js"
+export { default as IconMenuItem } from "./dist/components/IconMenuItem.js"
+export { default as Intro } from "./dist/components/Intro.js"
+export { default as LegacyMenuItem } from "./dist/components/LegacyMenuItem.js"
+export { default as MenuItem } from "./dist/components/MenuItem.js"
+export { default as Modal } from "./dist/components/Modal.js"
+export { ModalProvider, useModal } from "./dist/components/ModalProvider.js"
+export { default as Outside } from "./dist/components/Outside.js"
+export { default as Search } from "./dist/components/Search.js"
+export { default as SidebarMenu } from "./dist/components/SidebarMenu.js"
+export { default as SimpleLayout } from "./dist/components/SimpleLayout.js"
+export { default as SlimContainer } from "./dist/components/SlimContainer.js"
+export { default as Status } from "./dist/components/Status.js"
+export { StatusProvider, useStatus } from "./dist/components/StatusProvider.js"
+export { ToastProvider, useToast } from "./dist/components/ToastProvider.js"
+export { default as Utilities } from "./dist/components/Utilities.js"
