@@ -1,0 +1,57 @@
+name: Publish Package
+
+on:
+    push:
+        tags:
+            - "v*"
+
+permissions:
+    id-token: write # Required for OIDC
+    contents: write # Required for creating releases
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+
+            - uses: actions/setup-node@v6
+              with:
+                  node-version: ">=24.13.0" # Required for OIDC, since it only works with NPM 11.5.1 or later
+                  registry-url: "https://registry.npmjs.org"
+            - run: npm ci
+            - run: npm -v
+            - run: npm publish
+
+            - name: Get previous tag
+              id: previoustag
+              run: |
+                  PREVIOUS_TAG=$(git tag --sort=-v:refname | grep -v "^${GITHUB_REF_NAME}$" | head -n 1)
+                  echo "tag=$PREVIOUS_TAG" >> $GITHUB_OUTPUT
+                  echo "Previous tag: $PREVIOUS_TAG"
+
+            - name: Generate changelog
+              id: changelog
+              run: |
+                  if [ -z "${{ steps.previoustag.outputs.tag }}" ]; then
+                    CHANGELOG=$(git log --pretty=format:"- %s (%h)" ${GITHUB_REF_NAME})
+                  else
+                    CHANGELOG=$(git log --pretty=format:"- %s (%h)" ${{ steps.previoustag.outputs.tag }}..${GITHUB_REF_NAME})
+                  fi
+                  echo "changelog<<EOF" >> $GITHUB_OUTPUT
+                  echo "$CHANGELOG" >> $GITHUB_OUTPUT
+                  echo "EOF" >> $GITHUB_OUTPUT
+
+            - name: Create GitHub Release
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref_name }}
+                  release_name: Release ${{ github.ref_name }}
+                  body: |
+                      ## Changes since ${{ steps.previoustag.outputs.tag || 'beginning' }}
+
+                      ${{ steps.changelog.outputs.changelog }}
+                  draft: false
+                  prerelease: false
