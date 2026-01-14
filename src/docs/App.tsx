@@ -89,29 +89,74 @@ function App() {
                                     elementType={Link}
                                 />
 
-                                <nav className="docs-nav">
-                                    <div className="navbar-nav">
-                                        <a
-                                            href="https://bruegmann.github.io/blue-web"
-                                            className="nav-link"
+                                <button
+                                    type="button"
+                                    className="btn blue-menu-item icon-link d-flex blue-btn-square me-auto"
+                                    popoverTarget="docsNavPopover"
+                                >
+                                    <span className="visually-hidden">
+                                        Navigate to a Blue library
+                                    </span>
+                                    <span
+                                        className="blue-btn-icon-wrapper"
+                                        aria-hidden="true"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 16 16"
                                         >
-                                            Web
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div
+                                    id="docsNavPopover"
+                                    popover=""
+                                    className="blue-anchored blue-anchored-fallback border rounded-4 shadow"
+                                >
+                                    <div className="vstack">
+                                        <a
+                                            className="btn blue-menu-item icon-link d-flex"
+                                            href="https://bruegmann.github.io/blue-web"
+                                        >
+                                            <span
+                                                className="blue-btn-icon-wrapper"
+                                                aria-hidden="true"
+                                            ></span>
+                                            <span className="text-truncate">
+                                                Blue Web
+                                            </span>
                                         </a>
                                         <a
+                                            className="btn blue-menu-item icon-link d-flex current"
                                             href="https://bruegmann.github.io/blue-react"
-                                            className="nav-link active"
                                             aria-current="page"
                                         >
-                                            React
+                                            <span
+                                                className="blue-btn-icon-wrapper"
+                                                aria-hidden="true"
+                                            ></span>
+                                            <span className="text-truncate">
+                                                Blue React
+                                            </span>
                                         </a>
                                         <a
+                                            className="btn blue-menu-item icon-link d-flex"
                                             href="https://bruegmann.github.io/blue-blazor"
-                                            className="nav-link"
                                         >
-                                            Blazor
+                                            <span
+                                                className="blue-btn-icon-wrapper"
+                                                aria-hidden="true"
+                                            ></span>
+                                            <span className="text-truncate">
+                                                Blue Blazor
+                                            </span>
                                         </a>
                                     </div>
-                                </nav>
+                                </div>
 
                                 <Actions>
                                     <MenuItem
@@ -204,15 +249,20 @@ function App() {
                                                         iconBefore={icon}
                                                         buttonContent={
                                                             comp.displayName &&
-                                                            [
+                                                            ([
                                                                 "Actions",
-                                                                "MenuItem",
-                                                                "Button"
+                                                                "MenuItem"
                                                             ].includes(
                                                                 comp.displayName
                                                             ) ? (
                                                                 <span className="docs-badge docs-badge-new"></span>
-                                                            ) : undefined
+                                                            ) : [
+                                                                  "Button"
+                                                              ].includes(
+                                                                  comp.displayName
+                                                              ) ? (
+                                                                <span className="docs-badge docs-badge-update"></span>
+                                                            ) : undefined)
                                                         }
                                                     />
                                                 )

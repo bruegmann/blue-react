@@ -69,23 +69,17 @@ export const HomePage = () => (
                 <strong>name-of-my-app</strong>
             </code>
 
-            <h2 className="mt-4 mb-3">
-                Create new project using{" "}
-                <A href="https://create-react-app.dev/" target="_blank">
-                    CRA
-                </A>
-            </h2>
-            <p className="alert alert-warning">
-                Create React App isn't under active development anymore. For new
-                projects you should consider using Vite instead.
-            </p>
-            <code>
-                npx create-react-app@latest <strong>name-of-my-app</strong>{" "}
-                --template blue
-            </code>
-
             <h2 className="mt-4 mb-3">Install to existing project</h2>
             <code>npm i blue-react</code>
+
+            <p>
+                <a href="https://www.npmjs.com/package/blue-react">
+                    <img
+                        src="https://img.shields.io/npm/v/blue-react"
+                        alt="npm version"
+                    />
+                </a>
+            </p>
 
             <IntroductionSections />
         </div>

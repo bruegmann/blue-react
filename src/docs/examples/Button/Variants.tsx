@@ -9,6 +9,7 @@ export default function Variants() {
                     label="Make button look like menu item"
                     variant="menu-item"
                 />
+                <Button label="Make button look like a link" variant="link" />
             </div>
             <div className="hstack gap-2">
                 <Button label="Primary" color="primary" />

@@ -26,7 +26,12 @@ export type ButtonColor =
     | "light"
     | "dark"
 
-function getButtonVariantClass(variant: ButtonVariant, color: ButtonColor) {
+function getButtonVariantClass(
+    variant: ButtonVariant,
+    buttonColor?: ButtonColor
+) {
+    const color = buttonColor || "secondary"
+
     switch (variant) {
         case "soft":
             return `blue-btn-soft-${color}`
@@ -35,7 +40,9 @@ function getButtonVariantClass(variant: ButtonVariant, color: ButtonColor) {
         case "outline":
             return `btn-outline-${color}`
         case "link":
-            return `btn-link link-${color} link-offset-2`
+            return `btn-link${
+                buttonColor !== undefined ? ` link-${color}` : ""
+            }`
         case "menu-item":
             return "blue-menu-item"
         default:
@@ -76,7 +83,7 @@ export default function Button({
     className,
     type,
     variant = "soft",
-    color = "secondary",
+    color,
     sm,
     lg,
     iconBefore,
@@ -113,7 +120,9 @@ export default function Button({
                     "btn-sm": sm,
                     "btn-lg": lg,
                     "icon-link":
-                        busyProp || iconBefore !== null || iconAfter !== null,
+                        busyProp ||
+                        iconBefore !== undefined ||
+                        iconAfter !== undefined,
                     active: active
                 },
                 className

@@ -113,17 +113,6 @@ body:has(.docs-layout) {
     overflow: initial;
 }
 
-@import "./docs-nav";
-
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-.no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
 .docs-badge {
     border: 1px solid currentColor;
     border-radius: var(--bs-border-radius);
