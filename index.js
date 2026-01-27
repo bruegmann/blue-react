@@ -1,5 +1,6 @@
 export { default as A } from "./dist/components/A.js"
 export { default as ActionMenu } from "./dist/components/ActionMenu.js"
+export { default as Actions } from "./dist/components/Actions.js"
 export { default as Button } from "./dist/components/Button.js"
 export { default as Chevron } from "./dist/components/Chevron.js"
 export { default as HashRouter } from "./dist/components/HashRouter.js"

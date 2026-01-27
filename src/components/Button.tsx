@@ -67,6 +67,10 @@ export type ButtonProps = ComponentProps<"a"> &
         success?: boolean
 
         active?: boolean
+
+        /** Button's width and height should be equal. Useful, if you want your body only to have one symbol.
+         *  When your body only has an icon and hidden label, this will be set automatically. */
+        square?: boolean
     } & {
         /**
          * For compatibility with React Router NavLink
@@ -93,6 +97,7 @@ export default function Button({
     busy: busyProp,
     success: successProp,
     active,
+    square,
     ...props
 }: ButtonProps) {
     const Comp = elementType || (props.href ? "a" : "button")
@@ -123,7 +128,8 @@ export default function Button({
                         busyProp ||
                         iconBefore !== undefined ||
                         iconAfter !== undefined,
-                    active: active
+                    active: active,
+                    "blue-btn-square": square
                 },
                 className
             )}

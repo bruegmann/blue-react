@@ -15,6 +15,9 @@ export { AProps } from "./dist/components/A"
 export { default as ActionMenu } from "./dist/components/ActionMenu"
 export { ActionMenuProps } from "./dist/components/ActionMenu"
 
+export { default as Actions } from "./dist/components/Actions"
+export { ActionsProps } from "./dist/components/Actions"
+
 export { default as Button } from "./dist/components/Button"
 export { ButtonProps } from "./dist/components/Button"
 
