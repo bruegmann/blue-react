@@ -35,7 +35,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.5",
-        "blue-web": "^1.21.9",
+        "blue-web": "^1.23.0",
         "bootstrap": "~5.3.3",
         "clsx": "^1.1.1"
     },

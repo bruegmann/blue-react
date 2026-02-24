@@ -48,16 +48,16 @@ export default function Actions({
     return (
         <div
             ref={element}
-            className={clsx("BLUE-actions", className)}
+            className={clsx("blue-actions", className)}
             role="toolbar"
             aria-label={getPhrase("Toolbar with buttons and button groups")}
         >
-            <div className={clsx("BLUE-actions-menu", menuClassName)}>
+            <div className={clsx("blue-actions-menu", menuClassName)}>
                 {children}
             </div>
 
             <div
-                className={clsx("BLUE-actions-collapse", collapseClassName)}
+                className={clsx("blue-actions-collapse", collapseClassName)}
                 style={collapseStyle}
             >
                 <button
@@ -77,7 +77,7 @@ export default function Actions({
                     id={id}
                     popover=""
                     className={clsx(
-                        "BLUE-actions-collapse-menu blue-anchored blue-anchored-end blue-anchored-fallback",
+                        "blue-actions-collapse-menu blue-anchored blue-anchored-end blue-anchored-fallback",
                         "blue-menu-item-dropdown text-body",
                         collapseMenuClassName
                     )}

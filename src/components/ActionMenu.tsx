@@ -61,19 +61,19 @@ export default function ActionMenu(props: ActionMenuProps) {
     return (
         <ActionMenuContext.Provider value={{ breakOption: _break }}>
             <Outside
-                className={`blue-actions ${_break} ${
+                className={`blue-legacy-actions ${_break} ${
                     actionsToggledIn ? "open" : ""
                 } ${className}`}
                 onClickOutside={() => {
                     setActionsToggledIn(false)
                 }}
             >
-                <div className="blue-actions-menu d-flex">
+                <div className="blue-legacy-actions-menu d-flex">
                     {validChildren.length > 0 &&
                         !actionsToggledIn &&
                         !hideToggleAction && (
                             <MenuItem
-                                className="blue-actions-menu-toggle w-100"
+                                className="blue-legacy-actions-menu-toggle w-100"
                                 onClick={() => toggleActions()}
                                 icon={toggleIcon}
                                 aria-label="Toggle menu"

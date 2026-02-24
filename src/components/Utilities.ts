@@ -68,7 +68,7 @@ export function toggleActions() {
     toggleClass(document.querySelector(".blue-wrapper")!, "active")
     toggleClass(document.querySelector(".blue-layout")!, "wrapper-in")
 
-    const els = document.querySelectorAll(".blue-actions")
+    const els = document.querySelectorAll(".blue-legacy-actions")
     for (let i = 0; i < els.length; i++) {
         toggleClass(els[i] as HTMLElement, "open")
     }
