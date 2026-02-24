@@ -1,1 +1,0 @@
-import{c as s,j as r,M as t}from"./index-CwQQWbLZ.js";function p(){const o=s.c(1);let e;return o[0]===Symbol.for("react.memo_cache_sentinel")?(e=r.jsxs(t,{label:"Open popover",as:"popover-group",children:[r.jsx(t,{label:"Sub item 1"}),r.jsx(t,{label:"Sub longer item 2"})]}),o[0]=e):e=o[0],e}export{p as default};

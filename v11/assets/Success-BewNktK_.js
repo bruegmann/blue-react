@@ -1,0 +1,1 @@
+import{c as r,r as l,j as a,B as u}from"./index-DEJ3ZP-4.js";function i(){const e=r.c(3),[c,o]=l.useState(!1);let s;e[0]===Symbol.for("react.memo_cache_sentinel")?(s=()=>{o(!0)},e[0]=s):s=e[0];let t;return e[1]!==c?(t=a.jsx(u,{label:"Click for success",onClick:s,success:c}),e[1]=c,e[2]=t):t=e[2],t}export{i as default};
