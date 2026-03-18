@@ -1,6 +1,7 @@
 import React, { ReactNode, RefObject, useEffect, useState } from "react"
 import { guid } from "blue-web/dist/js/utils.js"
 import { getPhrase } from "./shared"
+import clsx from "clsx"
 
 export interface SearchProps {
     autoFocus?: boolean
@@ -49,6 +50,11 @@ export interface SearchProps {
      * Adds additional class name to input element.
      */
     inputClassName?: string
+
+    /**
+     * Disables default pill rounding.
+     */
+    noRounding?: boolean
 }
 
 /**
@@ -66,7 +72,8 @@ export default function Search(props: SearchProps) {
         resetIcon,
         id,
         inputRef,
-        inputClassName = ""
+        inputClassName = "",
+        noRounding = false
     } = props
     const SearchControlId = id || "blue-search-control-" + guid()
 
@@ -84,7 +91,11 @@ export default function Search(props: SearchProps) {
                 if (onSubmit) onSubmit(event)
             }}
         >
-            <div className="blue-input-group input-group">
+            <div
+                className={clsx("blue-input-group input-group", {
+                    "rounded-pill": !noRounding
+                })}
+            >
                 <label htmlFor={SearchControlId} className="input-group-text">
                     {icon || (
                         <svg
