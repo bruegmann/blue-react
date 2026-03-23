@@ -17,7 +17,8 @@ import {
     App as AppIcon,
     Search,
     Window,
-    PlayBtn
+    PlayBtn,
+    CardHeading
 } from "react-bootstrap-icons"
 
 import { ComponentPage } from "./pages/ComponentPage"
@@ -235,6 +236,9 @@ function App() {
                                                     case "Button":
                                                         icon = <PlayBtn />
                                                         break
+                                                    case "FieldGroup":
+                                                        icon = <CardHeading />
+                                                        break
                                                     default:
                                                         icon = <FileCode />
                                                 }
@@ -250,8 +254,7 @@ function App() {
                                                         buttonContent={
                                                             comp.displayName &&
                                                             ([
-                                                                "Actions",
-                                                                "MenuItem"
+                                                                "FieldGroup"
                                                             ].includes(
                                                                 comp.displayName
                                                             ) ? (
