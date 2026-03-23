@@ -1,1 +1,0 @@
-import{c as o,j as t}from"./index-D7ZePU5P.js";import{F as i}from"./FieldGroup-CYDQDVu-.js";function s(){const r=o.c(1);let e;return r[0]===Symbol.for("react.memo_cache_sentinel")?(e=t.jsx(i,{header:"Field group 1",pageHeader:!0,heading:2,children:"Content of field group 1"}),r[0]=e):e=r[0],e}export{s as default};
