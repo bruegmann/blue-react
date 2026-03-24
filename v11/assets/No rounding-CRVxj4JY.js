@@ -1,0 +1,1 @@
+import{c as t,j as n,f as r}from"./index-Dcu5StoD.js";function a(){const o=t.c(1);let e;return o[0]===Symbol.for("react.memo_cache_sentinel")?(e=n.jsx(r,{noRounding:!0}),o[0]=e):e=o[0],e}export{a as default};
