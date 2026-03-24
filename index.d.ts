@@ -24,6 +24,9 @@ export { ButtonProps } from "./dist/components/Button"
 export { default as Chevron } from "./dist/components/Chevron"
 export { ChevronProps } from "./dist/components/Chevron"
 
+export { default as FieldGroup } from "./dist/components/FieldGroup"
+export { FieldGroupProps } from "./dist/components/FieldGroup"
+
 export { default as HashRouter } from "./dist/components/HashRouter"
 export { HashRouterProps } from "./dist/components/HashRouter"
 
