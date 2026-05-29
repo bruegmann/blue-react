@@ -105,7 +105,7 @@ export default function Layout({
                     id={drawerId}
                     aria-describedby={drawerLabelId}
                 >
-                    <div className="offcanvas offcanvas-start show">
+                    <div className="offcanvas offcanvas-start">
                         <div className="offcanvas-header">
                             <h1
                                 className="h5 offcanvas-title"
