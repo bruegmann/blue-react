@@ -93,7 +93,7 @@ export default function HeaderTitle({
         <div
             id={uniqueId}
             className={
-                "blue-header-title d-inline-flex gap-2 fw-medium align-items-center px-3 py-2" +
+                "blue-header-title d-inline-flex gap-2 fw-medium align-items-center" +
                 (className ? ` ${className}` : "") +
                 (sidebar ? " sidebar" : "")
             }

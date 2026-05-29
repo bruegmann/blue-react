@@ -10,8 +10,6 @@ $scrollbar-thumb-color: $body-color;
 // See below to see color values for dark mode.
 $color-mode-type: media-query;
 
-@import "node_modules/blue-web/dist/style.scss";
-
 @include color-mode(dark) {
     $theme: #413c3c;
 

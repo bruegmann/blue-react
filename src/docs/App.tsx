@@ -291,19 +291,6 @@ function App() {
                                             ))
                                     )}
                                 </MenuItem>
-
-                                <div
-                                    style={{
-                                        background: "var(--blue-sidebar-bg)",
-                                        pointerEvents: "none",
-                                        position: "sticky",
-                                        bottom: 0,
-                                        display: "flex",
-                                        height: "10rem",
-                                        maskImage:
-                                            "linear-gradient(transparent,#000)"
-                                    }}
-                                />
                             </SidebarMenu>
                         }
                     >
