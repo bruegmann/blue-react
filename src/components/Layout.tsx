@@ -17,6 +17,11 @@ export interface LayoutProps {
     side?: React.ReactNode
     noPageBorder?: boolean
     drawerTitle?: ReactNode
+
+    /**
+     * For SSR you can pass server's country code to solve hydration problems.
+     */
+    countryCode?: string
 }
 
 /**
@@ -29,7 +34,8 @@ export default function Layout({
     header,
     side,
     noPageBorder = false,
-    drawerTitle
+    drawerTitle,
+    countryCode
 }: LayoutProps) {
     const ref = useRef<HTMLDivElement>(null)
 
@@ -59,7 +65,7 @@ export default function Layout({
                     /* @ts-ignore */
                     command="show-modal"
                     commandfor={drawerId}
-                    aria-label={getPhrase("Toggle menu")}
+                    aria-label={getPhrase("Toggle menu", countryCode)}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +87,7 @@ export default function Layout({
                     data-blue-toggle="layout-side"
                     aria-controls={sideId}
                     aria-expanded="true"
-                    aria-label={getPhrase("Toggle sidebar")}
+                    aria-label={getPhrase("Toggle sidebar", countryCode)}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +117,7 @@ export default function Layout({
                                 className="h5 offcanvas-title"
                                 id={drawerLabelId}
                             >
-                                {drawerTitle || getPhrase("Menu")}
+                                {drawerTitle || getPhrase("Menu", countryCode)}
                             </h1>
                             <form
                                 method="dialog"
@@ -120,7 +126,7 @@ export default function Layout({
                                 <button
                                     type="submit"
                                     className="btn-close"
-                                    aria-label={getPhrase("Close")}
+                                    aria-label={getPhrase("Close", countryCode)}
                                 ></button>
                             </form>
                         </div>
@@ -129,7 +135,7 @@ export default function Layout({
                         </div>
                     </div>
                     <form method="dialog" className="blue-modal-backdrop">
-                        <button>{getPhrase("Close")}</button>
+                        <button>{getPhrase("Close", countryCode)}</button>
                     </form>
                 </dialog>
             </div>
