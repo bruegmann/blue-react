@@ -294,6 +294,17 @@ function App() {
                             </SidebarMenu>
                         }
                     >
+                        <div
+                            className="alert alert-warning fw-bold fs-2 mb-0"
+                            role="alert"
+                        >
+                            Blue Web and Blue React now moved to the{" "}
+                            <a href="https://bruegmann.github.io/blue">
+                                Blue monorepo
+                            </a>
+                            !
+                        </div>
+
                         <Route path="/component/:selectedComponent?">
                             <ComponentPage />
                         </Route>

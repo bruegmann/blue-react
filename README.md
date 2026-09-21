@@ -1,3 +1,5 @@
+> **Blue Web and Blue React now moved to the [Blue monorepo](https://github.com/bruegmann/blue)!**
+
 <p align="center">
 <img src="https://raw.githubusercontent.com/bruegmann/blue-react/master/public/blue-readme-cover.png" alt="React component library based on Bootstrap">
 </p>
